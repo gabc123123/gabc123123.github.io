@@ -60,7 +60,6 @@ var themeListOption2 = [
 "rand-d",
 "rand-o",
 "rand-all",
-//"rand-all-blink",
 "auto",
 "auto-rand",
 "auto-time",
@@ -80,7 +79,7 @@ themeListOption.push(...themeListOption2);
 if(theme == null){ theme = 'auto'; }
 
 var confRealTmpTheme = '';
-
+var confThemeEmbed = '';
 
     
 function themeAuto(){
@@ -189,14 +188,14 @@ break;
 }
 
 
-/*if(mode != 'auto-time'&&mode != 'rand-all-blink'){
-clearInterval(interval1);
-clearInterval(interval2);
-}
-if(mode == 'auto-time'){ clearInterval(interval2); }
-if(mode == 'rand-all-blink'){ clearInterval(interval1);  }
-*/
 
+
+if(confRealTmpTheme.search("light|l-|o-yellow") != -1){
+confThemeEmbed = 'light';
+}else{
+confThemeEmbed = 'dark';
+}
+//console.log(confThemeEmbed);
 
 }
 
@@ -215,11 +214,7 @@ setTheme(localStorage.getItem('theme')); //alert('not');
 }
 });
 
-if(confRealTmpTheme.search("light|l-|o-yellow") != -1){
-var confThemeEmbed = 'light';
-}else{
-var confThemeEmbed = 'dark';
-}
-//console.log(confThemeEmbed);
+
+
 
 
