@@ -55,8 +55,8 @@ random = urlList[random];
 window.location.href = random;
 break;
 
-case 'g#': case 'goo#':
-case 'г#': case 'гу#':
+case 'g#':
+case 'goo#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -65,8 +65,8 @@ if(q == ''){ url = "https://newsstand.google.com/?nsro=true&hl=en"; }
 window.location.href = url;
 break;
 
-case 'bi#': case 'bin#':
-case 'бі#': case 'бін#':
+case 'bi#':
+case 'bin#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -76,7 +76,7 @@ window.location.href = url;
 break;
 
 
-case 'qwa#': case 'ква#':
+case 'qwa#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -84,8 +84,10 @@ url = "https://www.qwant.com/?q=" + q;
 window.location.href = url;
 break;
 
-case 'd#': case 'duc#': case 'duk#':
-case 'д#': case 'дак#':
+case 'd#':
+case 'duc#':
+case 'duk#':
+case 'duck#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -94,8 +96,16 @@ if(q == ''){ url = "https://duckduckgo.com/about"; }
 window.location.href = url;
 break;
 
+case 'w#':
+q = q3.replace(q2, '');
+q = q.trim();
+q = encodeURIComponent(q);
+url = "https://wikipedia.org/w/index.php?search=" + q;
+if(q == ''){ url = "https://wikipedia.org/wiki/Special:Random"; }
+window.location.href = url;
+break;
+
 case 'l#':  case 'll#':
-case 'л#':  case 'лл#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -106,9 +116,7 @@ break;
 
 
 
-
-
-case 'tag#': case 'таг#':
+case 'tag#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -133,8 +141,8 @@ window.location.href = url;
 break;
 
 
-case 's#': case 'с#':
-case 'soc#': case 'соц#':
+case 's#':
+case 'soc#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -159,7 +167,7 @@ url = urlList[random];
 window.location.href = url;
 break;
 
-case 'gig#': case 'гіг#':
+case 'gig#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -167,25 +175,7 @@ url = "https://www.gigablast.com/search?q=" + q;
 window.location.href = url;
 break;
 
-case 'y#': case 'ю#': case '.#':
-q = q3.replace(q2, '');
-q = q.trim();
-q = encodeURIComponent(q);
-url = "https://www.youtube.com/results?search_query=" + q;
-if(q == ''){ url = "https://www.youtube.com/feed/explore"; }
-window.location.href = url;
-break;
-
-case 'yy#': case '..#': case 'юю#':
-q = q3.replace(q2, '');
-q = q.trim();
-q = encodeURIComponent(q);
-url = "https://www.youtube.com/results?search_query="+q+"&sp=EgIIAg%253D%253D";
-if(q == ''){ url = "https://www.youtube.com/feed/explore"; }
-window.location.href = url;
-break;
-
-case 'twi#': case 'тві#':
+case 'twi#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -194,7 +184,7 @@ if(q == ''){ url = "https://twitter.com/explore"; }
 window.location.href = url;
 break;
 
-case 'twii#': case 'твіі#':
+case 'twii#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -203,7 +193,7 @@ if(q == ''){ url = "https://twitter.com/explore"; }
 window.location.href = url;
 break;
 
-case 'red#': case 'ред#':
+case 'red#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -212,7 +202,7 @@ if(q == ''){ url = "https://www.reddit.com/rpan/"; }
 window.location.href = url;
 break;
 
-case 'redd#': case 'редд#':
+case 'redd#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -221,7 +211,7 @@ if(q == ''){ url = "https://www.reddit.com/rpan/"; }
 window.location.href = url;
 break;
 
-case 'med#': case 'мед#':
+case 'med#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -230,7 +220,7 @@ if(q == ''){ url = "https://twitter.com/explore"; }
 window.location.href = url;
 break;
 
-case 'medd#': case 'медд#':
+case 'medd#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -239,7 +229,7 @@ if(q == ''){ url = "https://twitter.com/explore"; }
 window.location.href = url;
 break;
 
-case 'tum#': case 'тум#':
+case 'tum#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -248,9 +238,9 @@ if(q == ''){ url = "https://www.tumblr.com/explore/"; }
 window.location.href = url;
 break;
 
-case 't#': case 'т#':
-case 'tr#': case 'тр#':
-case 'tra#': case 'тра#':
+case 't#':
+case 'tr#':
+case 'tra#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -269,7 +259,7 @@ random = urlList[random];
 window.location.href = random;
 break;
 
-case 'tt#': case 'тт#':
+case 'tt#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -288,7 +278,7 @@ random = urlList[random];
 window.location.href = random;
 break;
 
-case 'tg#': case 'тг#':
+case 'tg#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -300,7 +290,7 @@ url = urlList[random];
 window.location.href = url;
 break;
 
-case 'tb#': case 'тб#':
+case 'tb#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -312,7 +302,7 @@ url = urlList[random];
 window.location.href = url;
 break;
 
-case 'n#': case 'н#':
+case 'n#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -342,18 +332,42 @@ url = urlList[random];
 window.location.href = url;
 break;
 
-case '.#': case 'y#': case 'ю#':
+
+case 'y#':
+case '.#':
+q = q3.replace(q2, '');
+q = q.trim();
+q = encodeURIComponent(q);
+url = "https://www.youtube.com/results?search_query=" + q;
+if(q == ''){ url = "https://www.youtube.com/feed/explore"; }
+window.location.href = url;
+break;
+
+case 'yy#':
+case '..#':
+q = q3.replace(q2, '');
+q = q.trim();
+q = encodeURIComponent(q);
+url = "https://www.youtube.com/results?search_query="+q+"&sp=EgIIAg%253D%253D";
+if(q == ''){ url = "https://www.youtube.com/feed/explore"; }
+window.location.href = url;
+break;
+
+case 'v#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
 urlList = [
-"https://www.youtube.com/results?search_query=" + q
+"https://www.google.com/search?q="+q+"&newwindow=1&tbm=vid",
+"https://www.bing.com/videos/search?q="+q
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
 if(q == ''){
 urlList = [
-"https://www.youtube.com/feed/explore"
+"https://www.youtube.com/feed/explore",
+"https://vimeo.com/watch",
+"https://www.dailymotion.com/"
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
@@ -361,8 +375,7 @@ url = urlList[random];
 window.location.href = url;
 break;
 
-
-case 'vv#': case 'вв#':
+case 'vv#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -386,30 +399,7 @@ url = urlList[random];
 window.location.href = url;
 break;
 
-
-case 'v#': case 'в#':
-q = q3.replace(q2, '');
-q = q.trim();
-q = encodeURIComponent(q);
-urlList = [
-"https://www.google.com/search?q="+q+"&newwindow=1&tbm=vid",
-"https://www.bing.com/videos/search?q="+q
-];
-random = Math.floor(Math.random() * urlList.length);
-url = urlList[random];
-if(q == ''){
-urlList = [
-"https://www.youtube.com/feed/explore",
-"https://vimeo.com/watch",
-"https://www.dailymotion.com/"
-];
-random = Math.floor(Math.random() * urlList.length);
-url = urlList[random];
-}
-window.location.href = url;
-break;
-
-case 'm#': case 'м#':
+case 'm#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -436,8 +426,7 @@ url = urlList[random];
 window.location.href = url;
 break;
 
-
-case 'mus#': case 'муз#': case 'мус#':
+case 'mus#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -462,15 +451,7 @@ url = "/?q="+q+' m';
 window.location.href = url;
 break;
 
-
-
-
-
-case 'mm#': case 'мм#':
-window.location.href = "music.html";
-break;
-
-case 'o#': case 'о#':
+case 'o#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -496,7 +477,7 @@ url = urlList[random];
 window.location.href = url;
 break;
 
-case 'ti#':  case 'ті#': case 'та#':
+case 'ti#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -504,9 +485,9 @@ url = "/projects/timer" + q;
 window.location.href = url;
 break;
 
-case 'si#':  case 'са#':
-case 'www#': case 'www#':
-case 'ww#':  case 'ww#':
+case 'si#':
+case 'ww#':
+case 'www#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -514,7 +495,11 @@ url = "/?q=site:" + q;
 window.location.href = url;
 break;
 
-case 'q#': case 'к#':
+case 'mm#':
+window.location.href = "music.html";
+break;
+
+case 'q#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
