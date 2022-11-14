@@ -116,8 +116,6 @@ urlList = [
 "https://twitter.com/search?q="+q,
 "https://www.reddit.com/search/?q="+q+"&t=day&type=link",
 //"https://www.tumblr.com/search/"+q+"?t=1",
-"https://mastodon.social/tags/"+q,
-"https://mastodon.online/tags/"+q,
 "https://medium.com/tag/"+q+"/latest"
 ];
 random = Math.floor(Math.random() * urlList.length);
@@ -125,8 +123,7 @@ url = urlList[random];
 if(q == ''){
 urlList = [
 "https://twitter.com/explore",
-"https://mastodon.social/explore",
-"https://mastodon.online/explore/",
+//"https://www.tumblr.com/explore/",
 "https://medium.com/"
 ];
 random = Math.floor(Math.random() * urlList.length);
@@ -145,9 +142,7 @@ urlList = [
 "https://twitter.com/search?q="+q,
 "https://www.reddit.com/search/?q="+q+"&t=day&type=link",
 //"https://www.reddit.com/search/?q="+q+"&t=day&type=link&sort=new",
-"https://www.tumblr.com/search/"+q+"?t=1",
-"https://mastodon.social/tags/"+q,
-"https://mastodon.online/tags/"+q,
+//"https://www.tumblr.com/search/"+q+"?t=1",
 "https://medium.com/search?q="+q
 ];
 random = Math.floor(Math.random() * urlList.length);
@@ -155,8 +150,7 @@ url = urlList[random];
 if(q == ''){
 urlList = [
 "https://twitter.com/explore",
-"https://mastodon.social/explore",
-"https://mastodon.online/explore/",
+//"https://www.tumblr.com/explore/",
 "https://medium.com/"
 ];
 random = Math.floor(Math.random() * urlList.length);
@@ -227,16 +221,6 @@ if(q == ''){ url = "https://www.reddit.com/rpan/"; }
 window.location.href = url;
 break;
 
-
-case 'mas#': case 'мас#':
-q = q3.replace(q2, '');
-q = q.trim();
-q = encodeURIComponent(q);
-url = "https://mastodon.social/tags/" + q;
-if(q == ''){ url = "https://mastodon.social/"; }
-window.location.href = url;
-break;
-
 case 'med#': case 'мед#':
 q = q3.replace(q2, '');
 q = q.trim();
@@ -255,6 +239,14 @@ if(q == ''){ url = "https://twitter.com/explore"; }
 window.location.href = url;
 break;
 
+case 'tum#': case 'тум#':
+q = q3.replace(q2, '');
+q = q.trim();
+q = encodeURIComponent(q);
+url = "https://www.tumblr.com/search/"+q;
+if(q == ''){ url = "https://www.tumblr.com/explore/"; }
+window.location.href = url;
+break;
 
 case 't#': case 'т#':
 case 'tr#': case 'тр#':
