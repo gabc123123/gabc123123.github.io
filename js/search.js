@@ -1,4 +1,4 @@
-// v.1.0.11
+// v.1.0.12
 
 var  geturl = window.location;
 var url = new URL(geturl);
@@ -124,7 +124,7 @@ urlList = [
 "https://twitter.com/search?q="+q,
 "https://www.reddit.com/search/?q="+q+"&t=day&type=link",
 //"https://www.tumblr.com/search/"+q+"?t=1",
-"https://medium.com/tag/"+q+"/latest"
+"https://medium.com/tag/"+q.toLowerCase()+"/latest"
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
@@ -224,7 +224,7 @@ case 'medd#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
-url = "https://medium.com/tag/"+q+"/latest";
+url = "https://medium.com/tag/"+q.toLowerCase()+"/latest";
 if(q == ''){ url = "https://twitter.com/explore"; }
 window.location.href = url;
 break;
