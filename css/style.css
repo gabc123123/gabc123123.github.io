@@ -289,6 +289,7 @@ height: 6px;
 }*/
 
 ::placeholder { color: var(--c); }
+
 input[type="search"]::-webkit-search-cancel-button{ 
 -webkit-appearance: none;
 height: 10px;
