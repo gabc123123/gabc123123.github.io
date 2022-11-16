@@ -98,7 +98,7 @@ document.getElementById("dropbtn").innerHTML = '☰ other';
 <div id="themeOption"></div>
 
 <style>
-.button { min-width: 21%;  }
+.button { min-width: 14%;  }
 </style>
 
 
@@ -126,11 +126,12 @@ if(element == 'rand-l'){ result += '<br /><br />'; }
 if(element == 'auto'){ result += '<br /><br />'; }
 if(element == 'dark'){ result += '<br />'; }
 if(element == 'o-yellow'){ result += '<br />'; }
+if(element == 'o-d-green'){ result += '<br />'; }
 
 if(element == theme){
-result += `<button id="`+element+`" class="m button light4 margin">`+element+`</button>`;
+result += '<button id="'+element+'" class="m button light4 margin">'+element+'</button>';
 }else{
-result += `<button id="`+element+`" class="m button light margin">`+element+`</button>`;
+result += '<button id="'+element+'" class="m button light margin">'+element+'</button>';
 }
 
 });

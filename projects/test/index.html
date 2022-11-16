@@ -36,9 +36,18 @@
 
 
 
-<div class="center2">
 
 
+
+<div class="post" id="embed"></div><script>
+twiStyle = `<style>.twitter-tweet { margin-top: 0px !important; }</style>`;
+if(confThemeEmbed == 'dark'){
+//twiStyle += `<style>.twitter-tweet iframe { border-radius: 15px; }</style>`;
+}
+
+document.getElementById("embed").innerHTML = twiStyle+'<div style="display: block; width: 100%; max-width: 550px; margin: 0 auto;"><blockquote class="twitter-tweet" data-lang="en" data-theme="'+confThemeEmbed+'"><a href="https://twitter.com/Twitter/status/1356629952398036995"></a></blockquote></div>'; </script><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<div class="">
 
 <div class="wrapperL" style="text-align: center;">
 <div class="postL light border3" style="margin-left: 1px;">test</div>
@@ -51,7 +60,7 @@
 
 
 
-<hr />
+
 
 
 

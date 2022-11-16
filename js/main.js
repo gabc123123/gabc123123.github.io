@@ -1,4 +1,4 @@
-/* v.3.1.6 */
+/* v.3.1.7 */
 
 
 var confDataCollection = localStorage.getItem('confDataCollection');
@@ -50,15 +50,20 @@ var themeListDark = [
 
 var themeListOther = [
 "o-yellow",
-"o-green",
-"o-blue",
-"o-violet"
+"o-green"
+];
+
+var themeListOtherDark = [
+"o-d-green",
+"o-d-blue",
+"o-d-violet"
 ];
 
 var themeListOption2 = [
 "rand-l",
 "rand-d",
 "rand-o",
+"rand-o-d",
 "rand-all",
 "auto",
 "auto-rand",
@@ -70,6 +75,7 @@ let themeList = [];
 themeList.push(...themeListLight);
 themeList.push(...themeListDark);
 themeList.push(...themeListOther);
+themeList.push(...themeListOtherDark);
 
 var themeListOption = [];
 themeListOption.push(...themeList);
@@ -168,6 +174,11 @@ confRealTmpTheme = themeListOther[Math.floor(Math.random()*themeListOther.length
 document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
 break;
 
+case 'rand-o-d':
+confRealTmpTheme = themeListOtherDark[Math.floor(Math.random()*themeListOtherDark.length)];
+document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+break;
+
 case 'rand-all':
 confRealTmpTheme = themeList[Math.floor(Math.random()*themeList.length)];
 document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
@@ -190,13 +201,12 @@ break;
 
 
 
-if(confRealTmpTheme.search("light|l-|o-yellow") != -1){
-confThemeEmbed = 'light';
-}else{
+if(confRealTmpTheme.search("dark|d-") != -1){
 confThemeEmbed = 'dark';
+}else{
+confThemeEmbed = 'light';
 }
 //console.log(confThemeEmbed);
-
 }
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
