@@ -1,4 +1,4 @@
-// v.1.1.0
+// v.1.2.0
 
 
 
@@ -10,6 +10,14 @@ var playArr = [
 "", "", ""
 ];
 
+// pc first
+if(Math.floor(Math.random() * 2) == 1){
+var pcFirstIndex = Math.floor(Math.random() * 9);
+playArr[pcFirstIndex] = "0";
+}
+
+
+
 function drawResult(arr){
 arr.forEach((element, index) => {
 //document.getElementById(index).innerHTML = ''+index+' '+element+'';
@@ -20,6 +28,10 @@ document.getElementById(index).innerHTML = "&nbsp;"+element+"&nbsp;";
 //drawResult(startArr);
 
 
+
+
+
+
 // draw
 playArr.forEach(main);
 function main(element, index) {
@@ -28,6 +40,8 @@ if(index % 3 == 0){ document.getElementById('result').innerHTML += '<div class="
 document.getElementById('result').innerHTML += '<button  id="'+index+'" class="light3 button border2">&nbsp;'+element+'&nbsp;</button>';
 
 }
+
+
 
 // getClick
 playArr.forEach(main2);
@@ -44,11 +58,15 @@ document.getElementById(index).addEventListener("click", fuCheckClick);
 function fuCheckClick(event) {
 var clickedId = event.target.id;
 var win = '';
+var error = false;
+var makePcWrong = Math.floor(Math.random() * 2);
+
 
 
 
 if(playArr[clickedId] != ''){
 document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/error.mp3" id="bgAudio">';
+error = true;
 }
 
 
@@ -67,22 +85,16 @@ winCheck(playArr);
 }
 
 
-
-if(winCheck(playArr) == ''){
 // pc
+if(winCheck(playArr) == ''&&error == false){
+
 var check = '';
-
-
-
 
 //var playArr2 = playArr.concat(playArr2);
 var playArr2 = [];
 playArr2.push(...playArr);
 
-
-
-
-if(check != 'ok'){
+if(check != 'ok'&&makePcWrong == 0){
 playArr2.forEach((element, index) => {
 if(check != 'ok'&&playArr[index] == ''){
 playArr2[index] = '0';
@@ -92,11 +104,14 @@ playArr2[index] = '';
 })
 }
 
-if(check != 'ok'){
+if(check != 'ok'&&makePcWrong == 0){
 playArr.forEach((element, index) => {
 if(check != 'ok'&&playArr[index] == ''){
 playArr2[index] = 'x';
-if(winCheck(playArr2) == 'Player Win!!!'){ playArr[index] = '0'; check = 'ok'; console.log('test'+playArr[index]); }
+if(winCheck(playArr2) == 'Player Win!!!'){
+playArr[index] = '0';
+check = 'ok';
+}
 playArr2[index] = '';
 }
 })
@@ -129,8 +144,7 @@ randomPcArrIndex.push(index)
 })
 
 var rndIndex = shuffle(randomPcArrIndex);
-rndIndex = rndIndex[0];
-playArr[rndIndex] = '0';
+playArr[rndIndex[0]] = '0';
 check = 'ok';
 }
 
@@ -266,7 +280,7 @@ document.getElementById('win').innerHTML = '<span class="yellow">Tie!!!</span>';
 }
 
 
-console.log(clickedId);
+
 drawResult(playArr);
 
 
