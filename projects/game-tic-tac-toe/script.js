@@ -1,4 +1,4 @@
-// v.1.2.2
+// v.1.2.4
 
 
 
@@ -78,6 +78,14 @@ pcSmartLevel = Math.floor(Math.random() * pcSmartLevel);
 //pcSmartLevel = 0;
 
 
+winCheck(playArr, tttPlayerSymbol);
+winCheck(playArr, tttPlayer2Symbol, check);
+
+if(check == ''){
+
+
+
+
 
 if(playArr[clickedId] != ''){
 document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/error.mp3" id="bgAudio">';
@@ -85,8 +93,9 @@ error = true;
 }
 
 
-winCheck(playArr, tttPlayerSymbol);
-winCheck(playArr, tttPlayer2Symbol);
+
+
+
 
 
 if(check == ''){
@@ -154,30 +163,10 @@ winCheck(playArr, tttPlayer2Symbol);
 
 }
 
-
-
-/*
-if(check != 'ok'){
-playArr.forEach((element, index) => {
-if(check != 'ok'){
-if(playArr[index] == ''){
-playArr[index] = '0';
-check = 'ok';
-}
-}
-})
-}*/
-
-
-
-
-
-
-
-
 }
 
 
+}
 
 
 
@@ -188,7 +177,11 @@ check = 'ok';
 
 
 // win
-function winCheck(playArr, symbol){
+function winCheck(playArr, symbol, checkIfEmpty){
+console.log(checkIfEmpty);
+
+if(checkIfEmpty == ''||checkIfEmpty == undefined){
+
 let winCheck2 = '';
 
 if(playArr[0] == symbol&&playArr[1] == symbol&&playArr[2] == symbol){
@@ -228,13 +221,22 @@ tie = 'no';
 }
 if(tie == 'yes'){ winCheck2 = 'tie' }
 
+
 check = '';
 if(winCheck2 == 'win'||winCheck2 == 'tie'){ check = 'ok'; } 
 
-
-
 return winCheck2;
 }
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -260,10 +262,12 @@ document.getElementById('win').innerHTML = '<span class="">Tie!!!</span>';
 
 
 
+
 check = '';
 error = '';
 
 drawResult(playArr);
+
 }
 
 
