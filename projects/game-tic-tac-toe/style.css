@@ -1,4 +1,4 @@
-/* v.1.0.2 */
+/* v.1.1.0 */
 
 .button { 
 
@@ -21,6 +21,32 @@ justify-content: center;
 align-items: center;
 
 }
+
+
+@media(max-width: 230px) {
+.button { 
+font-size: normal;
+font-weight: bold;
+
+width: 100vw;
+height: 100vw;
+max-width: 35px;
+max-height: 35px;
+}
+}
+
+@media(max-width: 130px) {
+.button { 
+font-size: small;
+font-weight: bold;
+
+width: 100vw;
+height: 100vw;
+max-width: 19px;
+max-height: 19px;
+}
+}
+
 
 #win { font-size: 24px; font-weight: bold; color: var(--orange); padding: 10px 0; min-height: 50px; }
 .tttAgain { margin-top: 25px; }
