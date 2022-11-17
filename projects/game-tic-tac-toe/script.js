@@ -59,7 +59,9 @@ function fuCheckClick(event) {
 var clickedId = event.target.id;
 var win = '';
 var error = false;
-var makePcWrong = Math.floor(Math.random() * 2);
+var pcSmartLevel = 15;
+
+pcSmartLevel = Math.floor(Math.random() * pcSmartLevel);
 
 
 
@@ -94,7 +96,8 @@ var check = '';
 var playArr2 = [];
 playArr2.push(...playArr);
 
-if(check != 'ok'&&makePcWrong == 0){
+if(check != 'ok'){
+if(pcSmartLevel != 0){
 playArr2.forEach((element, index) => {
 if(check != 'ok'&&playArr[index] == ''){
 playArr2[index] = '0';
@@ -103,8 +106,10 @@ playArr2[index] = '';
 }
 })
 }
+}
 
-if(check != 'ok'&&makePcWrong == 0){
+if(check != 'ok'){
+if(pcSmartLevel != 0){
 playArr.forEach((element, index) => {
 if(check != 'ok'&&playArr[index] == ''){
 playArr2[index] = 'x';
@@ -115,6 +120,7 @@ check = 'ok';
 playArr2[index] = '';
 }
 })
+}
 }
 
 /*if(check != 'ok'){
