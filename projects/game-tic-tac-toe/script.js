@@ -1,4 +1,4 @@
-// v.1.2.0
+// v.1.2.2
 
 
 
@@ -9,6 +9,18 @@ var playArr = [
 "", "", "",
 "", "", ""
 ];
+
+/*var playArr = [
+"0", "1", "2",
+"3", "4", "5",
+"6", "7", "8"
+];*/
+
+const tttPlayerName = 'Player';
+const tttPlayerSymbol = 'x';
+const tttPlayer2Name = 'PC';
+const tttPlayer2Symbol = '0';
+var check = '';
 
 // pc first
 if(Math.floor(Math.random() * 2) == 1){
@@ -56,13 +68,14 @@ document.getElementById(index).addEventListener("click", fuCheckClick);
 
 // clickAction
 function fuCheckClick(event) {
+
 var clickedId = event.target.id;
 var win = '';
 var error = false;
-var pcSmartLevel = 15;
+var pcSmartLevel = 30;
 
 pcSmartLevel = Math.floor(Math.random() * pcSmartLevel);
-
+//pcSmartLevel = 0;
 
 
 
@@ -72,76 +85,55 @@ error = true;
 }
 
 
+winCheck(playArr, tttPlayerSymbol);
+winCheck(playArr, tttPlayer2Symbol);
 
 
+if(check == ''){
 
-if(winCheck(playArr) == ''){
-
-
-
-winCheck(playArr);
 if(playArr[clickedId] == ''){
 document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/click.mp3" id="bgAudio">';
-playArr[clickedId] = 'x';
-winCheck(playArr);
+playArr[clickedId] = tttPlayerSymbol;
+winCheck(playArr, tttPlayerSymbol);
 }
 
 
 // pc
-if(winCheck(playArr) == ''&&error == false){
-
-var check = '';
+if(check == ''&&error == false){
 
 //var playArr2 = playArr.concat(playArr2);
 var playArr2 = [];
+
+
+
+// if future pc win
+if(check == ''&&pcSmartLevel != 0){
+playArr2 = [];
 playArr2.push(...playArr);
 
-if(check != 'ok'){
-if(pcSmartLevel != 0){
 playArr2.forEach((element, index) => {
-if(check != 'ok'&&playArr[index] == ''){
-playArr2[index] = '0';
-if(winCheck(playArr2) == 'PC Win!!!'){ playArr[index] = '0'; check = 'ok'; }
+if(check == ''&&playArr[index] == ''){
+playArr2[index] = tttPlayer2Symbol;
+if(winCheck(playArr2, tttPlayer2Symbol) != ''){ playArr[index] = tttPlayer2Symbol; check = 'ok'; }
 playArr2[index] = '';
 }
 })
 }
-}
 
-if(check != 'ok'){
-if(pcSmartLevel != 0){
+// if future player win
+if(check == ''&&pcSmartLevel != 0){
+playArr2 = [];
+playArr2.push(...playArr);
 playArr.forEach((element, index) => {
-if(check != 'ok'&&playArr[index] == ''){
-playArr2[index] = 'x';
-if(winCheck(playArr2) == 'Player Win!!!'){
-playArr[index] = '0';
-check = 'ok';
-}
+if(check == ''&&playArr[index] == ''){
+playArr2[index] = tttPlayerSymbol;
+if(winCheck(playArr2, tttPlayerSymbol) != ''){ playArr[index] = tttPlayer2Symbol; check = 'ok'; }
 playArr2[index] = '';
 }
 })
 }
-}
 
-/*if(check != 'ok'){
-var randomPcArrIndex = [];
-playArr.forEach((element, index) => {
-if(check != 'ok'){
-if(playArr[index] == ''){
-randomPcArrIndex.push(index)
-}
-
-shuffle(randomPcArrIndex);
-randomPcArrIndex = randomPcArrIndex[0];
-playArr[index] = '0';
-check = 'ok';
-}
-})
-}*/
-
-
-
-if(check != 'ok'){
+if(check == ''){
 var randomPcArrIndex = [];
 playArr.forEach((element, index) => {
 if(playArr[index] == ''){
@@ -150,9 +142,19 @@ randomPcArrIndex.push(index)
 })
 
 var rndIndex = shuffle(randomPcArrIndex);
-playArr[rndIndex[0]] = '0';
+console.log(rndIndex[0]);
+playArr[rndIndex[0]] = tttPlayer2Symbol;
 check = 'ok';
+console.log('random empty'+rndIndex[0]);
 }
+randomPcArrIndex = [];
+
+winCheck(playArr, tttPlayer2Symbol);
+
+
+}
+
+
 
 /*
 if(check != 'ok'){
@@ -166,12 +168,12 @@ check = 'ok';
 })
 }*/
 
-check = '';
 
 
 
 
-}
+
+
 
 }
 
@@ -186,78 +188,48 @@ check = '';
 
 
 // win
-function winCheck(playArr){
+function winCheck(playArr, symbol){
 let winCheck2 = '';
 
-if(playArr[0] == 'x'&& playArr[1] == 'x' &&playArr[2] == 'x'){
-winCheck2 = 'Player Win!!!';
+if(playArr[0] == symbol&&playArr[1] == symbol&&playArr[2] == symbol){
+winCheck2 = 'win';
 }
-if(playArr[3] == 'x'&& playArr[4] == 'x' &&playArr[5] == 'x'){
-winCheck2 = 'Player Win!!!';
+if(playArr[3] == symbol&&playArr[4] == symbol&&playArr[5] == symbol){
+winCheck2 = 'win';
 }
-if(playArr[6] == 'x'&& playArr[7] == 'x' &&playArr[8] == 'x'){
-winCheck2 = 'Player Win!!!';
+if(playArr[6] == symbol&&playArr[7] == symbol&&playArr[8] == symbol){
+winCheck2 = 'win';
 }
-if(playArr[0] == 'x'&& playArr[4] == 'x' &&playArr[8] == 'x'){
-winCheck2 = 'Player Win!!!';
+if(playArr[0] == symbol&&playArr[4] == symbol&&playArr[8] == symbol){
+winCheck2 = 'win';
 }
-if(playArr[6] == 'x'&& playArr[4] == 'x' &&playArr[2] == 'x'){
-winCheck2 = 'Player Win!!!';
+if(playArr[6] == symbol&&playArr[4] == symbol&&playArr[2] == symbol){
+winCheck2 = 'win';
 }
-if(playArr[0] == 'x'&& playArr[3] == 'x' &&playArr[6] == 'x'){
-winCheck2 = 'Player Win!!!';
+if(playArr[0] == symbol&&playArr[3] == symbol&&playArr[6] == symbol){
+winCheck2 = 'win';
 }
-if(playArr[1] == 'x'&& playArr[4] == 'x' &&playArr[7] == 'x'){
-winCheck2 = 'Player Win!!!';
+if(playArr[1] == symbol&&playArr[4] == symbol&&playArr[7] == symbol){
+winCheck2 = 'win';
 }
-if(playArr[2] == 'x'&& playArr[5] == 'x' &&playArr[8] == 'x'){
-winCheck2 = 'Player Win!!!';
+if(playArr[2] == symbol&&playArr[5] == symbol&&playArr[8] == symbol){
+winCheck2 = 'win';
 }
-
-
-
-
-
-if(playArr[0] == '0'&& playArr[1] == '0' &&playArr[2] == '0'){
-winCheck2 = 'PC Win!!!';
-}
-if(playArr[3] == '0'&& playArr[4] == '0' &&playArr[5] == '0'){
-winCheck2 = 'PC Win!!!';
-}
-if(playArr[6] == '0'&& playArr[7] == '0' &&playArr[8] == '0'){
-winCheck2 = 'PC Win!!!';
-}
-if(playArr[0] == '0'&& playArr[4] == '0' &&playArr[8] == '0'){
-winCheck2 = 'PC Win!!!';
-}
-if(playArr[6] == '0'&& playArr[4] == '0' &&playArr[2] == '0'){
-winCheck2 = 'PC Win!!!';
-}
-if(playArr[0] == '0'&& playArr[3] == '0' &&playArr[6] == '0'){
-winCheck2 = 'PC Win!!!';
-}
-if(playArr[1] == '0'&& playArr[4] == '0' &&playArr[7] == '0'){
-winCheck2 = 'PC Win!!!';
-}
-if(playArr[2] == '0'&& playArr[5] == '0' &&playArr[8] == '0'){
-winCheck2 = 'PC Win!!!';
-}
-
 
 
 if(winCheck2 == ''){
 var tie = 'yes';
 playArr.forEach((element, index) => {
 if(playArr[index] == ''){
-tie = 'no'
+tie = 'no';
 }
 })
-if(tie == 'yes'){ winCheck2 = 'Tie!!!' }
-tie = 'yes';
+
 }
+if(tie == 'yes'){ winCheck2 = 'tie' }
 
-if(winCheck2 == 'PC Win!!!'||winCheck2 == 'Player Win!!!'||winCheck2 == 'Tie!!!'){ check = 'ok'; }
-
+check = '';
+if(winCheck2 == 'win'||winCheck2 == 'tie'){ check = 'ok'; } 
 
 
 
@@ -266,31 +238,34 @@ return winCheck2;
 
 
 
-
-
-
-
-if(winCheck(playArr) == 'Player Win!!!'){
+if(winCheck(playArr, tttPlayerSymbol) == 'win'){
 document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/win.mp3" id="bgAudio">';
-document.getElementById('win').innerHTML = '<span class="orange">Win!!!</span>';
+document.getElementById('win').innerHTML = '<span class="orange">'+tttPlayerName+' Win!!!</span>';
 }
 
-if(winCheck(playArr) == 'PC Win!!!'){
+if(winCheck(playArr, tttPlayer2Symbol) == 'win'){
 document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/game-over.mp3" id="bgAudio">';
 document.getElementById('win').innerHTML = '<span class="red">Game Over!!!</span>';
 }
 
-if(winCheck(playArr) == 'Tie!!!'){
+
+if(winCheck(playArr, tttPlayerSymbol) == 'tie'&&check != 'ok'||winCheck(playArr, tttPlayer2Symbol) == 'tie'){
 document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/ok.mp3" id="bgAudio">';
-document.getElementById('win').innerHTML = '<span class="yellow">Tie!!!</span>';
+document.getElementById('win').innerHTML = '<span class="">Tie!!!</span>';
 }
 
 
+
+
+
+
+
+check = '';
+error = '';
 
 drawResult(playArr);
-
-
 }
+
 
 
 
