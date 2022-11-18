@@ -1,8 +1,8 @@
-// v.1.2.4
+// v.1.2.5
 
 
 
-
+function tttGame(){
 
 var playArr = [
 "", "", "",
@@ -16,11 +16,14 @@ var playArr = [
 "6", "7", "8"
 ];*/
 
+
 const tttPlayerName = 'Player';
 const tttPlayerSymbol = 'x';
 const tttPlayer2Name = 'PC';
 const tttPlayer2Symbol = '0';
 var check = '';
+
+var print = '';
 
 // pc first
 if(Math.floor(Math.random() * 2) == 1){
@@ -46,13 +49,15 @@ document.getElementById(index).innerHTML = "&nbsp;"+element+"&nbsp;";
 
 // draw
 playArr.forEach(main);
+
+
 function main(element, index) {
 
-if(index % 3 == 0){ document.getElementById('result').innerHTML += '<div class="width: 100%"></div>'; }
-document.getElementById('result').innerHTML += '<button  id="'+index+'" class="light3 button border2">&nbsp;'+element+'&nbsp;</button>';
-
+if(index % 3 == 0){ print += '<div class="width: 100%"></div>'; }
+print += '<button  id="'+index+'" class="light3 button buttonTtt border2">&nbsp;'+element+'&nbsp;</button>';
+document.getElementById('result').innerHTML = print;
 }
-
+print = '';
 
 
 // getClick
@@ -291,4 +296,14 @@ function shuffle(array) {
 
   return array;
 }
+
+}
+
+
+tttGame();
+
+document.getElementById('tttStartButton').onclick = function() {
+tttGame();
+}
+
 

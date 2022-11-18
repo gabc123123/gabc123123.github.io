@@ -1,6 +1,6 @@
 /* v.1.1.0 */
 
-.button { 
+.buttonTtt { 
 
 font-size: large;
 font-weight: bold;
@@ -24,7 +24,7 @@ align-items: center;
 
 
 @media(max-width: 230px) {
-.button { 
+.buttonTtt { 
 font-size: normal;
 font-weight: bold;
 
@@ -36,7 +36,7 @@ max-height: 35px;
 }
 
 @media(max-width: 130px) {
-.button { 
+.buttonTtt { 
 font-size: small;
 font-weight: bold;
 
@@ -49,4 +49,29 @@ max-height: 19px;
 
 
 #win { font-size: 24px; font-weight: bold; color: var(--orange); padding: 10px 0; min-height: 50px; }
-.tttAgain { margin-top: 25px; }
+
+
+
+#tttStartButton {
+font-weight: bold;
+
+
+text-align: center;
+padding: 10px 20px;
+width: 100%;
+max-width: 140px;
+margin-top: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

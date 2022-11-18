@@ -1,4 +1,4 @@
-/* v.12.17.0 */
+/* v.12.17.1 */
 
 :root{
 --bodyP: 2vw;
@@ -137,11 +137,11 @@ overflow: auto;
 
 .logo, .logo2{
 border: 2px dashed var(--d3);
-border-radius: 90%;
+border-radius: 50%;
 display: inline-block;
 vertical-align: middle;
-width: 53px;
-height: 53px;
+width: 64px;
+height: 64px;
 padding: 1px;
 transition: transform 1.8s ease-in-out;
 border: 2px dashed var(--d3);
@@ -151,9 +151,10 @@ border: 2px dashed var(--d3);
 transform: rotate(360deg); 
 }
 .logo2 { width: 24px; height: 24px; }
+.dd { max-height: 100px; margin-bottom:  -36px; border-radius: 9px; }
 
 .ico {
-border-radius: 90%;
+border-radius: 50%;
 display: inline-block;
 vertical-align: middle;
 width: 14px;
@@ -163,8 +164,6 @@ filter:grayscale(56%);
 .ico:hover,.ico2:hover { filter: grayscale(0%); }
 
 .gray { filter:grayscale(56%); }
-
-.dd { max-height: 125px; margin: 3px 0; margin-bottom:  -26px;  max-height: 73px; border-radius: 9px; }
 
 .tagList {
 word-break: break-all;
@@ -365,6 +364,7 @@ td { background-color: var(--l2); }
 .highlight { background: var(--l4);  border-bottom: 1px solid var(--d3); color: var(--c4);  }
 
 
+
 /* other */
 .padding { padding: 11px !important; }
 .block { display: block !important; max-width: 100%; }
@@ -374,12 +374,14 @@ td { background-color: var(--l2); }
 .capitalize { text-transform: capitalize; }
 .bold, .bold a { font-weight: bold; }
 
+
+
 /* fix */
 h1, h2, h3{ word-break: break-all; }
 
 @media(max-width: 200px) { div, input, textarea, a{ word-break: break-all; }}
 
-div, input, textarea, img{ box-sizing: border-box; }
+div, input, textarea, img { box-sizing: border-box; }
 
 .sup { vertical-align: super; vertical-align: top; font-weight: bold; }
 .pre{ white-space: pre-wrap; word-wrap: break-word; line-height: normal; }
