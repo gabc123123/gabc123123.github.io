@@ -30,16 +30,16 @@ adsURL = ads[random]['url'];	if(adsURL == null){ adsURL = ''; }
 if(adsText.search("src=") != -1&&localStorage.getItem('confDataCollection') != 'on'){ adsText = '';   }
 
 if(adsText.search("src=") != -1){
-adsPrint = '<a class="tag zero op" style="float: right; margin-bottom: 9px;" href="/ads.'+confExt+'">ads, links</a><br />'+adsText+' <br /><a target="blank" href="'+adsURL+'">'+adsURL+'</a>';
+adsPrint = '<a class="tag zero op" style="float: right; margin-bottom: 5px;" href="/ads.'+confExt+'">ads, links</a><br />'+adsText+' <br /><a target="blank" href="'+adsURL+'">'+adsURL+'</a>';
 }else{
-adsPrint = '<a class="tag zero op" style="float: right; margin-bottom: 9px;" href="/ads.'+confExt+'">ads, links</a><br />'+adsText+' <a target="blank" href="'+adsURL+'">'+adsURL+'</a>';
+adsPrint = '<a class="tag zero op" style="float: right; margin-bottom: 5px;" href="/ads.'+confExt+'">ads, links</a><br />'+adsText+' <a target="blank" href="'+adsURL+'">'+adsURL+'</a>';
 }
 
 
 if(adsText != ''&&adsText.search("src=") == -1){
-document.getElementById(idAds).innerHTML = '<div class="center"><div class="post brand light border3" style="text-align: left; margin-top: 10px; margin-bottom: 10px;">'+adsPrint+'</div></div>';
+document.getElementById(idAds).innerHTML = '<div class="center"><div class="post brand light border3" style="text-align: left; margin: 10px 0; padding-bottom: 25px;">'+adsPrint+'</div></div>';
 }else if(adsText != ''){
-document.getElementById(idAds).innerHTML = '<div class="center"><div class="light border3" style="text-align: left; display: inline-block; padding: 7px; max-width: 100%; margin-top: 10px; margin-bottom: 10px;">'+adsPrint+'</div></div>';
+document.getElementById(idAds).innerHTML = '<div class="center"><div class="light border3" style="text-align: left; display: inline-block; padding: 7px; padding-bottom: 25px; max-width: 100%; margin: 10px 0;">'+adsPrint+'</div></div>';
 }
 
 

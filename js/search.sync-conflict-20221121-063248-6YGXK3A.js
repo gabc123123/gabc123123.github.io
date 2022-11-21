@@ -314,6 +314,7 @@ urlList = [
 "https://flipboard.com/topic/technology",
 "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGRqTVhZU0FtVnVHZ0pWVXlnQVAB",
 "https://www.bing.com/news/search?q=Sci/Tech",
+"https://www.mojeek.com/news?top=technology",
 "https://getpocket.com/explore/technology",
 "https://www.reddit.com/r/technology/",
 "https://medium.com/tag/technology"
@@ -449,8 +450,14 @@ q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
 urlList = [
+"https://www.mojeek.com/search?q="+q,
 "https://www.qwant.com/?q="+q+"&t=web&vt=1&b=1",
-"https://www.gigablast.com/search?q="+q
+//"https://search.brave.com/search?q="+q,
+"https://swisscows.com/web?query="+q,
+"https://search.seznam.cz/?q="+q,
+"https://www.gigablast.com/search?q="+q,
+"https://search.goo.ne.jp/web.jsp?MT="+q+"&IE=UTF-8&OE=UTF-8",
+"https://search.naver.com/search.naver?query="+q
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];

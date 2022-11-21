@@ -1,4 +1,4 @@
-/* v.1.1.3 */
+/* v.1.1.4 */
 
 .result,  textarea {
 margin: 0 auto;
@@ -14,18 +14,12 @@ padding: 15px;
 /*overflow-x: auto;
 overflow-y: hidden;
 white-space: nowrap;*/
-max-height: 160px;
-padding-bottom: 160px;
+max-height: 120px;
+padding-bottom: 30px;
 overflow-x: hidden;
 overflow-y: auto;
-
+scroll-padding-top: 16px;
 }
 
-html { scroll-padding-top: 20%; }
-.stat {
-	text-align: right;
-
-	
-}
-
+.stat { text-align: right; }
 #text { border-top: 7px solid var(--d2); }
