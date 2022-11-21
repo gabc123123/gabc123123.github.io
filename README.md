@@ -7,4 +7,4 @@ README.md
 [#theme](https://github.com/topics/theme?l=html&o=desc&s=updated)
 
 #### Screenshot
-![screenshot](screenshot.png)
+![screenshot](/img/screenshot.png)
