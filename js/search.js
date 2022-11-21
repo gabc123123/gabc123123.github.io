@@ -248,9 +248,6 @@ urlList = [
 "https://translate.google.com/#auto/auto/" + q,
 "https://translate.google.com/#auto/auto/" + q,
 "https://translate.google.com/#auto/auto/" + q,
-"https://translate.google.com/#auto/auto/" + q,
-"https://translate.google.com/#auto/auto/" + q,
-"https://translate.google.com/#auto/auto/" + q,
 "https://www.deepl.com/translator#auto/auto/"+q,
 "https://www.bing.com/translator/?text="+q+"&from=auto&to=auto"
 ];
@@ -264,9 +261,6 @@ q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
 urlList = [
-"https://translate.google.com/#auto/en/" + q,
-"https://translate.google.com/#auto/en/" + q,
-"https://translate.google.com/#auto/en/" + q,
 "https://translate.google.com/#auto/en/" + q,
 "https://translate.google.com/#auto/en/" + q,
 "https://translate.google.com/#auto/en/" + q,
@@ -319,7 +313,7 @@ urlList = [
 "https://news.ycombinator.com/",
 "https://flipboard.com/topic/technology",
 "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGRqTVhZU0FtVnVHZ0pWVXlnQVAB",
-"https://www.bing.com/news/search?q=Technology",
+"https://www.bing.com/news/search?q=Sci/Tech",
 "https://www.mojeek.com/news?top=technology",
 "https://getpocket.com/explore/technology",
 "https://www.reddit.com/r/technology/",

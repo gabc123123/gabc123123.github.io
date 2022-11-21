@@ -48,7 +48,7 @@ max-height: 19px;
 }
 
 
-#win { font-size: 24px; font-weight: bold; color: var(--orange); padding: 10px 0; min-height: 50px; }
+#win { font-size: 24px; font-weight: bold; padding: 10px 0; min-height: 50px; }
 
 
 

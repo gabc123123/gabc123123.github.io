@@ -1,4 +1,4 @@
-/* v.12.17.1 */
+/* v.12.17.4 */
 
 :root{
 --bodyP: 2vw;
@@ -11,7 +11,7 @@
 }
 
 body, a, input, button, textarea, pre, code{
-font-family: Noto, Roboto, Arial, Sans-Serif;
+font-family: Roboto, Noto, Arial, Sans-Serif;
 font-weight: 400;
 font-size: 13.4px;
 text-decoration:none;
@@ -140,8 +140,8 @@ border: 2px dashed var(--d3);
 border-radius: 50%;
 display: inline-block;
 vertical-align: middle;
-width: 64px;
-height: 64px;
+width: 60px;
+height: 60px;
 padding: 1px;
 transition: transform 1.8s ease-in-out;
 border: 2px dashed var(--d3);
@@ -151,7 +151,7 @@ border: 2px dashed var(--d3);
 transform: rotate(360deg); 
 }
 .logo2 { width: 24px; height: 24px; }
-.dd { max-height: 100px; margin-bottom:  -36px; border-radius: 9px; }
+.dd { max-height: 90px; margin-bottom:  -32px; border-radius: 9px; }
 
 .ico {
 border-radius: 50%;
@@ -391,7 +391,7 @@ select{ max-width:130px; min-height:15px; }
 /*textarea:focus {outline: none !important;}*/
 form { margin: 0 auto; padding: 0; width: 100%; }
 /*br, hr { clear: both !important; }*/
-form, iframe, video, audio, img, hr, table{ max-width:100%; }
+form, iframe, video, audio, img, hr, table{ max-width:100%; max-height: 100vw; }
 
 input, textarea { display: block; }
 

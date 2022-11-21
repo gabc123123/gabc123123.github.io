@@ -37,7 +37,7 @@ adsPrint = '<a class="tag zero op" style="float: right; margin-bottom: 9px;" hre
 
 
 if(adsText != ''&&adsText.search("src=") == -1){
-document.getElementById(idAds).innerHTML = '<div class="center"><div class="postL brand light border3" style="text-align: left; margin-top: 10px; margin-bottom: 10px;">'+adsPrint+'</div></div>';
+document.getElementById(idAds).innerHTML = '<div class="center"><div class="post brand light border3" style="text-align: left; margin-top: 10px; margin-bottom: 10px;">'+adsPrint+'</div></div>';
 }else if(adsText != ''){
 document.getElementById(idAds).innerHTML = '<div class="center"><div class="light border3" style="text-align: left; display: inline-block; padding: 7px; max-width: 100%; margin-top: 10px; margin-bottom: 10px;">'+adsPrint+'</div></div>';
 }

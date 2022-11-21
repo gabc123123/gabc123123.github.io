@@ -48,6 +48,10 @@
         "url": "https:\/\/ubuntu.com\/download\/desktop"
     },
     {
+        "text": "Dropbox",
+        "url": "https:\/\/www.dropbox.com\/referrals\/AACdj28r_BGeykuiCCf0i7YEfTQTDdNI7aI?src=global9"
+    },
+    {
         "text": "Element | Secure collaboration and messaging",
         "url": "https:\/\/element.io\/"
     },
@@ -186,6 +190,14 @@
     {
         "text": "Oracle VM VirtualBox",
         "url": "https:\/\/www.virtualbox.org\/"
+    },
+    {
+        "text": "Personal Cloud Storage & File Sharing Platform - Google",
+        "url": "https:\/\/www.google.com\/drive\/"
+    },
+    {
+        "text": "Personal Cloud Storage \u2013 Microsoft OneDrive",
+        "url": "https:\/\/www.microsoft.com\/onedrive\/"
     },
     {
         "text": "Reddit - Dive into anything",
