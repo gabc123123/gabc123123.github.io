@@ -1,4 +1,4 @@
-// v.1.0.14
+// v.1.1.0
 
 var geturl = window.location;
 var url = new URL(geturl);
@@ -11,18 +11,13 @@ var urlList = [];
 
 var tmp = '';
 
-//console.log(url);
 
-
-
-
+let sUrlText = ''+url+'';
 if(q != null&&q == ''){ q = 'n'; }
+const myArray = sUrlText.split("q=");
+sUrlText = myArray[0];
 
-//alert(url);
-if(
-q != null&&q != ''&&url.hostname.search('abc') != -1||
-q != null&&q != ''&&confHost == "localhost"
-){
+if(q != null&&q != ''&&sUrlText.search("cache") == -1){
 
 q = q.trim();
 //q = q.replace(/%([^\d].)/, "%25$1");

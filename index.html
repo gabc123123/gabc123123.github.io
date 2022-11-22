@@ -137,7 +137,8 @@ document.getElementById("dropbtn").innerHTML = '☰ other';
 var inputA = document.querySelectorAll('input')[0];
 inputA.addEventListener('input', updateValueIn);
 
-if(confHost == 'localhost'){ 
+//alert(document.querySelectorAll('input').length);
+if(document.querySelectorAll('input').length >= 3){ 
 var inputB = document.querySelectorAll('input')[2];
 inputB.addEventListener('input', updateValueIn);
 }
