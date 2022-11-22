@@ -54,8 +54,8 @@ colorPcWin = 'green';
 pointsPc++;
 }
 if(player2 == pc2){
-win = '<span class="blue"><h1>Tie!!!</h1></span>';
-win += '<audio style="display:none" autoplay="false" src="/audio/ok.mp3">';
+win = '<span class=""><h1>Tie!!!</h1></span>';
+win += '<audio style="display:none" autoplay="false" src="/audio/neutral.mp3">';
 colorPlayerWin = 'green';
 colorPcWin = 'green';
 }

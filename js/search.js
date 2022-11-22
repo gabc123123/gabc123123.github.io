@@ -1,6 +1,6 @@
-// v.1.0.12
+// v.1.0.14
 
-var  geturl = window.location;
+var geturl = window.location;
 var url = new URL(geturl);
 var q = url.searchParams.get("q");
 
@@ -12,10 +12,18 @@ var urlList = [];
 var tmp = '';
 
 //console.log(url);
-//alert(q);
+
+
+
+
 if(q != null&&q == ''){ q = 'n'; }
+
 //alert(url);
-if(q != null&&q != ''){
+if(
+q != null&&q != ''&&url.hostname.search('abc') != -1||
+q != null&&q != ''&&confHost == "localhost"
+){
+
 q = q.trim();
 //q = q.replace(/%([^\d].)/, "%25$1");
 q = q.replace(/%/g, "%25");

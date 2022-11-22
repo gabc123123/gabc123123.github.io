@@ -58,9 +58,13 @@ nav a, nav button, footer span { display: inline-block; padding: 7px; }
 nav button:hover { background: none;  }
 /*nav a::first-letter { font-weight: bolder; }*/
 
-h1, .h1 { font-size: calc(100% + 30%) !important; }
-h2, .h2 { font-size: calc(100% + 20%) !important; }
-h3, h4, h5, h6, .h3, .h4, .h5, .h6 { font-size: calc(100% + 10%) !important; }
+h1, .h1 { font-size: calc(100% + 60%); }
+h2, .h2 { font-size: calc(100% + 40%); }
+h3, h4, h5, h6, .h3, .h4, .h5, .h6 { font-size: calc(100% + 20%); }
+
+.h1 { font-size: calc(100% + 60%) !important; }
+.h2 { font-size: calc(100% + 40%) !important; }
+.h3, .h4, .h5, .h6 { font-size: calc(100% + 20%) !important; }
 
 input[type=text],input[type=search], textarea, select, input[type=submit]{
 width: 100%;
@@ -377,7 +381,7 @@ td { background-color: var(--l2); }
 
 
 /* fix */
-h1, h2, h3{ word-break: break-all; }
+h1, h2, h3, h4, h5, h6 { word-break: break-all; }
 
 @media(max-width: 200px) { div, input, textarea, a{ word-break: break-all; }}
 
