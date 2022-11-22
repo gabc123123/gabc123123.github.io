@@ -58,9 +58,9 @@ nav a, nav button, footer span { display: inline-block; padding: 7px; }
 nav button:hover { background: none;  }
 /*nav a::first-letter { font-weight: bolder; }*/
 
-h1, .h1 { font-size: calc(100% + 30%) !important; }
-h2, .h2 { font-size: calc(100% + 20%) !important; }
-h3, h4, h5, h6, .h3, .h4, .h5, .h6 { font-size: calc(100% + 10%) !important; }
+h1, .h1 { font-size: calc(100% + 30%); }
+h2, .h2 { font-size: calc(100% + 20%); }
+h3, h4, h5, h6, .h3, .h4, .h5, .h6 { font-size: calc(100% + 10%); }
 
 input[type=text],input[type=search], textarea, select, input[type=submit]{
 width: 100%;

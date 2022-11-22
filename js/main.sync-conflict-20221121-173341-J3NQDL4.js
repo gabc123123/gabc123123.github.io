@@ -1,4 +1,4 @@
-/* v.3.1.8 */
+/* v.3.1.7 */
 
 
 var confDataCollection = localStorage.getItem('confDataCollection');
@@ -8,7 +8,7 @@ if(confDataCollection == null){ confDataCollection = 'off'; }
 var confHost = location.hostname;
 if (confHost === "localhost" ||  confHost === "127.0.0.1"||confHost.search("192.168") != -1){
 var confExt = 'php';
-confHost = 'localhost';
+confHost = 'localost';
 }else{
 var confExt = 'html';
 }
