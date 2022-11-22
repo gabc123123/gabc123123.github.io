@@ -1,17 +1,18 @@
-/* v.2.0.1 */
-
-#result {
-font-size: 70px;
-min-height: 150px;
-text-align: center;
-width: 100%;
-}
+/* v.2.0.2 */
 
 #result2 {
 font-size: medium;
 text-align: center;
+padding: 40px 0;
+}
+
+#result {
+font-size: 70px;
+text-align: center;
+width: 100%;
 
 }
+
 
 
 .gDice {
@@ -32,6 +33,10 @@ max-width: 150px;
 font-size: small;
 color: var(--c1) !important;
 font-weight: bold;
+}
+
+.gDname2 {
+margin-bottom: 30px;
 }
 
 .gDbtn {

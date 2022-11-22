@@ -64,15 +64,15 @@ document.getElementById("result").innerHTML = `
 <div class="gDice">
 
 <div>
-<div class="`+colorPlayerWin+`">`+player+`</div>
-<div class="block gDname op">player</div>
-<div class="block gDname op">`+pointsPlayer+`</div>
+<div class="gDname2 `+colorPlayerWin+`">`+player+`</div><br>
+<div class="gDname op">player</div>
+<div class="gDname op">`+pointsPlayer+`</div>
 </div>
 
 <div>
-<div class="`+colorPcWin+`">`+pc+`</div>
-<div class="block gDname op">pc</div>
-<div class="block gDname op">`+pointsPc+`</div>
+<div class="gDname2 `+colorPcWin+`">`+pc+`</div><br>
+<div class="gDname op">pc</div>
+<div class="gDname op">`+pointsPc+`</div>
 </div>
 
 </div>
