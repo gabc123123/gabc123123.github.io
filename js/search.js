@@ -1,4 +1,4 @@
-// v.1.1.2
+// v.1.1.3
 
 var geturl = window.location;
 var url = new URL(geturl);
@@ -306,9 +306,10 @@ q = q.trim();
 q = encodeURIComponent(q);
 urlList = [
 "https://www.google.com/search?q="+q+"&tbm=nws",
-"https://www.bing.com/news/search?q="+q+"&tbm=nws",
+"https://www.bing.com/news/search?q="+q,
 "https://www.qwant.com/?t=news&q="+q
 ];
+
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
 if(q == ''){

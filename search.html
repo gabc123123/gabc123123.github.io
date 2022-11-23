@@ -127,6 +127,10 @@ print = `
 `;
 }else{
 
+rUrlGet = ''+window.location+'';
+let myArray = rUrlGet.split("rUrl=");
+rUrlGet = myArray[1];
+
 var sTimeRedir = 1600;
 setTimeout(function(){
 window.location.href = rUrlGet;
