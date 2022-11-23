@@ -95,27 +95,18 @@ document.getElementById("dropbtn").innerHTML = '☰ other';
 
 
 <div class="wrapperL">
-
 <div class="center2">
 
-<form method="GET" class="block" action="search.html" style="margin:0 auto; style="">
-
-<input class="padding" type="search" style="text-align: center;" name="q" autofocus="autofocus" autocomplete="off" placeholder="" x-webkit-speech />
-
-<input type="submit" value="go">
-
+<div class="wrapperL">
+<div id="result"></div>
+</div>
 
 </div>
-</form>
 
 <details>
 <summary class="op" style="text-align: right; color: var(--c); cursor: pointer; font-size: small; "> ?</summary>
 <div id="print"></div>
 </details>
-
-
-</div>
-
 
 
 
@@ -124,6 +115,43 @@ document.getElementById("dropbtn").innerHTML = '☰ other';
 
 
 <script>
+
+var print = '';
+
+if(rUrlGet == null||rUrlGet == ''){
+print = `
+<form method="GET" class="block" action="search.html" style="margin:0 auto; style="">
+<input class="padding" type="search" style="text-align: center;" name="q" autofocus="autofocus" autocomplete="off" placeholder="" x-webkit-speech />
+<input type="submit" value="go">
+</form>
+`;
+}else{
+
+var sTimeRedir = 1600;
+setTimeout(function(){
+window.location.href = rUrlGet;
+}, sTimeRedir); 
+
+print = `
+
+<div class="textCenter">
+<div class="post bgList borderList op">redir: `+sTimeRedir / 1000+` sec.</div>
+<div class="post bgList borderList h3">`+rUrlGet+`</div>
+<a class="block padding light borderList op" href="`+rUrlGet+`">open</a>
+</div>
+
+`;
+
+
+
+}
+
+document.getElementById("result").innerHTML = print;
+
+
+
+
+
 var a = [
 "l", "t",  "n", "s", "twi", "red", "g", "bin", "qwa", "o"
 ];

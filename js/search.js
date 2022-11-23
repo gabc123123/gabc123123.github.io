@@ -1,13 +1,14 @@
-// v.1.1.0
+// v.1.1.1
 
 var geturl = window.location;
 var url = new URL(geturl);
 var q = url.searchParams.get("q");
+var rUrlGet = url.searchParams.get("rUrl");
 
 var random = '';
 var urlList = [];
 
-
+var sRedirUrl = '';
 
 var tmp = '';
 
@@ -55,7 +56,7 @@ urlList = [
 ];
 random = Math.floor(Math.random() * urlList.length);
 random = urlList[random];
-window.location.href = random;
+sRedirUrl = random;
 break;
 
 case 'g#':
@@ -65,7 +66,7 @@ q = q.trim();
 q = encodeURIComponent(q);
 url = "https://www.google.com/search?q=" + q;
 if(q == ''){ url = "https://newsstand.google.com/?nsro=true&hl=en"; }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'bi#':
@@ -75,7 +76,7 @@ q = q.trim();
 q = encodeURIComponent(q);
 url = "https://www.bing.com/search?q=" + q;
 if(q == ''){ url = "https://www.msn.com/"; }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 
@@ -84,7 +85,7 @@ q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
 url = "https://www.qwant.com/?q=" + q;
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'd#':
@@ -96,7 +97,7 @@ q = q.trim();
 q = encodeURIComponent(q);
 url = "https://duckduckgo.com/?q=" + q;
 if(q == ''){ url = "https://duckduckgo.com/about"; }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'w#':
@@ -105,7 +106,7 @@ q = q.trim();
 q = encodeURIComponent(q);
 url = "https://wikipedia.org/w/index.php?search=" + q;
 if(q == ''){ url = "https://wikipedia.org/wiki/Special:Random"; }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'l#':  case 'll#':
@@ -114,7 +115,7 @@ q = q.trim();
 q = encodeURIComponent(q);
 url = "https://duckduckgo.com/?q=%5C" + q;
 if(q == ''){ url = "https://duckduckgo.com/about"; }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 
@@ -140,7 +141,7 @@ urlList = [
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
 }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 
@@ -167,7 +168,7 @@ urlList = [
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
 }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'gig#':
@@ -175,7 +176,7 @@ q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
 url = "https://www.gigablast.com/search?q=" + q;
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'twi#':
@@ -184,7 +185,7 @@ q = q.trim();
 q = encodeURIComponent(q);
 url = "https://twitter.com/search?q=" + q;
 if(q == ''){ url = "https://twitter.com/explore"; }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'twii#':
@@ -193,7 +194,7 @@ q = q.trim();
 q = encodeURIComponent(q);
 url = "https://twitter.com/search?q="+q+"&f=live";
 if(q == ''){ url = "https://twitter.com/explore"; }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'red#':
@@ -202,7 +203,7 @@ q = q.trim();
 q = encodeURIComponent(q);
 url = "https://www.reddit.com/search/?q=" + q+"&type=link";
 if(q == ''){ url = "https://www.reddit.com/rpan/"; }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'redd#':
@@ -211,7 +212,7 @@ q = q.trim();
 q = encodeURIComponent(q);
 url = "https://www.reddit.com/search/?q="+q+"&t=day&type=link&sort=hot";
 if(q == ''){ url = "https://www.reddit.com/rpan/"; }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'med#':
@@ -220,7 +221,7 @@ q = q.trim();
 q = encodeURIComponent(q);
 url = "https://medium.com/search?q="+q;
 if(q == ''){ url = "https://twitter.com/explore"; }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'medd#':
@@ -229,7 +230,7 @@ q = q.trim();
 q = encodeURIComponent(q);
 url = "https://medium.com/tag/"+q.toLowerCase()+"/latest";
 if(q == ''){ url = "https://twitter.com/explore"; }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'tum#':
@@ -238,7 +239,7 @@ q = q.trim();
 q = encodeURIComponent(q);
 url = "https://www.tumblr.com/search/"+q;
 if(q == ''){ url = "https://www.tumblr.com/explore/"; }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 't#':
@@ -256,7 +257,7 @@ urlList = [
 ];
 random = Math.floor(Math.random() * urlList.length);
 random = urlList[random];
-window.location.href = random;
+sRedirUrl= random;
 break;
 
 case 'tt#':
@@ -272,7 +273,7 @@ urlList = [
 ];
 random = Math.floor(Math.random() * urlList.length);
 random = urlList[random];
-window.location.href = random;
+sRedirUrl = random;
 break;
 
 case 'tg#':
@@ -284,7 +285,7 @@ urlList = [
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'tb#':
@@ -296,7 +297,7 @@ urlList = [
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'n#':
@@ -325,7 +326,7 @@ urlList = [
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
 }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 
@@ -336,7 +337,7 @@ q = q.trim();
 q = encodeURIComponent(q);
 url = "https://www.youtube.com/results?search_query=" + q;
 if(q == ''){ url = "https://www.youtube.com/feed/explore"; }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'yy#':
@@ -346,7 +347,7 @@ q = q.trim();
 q = encodeURIComponent(q);
 url = "https://www.youtube.com/results?search_query="+q+"&sp=EgIIAg%253D%253D";
 if(q == ''){ url = "https://www.youtube.com/feed/explore"; }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'v#':
@@ -368,7 +369,7 @@ urlList = [
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
 }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'vv#':
@@ -392,7 +393,7 @@ urlList = [
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
 }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'm#':
@@ -419,7 +420,7 @@ urlList = [
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
 }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'mus#':
@@ -444,7 +445,7 @@ urlList = [
 random = Math.floor(Math.random() * urlList.length);
 url = "/?q="+q+' m';
 }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'o#':
@@ -464,7 +465,7 @@ urlList = [
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
 }
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'ti#':
@@ -472,7 +473,7 @@ q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
 url = "/projects/timer" + q;
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'si#':
@@ -482,11 +483,11 @@ q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
 url = "/?q=site:" + q;
-window.location.href = url;
+sRedirUrl = url;
 break;
 
 case 'mm#':
-window.location.href = "music.html";
+sRedirUrl = "/music.html";
 break;
 
 case 'q#':
@@ -504,7 +505,7 @@ urlList = [
 ];
 random = Math.floor(Math.random() * urlList.length);
 random = urlList[random];
-window.location.href = random;
+sRedirUrl = random;
 break;
 
 
@@ -520,6 +521,21 @@ urlList = [
 ];
 random = Math.floor(Math.random() * urlList.length);
 random = urlList[random];
-window.location.href = random;
+sRedirUrl = random;
 }
+
+if(sRedirUrl != ''){
+window.location.href = "/search."+confExt+"?rUrl="+sRedirUrl;
 }
+
+}
+
+
+
+
+
+
+
+
+
+
