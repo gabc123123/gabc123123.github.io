@@ -131,6 +131,8 @@ rUrlGet = ''+window.location+'';
 let myArray = rUrlGet.split("rUrl=");
 rUrlGet = myArray[1];
 
+let rUrlGetPrint = decodeURIComponent(rUrlGet);
+
 var sTimeRedir = 1600;
 setTimeout(function(){
 window.location.href = rUrlGet;
@@ -140,7 +142,7 @@ print = `
 
 <div class="textCenter">
 <div class="post bgList borderList op">redir: `+sTimeRedir / 1000+` sec.</div>
-<div class="post bgList borderList h3">`+rUrlGet+`</div>
+<div class="post bgList borderList h3">`+rUrlGetPrint+`</div>
 <a class="block padding light borderList op" href="`+rUrlGet+`">open</a>
 </div>
 
