@@ -131,18 +131,31 @@ rUrlGet = ''+window.location+'';
 let myArray = rUrlGet.split("rUrl=");
 rUrlGet = myArray[1];
 
+
 let rUrlGetPrint = decodeURIComponent(rUrlGet);
 
+
 var sTimeRedir = 1600;
+
+var sTimeRedirStatus = '';
+
+window.location.href = window.location.href+'#sR'; 
+if (rUrlGet.search("#sR") == -1){ // if back Stop Redir
+
 setTimeout(function(){
 window.location.href = rUrlGet;
 }, sTimeRedir); 
+}else{
+sTimeRedirStatus = ' ( <span class="bold">off</span> ) ';
+}
+
+
 
 print = `
 
 <div class="textCenter">
-<div class="post bgList borderList op">redir: `+sTimeRedir / 1000+` sec.</div>
-<div class="post bgList borderList h3">`+rUrlGetPrint+`</div>
+<div class="post bgList borderList op">redir: `+sTimeRedir / 1000+` sec.`+sTimeRedirStatus+`</div>
+<div class="post bgList borderList h3 orange bold">`+rUrlGetPrint+`</div>
 <a class="block padding light borderList op" href="`+rUrlGet+`">open</a>
 </div>
 
