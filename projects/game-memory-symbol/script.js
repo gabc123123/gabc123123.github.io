@@ -1,6 +1,6 @@
-// v.2.3.10
+// v.3.0.0
 
-const limitMaintl = 10;
+const limitMaintl = 20;
 
 var i = 0;
 var i2 = 0;
@@ -14,7 +14,7 @@ var arrTask = [];
 var arrResultFinal = [];
 var arrLastTwo = [];
 
-var error = '';
+
 
 
 const counts =[];
@@ -109,7 +109,7 @@ if(localStorage.getItem("tl")){ maintl = localStorage.getItem("tl"); }
 }
 if(maintl == null){ maintl = '4'; }
 
-if(maintl >= limitMaintl){ maintl =limitMaintl; }
+if(maintl >= limitMaintl){ maintl = limitMaintl; } // limit Get
 
 
 symbol = symbol.slice(0, maintl * maintl / 2);
@@ -141,13 +141,13 @@ while (i < symbolList.length&&tl <= symbolList.length * 2) {
 tl = i * i;
 if(tl < symbolList.length * 2&&i <= limitMaintl){
 //symetry
-//if(i * i / 2 % i == 0){}
+if(i * i / 2 % i == 0){
 if(maintl == i){
 print += '<span><a class="button light4 border2 op" style="padding: 0px 7px; " href="?tl='+i+'">'+i+'x'+i+'</a></span>';
 }else{
 print += '<span><a class="button light border2 op" style="padding: 0px 7px;" href="?tl='+i+'">'+i+'x'+i+'</a></span>';
 }
-
+}
 //console.log(tl);
 //arrSymbol.push({"row": i, "tl":tl}); 
 
@@ -161,42 +161,14 @@ document.getElementById("tableLenght").innerHTML = print;
 
 
 
-
-
-
-/*jsonArrInputHistory = JSON.stringify(arrInputHistory);
-jsonArrInputHistory = JSON.parse(jsonArrInputHistory);
-console.log(jsonArrInputHistory[ jsonArrInputHistory.length-1]['symbol']);*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // input
-var com = 'start';
-var stap = 1;
+var msCom = 'start';
+var msStap = 1;
 
 var arrInputHistory = [];
 
 
-if(com == 'start') {
+if(msCom == 'start') {
 
 if(maintl * maintl / 2 % maintl == 0){
 arrResultFinal = '*'.repeat(maintl * maintl);
@@ -224,24 +196,26 @@ result = '';
 
 
 
+print = `<button  class="op light button border2 small">history</button>`;
+document.getElementById('inputHistory').innerHTML = print;
+result = '';
 
 
 
-
-function drawResult(symbol, maintl, printPlace){
+function drawResult(aaa, maintl, printPlace){
 i2 = 1;
 print = '';
-symbol.forEach(myFunction11);
+aaa.forEach(myFunction11);
 function myFunction11(item, index) {
 if(item == '*') { item = '&nbsp;'; }
 //console.log(item);
 if(item == undefined){ print += ''; } else {
 //print += '<button  id="'+index+'" class="light button border2  value="">'+index+item+'</button>';
-print += '<button  id="'+index+'" class="light3 button border2">'+item+'</button>';
+print += `<button  id="`+index+`" class="light3 button border2" onclick="main('`+index+`')">`+item+`</button>`;
 //document.getElementById(index).innerHTML =  item;
 }
 
-if(maintl <= 7){
+if(maintl <= 10){
 if(i2 == maintl){ print += '<br />'; i2 = 0;   }
 }
 
@@ -251,14 +225,14 @@ i2++;
 if(printPlace == 'result2'){
 i2 = 1;
 print = '';
-symbol.forEach(myFunction15);
+aaa.forEach(myFunction15);
 function myFunction15(item, index) {
 if(item == '*') { item = '&nbsp;'; }
 if(item == undefined){ print += ''; } else {
 //print += '<button class="light3 button border2">'+item+'</button>';
 document.getElementById(index).innerHTML =  item;
 }
-if(maintl <= 7){
+if(maintl <= 10){
 if(i2 == maintl){ print += '<br />'; i2 = 0;   }
 }
 i2++;
@@ -267,11 +241,11 @@ i2++;
 
 if(printPlace == 'inputHistory'){
 print = '';
-symbol.forEach(myFunction33);
-function myFunction33(item, index) {
+aaa.forEach(myFunction33);
+function myFunction33(index, item) {
 //if(item == undefined){ print += ''; } else {}
-symbol = Object.values(item);
-print += '<button  class="op light button border2">'+symbol[1]+'</button>';
+
+print += `<button  class="op light button border2">`+symbol[index]+`</button>`;
 }
 }
 
@@ -290,105 +264,72 @@ print = '';
 
 
 
-symbol.forEach(main);
-function main(item, index) {
-document.getElementById(index).addEventListener("click", function() {
 
-//function reply_click(clicked_id){
-//index = clicked_id;
+
+
+
+
+
+
+
+let arrInputHistoryPrint = [];
+
+function main(index) {
+arrInputHistory.push(index);
+arrInputHistory = arrInputHistory.slice(-5);
+arrInputHistoryPrint.push(index);
+
+if(msStap == 3){ msStap = 1;}
+
 item = arrTask[index];
-//arrInputHistory.push(item); 
-arrInputHistory.push({"id":index, "symbol":item}); 
+msCom = '';
 
+var currentInputIndex = arrInputHistory[arrInputHistory.length - 1];
 
-
-/*btn = document.getElementById(index);
-btn.innerHTML = symbol[index];*/
-
-//alert(arrInputHistory);
-
-
-if(stap == 3){
-stap = 1;
-}
-//console.log('stap: '+stap);
-//console.log('index: '+index);
-
-
-
-
-
-
-error = '';
-/*console.log(arrInputHistory[arrInputHistory.length - 1]);
-console.log(Object.values(arrInputHistory[arrInputHistory.length - 1]));*/
-
-var currentInput = Object.values(arrInputHistory[arrInputHistory.length  - 1]);
-var currentInputIndex = currentInput[0];
-var currentInputSymbol = currentInput[1];
+var currentInputSymbol = symbol[currentInputIndex];
 if(arrInputHistory.length >= 2){
-var prevInput = Object.values(arrInputHistory[arrInputHistory.length  - 2]);
-var prevInputIndex = prevInput[0];
-var prevInputSymbol = prevInput[1];
+var prevInputIndex = arrInputHistory[arrInputHistory.length - 2];
+var prevInputSymbol = symbol[prevInputIndex];
+}else{
+var prevInputIndex = '';
+var prevInputSymbol = '';
 }
 
 
-if(currentInputIndex == prevInputIndex){com = 'error';}
-if(arrResultFinal[currentInputIndex] != '*'){ com = 'error'; }
 
-if(com != 'error'){
+if(currentInputIndex == prevInputIndex){msCom = 'error';}
+if(arrResultFinal[currentInputIndex] != '*'){ msCom = 'error'; }
+
+
+
+if(msCom != 'error'){
 arrLastTwo = arrLastTwo.slice(-2);
 if(currentInputIndex == arrLastTwo[0]||currentInputIndex == arrLastTwo[1]){ 
-if(stap == 1){
-com = 'error';
+if(msStap == 1){
+msCom = 'error';
 document.getElementById(arrLastTwo[0]).innerHTML =  arrTask[arrLastTwo[0]];
 document.getElementById(arrLastTwo[1]).innerHTML =  arrTask[arrLastTwo[1]];
 }
 }else{
- drawResult(arrResultFinal, maintl, 'result2');
-arrLastTwo.push(index);
+drawResult(arrResultFinal, maintl, 'result2');
+arrLastTwo.push(currentInputIndex);
 }
+
 }
-//if(stap == 3||stap == 1){ drawResult(arrResultFinal, maintl, 'result2'); }
 
 
-
-
-
-
-//if(stap == 1&&com != 'error'){ drawResult(arrResultFinal, maintl, 'result2'); }
-
-if(com == 'error'){
-
-//drawResult(arrResultFinal, maintl, 'result2'); 
-
-
-stap--;
+if(msCom == 'error'){
+msStap--;
 // if error
-arrInputHistory.pop(); 
-document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/error.mp3" id="bgAudio">';
-
-//
-com = '';
+arrInputHistory.pop();
+document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/error.mp3">';
 }
 
 
-if(com != 'error'){
-
-//document.getElementById("alert2").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/click.mp3" id="bgAudio">';
-
-
-
+if(msCom != 'error'){
 document.getElementById(currentInputIndex).innerHTML =  currentInputSymbol;
 
-
-
-
-
-if(stap == 2){
-/*console.log('item: ,'+item);
-console.log('currentInputSymbol: ,'+currentInputSymbol);
-console.log('prevInputSymbol: ,'+prevInputSymbol);*/
+if(msStap == 2){
 
 if(item == currentInputSymbol&&item == prevInputSymbol){
 // small win
@@ -411,7 +352,12 @@ document.getElementById(prevInputIndex).innerHTML =  prevInputSymbol;
 
 
 
+
+
 }
+
+
+
 
 
 if(JSON.stringify(arrResultFinal) === JSON.stringify(arrTask)){
@@ -420,23 +366,17 @@ document.getElementById("alert").innerHTML = '<audio style="display:none" autopl
 }
 
 
+
+
+drawResult(arrInputHistoryPrint.slice(-5), maintl, 'inputHistory'); // enable disable input history
+
+
 com = '';
 
-arrInputHistory = arrInputHistory.slice(-10);
-// drawResult(arrInputHistory, maintl, 'inputHistory'); // enable disable input history
-
-/*console.log('arrTask'+arrTask);
-console.log('arrResultFinal'+arrResultFinal);*/
-
-
-stap++;
-
-
-});
-
-
+console.log(msStap);
+msStap++;
+msCom = '';
 }
-
 
 
 

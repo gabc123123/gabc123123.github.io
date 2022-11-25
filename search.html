@@ -98,6 +98,7 @@ document.getElementById("dropbtn").innerHTML = '☰ other';
 <div class="center2">
 
 <div class="wrapperL">
+
 <div id="result"></div>
 </div>
 
@@ -127,39 +128,46 @@ print = `
 `;
 }else{
 
+
 rUrlGet = ''+window.location+'';
 let myArray = rUrlGet.split("rUrl=");
 rUrlGet = myArray[1];
-
 
 let rUrlGetPrint = decodeURIComponent(rUrlGet);
 
 
 var sTimeRedir = 1600;
 
-var sTimeRedirStatus = '';
+var sTimeRedirStatus = `redir: `+sTimeRedir / 1000+` sec.`;
 
-window.location.href = window.location.href+'#sR'; 
-if (rUrlGet.search("#sR") == -1){ // if back Stop Redir
 
+
+
+if ((''+window.location+'').search("#stopRedir") == -1){ // if back Stop Redir
 setTimeout(function(){
 window.location.href = rUrlGet;
 }, sTimeRedir); 
-}else{
-sTimeRedirStatus = ' ( <span class="bold">off</span> ) ';
 }
 
+window.location.href = window.location.href+'#stopRedir'; 
+
+if (rUrlGet.search("#stopRedir") != -1){ 
+sTimeRedirStatus = '  ( redir: off )  ';
+
+}
 
 
 print = `
 
-<div class="textCenter">
-<div class="post bgList borderList op">redir: `+sTimeRedir / 1000+` sec.`+sTimeRedirStatus+`</div>
+<div class="tCenter">
+<div class="post bgList borderList op tCenter">`+sTimeRedirStatus+`</div>
 <div class="post bgList borderList h3 orange bold">`+rUrlGetPrint+`</div>
 <a class="block padding light borderList op" href="`+rUrlGet+`">open</a>
 </div>
 
 `;
+
+
 
 
 
@@ -198,7 +206,7 @@ b  += item+ ', ';
 <!--<span><a  class="button" href="../">&#x2190;</a></span>
 -->
 
-<span><a href="/">index</a></span>
+<span><a href="/">home</a></span>
 <span id="fTheme"><a href="/theme.html">Themes</a></span>
 <script>
 document.getElementById("fTheme").innerHTML = '<span><a href="/theme.html">theme: '+theme+' ('+confRealTmpTheme+')</a></span>';

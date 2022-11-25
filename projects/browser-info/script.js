@@ -1,12 +1,6 @@
-// v.1.0.7
+// v.1.0.8
 
 
-var utheme;
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-utheme = 'dark';
-}else{
-utheme = 'light';
-}
 
 
 
@@ -30,19 +24,28 @@ document.getElementsByClassName("result")[0].innerHTML =  ''
 +'<span class="op">'+"navigator.onLine"+'</span><br />'+navigator.onLine+'<hr />'
 +'<span class="op">'+"navigator.pdfViewerEnabled"+'</span><br />'+navigator.pdfViewerEnabled+'<hr />'
 
-
++`<div class="block padding"></div>`
++`<div class="block padding"></div>`
 
 +'<span class="op">window.screen.width, window.screen.height</span><br />'+window.screen.width+"/"+window.screen.height + '<hr />'
 +'<span class="op">window.screen.availWidth, window.screen.availHeight</span><br />'+window.screen.availWidth+'/'+window.screen.availHeight+'<hr />'
 +'<span class="op">self.innerWidth, self.innerHeight </span><br />'+self.innerWidth+'/'+self.innerHeight+' <hr />'
 +'<span class="op">window.screen.pixelDepth</span><br />'+window.screen.pixelDepth+'<hr />'
++'<span class="op">'+"window.outerHeight"+'</span><br />'+window.outerHeight+'<hr />'
++'<span class="op">'+"window.outerWidth"+'</span><br />'+window.outerWidth+'<hr />'
 
 
-+'<span class="op">'+"window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches"+'</span><br />'+utheme+'<hr />'
++`<div class="block padding"></div>`
++`<div class="block padding"></div>`
 
-
-
++'<span class="op">'+"window.matchMedia('(prefers-color-scheme: dark)').matches"+'</span><br />'+window.matchMedia('(prefers-color-scheme: dark)').matches+'<hr />'
 +'<span class="op">document.referrer</span><br />'+document.referrer+'<hr />'
 
 +'<span class="op">'+"Intl.DateTimeFormat().resolvedOptions().timeZone"+'</span><br />'+Intl.DateTimeFormat().resolvedOptions().timeZone+'<hr />'
+
++'<span class="op">'+"window.history.length"+'</span><br />'+window.history.length+'<hr />'
+
+
+
+
 ;

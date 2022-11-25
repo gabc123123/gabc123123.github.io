@@ -374,10 +374,12 @@ td { background-color: var(--l2); }
 .block { display: block !important; max-width: 100%; }
 .zero { margin: 0; padding: 0; }
 .margin, .margin a { margin: 1px !important; }
-.textCenter, .tCenter { text-align: center; }
+.tLeft { text-align: left; }
+.tCenter { text-align: center; }
+.tRight { text-align: right; }
 .capitalize { text-transform: capitalize; }
 .bold, .bold a { font-weight: bold; }
-
+.small, .small a { font-size: small !important; }
 
 
 /* fix */

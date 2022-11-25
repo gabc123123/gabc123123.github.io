@@ -174,7 +174,7 @@ text = letters.join("");
 
 console.log(letters);
 var a = {
-"·":"*", "•":"*", "›":">",
+"`":"'", "·":"*", "•":"*", "›":">",
 "’":"'", "—":"-", "«":'"', "»":'"',
 '“':'"', '”':'"', "…":"...",
 "–":"-", "‘":'"'
@@ -190,6 +190,10 @@ return a[char] || char;
 
 letters = encodeURIComponent(text);
 
+letters = letters.replace(/\r\n/g, "\n");
+letters = letters.replace(/%0A/g, "\n");
+letters = letters.replace(/  /g, " ");
+
 letters = letters.replace(/%E2%80%8C/g, ""); //ZERO WIDTH SPACE
 letters = letters.replace(/%0D%0A/g, "\n");
 letters = letters.replace(/%0A/g, "\n");
@@ -199,11 +203,20 @@ letters = letters.replace(/%C2%A0/g, " ");
 
 
 
+
 letters = decodeURIComponent(letters);
 letters = transliterate(letters);
 
 letters = letters.replace(/\r\n/g, "\n");
+letters = letters.replace(/%0A/g, "\n");
 letters = letters.replace(/  /g, " ");
+
+letters = letters.replace(/%E2%80%8C/g, ""); //ZERO WIDTH SPACE
+letters = letters.replace(/%0D%0A/g, "\n");
+letters = letters.replace(/%0A/g, "\n");
+letters = letters.replace(/%0D/g, "\n");
+letters = letters.replace(/%C2%A0/g, " ");
+
 //letters = letters.replace(/\s{2,}/g, ' ');
 
 console.log([...letters]);
@@ -562,9 +575,7 @@ let winMsg = '<div class="button light border2" style="text-align: center; width
 
 document.getElementsByClassName("win")[0].innerHTML = winMsg;
 document.getElementsByClassName("win")[1].innerHTML = winMsg;
-document.getElementById("sound").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/win.mp3">';
-//document.getElementById("sound").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/ok.mp3">';
-
+document.getElementById("sound").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/ok.mp3">';
 }else {
 document.getElementsByClassName("win")[0].innerHTML = '';
 document.getElementsByClassName("win")[1].innerHTML = '';
