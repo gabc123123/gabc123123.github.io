@@ -1,8 +1,10 @@
-// v.1.2.6
+// v.1.2.7
 
 
 
 function tttGame(){
+
+document.getElementById('win').innerHTML = '';
 
 var playArr = [
 "", "", "",
