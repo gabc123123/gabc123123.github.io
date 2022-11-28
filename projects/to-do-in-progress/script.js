@@ -9,7 +9,7 @@ let print = '';
 
 
 
-let dbName = 'x3';
+let dbName = 'db';
 
 // This is what our customer data looks like.
 const data = [
@@ -123,11 +123,22 @@ const transaction = db.transaction(["test"]);
 const objectStore = transaction.objectStore("test");
 const index = objectStore.index("name");
 
-index.get("titlr").onsuccess = (event) => {
+ var allRecords = objectStore.getAll();
+    allRecords.onsuccess = function() {
+        console.log(allRecords.result);
+    };
+
+/*index.get("titlr").onsuccess = (event) => {
   console.log(event.target.result.name);
 };
+*/
+
+
+
+
 
 }
+
 
 
 print = `
