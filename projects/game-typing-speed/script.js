@@ -1,11 +1,20 @@
 // v.3.7.8
 
+
+
+
+
+function mainAll(mode33){
+
 document.getElementById('text').value = '';
 var task = '';
 var  geturl = window.location;
 var url = new URL(geturl);
 
 var mode = url.searchParams.get("mode");
+
+if(mode33 != ''){ mode = mode33; }
+
 var lastEror = '';
 
 if(mode != null){ localStorage.setItem("mode", mode); }else{
@@ -14,7 +23,13 @@ if(localStorage.getItem("mode")){ mode = localStorage.getItem("mode"); }
 if(mode == null){ mode = 'quote'; }
 
 
-document.getElementById("refresh").innerHTML = '<a href="?mode='+mode+'">refresh</a>';
+document.getElementById("refresh").innerHTML = `<a href="#" onclick="modeGet('`+mode+`');">refresh</a>`;
+
+
+
+
+
+
 
 
 var modeList = Array("abc", "quote", "input", "free");
@@ -22,11 +37,10 @@ var modeListPrint = '';
 modeList.forEach(FunctionModeList);
 function FunctionModeList(item, index) {
 if(mode == item){
-modeListPrint += '<a class="tag light border2" style="color: var(--c3);" href="?mode='+item+'">'+item+'</a>'+`
+modeListPrint += `<a class="tag light border2" style="color: var(--c3);">`+item+`</a>`+`
 `;
 }else{
-modeListPrint += '<a class="tag op light border2" href="?mode='+item+'">'+item+'</a>'+`
-`;
+modeListPrint += `<a class="tag op light border2" href="#" onclick="modeGet('`+item+`');">`+item+`</a>`;
 }
 }
 document.getElementById("mode").innerHTML = modeListPrint;
@@ -591,3 +605,16 @@ document.getElementById('countSymbolTask').innerHTML = 'task: '+task.length+' in
 
 
 }
+
+
+}
+
+
+
+
+
+function modeGet(mode){
+mainAll(mode);
+}
+
+mainAll('');
