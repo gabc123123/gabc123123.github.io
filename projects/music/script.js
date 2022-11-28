@@ -1,81 +1,57 @@
-
-setTimeout(() => {
-if(!window.location.hash) {
-if(localStorage.getItem("music2reload") != "done"){
-window.location = window.location + '#loaded';
-window.location.reload();
-}
-}
-localStorage.setItem("music2reload", "done");
-}, "1000")
-
-var url = "/data/musicFP.json";
-var json;
-
-var http = new XMLHttpRequest();
-//http.overrideMimeType("text/plain");
-http.overrideMimeType("application/json");
-http.onreadystatechange = function() {
-//console.log( this.status);
-if (this.readyState == 4 && this.status == 200) {
-// Typical action to be performed when the document is ready:
-json = http.responseText;
-localStorage.setItem("music", http.responseText);
-}
-if(this.status == 404){
-//console.log("json 404");
-
-document.getElementById("msg").innerHTML = '<h3 class="red" style="text-align: center">error load json</h3>';
+// v.1.0.0
 
 
+
+var json = musicFPJson;
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
 }
 
 
-}
-http.open("GET", url, true);
-http.send();
 
 
+//alert(json[getRandomInt(json.length)]);
+//alert(json.length);
 
+var id = getRandomInt(json.length);
 
-
-
-//alert(json);
-
-json = JSON.parse(localStorage.getItem("music"));
-const random = Math.floor(Math.random() * json.length);
-var random_url = json[random]['url'];
-
-
-//console.log(random_url);
-
-document.getElementById("playurl").innerHTML =  '<a class="tag button light2 border2List" style="text-align:center;  display:block;" target="blank" href="'+random_url+'">'+random_url+' ⇗</a>'; 
+var randomTitle = json[id]['text'];
+var randomURL = json[id]['url'];
 
 var tmp = document.createElement ('a');
-tmp.href   = random_url;
+tmp.href   = randomURL;
 var host = tmp.hostname;
+
+document.getElementById("playTitle").innerHTML =  randomTitle; 
+
+document.getElementById("playURL").innerHTML =  '<a target="blank" href="'+randomURL+'">'+randomURL+' ⇗</a>'; 
+ 
+
 
 var w = '100%';
 var h = '275px';
 
-switch(host) {
+
+switch (host) {
 
 case "youtu.be":
 case "m.youtube.com":
 case "www.youtube.com":
 case "music.youtube.com":
   
-//alert(random_url);
-var play = random_url.split('v=').pop();
+//alert(randomURL);
+var play = randomURL.split('v=').pop();
 
-//console.log(play);
 
+
+//alert(play);
     //<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-document.getElementById("playerxx").innerHTML = '<div id="player" class="border2List"></div>'; 
-
+     document.getElementById("playerxx").innerHTML = '<div id="player"></div>'; 
 
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
+
       tag.src = "https://www.youtube.com/iframe_api";
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
@@ -91,19 +67,17 @@ document.getElementById("playerxx").innerHTML = '<div id="player" class="border2
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange,
-            'onStateChange': onPlayerStateChange2,
-            
+            'onStateChange': onPlayerStateChange2
           }
         });
       }
 
       // 4. The API will call this function when the video player is ready.
-function onPlayerReady(event) {
+      function onPlayerReady(event) {
         event.target.playVideo();
 //event.target.mute();
 //event.target.setVolume(100); 
       }
-
 
       // 5. The API calls this function when the player's state changes.
       //    The function indicates that when playing a video (state=1),
@@ -127,6 +101,7 @@ function onPlayerStateChange2(event) {
 location.reload();  
 }
 }
+
 
 
 break;
@@ -153,7 +128,7 @@ injectScript('https://player.vimeo.com/api/player.js')
         
         
         
-var play = random_url.split('/').pop();
+var play = randomURL.split('/').pop();
 document.getElementById("playerxx").innerHTML = '<div id="myVideo" data-vimeo-id="'+play+'" data-vimeo-autoplay="true"></div>'; 
 
 var options = {
@@ -192,7 +167,7 @@ location.reload();
     
 case "soundcloud.com":
 
-function injectScript2(src) {
+function injectScript(src) {
     return new Promise((resolve, reject) => {
         const script = document.createElement('script');
         script.src = src;
@@ -202,12 +177,12 @@ function injectScript2(src) {
     });
 }
 
-injectScript2('https://w.soundcloud.com/player/api.js')
+injectScript('https://w.soundcloud.com/player/api.js')
     .then(() => {
         console.log('Script loaded!');
         
 
-  document.getElementById("playerxx").innerHTML = '<iframe  id="sc-widget" width="'+w+'" height="'+h+'" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url='+random_url+'&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>'; 
+  document.getElementById("playerxx").innerHTML = '<iframe  id="sc-widget" width="'+w+'" height="'+h+'" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url='+randomURL+'&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>'; 
 
 
   (function(){
@@ -235,4 +210,14 @@ location.reload();
 default:
 console.log(`default switch`);
 }
+
+
+
+
+
+
+
+
+
+
 

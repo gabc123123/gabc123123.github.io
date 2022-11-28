@@ -1,3 +1,4 @@
+var musicFPJson = 
 [
     {
         "text": "Aretha Franklin - Respect (Official Lyric Video) - YouTube",

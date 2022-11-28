@@ -13,16 +13,16 @@
 <link rel="stylesheet" type="text/css" href="/css/light.css">
 <link rel="stylesheet" type="text/css" id="theme">
 <script src="/js/main.js"></script>
+<script src="/data/adsJson.js"></script>
 <script src="/js/ad.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 
 <link rel="stylesheet" type="text/css" href="style.css">
 
-
 </head>
 <body>
 
-<header class="brand">
+<header>
 <nav>
 <a href="/">index</a>
 <a href="../">list</a>
@@ -30,35 +30,42 @@
 </header>
 
 
-
-<div class="content brand">
-
+<div class="content">
 <h3 class="tCenter op">Music</h3>
+
+
+
+
 
 <div class="center2">
 
 
-<div class="post2 border2List light2">
-	
-<div id="msg" class="pborder2List"></div>
-<div id="playerxx" class="pborder2List"></div>
-<div class="footerPost">
-<div id="playurl"></div>
-<a class="button light3 border2List" style="text-align:center;  display:block; cursor: pointer;" onClick="window.location.reload()" title="location.reload" href="#">random</a>
+
+<div class="post2 brand light border3List">
+
+<div id="playTitle"></div>
+<div id="playURL"></div>
+<div id="playerxx"></div>
+
+<div class="footerPost"><a class="button block light border3List" style="text-align:center; cursor: pointer;" onClick="window.location.reload()" title="location.reload" href="#">random</a></div>
+
+</div>
+
 </div>
 
 
-</div>
+
+
+
 
 </div>
-</div>
-
 
 <footer>
 <div id="ads2"></div>
 <script> fuAds('', 'ads2', ''); </script>
 </footer>
 
+<script src="/data/musicFPJson.js"></script>
 <script src="script.js"></script>
 
 </body>

@@ -1,4 +1,4 @@
-// v.3.7.8
+// v.3.7.9
 
 
 
@@ -59,20 +59,12 @@ document.getElementById("mode").innerHTML = modeListPrint;
 
 
 if(mode == 'quote'){
-var url = "/data/quote.json";
+
 var quote;
 
-var http = new XMLHttpRequest();
-//http.overrideMimeType("text/plain");
-http.overrideMimeType("application/json");
 
- http.onreadystatechange = function() {
-// console.log( this.status);
-    if (this.readyState == 4 && this.status == 200) {
-       // Typical action to be performed when the document is ready:
-//localStorage.setItem("quote", http.responseText);
-quote = http.responseText;
-quote = JSON.parse(quote);
+
+quote = quoteJson;
 
 if(quote != null){
 const random = Math.floor(Math.random() * quote.length);
@@ -83,18 +75,12 @@ task = quote[random]['text'];
 
 main(task);
 }
-if(this.status == 404){
-document.getElementById("result").innerHTML = '<h3 class="red" style="text-align: center">error load json</h3>';
-}
-}
-http.open("GET", url, true);
-http.send();
-}
+
 
 
 
 if(mode == 'abc'){
-task = "            abcdefghijklmnopqrstuvwxyz";
+task = "           abcdefghijklmnopqrstuvwxyz";
 main(task);
 }
 
@@ -197,6 +183,8 @@ return word.map(function (char) {
 return a[char] || char; 
 }).join("");
 }
+
+if(mode == 'abc'){ text = text.replace(/\s{2,}/g, ' '); /* rm 2 space */ }
 
 letters = encodeURIComponent(text);
 

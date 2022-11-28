@@ -2,21 +2,14 @@
 
 function fuAds(themeAds, idAds, maxAds, comAds){
 
+
+
 let ads;
 var adsPrint = '';
 
-var http = new XMLHttpRequest();
-//http.overrideMimeType("text/plain");
-http.overrideMimeType("application/json");
 
- http.onreadystatechange = function() {
-//console.log( this.status);
-    if (this.readyState == 4 && this.status == 200) {
-       // Typical action to be performed when the document is ready:
-//localStorage.setItem("ads", http.responseText);
-ads = http.responseText;
-
-ads = JSON.parse(ads);
+//ads = JSON.parse(adsJson);
+ads = adsJson;
 
 if(ads != null){
 const random = Math.floor(Math.random() * ads.length);
@@ -59,15 +52,8 @@ adsPrint  += '<div class="post brand  border4List">'+ads[index]['text']+' <a tar
 }
 
 }
-if(this.status == 404){
-document.getElementById(idAds).innerHTML = 'ads 404'
-}
-}
-http.open("GET", "/data/ads.json", true);
-http.send();
 
 
-}
 
 
 // Google Analytics 
