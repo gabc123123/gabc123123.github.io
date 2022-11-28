@@ -67,16 +67,12 @@ var http = new XMLHttpRequest();
 http.overrideMimeType("application/json");
 
  http.onreadystatechange = function() {
-	 console.log( this.status);
+// console.log( this.status);
     if (this.readyState == 4 && this.status == 200) {
        // Typical action to be performed when the document is ready:
 //localStorage.setItem("quote", http.responseText);
 quote = http.responseText;
-
-
-
 quote = JSON.parse(quote);
-
 
 if(quote != null){
 const random = Math.floor(Math.random() * quote.length);
@@ -186,7 +182,7 @@ let text = '';
 
 text = letters.join("");
 
-console.log(letters);
+//console.log(letters);
 var a = {
 "`":"'", "·":"*", "•":"*", "›":">",
 "’":"'", "—":"-", "«":'"', "»":'"',
@@ -233,7 +229,7 @@ letters = letters.replace(/%C2%A0/g, " ");
 
 //letters = letters.replace(/\s{2,}/g, ' ');
 
-console.log([...letters]);
+//console.log([...letters]);
 
 
 

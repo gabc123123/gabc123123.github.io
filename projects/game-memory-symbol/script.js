@@ -373,7 +373,7 @@ drawResult(arrInputHistoryPrint.slice(-5), maintl, 'inputHistory'); // enable di
 
 com = '';
 
-console.log(msStap);
+//console.log(msStap);
 msStap++;
 msCom = '';
 }
