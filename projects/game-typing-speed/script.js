@@ -1,4 +1,4 @@
-// v.3.7.9
+// v.3.7.11
 
 
 
@@ -6,7 +6,13 @@
 
 function mainAll(mode33){
 
+document.getElementById("win").innerHTML = ``;
+document.getElementById("win2").innerHTML = ``;
+document.getElementById("stat").innerHTML = `stat`;
+document.getElementById("countSymbolTask").innerHTML = `count symbol`;
+
 document.getElementById('text').value = '';
+
 var task = '';
 var  geturl = window.location;
 var url = new URL(geturl);
@@ -37,10 +43,13 @@ var modeListPrint = '';
 modeList.forEach(FunctionModeList);
 function FunctionModeList(item, index) {
 if(mode == item){
-modeListPrint += `<a class="tag light border2" style="color: var(--c3);">`+item+`</a>`+`
+modeListPrint += `
+<a class="tag light border2" style="color: var(--c3);">`+item+`</a>
 `;
 }else{
-modeListPrint += `<a class="tag op light border2" href="#" onclick="modeGet('`+item+`');">`+item+`</a>`;
+modeListPrint += `
+<a class="tag op light border2" href="#" onclick="modeGet('`+item+`');">`+item+`</a>
+`;
 }
 }
 document.getElementById("mode").innerHTML = modeListPrint;
@@ -476,7 +485,7 @@ if(lastMaxInputlength == answerArr.length){ totalError++; } // only last new err
 lastEror = 'none';
 document.getElementById("text").style.borderTop = "9px solid var(--red)";
 if(error <= 60){
-//document.getElementById("sound").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/error.mp3">'; 
+//document.getElementById("sound").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/error.ogg">'; 
 }
 
 }else{
@@ -573,7 +582,7 @@ let winMsg = '<div class="button light border2" style="text-align: center; width
 
 document.getElementsByClassName("win")[0].innerHTML = winMsg;
 document.getElementsByClassName("win")[1].innerHTML = winMsg;
-document.getElementById("sound").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/ok.mp3">';
+document.getElementById("sound").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/ok.ogg">';
 }else {
 document.getElementsByClassName("win")[0].innerHTML = '';
 document.getElementsByClassName("win")[1].innerHTML = '';

@@ -315,8 +315,8 @@ url = urlList[random];
 if(q == ''){
 urlList = [
 "https://slashdot.org/",
-"https://news.ycombinator.com/",
 "https://flipboard.com/topic/technology",
+"https://news.ycombinator.com/",
 "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGRqTVhZU0FtVnVHZ0pWVXlnQVAB",
 "https://www.bing.com/news/search?q=Sci/Tech",
 "https://getpocket.com/explore/technology",

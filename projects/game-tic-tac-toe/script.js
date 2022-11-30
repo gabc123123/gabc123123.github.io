@@ -95,7 +95,7 @@ if(check == ''){
 
 
 if(playArr[clickedId] != ''){
-document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/error.mp3" id="bgAudio">';
+document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/error.ogg" id="bgAudio">';
 error = true;
 }
 
@@ -108,7 +108,7 @@ error = true;
 if(check == ''){
 
 if(playArr[clickedId] == ''){
-document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/click.mp3" id="bgAudio">';
+document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/click.ogg" id="bgAudio">';
 playArr[clickedId] = tttPlayerSymbol;
 winCheck(playArr, tttPlayerSymbol);
 }
@@ -248,18 +248,18 @@ return winCheck2;
 
 
 if(winCheck(playArr, tttPlayerSymbol) == 'win'){
-document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/win.mp3" id="bgAudio">';
+document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/win.ogg" id="bgAudio">';
 document.getElementById('win').innerHTML = '<span class="orange">'+tttPlayerName+' Win!!!</span>';
 }
 
 if(winCheck(playArr, tttPlayer2Symbol) == 'win'){
-document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/game-over.mp3" id="bgAudio">';
+document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/game-over.ogg" id="bgAudio">';
 document.getElementById('win').innerHTML = '<span class="red">Game Over!!!</span>';
 }
 
 
 if(winCheck(playArr, tttPlayerSymbol) == 'tie'&&check != 'ok'||winCheck(playArr, tttPlayer2Symbol) == 'tie'){
-document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/ok.mp3" id="bgAudio">';
+document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/ok.ogg" id="bgAudio">';
 document.getElementById('win').innerHTML = '<span class="">Tie!!!</span>';
 }
 

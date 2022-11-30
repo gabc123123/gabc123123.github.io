@@ -1,16 +1,17 @@
-// v.1.2.5
+// v.1.2.6
 
 function insertIcon(id){
 
 let icons = {
 "bird":"🐦", "twitter":"🐦",
-"blog":"📝",
+"blog":"📝", "todo":"📝", "task":"📝", "note":"📝", "reminde":"📝", "paper":"📝",
 "cut":"✂️",
 "clock":"🕑",
 "cofee":"☕",
 "comment":"💬","talk":"💬","chat":"💬",
 "css":"🖥️", "php":"🖥️", "java":"🖥️", "code":"🖥️", "unicorn":"🦄",
 "db":"💾", "data":"💾", "database":"💾", "keep":"💾", "save":"💾", 
+"document":"📄", "page":"📄",
 "draw":"✏️",
 "game":"🎮",
 "geany":"🫖",
@@ -61,7 +62,7 @@ let icArr = [];
 iconsArr.forEach((item) => {
 let textIcon = item;
 let icon = icons[textIcon];
-if(linkText.toLowerCase().search(textIcon) != -1){
+if(linkText.toLowerCase().search(textIcon) != -1&&linkText.toLowerCase().search(icon) == -1){
 icArr.push(icon);
 check = 'exit';
 }
