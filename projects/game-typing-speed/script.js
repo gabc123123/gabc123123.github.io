@@ -193,7 +193,7 @@ return a[char] || char;
 }).join("");
 }
 
-if(mode == 'abc'){ text = text.replace(/\s{2,}/g, ' '); /* rm 2 space */ }
+if(mode == 'abc'){ text = text.replace(/\s{2,}/g, ' '); /* space */ }
 
 letters = encodeURIComponent(text);
 

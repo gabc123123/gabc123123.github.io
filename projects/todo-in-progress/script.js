@@ -1,4 +1,4 @@
-// v.1.0.0
+// v.1.0.1
 
 
 
@@ -6,21 +6,32 @@
 var print = '';
 var com = '';
 var text = ''
+var status = '';
 
-function comGet(command, id, title){
-com = command;
-title = title;
-id = id;
-if(com == ''||com == undefined){ com = 'show'; text = ''; id = 0; }
-}
+/*function comGet(com2, id2, title2, status2){
+com = com2;
+id = id2;
+title = title2;
+status = status2;
+if(com == ''||com == undefined){ com = 'show'; text = ''; id = 0; status = ''; }
+}*/
 
 
 //alert(com);
 
-function runDb(command, id, title){
+function runDb(com3, id3, title3, status3){
 print = '';
+//document.getElementById("result").innerHTML = '';  // clear
 
-comGet(command, id, title);
+//comGet(com3, id3, title3, status3);
+
+com = com3;
+id = id3;
+title = title3;
+status = status3;
+if(com == ''||com == undefined){ com = 'show'; text = ''; id = 0; status = ''; }
+
+
 
 
 
@@ -252,25 +263,28 @@ runDb('show', '', '');
 
 
 
-if(com == 'update'){
 
+
+
+
+if(com == 'done'){
+console.log('done test: '+id+status);
 request.onsuccess = (event) => {
 const db = event.target.result;
 
 const transaction = db.transaction([tableName], 'readwrite');
 const objectStore = transaction.objectStore(tableName);
 
-print = '';
 
 // save me
 
 objectStore.openCursor().onsuccess = function(event) { 
-var cursor = event.target.result;  
+var cursor = event.target.result;  console.log(id, status);
 if (cursor) {  
 if(cursor.key == id){
 
 const updateData = cursor.value;
-cursor.value.title = text;
+cursor.value.text = status;
 const request = cursor.update(updateData);
 request.onsuccess = () => {
 console.log('updated');
@@ -278,26 +292,32 @@ console.log('updated');
 };
 
 
-console.log('cur key: '+cursor.key);
-console.dir('cur value: '+cursor.value.title);
+//console.log('cur key: '+cursor.key);
+//console.dir('cur value: '+cursor.value.title);
 
-print += `<div class="post border3List light2">
-${cursor.key}
-${cursor.value.title}
-<a class="tag border2 light" href="#" onclick="runDb('del', '`+cursor.key+`', '')">x</a>
-</div>`;
 
 cursor.continue();  
 			  }  
 			  else {  
-			  	console.log("Done with cursor");
-document.getElementById('result').innerHTML = print;
+			  	console.log("Done end");
+
 			  }  
+
+
 			};  
+
+
+transaction.oncomplete = (event) => {
+console.log("transaction.oncomplete");
+runDb('show', '')
+};
 
 };
 
 }
+
+
+
 
 
 
@@ -321,18 +341,33 @@ console.dir('cur value: '+cursor.value.title);
 
 let idPrint = cursor.key;
 let titlePrint = decodeURIComponent(cursor.value.title);
+let statusPrint = decodeURIComponent(cursor.value.text);
 
+let printTmp = '';
+if(statusPrint == 'done'){
+printTmp = `
+<span class="pre"><input class="checkbox op" checked="checked" type="checkbox"  name="" value="undone" onclick="runDb('done', '`+idPrint+`', '', 'undone')"> <span style="text-decoration: line-through;">${idPrint} ${titlePrint}</span></span>
+`;
+}else{
+printTmp = `
+<span class="pre"><input class="checkbox op" type="checkbox"  name="" value="done" onclick="runDb('done', '`+idPrint+`', '', 'done')"> ${idPrint} ${titlePrint}</span>
+`;
+}
+print += `
 
-print += `<div class="post border3List light2">
-${idPrint}
-${titlePrint}
+<div class="post border3List light2">
+${printTmp}
+<div class="postTime">
 <a class="tag border2 light" href="#" onclick="runDb('del', '`+cursor.key+`')" title="runDb('remove', '`+cursor.key+`')">x</a>
-</div>`;
 
+</div>
+</div>
+
+`;
 cursor.continue();  
 			  }  
 			  else {  
-			  	console.log("Done with cursor");
+			  	console.log("show end Done with cursor");
 document.getElementById('result').innerHTML = print;
 			  }  
 			};  
@@ -341,16 +376,17 @@ document.getElementById('result').innerHTML = print;
 
 }
 
+
 }
 
 
-runDb('', '')
+runDb('', '');
 
 print2 = `
 
 
 <form>
-<input id="inputId" class="padding" type="search" name="q" autofocus="" autocomplete="off" placeholder=" task">
+<input id="inputTask" class="padding" type="search" name="q" autofocus="" autocomplete="off" placeholder=" task">
 </form>
 
 <div id="option"></div>
@@ -368,11 +404,11 @@ textInput = encodeURIComponent(textInput);
 
 if(textInput != null&&textInput != "null"&&textInput != ''){
 runDb('add', '', textInput);
+window.location.href = './#stopRepeatSubmit';
 }
 
-function submitLink(){
-document.getElementById('result2').innerHTML = print2;
 
+document.getElementById('result2').innerHTML = print2;
 var inputA = document.querySelectorAll('input')[0];
 inputA.addEventListener('input', updateValueIn);
 
@@ -380,21 +416,19 @@ function updateValueIn(e) {
 let textInput= encodeURIComponent(e.target.value);
 
 var a = `
-<a class="block tCenter padding light border2" href="#" onclick="runDb('add', '', '`+textInput+`')">add</a>
+<a class="block tCenter padding light border3List" href="#" onclick="submitLink('`+textInput+`')">submit</a>
 `;
 
 document.getElementById("option").innerHTML = a; 
-
-
-
-
-
 }
 
 
 
+
+function submitLink(textInput){
+runDb('add', '', textInput);
+document.getElementById("inputTask").value = '';
 }
-submitLink();
 
 
 
