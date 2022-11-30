@@ -41,21 +41,21 @@ var pc2 = diceKeyArr[rand2];
 var win = '';
 if(player2 > pc2){
 win = '<span class="orange"><h1>Player Win!!!</h1></span>';
-win += '<audio style="display:none" autoplay="false" src="/audio/ok.mp3">';
+win += '<audio style="display:none" autoplay="false" src="/audio/ok.ogg">';
 colorPlayerWin = 'green';
 colorPcWin = '';
 pointsPlayer++;
 }
 if(player2 < pc2){
 win = '<span class="red"><h1>PC Win!!!</h1></span>';
-win += '<audio style="display:none" autoplay="false" src="/audio/error.mp3">';
+win += '<audio style="display:none" autoplay="false" src="/audio/error.ogg">';
 colorPlayerWin = '';
 colorPcWin = 'green';
 pointsPc++;
 }
 if(player2 == pc2){
 win = '<span class=""><h1>Tie!!!</h1></span>';
-win += '<audio style="display:none" autoplay="false" src="/audio/neutral.mp3">';
+win += '<audio style="display:none" autoplay="false" src="/audio/neutral.ogg">';
 colorPlayerWin = 'green';
 colorPcWin = 'green';
 }
