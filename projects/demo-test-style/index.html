@@ -565,11 +565,18 @@ table
 
 
 <div class="wrapper" style="margin: 0 auto;">
-	
-<form action="/" method="GET">
+
+<div id="result" class="post"></div>
+<script>
+document.getElementById("result").innerHTML = '<span class="op">window.location: </span>'+decodeURIComponent(window.location);
+</script>
+
+<form action="#result" method="GET">
 <input class="padding" type="text" name="q" placeholder="input">
 <textarea class="padding" name="text" rows="3"  placeholder="textarea"></textarea>
 <input type="hidden" name="h" value="hidden value">
+<input type="date" name="date">
+<input type="time" name="time">
 <input name="submit" type="submit" value="submit">
 </form>
 

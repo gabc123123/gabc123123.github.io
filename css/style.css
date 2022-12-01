@@ -1,4 +1,4 @@
-/* v.12.17.6 */
+/* v.12.17.7 */
 
 :root{
 --bodyP: 2vw;
@@ -393,7 +393,7 @@ div, input, textarea, img { box-sizing: border-box; }
 .pre{ white-space: pre-wrap; word-wrap: break-word; line-height: normal; }
 
 button { cursor: pointer; }
-select{ max-width:130px; min-height:15px; }
+select, input[type="date"], input[type="time"]{ min-width: 130px; max-width:130px; min-height:15px; display: inline-block; }
 /*textarea:focus {outline: none !important;}*/
 form { margin: 0 auto; padding: 0; width: 100%; }
 /*br, hr { clear: both !important; }*/

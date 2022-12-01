@@ -36,11 +36,12 @@ if(com == ''||com == undefined){ com = 'show'; text = ''; id = 0; status = ''; }
 
 
 let dbName = 'db';
-let tableName = 'toDo';
+let dbVersion = 1;
+let tableName = 'todo-list';
 
 // This is what our customer data looks like.
 var data = [
-  { title: "title", text: "text", url: "url"  }
+  { title:"title", text:"text", url:"url", tag:"tiag", time:"time", time2:"time2"  }
 ];
 
 
@@ -48,11 +49,27 @@ var data = [
 
 
 let db;
-const request = indexedDB.open(dbName, 1);
+const request = indexedDB.open(dbName, dbVersion);
 
 
 request.onerror = (event) => {
   console.log("request.onerror = (event)");
+console.log(event.target);
+
+
+// https://stackoverflow.com/questions/15861630/how-can-i-remove-a-whole-indexeddb-database-from-javascript
+var req = indexedDB.deleteDatabase(dbName);
+req.onsuccess = function () {
+    console.log("Deleted database successfully");
+};
+req.onerror = function () {
+    console.log("Couldn't delete database");
+};
+req.onblocked = function () {
+    console.log("Couldn't delete database due to the operation being blocked");
+};
+
+
 };
 
 
@@ -63,6 +80,8 @@ request.onerror = (event) => {
 
 request.onupgradeneeded = (event) => {
 
+
+
 const db = event.target.result;
 
 
@@ -71,6 +90,9 @@ const objectStore = db.createObjectStore(tableName, { autoIncrement : true });
   objectStore.createIndex("title", "title", { unique: false });
   objectStore.createIndex("text", "text", { unique: false });
   objectStore.createIndex("url", "url", { unique: false });
+  objectStore.createIndex("tag", "tag", { unique: false });
+  objectStore.createIndex("time", "time", { unique: false });
+  objectStore.createIndex("time2", "time2", { unique: false });
 
   // Use transaction oncomplete to make sure the objectStore creation is
   // finished before adding data into it.
@@ -93,6 +115,55 @@ console.log("objectStore = db.createObjectStore");
 
 
 };
+
+
+
+
+
+if(com == "clear"){
+
+
+
+request.onsuccess = (event) => {
+console.log("request.onsuccess = (event)");
+const db = event.target.result;
+
+// https://developer.mozilla.org/docs/Web/API/IDBObjectStore/clear
+ const transaction = db.transaction([tableName], "readwrite");
+
+  // report on the success of the transaction completing, when everything is done
+  transaction.oncomplete = (event) => {
+   // note.innerHTML += '<li>Transaction completed.</li>';
+runDb('show', '', '');
+  };
+
+  transaction.onerror = (event) => {
+    note.innerHTML += `<li>Transaction not opened due to error: ${transaction.error}</li>`;
+  };
+
+  // create an object store on the transaction
+  const objectStore = transaction.objectStore(tableName);
+
+  // Make a request to clear all the data out of the object store
+  const objectStoreRequest = objectStore.clear();
+
+  objectStoreRequest.onsuccess = (event) => {
+    // report the success of our request
+    //note.innerHTML += '<li>Request successful.</li>';
+runDb('show', '', '');
+  };
+
+
+
+};
+}
+
+
+
+
+
+
+
 
 if(com == "add"){
 
@@ -139,86 +210,6 @@ transaction.onerror = (event) => {
 }
 
 
-
-/*
-if(com == "remove"){
-
-// test for add
-data = [
-  { title: ''+title+'', text: "", url: ""  }
-];
-
-request.onsuccess = (event) => {
-console.log("request.onsuccess = (event)");
-const db = event.target.result;
-
-
-db.onerror = (event) => {
-  console.error(`Database error: ${event.target.errorCode}`);
-};
-
-
-const transaction = db.transaction([tableName], "readwrite");
-const objectStore = transaction.objectStore(tableName);
-data.forEach((tableName) => {
-  const request = objectStore.remove(tableName);
-  request.onsuccess = (event) => {
-    // event.target.result === customer.ssn;
-console.log('data remove');
-runDb('show', '', '');
-  };
-});
-
-
-transaction.oncomplete = (event) => {
-  console.log("transaction.oncomplete");
-};
-
-
-transaction.onerror = (event) => {
-  // Don't forget to handle errors!
-  console.log("transaction.onerror");
-};
-
-
-
-};
-}*/
-
-
-
-/*
-if(com == 'del'){
-
-
-request.onsuccess = (event) => {
-const db = event.target.result;
-
-
-btnDelete.addEventListener("click", function() {
-      var id, transaction, objectStore, request;
-
-
-
-      transaction = db.transaction(dbName, "readwrite");
-      objectStore = transaction.objectStore(tableName);
-      request = objectStore.delete(text);
-      request.onsuccess = function(evt) {
-        console.log("deleted content");
-runDb('show', '')
-      };
-    }, false);
-
-
-
-
-
-print = '';
-
-}
-}
-
-*/
 if(com == 'del'){
 
 request.onsuccess = (event) => {
@@ -347,8 +338,13 @@ runDb('show', '')
 
 if(com == 'show'||com == 'edit'){
 
+
 request.onsuccess = (event) => {
 const db = event.target.result;
+
+
+
+
 
 const transaction = db.transaction([tableName], 'readonly');
 const objectStore = transaction.objectStore(tableName);
@@ -444,7 +440,7 @@ print2 = `
 
 <div id="option"></div>
 
-
+<a class="block op border2 light padding tCenter" style="margin-top: 50px;" href="#" onclick="runDb('clear')">clear</a>
 `;
 
 
@@ -464,9 +460,10 @@ if(textInput != null&&textInput != "null"&&textInput != ''){
 if(comInput == 'edit'){ comInput = 'update'; }
 runDb(comInput, idInput, textInput);
 
-//window.location.href = '?#stopRepeatSubmit';
+
 
 }
+window.location.href = '?#stopRepeatSubmit';
 }
 
 document.getElementById('result2').innerHTML = print2;
