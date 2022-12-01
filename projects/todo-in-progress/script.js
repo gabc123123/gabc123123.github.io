@@ -1,4 +1,4 @@
-// v.1.0.2
+// v.1.0.3
 
 
 
@@ -237,25 +237,16 @@ if (cursor) {
 if(cursor.key == id){
 cursor.delete();
 }
-console.log('cur key: '+cursor.key);
-console.dir('cur value: '+cursor.value.title);
-
-/*print += `<div class="post border3List light2">
-${cursor.key}
-${cursor.value.title}
-<a class="tag border2 light" href="#" onclick="runDb('del', '`+cursor.key+`')" title="runDb('remove', '`+cursor.key+`')">x</a>
-<a class="tag border2 light" href="#" onclick="runDb('edit', '`+cursor.key+`')" title="runDb('remove', '`+cursor.key+`')">edit</a>
-</div>`;*/
-
+//console.log('cur key: '+cursor.key);
+//console.dir('cur value: '+cursor.value.title);
 
 cursor.continue();  
-			  }  
-			  else {  
-			  	console.log("Done with cursor");
-
+}  
+else {  
+console.log("Done with cursor");
 runDb('show', '', '');
-			  }  
-			};  
+}  
+};  
 
 };
 
@@ -268,7 +259,7 @@ runDb('show', '', '');
 
 
 if(com == 'done'){
-console.log('done test: '+id+status);
+console.log('start done: '+id+status);
 request.onsuccess = (event) => {
 const db = event.target.result;
 
@@ -291,21 +282,14 @@ console.log('updated');
 };
 };
 
-
 //console.log('cur key: '+cursor.key);
 //console.dir('cur value: '+cursor.value.title);
-
-
 cursor.continue();  
-			  }  
-			  else {  
-			  	console.log("Done end");
-
-			  }  
-
-
-			};  
-
+}  
+else {  
+console.log("Done end");
+}  
+};  
 
 transaction.oncomplete = (event) => {
 console.log("transaction.oncomplete");
@@ -318,10 +302,50 @@ runDb('show', '')
 
 
 
+if(com == 'update'){
+console.log('[ start update: '+id+status+' ]');
+request.onsuccess = (event) => {
+const db = event.target.result;
+
+const transaction = db.transaction([tableName], 'readwrite');
+const objectStore = transaction.objectStore(tableName);
 
 
+// save me
 
-if(com == 'show'){
+objectStore.openCursor().onsuccess = function(event) { 
+var cursor = event.target.result;  console.log(id, status);
+if (cursor) {  
+if(cursor.key == id){
+
+const updateData = cursor.value;
+cursor.value.title = title;
+const request = cursor.update(updateData);
+request.onsuccess = () => {
+console.log('updated');
+};
+};
+
+//console.log('cur key: '+cursor.key);
+//console.dir('cur value: '+cursor.value.title);
+cursor.continue();  
+} 
+else {
+console.log("[ not cursor, done ]");
+}  
+};  
+
+transaction.oncomplete = (event) => {
+console.log("[ transaction.oncomplete ]");
+runDb('show', '')
+};
+
+};
+
+}
+
+
+if(com == 'show'||com == 'edit'){
 
 request.onsuccess = (event) => {
 const db = event.target.result;
@@ -335,44 +359,72 @@ print = '';
 
 objectStore.openCursor().onsuccess = function(event) {  
 var cursor = event.target.result;  
-if (cursor) {  
-console.log('cur key: '+cursor.key);
-console.dir('cur value: '+cursor.value.title);
+if (cursor) { 
+//console.log('cur key: '+cursor.key);
+//console.dir('cur value: '+cursor.value.title);
 
 let idPrint = cursor.key;
 let titlePrint = decodeURIComponent(cursor.value.title);
 let statusPrint = decodeURIComponent(cursor.value.text);
 
+var textInputE = '';
+let editPrint = '';
+if(com == 'edit'&&id == idPrint){
+editPrint = `<form style="margin: 10px 0;"><input id="inputTaskUp" class="padding" type="text" name="q" autofocus="autofocus" autocomplete="off" placeholder=" task" value="${titlePrint}" ><input type="hidden" name="com" value="edit"><input type="hidden" name="id" value="${idPrint}"><input type="submit"></form><div id="optionLinkUp"></div>`;
+}else{
+//editPrint = `<span onclick="runDb('edit', '`+idPrint+`', '', '')">${titlePrint}</span>`;
+editPrint = `<span>${titlePrint}</span>`;
+}
+
+
+// show  & edit
 let printTmp = '';
 if(statusPrint == 'done'){
 printTmp = `
-<span class="pre"><input class="checkbox op" checked="checked" type="checkbox"  name="" value="undone" onclick="runDb('done', '`+idPrint+`', '', 'undone')"> <span class="op" style="text-decoration: line-through;">${idPrint} ${titlePrint}</span></span>
+<div class="op">${idPrint}</div>
+<div><span class="pre"><input class="checkbox op" checked="checked" type="checkbox"  name="" value="undone" onclick="runDb('done', '`+idPrint+`', '', 'undone')"><span class="op" style="text-decoration: line-through;"> ${editPrint}</span></span></div>
 `;
 }else{
 printTmp = `
-<span class="pre"><input class="checkbox op" type="checkbox"  name="" value="done" onclick="runDb('done', '`+idPrint+`', '', 'done')"> ${idPrint} ${titlePrint}</span>
+<div class="op">${idPrint}</div>
+<div><span class="pre"><input class="checkbox op" type="checkbox"  name="" value="done" onclick="runDb('done', '`+idPrint+`', '', 'done')"> ${editPrint}</span></div>
 `;
 }
 print += `
 
-<div class="post border3List light2">
+<div class="post border3List light2 task">
+
 ${printTmp}
-<div class="postTime">
+
+<div>
+<span style="float:right">
+<a class="tag border2 light" href="#" onclick="runDb('edit', '`+cursor.key+`')" title="runDb('edit', '`+cursor.key+`')">e</a>
 <a class="tag border2 light" href="#" onclick="runDb('del', '`+cursor.key+`')" title="runDb('remove', '`+cursor.key+`')">x</a>
+</span>
+</div>
 
 </div>
-</div>
+
 
 `;
 cursor.continue();  
 			  }  
 			  else {  
-			  	console.log("show end Done with cursor");
+			  	console.log("[ show end Done with cursor ]");
 document.getElementById('result').innerHTML = print;
+
+
+
+
+}
+
+
 			  }  
 			};  
 
-};
+
+
+
 
 }
 
@@ -387,6 +439,7 @@ print2 = `
 
 <form>
 <input id="inputTask" class="padding" type="search" name="q" autofocus="" autocomplete="off" placeholder=" task">
+<input type="hidden" name="com" value="add">
 </form>
 
 <div id="option"></div>
@@ -399,14 +452,22 @@ print2 = `
 var geturl = window.location;
 var url = new URL(geturl);
 var textInput = url.searchParams.get("q");
+var comInput = url.searchParams.get("com");
+var idInput = url.searchParams.get("id");
+
+if(comInput == 'add'||comInput == 'edit'){
 textInput = decodeURIComponent(textInput);
 textInput = encodeURIComponent(textInput);
 
 if(textInput != null&&textInput != "null"&&textInput != ''){
-runDb('add', '', textInput);
-window.location.href = '?#stopRepeatSubmit';
-}
 
+if(comInput == 'edit'){ comInput = 'update'; }
+runDb(comInput, idInput, textInput);
+
+//window.location.href = '?#stopRepeatSubmit';
+
+}
+}
 
 document.getElementById('result2').innerHTML = print2;
 var inputA = document.querySelectorAll('input')[0];
@@ -430,6 +491,27 @@ runDb('add', '', textInput);
 document.getElementById("inputTask").value = '';
 }
 
+document.getElementById('result2').innerHTML = print2;
+var inputA = document.querySelectorAll('input')[0];
+inputA.addEventListener('input', updateValueIn);
+
+function updateValueIn(e) {
+let textInput= encodeURIComponent(e.target.value);
+
+var a = `
+<a class="block tCenter padding light border3List" href="#" onclick="submitLink('`+textInput+`')">submit</a>
+`;
+
+document.getElementById("option").innerHTML = a; 
+}
+
+
+
+
+function submitLinkEdit(comInput, idInput, textInput){
+runDb('upadate', idInput, textInput);
+document.getElementById("inputTaskEdit").value = '';
+}
 
 
 

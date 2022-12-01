@@ -3,3 +3,15 @@
 
 
 .checkbox { display: inline-block; }
+
+.task {
+display: grid;
+grid-template-columns: 5% 75% 20%;
+grid-gap: 0px;
+margin: 0 auto;
+justify-content: center;
+
+max-width: 100%;
+}
+
+
