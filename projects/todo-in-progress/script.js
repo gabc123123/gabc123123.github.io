@@ -1,4 +1,4 @@
-// v.1.0.1
+// v.1.0.2
 
 
 
@@ -346,7 +346,7 @@ let statusPrint = decodeURIComponent(cursor.value.text);
 let printTmp = '';
 if(statusPrint == 'done'){
 printTmp = `
-<span class="pre"><input class="checkbox op" checked="checked" type="checkbox"  name="" value="undone" onclick="runDb('done', '`+idPrint+`', '', 'undone')"> <span style="text-decoration: line-through;">${idPrint} ${titlePrint}</span></span>
+<span class="pre"><input class="checkbox op" checked="checked" type="checkbox"  name="" value="undone" onclick="runDb('done', '`+idPrint+`', '', 'undone')"> <span class="op" style="text-decoration: line-through;">${idPrint} ${titlePrint}</span></span>
 `;
 }else{
 printTmp = `
@@ -391,7 +391,7 @@ print2 = `
 
 <div id="option"></div>
 
-</div>
+
 `;
 
 
@@ -404,7 +404,7 @@ textInput = encodeURIComponent(textInput);
 
 if(textInput != null&&textInput != "null"&&textInput != ''){
 runDb('add', '', textInput);
-window.location.href = './#stopRepeatSubmit';
+window.location.href = '?#stopRepeatSubmit';
 }
 
 

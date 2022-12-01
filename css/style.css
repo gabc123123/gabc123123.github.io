@@ -1,4 +1,4 @@
-/* v.12.17.5 */
+/* v.12.17.6 */
 
 :root{
 --bodyP: 2vw;
@@ -76,7 +76,7 @@ margin-top: 2px;
 margin-bottom: 0;
 padding: 5px;
 }
-
+input[type=checkbox]{ cursor: pointer; }
 textarea { outline-color:transparent; outline-style:none; }
 input[type=submit] { cursor:pointer;  }
 input:focus{ outline: none }
@@ -96,7 +96,7 @@ td { padding: 5px; }
 .wrapper4 {  max-width: var(--wrapper4);  }
 .wrapperL {  max-width: var(--wrapperL);  }
 
-.op { opacity: 0.75; } 
+.op { opacity: 0.65; } 
 .op:hover { opacity: 1; }
 .op2 { opacity: 0.03; }
 .op2:hover { opacity: 1; }

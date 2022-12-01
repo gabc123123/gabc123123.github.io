@@ -1,4 +1,4 @@
-// v.3.7.11
+// v.3.7.12
 
 
 
@@ -94,7 +94,7 @@ main(task);
 }
 
 if(mode == 'input'){
-document.getElementsByClassName("input")[0].innerHTML = '<div class="wrapper"><form actiion="index.html"><textarea rows="2" name="q" placeholder=" input text for task"></textarea><input type="submit"></form></div><br /><br />';
+document.getElementsByClassName("input")[0].innerHTML = '<div class="wrapper"><form ><textarea rows="2" name="q" placeholder=" input text for task"></textarea><input type="submit"></form></div><br /><br />';
 }
 
 
