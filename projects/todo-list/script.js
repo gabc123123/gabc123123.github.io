@@ -1,4 +1,4 @@
-// v.1.0.7
+// v.1.0.8
 
 
 
@@ -477,31 +477,15 @@ var a = `
 <a class="block tCenter padding light border3List" href="#" onclick="submitLink('`+textInput+`')">submit</a>
 `;
 
-document.getElementById("option").innerHTML = a; 
+document.getElementById("option").innerHTML = a;
 }
-
-
 
 
 function submitLink(textInput){
 runDb('add', '', textInput);
 document.getElementById("inputTask").value = '';
+document.getElementById("option").innerHTML = '';
 }
-
-document.getElementById('result2').innerHTML = print2;
-var inputA = document.querySelectorAll('input')[0];
-inputA.addEventListener('input', updateValueIn);
-
-function updateValueIn(e) {
-let textInput= encodeURIComponent(e.target.value);
-
-var a = `
-<a class="block tCenter padding light border3List" href="#" onclick="submitLink('`+textInput+`')">submit</a>
-`;
-
-document.getElementById("option").innerHTML = a; 
-}
-
 
 function submitLinkEdit(){
 idInput = document.getElementById('idInputE').value;
@@ -516,13 +500,4 @@ runDb('update', idInput, textInput);
 
 
 
-/*document.getElementById("editor").addEventListener("input", function() {
-textInputE = document.getElementById('editor').value;
-var a2 = `
-<a class="block tCenter padding light border3List" href="#" onclick="submitLinkEdit('', '`+idPrint+`', '`+textInputE+`')">submit</a>
-`;
-
-document.getElementById("option2").innerHTML = a2; 
-
-}, false);*/
 

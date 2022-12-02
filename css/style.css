@@ -393,7 +393,7 @@ h1, h2, h3, h4, h5, h6 { word-break: break-all; }
 div, input, textarea, img { box-sizing: border-box; }
 
 .sup { vertical-align: super; vertical-align: top; font-weight: bold; }
-.pre{ white-space: pre-wrap; word-wrap: break-word; line-height: normal; }
+.pre{ white-space: pre-wrap; /*word-wrap: break-word;*/ word-break: break-all; line-height: normal; }
 
 button { cursor: pointer; }
 select, input[type="date"], input[type="time"]{ min-width: 130px; max-width:130px; min-height:15px; display: inline-block; }
