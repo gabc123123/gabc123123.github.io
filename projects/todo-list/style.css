@@ -1,7 +1,7 @@
 /* v.1.1.0 */
 
 
-.checkbox { display: inline-block; margin: 0; margin-right: 7px; }
+.checkbox { display: inline-block; margin-right: 7px !important; }
 
 
 .task {
