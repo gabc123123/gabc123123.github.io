@@ -469,7 +469,7 @@ textInput = encodeURIComponent(textInput);
 if(textInput != null&&textInput != "null"&&textInput != ''){
 
 if(comInput == 'edit'){ comInput = 'update'; }
-runDb('update', idInput, textInput);
+runDb(comInput, idInput, textInput);
 
 
 window.location.href = '?#stopRepeatSubmit';
