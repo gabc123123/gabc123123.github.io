@@ -374,7 +374,7 @@ let statusPrint = decodeURIComponent(cursor.value.data);
 var textInputE = '';
 let editPrint = '';
 if(com == 'edit'&&id == idPrint){
-editPrint = `<div class="block"><form style="margin: 10px 0;"><input id="inputTaskUp" class="padding" type="text" name="q" autofocus="autofocus" autocomplete="off" placeholder=" task" value="${titlePrint}" ><input type="hidden" name="com" value="edit"><input type="hidden" name="id" value="${idPrint}"><input type="submit"></form></div>`;
+editPrint = `<form style="margin: 10px 0;"><input id="inputTaskUp" class="padding" type="text" name="q" autofocus="autofocus" autocomplete="off" placeholder=" task" value="${titlePrint}"><input type="hidden" name="com" value="edit"><input type="hidden" name="id" value="${idPrint}"><input type="submit"></form>`;
 }else{
 //editPrint = `<span onclick="runDb('edit', '`+idPrint+`', '', '')">${titlePrint}</span>`;
 editPrint = `<span>${titlePrint}</span>`;
@@ -456,7 +456,6 @@ print2 = `
 `;
 
 
-
 var geturl = window.location;
 var url = new URL(geturl);
 var textInput = url.searchParams.get("q");
@@ -470,12 +469,12 @@ textInput = encodeURIComponent(textInput);
 if(textInput != null&&textInput != "null"&&textInput != ''){
 
 if(comInput == 'edit'){ comInput = 'update'; }
-runDb(comInput, idInput, textInput);
+runDb('update', idInput, textInput);
 
 
-
-}
 window.location.href = '?#stopRepeatSubmit';
+}
+
 }
 
 document.getElementById('result2').innerHTML = print2;
@@ -519,7 +518,7 @@ document.getElementById("option").innerHTML = a;
 
 function submitLinkEdit(comInput, idInput, textInput){
 runDb('upadate', idInput, textInput);
-document.getElementById("inputTaskEdit").value = '';
+//document.getElementById("inputTaskEdit").value = '';
 }
 
 
