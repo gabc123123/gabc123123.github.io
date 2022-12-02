@@ -1,4 +1,4 @@
-/* v.1.0.5 */
+/* v.1.1.0 */
 
 
 .checkbox { display: inline-block; margin: 0; margin-right: 7px; }
@@ -30,7 +30,7 @@ overflow: auto;
 
 @media(max-width: 240px) {
 .task {
-grid-template-columns: 1fr;
+grid-template-columns: 100%;
 }
 }
 

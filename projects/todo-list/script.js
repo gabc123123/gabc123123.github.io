@@ -389,14 +389,14 @@ printTmp = `<div class="op xsmall">${idPrint}</div>
 <div class="flex"><div class="pre op block" style="text-decoration: line-through;"><input class="checkbox op" checked="checked" type="checkbox"  name="" value="undone" onclick="runDb('done', '`+idPrint+`', '', 'undone')">${editPrint}</div></div>`;
 }else{
 printTmp = `<div class="op xsmall">${idPrint}</div>
-<div class="flex"><div class="pre block wrapperTv"><input class="checkbox op" type="checkbox"  name="" value="done" onclick="runDb('done', '`+idPrint+`', '', 'done')">${editPrint}</div></div>`;
+<div class="flex"><div class="pre block"><input class="checkbox op" type="checkbox"  name="" value="done" onclick="runDb('done', '`+idPrint+`', '', 'done')">${editPrint}</div></div>`;
 }
 print += `
 
-<div class="post border3List light2 task m2">
+<div class="post border3List light2 task">
 
 ${printTmp}
-<div class="block tRight m2">
+<div class="block tRight">
 <a class="tag2 border2 light2 op" href="#" onclick="runDb('edit', '`+cursor.key+`')" title="edit `+cursor.key+`">e</a>
 <a class="tag2 border2 light2 op" href="#" onclick="runDb('del', '`+cursor.key+`')" title="remove `+cursor.key+`">x</a>
 </div>
