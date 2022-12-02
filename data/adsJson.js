@@ -50,7 +50,7 @@ var adsJson =
     },
     {
         "text": "Dropbox",
-        "url": "https:\/\/www.dropbox.com\/referrals\/AACdj28r_BGeykuiCCf0i7YEfTQTDdNI7aI?src=global9"
+        "url": "https:\/\/www.dropbox.com\/"
     },
     {
         "text": "Element | Secure collaboration and messaging",
