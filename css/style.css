@@ -1,4 +1,4 @@
-/* v.12.17.11 */
+/* v.12.17.12 */
 
 :root{
 --bodyP: 2vw;
@@ -397,7 +397,7 @@ div, input, textarea, img { box-sizing: border-box; }
 button { cursor: pointer; }
 select, input[type="date"], input[type="time"]{ min-width: 130px; max-width:130px; min-height:15px; display: inline-block; }
 /*textarea:focus {outline: none !important;}*/
-form { margin: 0 auto; padding: 0; width: 100%; overflow: scroll; }
+form { margin: 0 auto; padding: 0; width: 100%; }
 /*br, hr { clear: both !important; }*/
 form, iframe, video, audio, img, hr, table{ max-width:100%; max-height: 100vw; }
 
