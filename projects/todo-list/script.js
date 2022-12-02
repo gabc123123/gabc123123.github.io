@@ -1,4 +1,4 @@
-// v.1.0.4
+// v.1.0.5
 
 
 
@@ -371,10 +371,13 @@ let idPrint = cursor.key;
 let titlePrint = decodeURIComponent(cursor.value.title);
 let statusPrint = decodeURIComponent(cursor.value.data);
 
-var textInputE = '';
 let editPrint = '';
 if(com == 'edit'&&id == idPrint){
-editPrint = `<form style="margin: 10px 0;"><input id="inputTaskUp" class="padding" type="text" name="q" autofocus="autofocus" autocomplete="off" placeholder=" task" value="${titlePrint}"><input type="hidden" name="com" value="edit"><input type="hidden" name="id" value="${idPrint}"><input type="submit"></form>`;
+/*editPrint = `<form style="margin: 10px 0;"><input id="inputTaskUp" class="padding" type="text" name="q" autofocus="autofocus" autocomplete="off" placeholder=" task" value="${titlePrint}"><input  type="hidden" name="com" value="edit"><input id="idInputE" type="hidden" name="id" value="${idPrint}"><input type="submit"></form><div id="option2"></div>`;*/
+
+editPrint = `<form style="margin: 10px 0;"><input id="textInputE" class="padding" type="text" name="q" autofocus="autofocus" autocomplete="off" placeholder=" task" value="${titlePrint}"><a class="block tCenter padding light border3List" href="#"  onclick="submitLinkEdit()">submit</a>
+<input id="idInputE" type="hidden" name="id" value="${idPrint}"></form>
+`;
 }else{
 //editPrint = `<span onclick="runDb('edit', '`+idPrint+`', '', '')">${titlePrint}</span>`;
 editPrint = `<span>${titlePrint}</span>`;
@@ -514,12 +517,26 @@ document.getElementById("option").innerHTML = a;
 }
 
 
+function submitLinkEdit(){
+idInput = document.getElementById('idInputE').value;
+textInput = document.getElementById('textInputE').value;
+textInput = decodeURIComponent(textInput);
+textInput = encodeURIComponent(textInput);
 
-
-function submitLinkEdit(comInput, idInput, textInput){
-runDb('upadate', idInput, textInput);
+//alert('test'+idInput+textInput);
+runDb('update', idInput, textInput);
 //document.getElementById("inputTaskEdit").value = '';
 }
 
 
+
+/*document.getElementById("editor").addEventListener("input", function() {
+textInputE = document.getElementById('editor').value;
+var a2 = `
+<a class="block tCenter padding light border3List" href="#" onclick="submitLinkEdit('', '`+idPrint+`', '`+textInputE+`')">submit</a>
+`;
+
+document.getElementById("option2").innerHTML = a2; 
+
+}, false);*/
 
