@@ -1,4 +1,4 @@
-/* v.12.17.10 */
+/* v.12.17.11 */
 
 :root{
 --bodyP: 2vw;
@@ -183,7 +183,6 @@ display: inline-flex;
 justify-content: center;
 align-items: center;
 text-align: center;
-word-break: break-all;
 }
 .tag, .tag2, .time a { font-size: calc(100% - 10%); padding: 5px 4px; min-width: 20px; }
 .button { padding: 11px; max-width: 100%; }
