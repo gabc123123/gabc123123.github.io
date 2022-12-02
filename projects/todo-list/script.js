@@ -1,4 +1,4 @@
-// v.1.0.8
+// v.1.0.9
 
 
 
@@ -387,7 +387,7 @@ editPrint = `${titlePrint}`;
 let printTmp = '';
 if(statusPrint == 'done'){
 printTmp = `<div class="op xsmall">${idPrint}</div>
-<div class="pre"><input class="checkbox op" checked="checked" type="checkbox"  name="" value="undone" onclick="runDb('done', '`+idPrint+`', '', 'undone')"><span class="op" style="text-decoration: line-through;">${editPrint}</span></div>`;
+<div class="pre op" style="text-decoration: line-through;"><input class="checkbox op" checked="checked" type="checkbox"  name="" value="undone" onclick="runDb('done', '`+idPrint+`', '', 'undone')">${editPrint}</div>`;
 }else{
 printTmp = `<div class="op xsmall">${idPrint}</div>
 <div class="pre"><input class="checkbox op" type="checkbox"  name="" value="done" onclick="runDb('done', '`+idPrint+`', '', 'done')">${editPrint}</div>`;
@@ -397,9 +397,9 @@ print += `
 <div class="post border3List light2 task m2">
 
 ${printTmp}
-<span class="block tRight" style="float:right;">
-<a class="tag2 border2 light op" href="#" onclick="runDb('edit', '`+cursor.key+`')" title="edit `+cursor.key+`">e</a>
-<a class="tag2 border2 light op" href="#" onclick="runDb('del', '`+cursor.key+`')" title="remove `+cursor.key+`">x</a>
+<span class="block tRight" style="">
+<a class="tag2 border2 light2 op" href="#" onclick="runDb('edit', '`+cursor.key+`')" title="edit `+cursor.key+`">e</a>
+<a class="tag2 border2 light2 op" href="#" onclick="runDb('del', '`+cursor.key+`')" title="remove `+cursor.key+`">x</a>
 </span>
 
 
