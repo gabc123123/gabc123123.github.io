@@ -1,4 +1,4 @@
-/* v.1.0.0 */
+/* v.1.0.1 */
 
 
 
@@ -6,7 +6,7 @@
 
 .task {
 display: grid;
-grid-template-columns: 5% 75% 20%;
+grid-template-columns: 5% minmax(75%, 75%) 20%;
 grid-gap: 0px;
 margin: 0 auto;
 justify-content: center;
@@ -14,4 +14,9 @@ justify-content: center;
 max-width: 100%;
 }
 
+
+@media(max-width: 150px) {
+.m span, .m2 span { width: 100%; max-width: 100%; }
+.m2 span { display: block; position: relative !important; }
+}
 

@@ -1,4 +1,4 @@
-// v.1.0.3
+// v.1.0.4
 
 
 
@@ -40,11 +40,19 @@ let dbVersion = 1;
 let tableName = 'todo-list';
 
 // This is what our customer data looks like.
-var data = [
-  { title:"title", text:"text", url:"url", tag:"tiag", time:"time", time2:"time2"  }
+/*var data = [
+{
+title:"title",
+text:"text",
+url:"url",
+tag:"tiag",
+time:"time",
+data:"data",
+data2:"data2",
+data3:"data3"  }
 ];
 
-
+*/
 
 
 
@@ -87,22 +95,24 @@ const db = event.target.result;
 
 const objectStore = db.createObjectStore(tableName, { autoIncrement : true });
 
-  objectStore.createIndex("title", "title", { unique: false });
-  objectStore.createIndex("text", "text", { unique: false });
-  objectStore.createIndex("url", "url", { unique: false });
-  objectStore.createIndex("tag", "tag", { unique: false });
-  objectStore.createIndex("time", "time", { unique: false });
-  objectStore.createIndex("time2", "time2", { unique: false });
+objectStore.createIndex("title", "title", { unique: false });
+objectStore.createIndex("text", "text", { unique: false });
+objectStore.createIndex("url", "url", { unique: false });
+objectStore.createIndex("tag", "tag", { unique: false });
+objectStore.createIndex("time", "time", { unique: false });
+objectStore.createIndex("data", "data", { unique: false });
+objectStore.createIndex("data2", "data2", { unique: false });
+objectStore.createIndex("data3", "data3", { unique: false });
 
   // Use transaction oncomplete to make sure the objectStore creation is
   // finished before adding data into it.
-  objectStore.transaction.oncomplete = (event) => {
+/*  objectStore.transaction.oncomplete = (event) => {
     // Store values in the newly created objectStore.
     const customerObjectStore = db.transaction(tableName, "readwrite").objectStore(tableName);
     data.forEach((tableName) => {
       customerObjectStore.add(tableName);
     });
-  };
+  };*/
 
 console.log("objectStore = db.createObjectStore");
 
@@ -169,7 +179,7 @@ if(com == "add"){
 
 // test for add
 data = [
-  { title: title, text: "", url: ""  }
+  { title:title }
 ];
 
 request.onsuccess = (event) => {
@@ -258,15 +268,13 @@ const transaction = db.transaction([tableName], 'readwrite');
 const objectStore = transaction.objectStore(tableName);
 
 
-// save me
-
 objectStore.openCursor().onsuccess = function(event) { 
 var cursor = event.target.result;  console.log(id, status);
 if (cursor) {  
 if(cursor.key == id){
 
 const updateData = cursor.value;
-cursor.value.text = status;
+cursor.value.data = status;
 const request = cursor.update(updateData);
 request.onsuccess = () => {
 console.log('updated');
@@ -361,12 +369,12 @@ if (cursor) {
 
 let idPrint = cursor.key;
 let titlePrint = decodeURIComponent(cursor.value.title);
-let statusPrint = decodeURIComponent(cursor.value.text);
+let statusPrint = decodeURIComponent(cursor.value.data);
 
 var textInputE = '';
 let editPrint = '';
 if(com == 'edit'&&id == idPrint){
-editPrint = `<form style="margin: 10px 0;"><input id="inputTaskUp" class="padding" type="text" name="q" autofocus="autofocus" autocomplete="off" placeholder=" task" value="${titlePrint}" ><input type="hidden" name="com" value="edit"><input type="hidden" name="id" value="${idPrint}"><input type="submit"></form><div id="optionLinkUp"></div>`;
+editPrint = `<div class="block"><form style="margin: 10px 0;"><input id="inputTaskUp" class="padding" type="text" name="q" autofocus="autofocus" autocomplete="off" placeholder=" task" value="${titlePrint}" ><input type="hidden" name="com" value="edit"><input type="hidden" name="id" value="${idPrint}"><input type="submit"></form></div>`;
 }else{
 //editPrint = `<span onclick="runDb('edit', '`+idPrint+`', '', '')">${titlePrint}</span>`;
 editPrint = `<span>${titlePrint}</span>`;
@@ -377,27 +385,31 @@ editPrint = `<span>${titlePrint}</span>`;
 let printTmp = '';
 if(statusPrint == 'done'){
 printTmp = `
-<div class="op">${idPrint}</div>
-<div><span class="pre"><input class="checkbox op" checked="checked" type="checkbox"  name="" value="undone" onclick="runDb('done', '`+idPrint+`', '', 'undone')"><span class="op" style="text-decoration: line-through;"> ${editPrint}</span></span></div>
+<div class="op xsmall m2">${idPrint}</div>
+<div class="m2">
+<div class="pre"><input class="checkbox op" checked="checked" type="checkbox"  name="" value="undone" onclick="runDb('done', '`+idPrint+`', '', 'undone')"> <span class="op" style="text-decoration: line-through;"> ${editPrint}</span></div>
+</div>
 `;
 }else{
 printTmp = `
-<div class="op">${idPrint}</div>
-<div><span class="pre"><input class="checkbox op" type="checkbox"  name="" value="done" onclick="runDb('done', '`+idPrint+`', '', 'done')"> ${editPrint}</span></div>
+<div class="op xsmall m2">${idPrint}</div>
+<div class="m2">
+<div class="pre"><input class="checkbox op" type="checkbox"  name="" value="done" onclick="runDb('done', '`+idPrint+`', '', 'done')"> ${editPrint}</div>
+</div>
 `;
 }
 print += `
 
-<div class="post border3List light2 task">
+<div class="post border3List light2 task m2">
 
 ${printTmp}
 
-<div>
-<span style="float:right">
-<a class="tag border2 light" href="#" onclick="runDb('edit', '`+cursor.key+`')" title="runDb('edit', '`+cursor.key+`')">e</a>
-<a class="tag border2 light" href="#" onclick="runDb('del', '`+cursor.key+`')" title="runDb('remove', '`+cursor.key+`')">x</a>
+
+<span class="block tRight m2" style="float:right;">
+<a class="tag2 border2 light op" href="#" onclick="runDb('edit', '`+cursor.key+`')" title="edit `+cursor.key+`">e</a>
+<a class="tag2 border2 light op" href="#" onclick="runDb('del', '`+cursor.key+`')" title="remove `+cursor.key+`">x</a>
 </span>
-</div>
+
 
 </div>
 
@@ -440,7 +452,7 @@ print2 = `
 
 <div id="option"></div>
 
-<a class="block op border2 light padding tCenter" style="margin-top: 50px;" href="#" onclick="runDb('clear')">clear</a>
+<a class="butto op border2 light padding tCenter" style="float: right; margin-top: 50px;" href="#" onclick="runDb('clear')">clear</a>
 `;
 
 

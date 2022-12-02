@@ -1,4 +1,4 @@
-// v.3.7.12
+// v.3.7.14
 
 
 
@@ -437,7 +437,10 @@ document.getElementById("scrollTo").scrollIntoView(true);
 
 
 if(letters.length >= answerArr.length&&mode != 'free'||mode == 'free'){
+
+if(key2 == 'Backspace'||key2 == 'Delete'){ }else{
 dateArr.push(Date.now());
+
 
 //dateArr = dateArr.slice(-400);
 var sec = 0;
@@ -466,7 +469,7 @@ var wps = timeAverage*5;
 var wpm = 1*60/wps;
 wpm = wpm.toFixed(0);
 
-
+}
 
 if(isNaN(wpm)){ wpm = 0; }
 
@@ -476,7 +479,7 @@ if(lastEror == 'red'){
 
 // totalError
 if(key != '229'&&key != 8&&key != 46&&key2 != 'Backspace'&&key2 != 'Delete' ){ totalError++; }
-if(key == '229'){ 
+if(key == '229'){
 if(lastMaxInputlength == answerArr.length){ totalError++; } // only last new error on mobile
 }
 
