@@ -76,7 +76,7 @@ margin-top: 2px;
 margin-bottom: 0;
 padding: 5px;
 }
-input[type=checkbox]{ cursor: pointer; margin: 0; }
+input[type=checkbox]{ cursor: pointer; margin: 0; padding; line-height: normal; }
 textarea { outline-color:transparent; outline-style:none; }
 input[type=submit] { cursor:pointer;  }
 input:focus{ outline: none }
@@ -400,6 +400,7 @@ select, input[type="date"], input[type="time"]{ min-width: 130px; max-width:130p
 form { margin: 0 auto; padding: 0; width: 100%; overflow: scroll; }
 /*br, hr { clear: both !important; }*/
 form, iframe, video, audio, img, hr, table{ max-width:100%; max-height: 100vw; }
+
 
 input, textarea { display: block; }
 

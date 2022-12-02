@@ -1,7 +1,7 @@
 /* v.1.1.0 */
 
 
-.checkbox { display: inline-block; margin-right: 7px !important; }
+.checkbox { display: inline-flex; margin-right: 7px !important; }
 
 
 .task {
@@ -19,10 +19,10 @@ align-self: safe center;
 }
 
 
-.pre {
+.task .pre {
 display: inline-flex;
 align-self: center;
-align-items: center;
+
 }
 
 
