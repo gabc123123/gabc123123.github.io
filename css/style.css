@@ -183,6 +183,7 @@ display: inline-flex;
 justify-content: center;
 align-items: center;
 text-align: center;
+box-sizing: border-box;
 }
 .tag, .tag2, .time a { font-size: calc(100% - 10%); padding: 5px 4px; min-width: 20px; }
 .button { padding: 11px; max-width: 100%; }
