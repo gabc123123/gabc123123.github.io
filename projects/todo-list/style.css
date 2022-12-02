@@ -8,12 +8,16 @@
 .task {
 display: grid;
 grid-template-columns: 5% minmax(75%, 75%) 20%;
+
 grid-gap: 0px;
 margin: 0 auto;
-justify-content: center;
-
 max-width: 100%;
+
+justify-content: center;
+align-items: safe center;
+align-self: safe center;
 }
+
 
 
 @media(max-width: 150px) {
