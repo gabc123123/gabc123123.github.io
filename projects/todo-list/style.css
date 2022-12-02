@@ -1,5 +1,4 @@
-/* v.1.0.4 */
-
+/* v.1.0.5 */
 
 
 .checkbox { display: inline-block; margin: 0; margin-right: 7px; }
@@ -20,21 +19,19 @@ align-self: safe center;
 }
 
 
-.pre {
+.task div {
 display: inline-flex;
 align-items: center;
-align-items: safe center;
-align-self: safe center;
 }
 
-.block {
-width: 100%;
-max-width: 100%;
-}
+/*.block {
+overflow: auto;
+}*/
 
-@media(max-width: 340px) {
-.m, .m2 { width: 100%; max-width: 100%; }
-.m2 { display: block !important; position: relative !important; }
+@media(max-width: 240px) {
+.task {
+grid-template-columns: 1fr;
+}
 }
 
 
