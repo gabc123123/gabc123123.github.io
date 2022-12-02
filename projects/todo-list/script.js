@@ -443,7 +443,7 @@ print2 = `
 
 
 <form>
-<input id="inputTask" class="padding" type="search" name="q" autofocus="" autocomplete="off" placeholder=" task">
+<input id="inputTask" class="padding" type="text" name="q" autofocus="" autocomplete="off" placeholder=" task">
 <input type="hidden" name="com" value="add">
 </form>
 
