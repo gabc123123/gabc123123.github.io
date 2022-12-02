@@ -2,7 +2,8 @@
 
 
 
-.checkbox { display: inline-block; }
+.checkbox { display: inline-block; margin-left: 0; }
+
 
 .task {
 display: grid;

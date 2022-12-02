@@ -375,8 +375,7 @@ let editPrint = '';
 if(com == 'edit'&&id == idPrint){
 /*editPrint = `<form style="margin: 10px 0;"><input id="inputTaskUp" class="padding" type="text" name="q" autofocus="autofocus" autocomplete="off" placeholder=" task" value="${titlePrint}"><input  type="hidden" name="com" value="edit"><input id="idInputE" type="hidden" name="id" value="${idPrint}"><input type="submit"></form><div id="option2"></div>`;*/
 
-editPrint = `<form style="margin: 10px 0;"><input id="textInputE" class="padding" type="text" name="q" autofocus="autofocus" autocomplete="off" placeholder=" task" value="${titlePrint}"><a class="block tCenter padding light border3List" href="#"  onclick="submitLinkEdit()">submit</a>
-<input id="idInputE" type="hidden" name="id" value="${idPrint}"></form>
+editPrint = `<form><textarea id="textInputE" class="padding" name="text" rows="3" cols="" placeholder=" edit">${titlePrint}</textarea><a class="block tCenter padding light border3List" href="#"  onclick="submitLinkEdit()">submit</a><input id="idInputE" type="hidden" name="id" value="${idPrint}"></form>
 `;
 }else{
 //editPrint = `<span onclick="runDb('edit', '`+idPrint+`', '', '')">${titlePrint}</span>`;
