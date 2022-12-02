@@ -375,8 +375,7 @@ let editPrint = '';
 if(com == 'edit'&&id == idPrint){
 /*editPrint = `<form style="margin: 10px 0;"><input id="inputTaskUp" class="padding" type="text" name="q" autofocus="autofocus" autocomplete="off" placeholder=" task" value="${titlePrint}"><input  type="hidden" name="com" value="edit"><input id="idInputE" type="hidden" name="id" value="${idPrint}"><input type="submit"></form><div id="option2"></div>`;*/
 
-editPrint = `<form><textarea id="textInputE" class="padding" name="text" rows="3" cols="" placeholder=" edit">${titlePrint}</textarea><a class="block tCenter padding light border3List" href="#"  onclick="submitLinkEdit()">submit</a><input id="idInputE" type="hidden" name="id" value="${idPrint}"></form>
-`;
+editPrint = `<form><textarea id="textInputE" class="padding" name="text" rows="3" cols="" placeholder=" edit">${titlePrint}</textarea><input id="idInputE" type="hidden" name="id" value="${idPrint}"><a class="block tCenter  light border3List" href="#"  onclick="submitLinkEdit()"><div class="padding">submit</div></a></form>`;
 }else{
 //editPrint = `<span onclick="runDb('edit', '`+idPrint+`', '', '')">${titlePrint}</span>`;
 editPrint = `${titlePrint}`;
@@ -390,7 +389,7 @@ printTmp = `<div class="op xsmall">${idPrint}</div>
 <div class="flex"><div class="pre op block" style="text-decoration: line-through;"><input class="checkbox op" checked="checked" type="checkbox"  name="" value="undone" onclick="runDb('done', '`+idPrint+`', '', 'undone')">${editPrint}</div></div>`;
 }else{
 printTmp = `<div class="op xsmall">${idPrint}</div>
-<div class="flex"><div class="pre block"><input class="checkbox op" type="checkbox"  name="" value="done" onclick="runDb('done', '`+idPrint+`', '', 'done')">${editPrint}</div></div>`;
+<div class="flex"><div class="pre block wrapperTv"><input class="checkbox op" type="checkbox"  name="" value="done" onclick="runDb('done', '`+idPrint+`', '', 'done')">${editPrint}</div></div>`;
 }
 print += `
 

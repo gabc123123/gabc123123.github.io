@@ -373,7 +373,7 @@ td { background-color: var(--l2); }
 
 /* other */
 .padding { padding: 11px !important; }
-.block { display: block !important; max-width: 100%; }
+.block { display: block !important; width: 100%; max-width: 100%; }
 .zero { margin: 0; padding: 0; }
 .margin, .margin a { margin: 1px !important; }
 .tLeft { text-align: left; }

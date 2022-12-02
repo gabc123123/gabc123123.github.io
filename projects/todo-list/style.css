@@ -24,7 +24,11 @@ align-self: safe center;
 .flex {
 display: inline-flex;
 align-items: center;
+}
 
+.block {
+width: 100%;
+max-width: 100%;
 }
 
 @media(max-width: 340px) {
