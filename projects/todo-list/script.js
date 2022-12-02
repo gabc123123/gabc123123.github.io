@@ -1,4 +1,4 @@
-// v.1.0.9
+// v.1.0.10
 
 
 
@@ -387,10 +387,10 @@ editPrint = `${titlePrint}`;
 let printTmp = '';
 if(statusPrint == 'done'){
 printTmp = `<div class="op xsmall">${idPrint}</div>
-<div class="pre op" style="text-decoration: line-through;"><input class="checkbox op" checked="checked" type="checkbox"  name="" value="undone" onclick="runDb('done', '`+idPrint+`', '', 'undone')">${editPrint}</div>`;
+<div class="flex"><div class="pre op block" style="text-decoration: line-through;"><input class="checkbox op" checked="checked" type="checkbox"  name="" value="undone" onclick="runDb('done', '`+idPrint+`', '', 'undone')">${editPrint}</div></div>`;
 }else{
 printTmp = `<div class="op xsmall">${idPrint}</div>
-<div class="pre"><input class="checkbox op" type="checkbox"  name="" value="done" onclick="runDb('done', '`+idPrint+`', '', 'done')">${editPrint}</div>`;
+<div class="flex"><div class="pre block"><input class="checkbox op" type="checkbox"  name="" value="done" onclick="runDb('done', '`+idPrint+`', '', 'done')">${editPrint}</div></div>`;
 }
 print += `
 

@@ -1,4 +1,4 @@
-/* v.12.17.9 */
+/* v.12.17.10 */
 
 :root{
 --bodyP: 2vw;
@@ -96,7 +96,7 @@ td { padding: 5px; }
 .wrapper4 {  max-width: var(--wrapper4);  }
 .wrapperL {  max-width: var(--wrapperL);  }
 
-.op { opacity: 0.65; } 
+.op { opacity: 0.75; } 
 .op:hover { opacity: 1; }
 .op2 { opacity: 0.03; }
 .op2:hover { opacity: 1; }
@@ -393,7 +393,7 @@ h1, h2, h3, h4, h5, h6 { word-break: break-all; }
 div, input, textarea, img { box-sizing: border-box; }
 
 .sup { vertical-align: super; vertical-align: top; font-weight: bold; }
-.pre{ white-space: pre-wrap; /*word-wrap: break-word;*/ word-break: break-all; line-height: normal; }
+.pre{ white-space: pre-wrap; word-wrap: break-word; line-height: normal; }
 
 button { cursor: pointer; }
 select, input[type="date"], input[type="time"]{ min-width: 130px; max-width:130px; min-height:15px; display: inline-block; }
