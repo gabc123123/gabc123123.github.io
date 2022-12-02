@@ -1,4 +1,4 @@
-// v.3.7.14
+// v.3.7.15
 
 
 
@@ -132,6 +132,8 @@ main(task);
 if(mode == 'free'){
 document.getElementById('text').rows = '7';
 main(task);
+}else{
+document.getElementById('text').rows = '';
 }
 
 
@@ -438,7 +440,7 @@ document.getElementById("scrollTo").scrollIntoView(true);
 
 if(letters.length >= answerArr.length&&mode != 'free'||mode == 'free'){
 
-if(key2 == 'Backspace'||key2 == 'Delete'){ }else{
+//if(key2 == 'Backspace'||key2 == 'Delete'){ }else{}
 dateArr.push(Date.now());
 
 
@@ -452,7 +454,7 @@ secArr.push(sec);
 }
 
 
-}
+
 //secArr = secArr.slice(-400);
 //console.log(secArr);
 

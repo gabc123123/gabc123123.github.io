@@ -1,4 +1,4 @@
-// v.1.0.5
+// v.1.0.7
 
 
 
@@ -379,30 +379,25 @@ editPrint = `<form><textarea id="textInputE" class="padding" name="text" rows="3
 `;
 }else{
 //editPrint = `<span onclick="runDb('edit', '`+idPrint+`', '', '')">${titlePrint}</span>`;
-editPrint = `<span>${titlePrint}</span>`;
+editPrint = `${titlePrint}`;
 }
 
 
 // show  & edit
 let printTmp = '';
 if(statusPrint == 'done'){
-printTmp = `
-<div class="op xsmall m2">${idPrint}</div>
-<div class="m2"><div class="pre m2"><input class="checkbox op" checked="checked" type="checkbox"  name="" value="undone" onclick="runDb('done', '`+idPrint+`', '', 'undone')"> <span class="op" style="text-decoration: line-through;"> ${editPrint}</span></div>
-</div>
-`;
+printTmp = `<div class="op xsmall">${idPrint}</div>
+<div class="pre"><input class="checkbox op" checked="checked" type="checkbox"  name="" value="undone" onclick="runDb('done', '`+idPrint+`', '', 'undone')"><span class="op" style="text-decoration: line-through;">${editPrint}</span></div>`;
 }else{
-printTmp = `
-<div class="op xsmall m2">${idPrint}</div>
-<div class="m2"><div class="pre m2"><input class="checkbox op" type="checkbox"  name="" value="done" onclick="runDb('done', '`+idPrint+`', '', 'done')"> ${editPrint}</div>
-</div>
-`;
+printTmp = `<div class="op xsmall">${idPrint}</div>
+<div class="pre"><input class="checkbox op" type="checkbox"  name="" value="done" onclick="runDb('done', '`+idPrint+`', '', 'done')">${editPrint}</div>`;
 }
 print += `
 
 <div class="post border3List light2 task m2">
+
 ${printTmp}
-<span class="block tRight m2" style="float:right;">
+<span class="block tRight" style="float:right;">
 <a class="tag2 border2 light op" href="#" onclick="runDb('edit', '`+cursor.key+`')" title="edit `+cursor.key+`">e</a>
 <a class="tag2 border2 light op" href="#" onclick="runDb('del', '`+cursor.key+`')" title="remove `+cursor.key+`">x</a>
 </span>
@@ -417,19 +412,11 @@ cursor.continue();
 			  else {  
 			  	console.log("[ show end Done with cursor ]");
 document.getElementById('result').innerHTML = print;
-
-
-
-
 }
 
 
-			  }  
-			};  
-
-
-
-
+}  
+}
 
 }
 

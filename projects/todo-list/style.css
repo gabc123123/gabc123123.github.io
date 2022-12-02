@@ -1,26 +1,33 @@
-/* v.1.0.1 */
+/* v.1.0.3 */
 
 
 
-.checkbox { display: inline-block; margin-left: 0; }
+.checkbox { display: inline-block; margin: 0; margin-right: 7px; }
 
 
 .task {
 display: grid;
 grid-template-columns: 5% minmax(75%, 75%) 20%;
 
-grid-gap: 0px;
-margin: 0 auto;
+grid-gap: 0;
+margin: 0;
 max-width: 100%;
 justify-content: center;
 align-items: safe center;
 align-self: safe center;
-
 }
 
-@media(max-width: 150px) {
-.m , .m2  { width: 100%; max-width: 100%; }
-.m2  { display: block; position: relative !important; }
+
+.pre {
+word-break: break-all;
+display: inline-flex;
+align-items: center;
 }
+
+@media(max-width: 340px) {
+.m, .m2 { width: 100%; max-width: 100%; }
+.m2 { display: block !important; position: relative !important; }
+}
+
 .tag2 { margin-left: 5px; }
 

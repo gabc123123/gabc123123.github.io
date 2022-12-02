@@ -1,4 +1,4 @@
-/* v.12.17.7 */
+/* v.12.17.9 */
 
 :root{
 --bodyP: 2vw;
@@ -131,7 +131,7 @@ overflow: auto;
 .postL { max-width: var(--wrapperL); }
 
 .post .img, .post2 .img, .post3 img, .tv .img, .postL .img,
-.post iframe, .post2 iframe, .post3 iframe,.tv iframe, .postL iframe { display: block; margin-top: 7px; border-radius: 5px; width: 100%; }
+.post iframe, .post2 iframe, .post3 iframe, .tv iframe, .postL iframe { display: block; margin-top: 7px; border-radius: 5px; width: 100%; }
 .post .img, .post2 .img, .post3 img, .tv .img, .postL .img { margin-bottom: 7px; }
 
 .postFooter { margin-top: 7px; }
@@ -165,7 +165,7 @@ width: 14px;
 filter:grayscale(56%);
 }
 .ico2 {filter:grayscale(36%); }
-.ico:hover,.ico2:hover { filter: grayscale(0%); }
+.ico:hover, .ico2:hover { filter: grayscale(0%); }
 
 .gray { filter:grayscale(56%); }
 
@@ -178,13 +178,14 @@ align-items: center;
 text-align: center;
 }
 .tagList a { margin: 1px; }
-.tag, ,.tag2.button {
+.tag, .tag2, .button {
 display: inline-flex;
 justify-content: center;
 align-items: center;
 text-align: center;
+word-break: break-all;
 }
-.tag, .tag2 .time a { font-size: calc(100% - 10%); padding: 5px 4px; min-width: 20px; }
+.tag, .tag2, .time a { font-size: calc(100% - 10%); padding: 5px 4px; min-width: 20px; }
 .button { padding: 11px; max-width: 100%; }
 .button, .tag { border-radius: 5px; }
 .tag2 { padding: 1px 8px; }
@@ -381,7 +382,7 @@ td { background-color: var(--l2); }
 .capitalize { text-transform: capitalize; }
 .bold, .bold a { font-weight: bold; }
 .small, .small a { font-size: small !important; }
-.xsmall, .small a { font-size: x-small !important; }
+.xsmall, .xsmall a { font-size: x-small !important; }
 
 
 /* fix */
