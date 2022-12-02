@@ -388,13 +388,13 @@ let printTmp = '';
 if(statusPrint == 'done'){
 printTmp = `
 <div class="op xsmall m2">${idPrint}</div>
-<div class="m2"><div class="pre"><input class="checkbox op" checked="checked" type="checkbox"  name="" value="undone" onclick="runDb('done', '`+idPrint+`', '', 'undone')"> <span class="op" style="text-decoration: line-through;"> ${editPrint}</span></div>
+<div class="m2"><div class="pre m2"><input class="checkbox op" checked="checked" type="checkbox"  name="" value="undone" onclick="runDb('done', '`+idPrint+`', '', 'undone')"> <span class="op" style="text-decoration: line-through;"> ${editPrint}</span></div>
 </div>
 `;
 }else{
 printTmp = `
 <div class="op xsmall m2">${idPrint}</div>
-<div class="m2"><div class="pre"><input class="checkbox op" type="checkbox"  name="" value="done" onclick="runDb('done', '`+idPrint+`', '', 'done')"> ${editPrint}</div>
+<div class="m2"><div class="pre m2"><input class="checkbox op" type="checkbox"  name="" value="done" onclick="runDb('done', '`+idPrint+`', '', 'done')"> ${editPrint}</div>
 </div>
 `;
 }

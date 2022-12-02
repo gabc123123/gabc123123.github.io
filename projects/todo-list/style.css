@@ -12,16 +12,15 @@ grid-template-columns: 5% minmax(75%, 75%) 20%;
 grid-gap: 0px;
 margin: 0 auto;
 max-width: 100%;
-
 justify-content: center;
 align-items: safe center;
 align-self: safe center;
+
 }
-
-
 
 @media(max-width: 150px) {
-.m span, .m2 span { width: 100%; max-width: 100%; }
-.m2 span { display: block; position: relative !important; }
+.m , .m2  { width: 100%; max-width: 100%; }
+.m2  { display: block; position: relative !important; }
 }
+.tag2 { margin-left: 5px; }
 
