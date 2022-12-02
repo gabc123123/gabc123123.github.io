@@ -19,10 +19,13 @@ align-self: safe center;
 }
 
 
-.task div {
+.pre {
 display: inline-flex;
+align-self: center;
 align-items: center;
 }
+
+
 
 /*.block {
 overflow: auto;
