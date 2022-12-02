@@ -20,9 +20,11 @@ align-self: safe center;
 }
 
 
-.flex {
+.pre {
 display: inline-flex;
 align-items: center;
+align-items: safe center;
+align-self: safe center;
 }
 
 .block {
