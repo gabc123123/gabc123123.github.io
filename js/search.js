@@ -113,12 +113,11 @@ case 'l#':  case 'll#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
-//url = "https://duckduckgo.com/?q=%5C" + q;
-//url = "https://duckduckgo.com/?q=!ducky  " + q;
 
-
-
-
+// n.w.
+//url = "https://duckduckgo.com/?q=!%20"+q;
+//url = "https://duckduckgo.com/?q=!ducky  "+q;
+//url = "https://duckduckgo.com/?q=%5C%20"+q;
 /*
 var http = new XMLHttpRequest();
 //http.overrideMimeType("text/plain");
@@ -127,7 +126,7 @@ http.onreadystatechange = function() {
 //console.log( this.status);
 if (this.readyState == 4 && this.status == 200) {
 // Typical action to be performed when the document is ready:
-url =  http.responseText;
+url = http.responseText;
 alert(url);
 alert('test');
 url = JSON.parse(url);
@@ -146,10 +145,9 @@ http.open("GET", "http://api.duckduckgo.com/?q=!ducky "+q+"&format=json&pretty=1
 http.send();
 
 if(q == ''){ url = "https://duckduckgo.com/about"; }
-sRedirUrl = '';
 */
-
-sRedirUrl = "./?q="+q+' q';
+url = "./?q="+q+' q';
+sRedirUrl = url;
 break;
 
 
