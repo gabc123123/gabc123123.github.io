@@ -88,7 +88,7 @@ url = "https://www.qwant.com/?q=" + q;
 sRedirUrl = url;
 break;
 
-case 'd#':
+/*
 case 'duc#':
 case 'duk#':
 case 'duck#':
@@ -99,7 +99,8 @@ url = "https://duckduckgo.com/?q=" + q;
 if(q == ''){ url = "https://duckduckgo.com/about"; }
 sRedirUrl = url;
 break;
-
+// n.w.l.
+*/
 case 'w#':
 q = q3.replace(q2, '');
 q = q.trim();
