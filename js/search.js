@@ -114,7 +114,29 @@ q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
 //url = "https://duckduckgo.com/?q=%5C" + q;
-url = "https://duckduckgo.com/?q=!ducky  " + q;
+//url = "https://duckduckgo.com/?q=!ducky  " + q;
+
+
+// https://stackoverflow.com/questions/55979836/get-json-data-from-url-and-put-it-into-variable-by-javascript
+async function get() {
+    let url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1h'
+    let obj = await (await fetch(url)).json();
+    
+    //console.log(obj);
+    return obj;
+}
+var tags;
+(async () => {
+  tags = await get()
+  //console.log(tags)
+  //document.getElementById("tags").innerHTML = JSON.stringify(tags);
+alert(JSON.stringify(tags));
+//sRedirUrl = response.obj[0].FirstURL;
+})()
+
+
+
+
 if(q == ''){ url = "https://duckduckgo.com/about"; }
 sRedirUrl = url;
 break;

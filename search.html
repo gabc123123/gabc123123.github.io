@@ -146,17 +146,17 @@ var sTimeRedirStatus = `redir: `+sTimeRedir / 1000+` sec.`;
 
 
 
-if ((''+window.location+'').search("#stopRedir") == -1){ // if back Stop Redir
+
+if (''+window.location+''.search("#stopRedir") == -1&&''+window.location+''.search("?q=") == -1){ // if back Stop Redir
 setTimeout(function(){
 window.location.href = rUrlGet;
 }, sTimeRedir); 
 }
-
 window.location.href = window.location.href+'#stopRedir'; 
 
-if (rUrlGet.search("#stopRedir") != -1){ 
-sTimeRedirStatus = '  ( redir: off )  ';
 
+if (rUrlGet.search("#stopRedir") != -1){
+sTimeRedirStatus = '  ( redir: off )  ';
 }
 
 

@@ -18,6 +18,7 @@ let icons = {
 "fox":"🦊",
 "github":"🐱",
 "hello":"👋",
+"hot":"🔥", "fire":"🔥",
 "info":"ℹ️", "faq":"ℹ️", "about":"ℹ️", 
 "insert":"📋", "paste":"📋",
 "keyboard":"⌨️","typing":"⌨️",
