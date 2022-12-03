@@ -1,4 +1,4 @@
-// v.1.0.10
+// v.1.0.11
 
 
 
@@ -393,7 +393,8 @@ printTmp = `<div class="op xsmall">${idPrint}</div>
 }
 print += `
 
-<div class="post border3List light2 task">
+<div class="post border3List light2">
+<div class="task">
 
 ${printTmp}
 <div class="block tRight">
@@ -401,9 +402,8 @@ ${printTmp}
 <a class="tag2 border2 light2 op" href="#" onclick="runDb('del', '`+cursor.key+`')" title="remove `+cursor.key+`">x</a>
 </div>
 
-
 </div>
-
+</div>
 
 `;
 cursor.continue();  
