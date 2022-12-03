@@ -88,19 +88,7 @@ url = "https://www.qwant.com/?q=" + q;
 sRedirUrl = url;
 break;
 
-/*
-case 'duc#':
-case 'duk#':
-case 'duck#':
-q = q3.replace(q2, '');
-q = q.trim();
-q = encodeURIComponent(q);
-url = "https://duckduckgo.com/?q=" + q;
-if(q == ''){ url = "https://duckduckgo.com/about"; }
-sRedirUrl = url;
-break;
-// n.w.l.
-*/
+
 case 'w#':
 q = q3.replace(q2, '');
 q = q.trim();
@@ -115,38 +103,6 @@ q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
 
-// n.w.
-//url = "https://duckduckgo.com/?q=!%20"+q;
-//url = "https://duckduckgo.com/?q=!ducky  "+q;
-//url = "https://duckduckgo.com/?q=%5C%20"+q;
-/*
-var http = new XMLHttpRequest();
-//http.overrideMimeType("text/plain");
-http.overrideMimeType("application/json");
-http.onreadystatechange = function() {
-//console.log( this.status);
-if (this.readyState == 4 && this.status == 200) {
-// Typical action to be performed when the document is ready:
-url = http.responseText;
-alert(url);
-alert('test');
-url = JSON.parse(url);
-url = JSON.stringify(url);
-console.log(url);
-url = url['AbstractURL'];
-alert(url);
-//window.location.href = "./search."+confExt+"?rUrl="+url;
-}
-if(this.status == 404){
-//console.log("json 404");
-window.location.href = '#error load json';
-}
-}
-http.open("GET", "http://api.duckduckgo.com/?q=!ducky "+q+"&format=json&pretty=1", true);
-http.send();
-
-if(q == ''){ url = "https://duckduckgo.com/about"; }
-*/
 url = "./?q="+q+' q';
 sRedirUrl = url;
 break;
