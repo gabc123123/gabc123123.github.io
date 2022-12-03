@@ -117,28 +117,39 @@ q = encodeURIComponent(q);
 //url = "https://duckduckgo.com/?q=!ducky  " + q;
 
 
-// https://stackoverflow.com/questions/55979836/get-json-data-from-url-and-put-it-into-variable-by-javascript
-async function get() {
-    let url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1h'
-    let obj = await (await fetch(url)).json();
-    
-    //console.log(obj);
-    return obj;
+
+
+/*
+var http = new XMLHttpRequest();
+//http.overrideMimeType("text/plain");
+http.overrideMimeType("application/json");
+http.onreadystatechange = function() {
+//console.log( this.status);
+if (this.readyState == 4 && this.status == 200) {
+// Typical action to be performed when the document is ready:
+url =  http.responseText;
+alert(url);
+alert('test');
+url = JSON.parse(url);
+url = JSON.stringify(url);
+console.log(url);
+url = url['AbstractURL'];
+alert(url);
+//window.location.href = "./search."+confExt+"?rUrl="+url;
 }
-var tags;
-(async () => {
-  tags = await get()
-  //console.log(tags)
-  //document.getElementById("tags").innerHTML = JSON.stringify(tags);
-alert(JSON.stringify(tags));
-//sRedirUrl = response.obj[0].FirstURL;
-})()
-
-
-
+if(this.status == 404){
+//console.log("json 404");
+window.location.href = '#error load json';
+}
+}
+http.open("GET", "http://api.duckduckgo.com/?q=!ducky "+q+"&format=json&pretty=1", true);
+http.send();
 
 if(q == ''){ url = "https://duckduckgo.com/about"; }
-sRedirUrl = url;
+sRedirUrl = '';
+*/
+
+sRedirUrl = "./?q="+q+' q';
 break;
 
 
@@ -548,12 +559,13 @@ random = urlList[random];
 sRedirUrl = random;
 }
 
-if(sRedirUrl != ''){
-window.location.href = "/search."+confExt+"?rUrl="+sRedirUrl;
+if(sRedirUrl != ''&&sRedirUrl != undefined){
+window.location.href = "./search."+confExt+"?rUrl="+sRedirUrl;
 }
 
-}
 
+
+}
 
 
 
