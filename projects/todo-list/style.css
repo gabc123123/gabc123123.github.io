@@ -1,12 +1,12 @@
 /* v.1.1.0 */
 
 
-.checkbox { display: inline-flex; padding: 0; margin: 0;  margin-right: 7px !important; }
+.checkbox { display: inline-flex; padding: 0; margin: 0;  margin-right: 7px !important;  }
 
 
 .task {
 display: grid;
-grid-template-columns: 5% minmax(70%, 70%) 25%;
+grid-template-columns: 5% 70% 25%;
 
 grid-gap: 0;
 margin: 0;
@@ -17,24 +17,24 @@ align-items: safe center;
 align-self: safe center;
 }
 
+@media(max-width: 240px) {
+.task {
+grid-template-columns: 100%;
+}
+}
+
 
 .flexCenter {
 display: flex;
 align-items: safe center;
 }
 
-.pre { display: block;  }
-
 
 /*.block {
 overflow: auto;
 }*/
 
-@media(max-width: 240px) {
-.task {
-grid-template-columns: 100%;
-}
-}
+
 
 
 

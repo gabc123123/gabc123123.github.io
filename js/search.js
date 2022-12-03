@@ -1,4 +1,4 @@
-// v.1.1.3
+// v.1.1.4
 
 var geturl = window.location;
 var url = new URL(geturl);
@@ -113,7 +113,8 @@ case 'l#':  case 'll#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
-url = "https://duckduckgo.com/?q=%5C" + q;
+//url = "https://duckduckgo.com/?q=%5C" + q;
+url = "https://duckduckgo.com/?q=!ducky  " + q;
 if(q == ''){ url = "https://duckduckgo.com/about"; }
 sRedirUrl = url;
 break;

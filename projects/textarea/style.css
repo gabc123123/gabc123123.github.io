@@ -12,6 +12,7 @@ flex-direction: column;
 
 textarea {
 height: calc(100vh - var(--inputH));
+min-height: calc(100vh - var(--inputH));
 padding: 3%;
 }
 
@@ -24,4 +25,8 @@ input[type=submit]{
 position: absolute;
 bottom: 0;
 z-index: 1;
+}
+
+.textANav {
+position: absolute; bottom: 10px; right: 10px; z-index: 2;
 }
