@@ -310,7 +310,8 @@ urlList = [
 "https://www.bing.com/news/search?q=Sci/Tech",
 "https://getpocket.com/explore/technology",
 "https://www.reddit.com/r/technology/",
-"https://medium.com/tag/technology"
+"https://medium.com/tag/technology",
+"./?q=cod"
 //"https://twitter.com/explore/tabs/news"
 ];
 random = Math.floor(Math.random() * urlList.length);
@@ -386,6 +387,7 @@ url = urlList[random];
 sRedirUrl = url;
 break;
 
+
 case 'm#':
 q = q3.replace(q2, '');
 q = q.trim();
@@ -437,6 +439,38 @@ url = "/?q="+q+' m';
 }
 sRedirUrl = url;
 break;
+
+case 'cod#':
+case 'dev#':
+q = q3.replace(q2, '');
+q = q.trim();
+q = encodeURIComponent(q);
+urlList = [
+"https://github.com/search?q="+q+"&type=code",
+"https://beta.sayhello.so/search?q="+q
+];
+random = Math.floor(Math.random() * urlList.length);
+url = urlList[random];
+if(q == ''){
+urlList = [
+"https://www.reddit.com/r/programming/",
+"https://flipboard.com/topic/computerscience",
+"https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNREZ0YTNFU0FtVnVLQUFQAQ",
+"https://www.bing.com/news/search?q=computer science",
+"https://www.reddit.com/r/computerscience/",
+"https://www.reddit.com/r/compsci/",
+"https://www.reddit.com/r/programming/",
+"https://www.reddit.com/r/webdev/",
+"https://medium.com/tag/web-development",
+"https://medium.com/tag/programming",
+"https://medium.com/tag/computer-science"
+];
+random = Math.floor(Math.random() * urlList.length);
+url = urlList[random];
+}
+sRedirUrl = url;
+break;
+
 
 case 'o#':
 q = q3.replace(q2, '');
