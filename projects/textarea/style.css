@@ -1,25 +1,24 @@
 /* 1.0.2 */
 
 textarea, input, input[type=submit]{ margin: 0; border-radius: 0; }
-body { padding: 0; width: 100%; }
+html{ padding: 0; width: 100%; }
 
 form {
-height: 100vh;
-min-height: 100vh;
 width: 100%;
 display: flex;
 flex-direction: column;
 position: absolute;
 top: 0;
 z-index: 1;
+
 }
 
 
-
 textarea {
-height: calc(100vh - var(--inputH));
-min-height: calc(100vh - var(--inputH));
+height: calc(100vh - 60px);
 padding: 3%;
+top: 0;
+z-index: 1;
 }
 
 form {
@@ -28,11 +27,12 @@ position: relative;
 
 
 input[type=submit]{
+height: 55px;
 position: absolute;
-bottom: 0;
-z-index: 1;
+bottom: -60px;
+z-index: 2;
 }
 
 .textANav {
-position: absolute; bottom: 10px; right: 10px; z-index: 2;
+position: absolute; bottom: 10px; right: 10px; z-index: 3;
 }

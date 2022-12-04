@@ -271,7 +271,7 @@ right: 0;
 background: url('/img/dd.png') no-repeat center center fixed;
 background-size: 23vh;
 background-position: right 23px bottom 23px;
-z-index: -1;
+z-index: -2;
 }
 
 hr{ border: 1px solid var(--d2); border-bottom:1px solid var(--l); }
@@ -400,7 +400,7 @@ select, input[type="date"], input[type="time"]{ min-width: 130px; max-width:130p
 /*textarea:focus {outline: none !important;}*/
 form { margin: 0 auto; padding: 0; width: 100%; }
 /*br, hr { clear: both !important; }*/
-form, iframe, video, audio, img, hr, table{ max-width:100%; max-height: 100vw; }
+form, iframe, video, audio, img, hr, table{ max-width:100%; }
 
 
 input, textarea { display: block; }
