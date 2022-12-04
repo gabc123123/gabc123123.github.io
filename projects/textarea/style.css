@@ -2,6 +2,7 @@
 
 textarea, input, input[type=submit]{ margin: 0; border-radius: 0; }
 html{ padding: 0; width: 100%; }
+body { margin: 0; padding: 0; }
 
 form {
 width: 100%;
