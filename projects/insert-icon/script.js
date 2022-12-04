@@ -1,4 +1,4 @@
-// v.1.2.6
+// v.1.2.7
 
 function insertIcon(id){
 

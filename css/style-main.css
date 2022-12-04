@@ -66,10 +66,9 @@ h3, h4, h5, h6, .h3, .h4, .h5, .h6 { font-size: calc(100% + 20%); }
 .h2 { font-size: calc(100% + 40%) !important; }
 .h3, .h4, .h5, .h6 { font-size: calc(100% + 20%) !important; }
 
-input[type=text],input[type=search], textarea, select, input[type=submit]{
+input[type=text], input[type=search], textarea, select, input[type=submit]{
 width: 100%;
 min-height:  var(--inputH);
-resize: vertical;
 margin: 0px;
 margin-top: 2px;
 /*box-shadow: 4px 4px var(--d2);*/
@@ -77,7 +76,7 @@ margin-bottom: 0;
 padding: 5px;
 }
 input[type=checkbox]{ cursor: pointer; margin: 0; padding; line-height: normal; }
-textarea { outline-color:transparent; outline-style:none; }
+textarea { outline-color:transparent; outline-style:none; resize: vertical; }
 input[type=submit] { cursor:pointer;  }
 input:focus{ outline: none }
 
@@ -164,7 +163,7 @@ vertical-align: middle;
 width: 14px;
 filter:grayscale(56%);
 }
-.ico2 {filter:grayscale(36%); font-size: calc(100% - 20%); }
+.ico2 { padding: 3px; vertical-align: middle; filter:grayscale(36%); font-size: calc(100% - 20%); }
 .ico:hover, .ico2:hover { filter: grayscale(0%); }
 
 .gray { filter:grayscale(56%); }

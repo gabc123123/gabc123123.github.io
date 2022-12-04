@@ -1,34 +1,30 @@
-/* 1.0.2 */
+/* 1.0.3 */
 
-textarea, input, input[type=submit]{ margin: 0; border-radius: 0; }
+textarea, input[type=submit]{ margin: 0; border-radius: 0; }
 html{ padding: 0; width: 100%; }
 body { margin: 0; padding: 0; }
 
 form {
-height: calc(100vh - 60px); height: -webkit-calc(100vh - 60px);
+display: flex;
+flex-direction: column;
+height: calc(100vh - 43px);
 width: 100%;
-position: absolute;
 }
 
 textarea {
-height: calc(100vh - 60px); height: -webkit-calc(100vh - 60px);
+height: calc(100vh - 43px);
 padding: 3%;
-top: 0;
 z-index: 1;
-}
 
-form {
-position: relative;
 }
-
 
 input[type=submit]{
-height: 55px;
+height: 38px;
 position: absolute;
-bottom: -60px;
+bottom: 0px;
 z-index: 2;
 }
 
 .textANav {
-position: absolute; bottom: 10px; right: 10px; z-index: 3;
+position: absolute; bottom: 7px; right: 10px; z-index: 3;
 }
