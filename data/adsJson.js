@@ -53,10 +53,6 @@ var adsJson =
         "url": "https:\/\/www.dropbox.com\/"
     },
     {
-        "text": "Element | Secure collaboration and messaging",
-        "url": "https:\/\/element.io\/"
-    },
-    {
         "text": "Experience the Power of Windows 11 OS, Computers, & Apps | Microsoft",
         "url": "https:\/\/www.microsoft.com\/windows\/"
     },
