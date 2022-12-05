@@ -45,7 +45,7 @@ let icons = {
 "progress":"█░░",
 "url":"🔗","link":"🔗","www":"🔗",
 "web":"🕸️", "internet":"🕸️", "browser":"🕸️",
-"wallpaper":"🖼", "picture":"🖼", "image":"🖼", "img":"🖼", "pixel":"🖼","instagram":"🖼",
+"wallpaper":"🖼", "picture":"🖼", "image":"🖼", "img":"🖼", "pixel":"🖼","instagram":"🖼","pxlmo":"🖼",
 "question":"❓"
 };
 let iconsArr = Object.getOwnPropertyNames(icons);
