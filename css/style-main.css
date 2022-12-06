@@ -1,4 +1,4 @@
-/* v.12.17.14 */
+/* v.12.17.15 */
 
 :root{
 --bodyP: 2vw;
@@ -66,7 +66,7 @@ h3, h4, h5, h6, .h3, .h4, .h5, .h6 { font-size: calc(100% + 20%); }
 .h2 { font-size: calc(100% + 40%) !important; }
 .h3, .h4, .h5, .h6 { font-size: calc(100% + 20%) !important; }
 
-input[type=text], input[type=search], textarea, select, input[type=submit]{
+input[type=text], input[type=search], textarea, input[type=submit]{
 width: 100%;
 min-height:  var(--inputH);
 margin: 0px;
@@ -75,12 +75,13 @@ margin-top: 2px;
 margin-bottom: 0;
 padding: 5px;
 }
+select, input[type="color"], input[type="date"], input[type="time"]{ padding: 5px; min-height:15px; display: inline-block;  }
 input[type=checkbox]{ cursor: pointer; margin: 0; padding; line-height: normal; }
 textarea { outline-color:transparent; outline-style:none; resize: vertical; }
 input[type=submit] { cursor:pointer;  }
 input:focus{ outline: none }
 
-input[type="color"]{ min-width: var(--inputH); }
+
 
 
 
@@ -395,7 +396,6 @@ div, input, textarea, img { box-sizing: border-box; }
 .pre{ white-space: pre-wrap; word-wrap: break-word; line-height: normal; }
 
 button { cursor: pointer; }
-select, input[type="date"], input[type="time"]{ min-width: 130px; max-width:130px; min-height:15px; display: inline-block; }
 /*textarea:focus {outline: none !important;}*/
 form { margin: 0 auto; padding: 0; width: 100%; }
 /*br, hr { clear: both !important; }*/
