@@ -8,7 +8,8 @@
 --d2: #2D3D63;
 --d3: #212F4A;
 --d4: #001133;
---c: #E0E0E0; 
+--c: #E0E0E0;
+--cOp: #E0E0E080;
 --c2: #EDEDED; 
 --c3: #F5F5F5; 
 --c4: #FFFFFF; 
@@ -32,7 +33,7 @@
 --violet2: #F1CDF2;
 }
 
-html::before, .dd, .logo, .logo2 { filter: invert(70%); }
+html::before, .dd, .logo, .logo2 { /*filter: invert(70%); */ filter: brightness(70%); }
 
 input[type="submit"] { background: var(--l); color: var(--c2); }
 input[type="submit"]:hover { background: var(--d); color: var(--c3); }

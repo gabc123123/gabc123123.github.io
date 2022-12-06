@@ -1,4 +1,4 @@
-// v.1.2.7
+// v.1.2.8
 
 function insertIcon(id){
 
@@ -30,7 +30,8 @@ let icons = {
 "music": "🎶",
 "pumpkin":"🎃", "halloween":"🎃",
 "pc":"🖥",
-"random":"🎲","rnd":"🎲",
+"random":"🎲","rnd":"🎲", "rand":"🎲",
+"robot":"🤖", "auto":"🤖",
 "share":"🔁",
 "script":"📜", "code":"📜", "history":"📜",
 "search": "🔎",
@@ -46,14 +47,24 @@ let icons = {
 "url":"🔗","link":"🔗","www":"🔗",
 "web":"🕸️", "internet":"🕸️", "browser":"🕸️",
 "wallpaper":"🖼", "picture":"🖼", "image":"🖼", "img":"🖼", "pixel":"🖼","instagram":"🖼","pxlmo":"🖼",
-"question":"❓"
+"question":"❓",
+
+"light":"⬜️", "white":"⬜️",
+ "dark":"⬛", "black":"⬛",
+"red":"🟥",
+"orange":"🟧",
+"yellow":"🟨",
+"green":"🟩",
+"indigo":"🟪",
+"violet":"🟪",
+"blue":"🟦"
+
 };
 let iconsArr = Object.getOwnPropertyNames(icons);
 
-
 const divId = document.getElementById(id);
-const allLinks = divId.querySelectorAll("a");
 
+const allLinks = divId.querySelectorAll("a");
 allLinks.forEach((item, index) => {
 
 let linkText = item.innerHTML;
@@ -84,6 +95,40 @@ divId.getElementsByTagName("a")[index].innerHTML = linkText;
 ckeck = '';
 icArr = [];
 });
+
+
+const allButtons = divId.querySelectorAll("button");
+allButtons.forEach((item, index) => {
+
+let linkText = item.innerHTML;
+let check = '';
+let icArr = [];
+
+iconsArr.forEach((item) => {
+let textIcon = item;
+let icon = icons[textIcon];
+if(linkText.toLowerCase().search(textIcon) != -1&&linkText.toLowerCase().search(icon) == -1){
+icArr.push(icon);
+check = 'exit';
+}
+});
+
+if(check == 'exit'){
+icArr = [...new Set(icArr)];
+//icon = icArr.toString();
+icon = icArr.join('');
+linkText = '<span class="ico2 pre">'+icon+'</span><span class="pre"> </span>'+linkText;
+divId.getElementsByTagName("button")[index].innerHTML = linkText;
+}else{
+//linkText = '<span class="op pre">📄 </span>'+linkText;
+linkText = '<span class="pre"> </span>' +linkText+'<span class="pre"> </span>';
+divId.getElementsByTagName("button")[index].innerHTML = linkText;
+}
+
+ckeck = '';
+icArr = [];
+});
+
 
 }
 

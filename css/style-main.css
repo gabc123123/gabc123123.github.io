@@ -1,4 +1,4 @@
-/* v.12.17.12 */
+/* v.12.17.14 */
 
 :root{
 --bodyP: 2vw;
@@ -147,10 +147,10 @@ width: 60px;
 height: 60px;
 padding: 1px;
 transition: transform 1.8s ease-in-out;
-border: 2px dashed var(--d3);
+border: 2px dashed var(--cOp);
 }
 .logo:hover, .logo2:hover{
-border: 2px dashed var(--d3);
+border: 2px dashed var(--cOp);
 transform: rotate(360deg); 
 }
 .logo2 { width: 24px; height: 24px; }
