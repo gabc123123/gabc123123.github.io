@@ -1,4 +1,4 @@
-
+/* v.1.0.1 */
 
 var xxx = document.getElementById("btn");
 var xxx2 = document.getElementById("ads2");
@@ -24,12 +24,13 @@ var color = '#141414';
 var a1 = 'notdraw';
 var a2 = 'notdraw';
 
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+if (confThemeEmbed == 'dark') {
 bg = '#141414';
 color = '#EFEFEF';
 }
-document.getElementById("color").value = color; 
 
+document.getElementById("color").value = color; 
+document.getElementById("bg").value = bg; 
 
 myPics.width = window.innerWidth;
 myPics.height = window.innerHeight;
@@ -37,6 +38,9 @@ myPics.height = window.innerHeight;
 context.beginPath();
 context.fillStyle = bg;
 context.fillRect(0,0,window.innerWidth,window.innerHeight);
+
+
+
 context.closePath();
 
 /*const resize = () => {
@@ -167,13 +171,12 @@ y = 0;
 function drawLine(context, x1, y1, x2, y2) {
 
 
-        // Selecting the input element and get its value 
-        let inputVal = document.getElementById("color").value;
-        // Displaying the value
-        color = inputVal;
 
-var txt = document.getElementById('color');
-txt.value = color;
+
+color = document.getElementById("color").value;
+
+
+
 
 context.beginPath();
 context.strokeStyle = color;
@@ -182,6 +185,11 @@ context.moveTo(x1, y1);
 context.lineTo(x2, y2);
 context.stroke();
 context.closePath();
+
+
+
+
+
 }
 
 /*function drawCircle(context, x1, y1){
@@ -204,6 +212,12 @@ context.fillRect(0,0,window.innerWidth,window.innerHeight);
 context.closePath();*/
 
 function img(){
+
+bg = document.getElementById("bg").value;
+
+
+
+
 const canvas = document.getElementById('myPics');
 const dataURL = canvas.toDataURL();
 //console.log(dataURL);
