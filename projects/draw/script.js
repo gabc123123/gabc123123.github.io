@@ -30,7 +30,7 @@ color = '#EFEFEF';
 }
 
 document.getElementById("color").value = color; 
-document.getElementById("bg").value = bg; 
+
 
 myPics.width = window.innerWidth;
 myPics.height = window.innerHeight;
@@ -212,11 +212,6 @@ context.fillRect(0,0,window.innerWidth,window.innerHeight);
 context.closePath();*/
 
 function img(){
-
-bg = document.getElementById("bg").value;
-
-
-
 
 const canvas = document.getElementById('myPics');
 const dataURL = canvas.toDataURL();
