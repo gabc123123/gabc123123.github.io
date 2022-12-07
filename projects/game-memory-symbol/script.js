@@ -56,7 +56,7 @@ var checkSymbol = '';
 symbolList.forEach(function (x) {
 counts[x] = (counts[x] || 0) + 1;
 checkSymbol = x;
-if(counts[x] >= 2){
+if(counts[x] >= 2||checkSymbol == ''){
 //alert(x+' = '+counts[x]);
 checkSymbol = '';
 }else{
