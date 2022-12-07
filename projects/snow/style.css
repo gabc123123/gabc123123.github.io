@@ -1,0 +1,49 @@
+/* v.1.0.4 */
+
+body {
+	padding: 0;
+	margin: 0;
+
+
+}
+* {
+	box-sizing: border-box;
+}
+
+@keyframes ani {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(-360deg);
+	}
+}
+
+#snow {
+	position: absolute;
+	top: 0;
+z-index: -1;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	background-color: #92a2ff;
+}
+#snowPrint {
+	display: block;
+	position: relative;
+	width: 600vw;
+	height: 600vw;
+	min-width: 600vh;
+	min-height: 600vh;
+
+
+	left: 0%;
+	top: -300vh;
+
+	font-size: 2rem;
+	position: relative;
+	filter: brightness(1.75);
+	opacity: 0.7;
+
+	animation: ani 150s linear infinite;
+}

@@ -45,6 +45,7 @@ let icons = {
 "play":"▶️",
 "progress":"█░░",
 "url":"🔗","link":"🔗","www":"🔗",
+"snow":"❄️", "cold":"❄️", "winter":"❄️", 
 "web":"🕸️", "internet":"🕸️", "browser":"🕸️",
 "wallpaper":"🖼", "picture":"🖼", "image":"🖼", "img":"🖼", "pixel":"🖼","instagram":"🖼","pxlmo":"🖼",
 "question":"❓",
