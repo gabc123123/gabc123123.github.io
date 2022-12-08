@@ -1,49 +1,86 @@
-/* v.1.0.4 */
+/* v.3.0.0 */
 
 body {
-	padding: 0;
-	margin: 0;
-
-
+padding: 0;
+margin: 0;
 }
-* {
-	box-sizing: border-box;
-}
+
 
 @keyframes ani {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(-360deg);
-	}
+0% { left:0vw; top:0vh;}
+100% { left:0vw; top: 100vh; }
 }
+
+@keyframes ani2 { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
 
 #snow {
-	position: absolute;
-	top: 0;
+position: absolute;
 z-index: -1;
-	width: 100vw;
-	height: 100vh;
-	overflow: hidden;
-	background-color: #92a2ff;
+width: 100vw;
+height: 200vh;
+overflow: hidden;
+background-color: #92a2ff;
+top: -100vh;
+
 }
+
+
+.snowflake {
+font-size: 2rem;
+filter: brightness(1.75);
+opacity: 0.7;
+}
+
+.group {
+display: flex;
+flex-direction: column;
+position: relative;
+}
+
+.item, .item2 {
+/*border: 1px solid red;*/
+width: 100vw;
+height: 100vh;
+position: absolute;
+transform: scaleX(-1);
+transform: scaleY(-1);
+}
+
+
+.item2 {
+top: 100vh;
+}
+
+
 #snowPrint {
-	display: block;
-	position: relative;
-	width: 600vw;
-	height: 600vw;
-	min-width: 600vh;
-	min-height: 600vh;
-
-
-	left: 0%;
-	top: -320vw;
-
-	font-size: 2rem;
-	position: relative;
-	filter: brightness(1.75);
-	opacity: 0.7;
-
-	animation: ani 150s linear infinite;
+display: block;
+position: absolute;
+width: 100vw;
+height: 200vh;
+font-size: 2rem;
+filter: brightness(1.75);
+opacity: 0.8;
 }
+
+.ani {
+position: absolute;
+animation: ani 20s linear infinite;
+}
+
+/*.snowflake {
+animation: ani2 45s linear infinite;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
