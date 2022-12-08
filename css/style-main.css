@@ -264,7 +264,7 @@ html::before {
 width: calc(100vh);
 height: calc(100vh);
 content: "";
-opacity: 0.16;
+opacity: 0.36;
 position: fixed;
 bottom: 0;
 right: 0;
@@ -385,6 +385,7 @@ td { background-color: var(--l2); }
 .xsmall, .xsmall a { font-size: x-small !important; }
 
 
+
 /* fix */
 h1, h2, h3, h4, h5, h6 { word-break: break-all; }
 
@@ -426,6 +427,5 @@ html { scroll-padding-top: 14px; }
 
 /*html { scrollbar-width: thin; }
 ::-webkit-scrollbar { width: 7px; }*/
-
 
 
