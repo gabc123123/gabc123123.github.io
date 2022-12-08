@@ -264,7 +264,7 @@ html::before {
 width: calc(100vh);
 height: calc(100vh);
 content: "";
-opacity: 0.36;
+opacity: 0.25;
 position: fixed;
 bottom: 0;
 right: 0;
