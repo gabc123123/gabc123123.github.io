@@ -1,4 +1,4 @@
-/* v.12.17.16 */
+/* v.12.17.17 */
 
 :root{
 --bodyP: 2vw;
@@ -122,7 +122,7 @@ border-radius: 5px;
 display: block;
 width: 100%;
 margin: 0 auto;
-overflow: auto;
+/*overflow: auto;*/
 }
 .post { max-width: var(--wrapper); }
 .post2 { max-width: var(--wrapper2); }

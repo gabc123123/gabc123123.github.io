@@ -44,7 +44,7 @@
 
 <a href="../"><img class="logo2" src="/img/logo.png" alt="gabc"></a>
 
-<button onclick="dropdownFunction();" class="dropbtn" id="dropbtn">☰ nav</button>
+<button onclick="dropdownFunction();" class="dropbtn" id="dropbtn">☰ Nav</button>
 
 <div id="myDropdown" class="dropdown-content shadow bg3">
 <a class="brand" href="firefox-theme.html">firefox-theme</a><a class="brand" href="geany-color.html">geany-color</a><a class="brand" href="vscode-theme.html">vscode-theme</a><a class="brand" href="wallpaper.html">wallpaper</a><a class="brand" href="projects.html">projects</a></div>
@@ -67,11 +67,11 @@ function dropdownFunction() {
   var x = document.getElementById("myDropdown");
  // alert(x.style.display);
   if (x.style.display === "none"||x.style.display === "") {
-document.getElementById("dropbtn").innerHTML = '☶ nav'; 
+document.getElementById("dropbtn").innerHTML = '☶ Nav'; 
 x.style.display = "block";
   } else {
 x.style.display = "none";
-document.getElementById("dropbtn").innerHTML = '☰ nav'; 
+document.getElementById("dropbtn").innerHTML = '☰ Nav'; 
   }
 
 // out area
@@ -81,7 +81,7 @@ if (!getclick.contains(event.target)) {
 //alert('out');
 var x = document.getElementById("myDropdown");
 x.style.display = "none";
-document.getElementById("dropbtn").innerHTML = '☰ nav'; 
+document.getElementById("dropbtn").innerHTML = '☰ Nav'; 
     }
 });
 
@@ -96,32 +96,28 @@ document.getElementById("dropbtn").innerHTML = '☰ nav';
 <h3 class="tCenter op">About</h3>
 
 <div class="center2" style="text-align: center">
-<div class="postL">
+
 
 
 <div class="padding">
 <a rel="nofollow" href="/img/logo.png"><img class="logo" src="/img/logo.png" alt="gabc"></a><br />
-<div style="padding: 2em;">Home page and others projects.</div>
+<div style="padding: 2em 0;">Home page and others projects.</div>
+
 </div>
 
-<div id="insertIcon" class="brand post border bg" style="max-width: 300px;">
+<div id="insertIcon" class="padding brand  border bg" style="max-width: 300px;">
+
 <a class="block padding light border3 pre margin" href="https://twitter.com/gabc123123">Twitter</a>
 <a class="block padding light border3 pre margin" href="https://pxlmo.com/gabc123123">Pxlmo</a>
 <a class="block padding light border3 pre margin" href="https://codepen.io/gabc123123">Codepen</a>
 <a class="block padding light border3 pre margin" href="https://github.com/gabc123123">Github & Code</a>
 <a class="block padding light border3 pre margin" href="https://www.buymeacoffee.com/gabc123123">Buy me a cofee</a>
 <a class="block padding light border3 pre margin" href="https://pages.github.com/">hosting: pages.github.com</a>
-
-<span id="femail"></span>
-<script>document.getElementById("femail").innerHTML = '<a class="block padding light border3 pre margin" href="mailto:gabc123123@gmail.com">E-mail</a>';
-</script>
-
-
-
+<a class="block padding light border3 pre margin" href="mailto:gabc123123@gmail.com">E-mail</a>
 
 </div>
 
-</div>
+
 
 <script src="/projects/insert-icon/script.js"></script>
 <script>
@@ -129,7 +125,7 @@ insertIcon("insertIcon");
 </script>
 
 
-</div>
+
 </div>
 
 

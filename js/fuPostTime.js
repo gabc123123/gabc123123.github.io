@@ -1,4 +1,5 @@
 /* v.1.2.0 */
+// https://stackoverflow.com/questions/13903897/javascript-return-number-of-days-hours-minutes-seconds-between-two-dates
 
 // Time  post date
 function checkTime(i) {
@@ -6,9 +7,11 @@ function checkTime(i) {
   return i;
 }
 
+
 function fuPostTime(p){
 const  date_future = Date.now();
 const  date_now = new Date(p * 1000);
+
 
 // get total seconds between the times
 var delta = Math.abs(date_future - date_now) / 1000;
