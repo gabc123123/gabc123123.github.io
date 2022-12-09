@@ -1,4 +1,4 @@
-/* v.12.17.15 */
+/* v.12.17.16 */
 
 :root{
 --bodyP: 2vw;
@@ -157,14 +157,18 @@ transform: rotate(360deg);
 .logo2 { width: 24px; height: 24px; }
 .dd { max-height: 90px; margin-bottom:  -32px; border-radius: 9px; }
 
-.ico {
+.ico, .ico2 {
 border-radius: 50%;
 display: inline-block;
 vertical-align: middle;
 width: 14px;
 filter:grayscale(56%);
 }
-.ico2 { padding: 3px; vertical-align: middle; filter:grayscale(36%); font-size: calc(100% - 20%); }
+.ico2 {
+width: auto;
+filter:grayscale(36%);
+font-size: calc(100% - 20%);
+}
 .ico:hover, .ico2:hover { filter: grayscale(0%); }
 
 .gray { filter:grayscale(56%); }

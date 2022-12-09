@@ -1,4 +1,4 @@
-// v.1.2.8
+// v.1.2.9
 
 function insertIcon(id){
 
@@ -41,7 +41,7 @@ let icons = {
 "time":"⌛",
 "tmp":"⏳", "temporary":"⏳",
 "training":"🏃", "run":"🏃",
-"test":"🧪","demo":"🧪",
+"test":"🧪", "demo":"🧪", "lorem":"🧪", "ipsum":"🧪", 
 "play":"▶️",
 "progress":"█░░",
 "url":"🔗","link":"🔗","www":"🔗",
@@ -76,7 +76,7 @@ iconsArr.forEach((item) => {
 let textIcon = item;
 let icon = icons[textIcon];
 if(linkText.toLowerCase().search(textIcon) != -1&&linkText.toLowerCase().search(icon) == -1){
-icArr.push(icon);
+icArr.push(icon+' ');
 check = 'exit';
 }
 });

@@ -43,11 +43,11 @@
 <nav>
 
 <a href="../"><img class="logo2" src="/img/logo.png" alt="gabc"></a>
-<a class="brand" href="projects.html">projects</a><a class="brand" href="/projects/music">music</a>
-<button onclick="dropdownFunction();" class="dropbtn" id="dropbtn">☰ other</button>
+
+<button onclick="dropdownFunction();" class="dropbtn" id="dropbtn">☰ nav</button>
 
 <div id="myDropdown" class="dropdown-content shadow bg3">
-<a class="brand" href="tpl.html">TPL</a><a class="brand" href="firefox-theme.html">firefox-theme</a><a class="active" href="geany-color.html">geany-color</a><a class="brand" href="vscode-theme.html">vscode-theme</a><a class="brand" href="wallpaper.html">wallpaper</a><a class="brand" href="search.html">search</a><a class="brand" href="blog.html">blog</a><a class="brand" href="twitter.html">twitter</a><a class="brand" href="about.html">about</a></div>
+<a class="brand" href="firefox-theme.html">firefox-theme</a><a class="active" href="geany-color.html">geany-color</a><a class="brand" href="vscode-theme.html">vscode-theme</a><a class="brand" href="wallpaper.html">wallpaper</a><a class="brand" href="projects.html">projects</a></div>
 
 <!--<hr />-->
  </nav>
@@ -62,16 +62,16 @@
 </noscript>
 
 <script>
-// other click
+// menu click
 function dropdownFunction() {
   var x = document.getElementById("myDropdown");
  // alert(x.style.display);
   if (x.style.display === "none"||x.style.display === "") {
-document.getElementById("dropbtn").innerHTML = '☶ other'; 
+document.getElementById("dropbtn").innerHTML = '☶ nav'; 
 x.style.display = "block";
   } else {
 x.style.display = "none";
-document.getElementById("dropbtn").innerHTML = '☰ other'; 
+document.getElementById("dropbtn").innerHTML = '☰ nav'; 
   }
 
 // out area
@@ -81,7 +81,7 @@ if (!getclick.contains(event.target)) {
 //alert('out');
 var x = document.getElementById("myDropdown");
 x.style.display = "none";
-document.getElementById("dropbtn").innerHTML = '☰ other'; 
+document.getElementById("dropbtn").innerHTML = '☰ nav'; 
     }
 });
 
