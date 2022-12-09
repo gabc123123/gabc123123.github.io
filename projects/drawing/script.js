@@ -1,4 +1,6 @@
 /* v.1.0.1 */
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/mousemove_event
+
 
 var xxx = document.getElementById("btn");
 var xxx2 = document.getElementById("ads2");
@@ -43,7 +45,8 @@ context.fillRect(0,0,window.innerWidth,window.innerHeight);
 
 context.closePath();
 
-/*const resize = () => {
+
+const resize = () => {
 myPics.width = window.innerWidth;
 myPics.height = window.innerHeight;
 
@@ -53,7 +56,7 @@ context.fillRect(0,0,window.innerWidth,window.innerHeight);
 context.closePath();
 }
 resize()
-window.addEventListener('resize', resize);*/
+window.addEventListener('resize', resize);
 
 
 
