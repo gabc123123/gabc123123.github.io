@@ -1,4 +1,4 @@
-/* v.12.17.17 */
+/* v.12.17.18 */
 
 :root{
 --bodyP: 2vw;
@@ -157,16 +157,18 @@ transform: rotate(360deg);
 .logo2 { width: 24px; max-height: 24px; }
 .dd { display: block; margin: 0 auto; max-height: 90px; margin-bottom:  -32px; border-radius: 9px; }
 
-.ico, .ico2 {
+.ico {
 border-radius: 50%;
 display: inline-block;
 vertical-align: middle;
 width: 16px;
-height: 16px;
+max-height: 16px;
 filter:grayscale(56%);
 font-size: xxx-small;
 }
 .ico2 {
+vertical-align: middle;
+display: inline-block;
 width: auto;
 filter:grayscale(36%);
 font-size: calc(100% - 20%);
@@ -214,7 +216,7 @@ justify-content: center;
 align-content: center;
 text-transform: lowercase;
 }
-.menu a {  padding: 9px; margin:0; }
+.menu a { padding: 9px; margin:0; }
 
  /* Dropdown */
 .dropbtn {
