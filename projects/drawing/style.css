@@ -2,10 +2,12 @@ body, html{
 padding: 0; margin: 0;
 }
 
-canvas {
+#myPics, canvas, body, html {
 height: 100vh;
 width: 100vw;
 }
+
+
 
 body {
 /* Disables pull-to-refresh */
@@ -15,8 +17,6 @@ overscroll-behavior: contain;
 #btn { position: absolute; top: 0; right: 0; }
  .button{ width: 50px; max-width: 100%; padding: 5px;  }
 input[type="color"]{  cursor: pointer; height: 19px; min-height: 19px; margin: 0; }
-
-#myPics, body, html {  }
 
 
 #btn, .drawAds {
