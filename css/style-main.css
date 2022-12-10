@@ -145,7 +145,7 @@ border-radius: 50%;
 display: inline-block;
 vertical-align: middle;
 width: 60px;
-height: 60px;
+max-height: 60px;
 padding: 1px;
 transition: transform 1.8s ease-in-out;
 border: 2px dashed var(--cOp);
@@ -154,8 +154,8 @@ border: 2px dashed var(--cOp);
 border: 2px dashed var(--cOp);
 transform: rotate(360deg); 
 }
-.logo2 { width: 24px; height: 24px; }
-.dd { max-height: 90px; margin-bottom:  -32px; border-radius: 9px; }
+.logo2 { width: 24px; max-height: 24px; }
+.dd { display: block; margin: 0 auto; max-height: 90px; margin-bottom:  -32px; border-radius: 9px; }
 
 .ico, .ico2 {
 border-radius: 50%;
