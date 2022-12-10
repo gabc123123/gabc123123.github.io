@@ -36,29 +36,6 @@ var q3 = q + "#";
 
 switch (q2) {
 
-case 'r#':
-case 'rand#':
-urlList = [
-'https://www.w3.org/',
-'https://isocpp.org/tour',
-'https://www.ruby-lang.org/en/documentation/',
-'https://docs.scala-lang.org/',
-'https://docs.python.org/',
-'https://golang.org/doc/',
-'https://www.rust-lang.org/learn',
-'https://www.php.net/docs.php',
-'https://www.w3schools.com/',
-'https://developer.mozilla.org/docs/',
-'https://devdocs.io/',
-'https://docs.julialang.org/',
-'https://www.typescriptlang.org/docs/',
-'http://www.lua.org/docs.html'
-];
-random = Math.floor(Math.random() * urlList.length);
-random = urlList[random];
-sRedirUrl = random;
-break;
-
 case 'g#':
 case 'goo#':
 q = q3.replace(q2, '');
@@ -310,8 +287,7 @@ urlList = [
 "https://www.bing.com/news/search?q=Sci/Tech",
 "https://getpocket.com/explore/technology",
 "https://www.reddit.com/r/technology/",
-"https://medium.com/tag/technology",
-"./?q=cod"
+"https://medium.com/tag/technology"
 //"https://twitter.com/explore/tabs/news"
 ];
 random = Math.floor(Math.random() * urlList.length);
@@ -320,6 +296,39 @@ url = urlList[random];
 sRedirUrl = url;
 break;
 
+case 'd#':
+q = q3.replace(q2, '');
+q = q.trim();
+q = encodeURIComponent(q);
+urlList = [
+"https://addStackInThisPlace?q="+q+"&tbm=nws"
+];
+
+random = Math.floor(Math.random() * urlList.length);
+url = urlList[random];
+if(q == ''){
+urlList = [
+'https://www.w3.org/',
+'https://isocpp.org/tour',
+'https://www.ruby-lang.org/en/documentation/',
+'https://docs.scala-lang.org/',
+'https://docs.python.org/',
+'https://golang.org/doc/',
+'https://www.rust-lang.org/learn',
+'https://www.php.net/docs.php',
+'https://www.w3schools.com/',
+'https://developer.mozilla.org/docs/',
+'https://devdocs.io/',
+'https://docs.julialang.org/',
+'https://www.typescriptlang.org/docs/',
+'http://www.lua.org/docs.html'
+//"https://twitter.com/explore/tabs/news"
+];
+random = Math.floor(Math.random() * urlList.length);
+url = urlList[random];
+}
+sRedirUrl = url;
+break;
 
 case 'y#':
 case '.#':
@@ -456,7 +465,6 @@ urlList = [
 "https://www.reddit.com/r/programming/",
 "https://flipboard.com/topic/computerscience",
 "https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNREZ0YTNFU0FtVnVLQUFQAQ",
-"https://www.bing.com/news/search?q=computer science",
 "https://www.reddit.com/r/computerscience/",
 "https://www.reddit.com/r/compsci/",
 "https://www.reddit.com/r/programming/",

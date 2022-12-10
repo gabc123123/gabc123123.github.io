@@ -161,8 +161,10 @@ transform: rotate(360deg);
 border-radius: 50%;
 display: inline-block;
 vertical-align: middle;
-width: 14px;
+width: 16px;
+height: 16px;
 filter:grayscale(56%);
+font-size: xxx-small;
 }
 .ico2 {
 width: auto;
@@ -191,8 +193,8 @@ box-sizing: border-box;
 }
 .tag, .tag2, .time a { font-size: calc(100% - 10%); padding: 5px 4px; min-width: 20px; }
 .button { padding: 9px; max-width: 100%; }
-.button, .tag { border-radius: 5px; }
-.tag2 { padding: 1px 8px; }
+.button, .tag, .tag2 { border-radius: 5px; }
+.tag2 { padding: 2px 4px; }
 
 .menu {
 display: grid;
