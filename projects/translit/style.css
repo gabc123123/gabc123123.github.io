@@ -1,9 +1,11 @@
+
+
 .result,  textarea, .stat {
 margin: 0 auto;
-font-size: 150% !important;
+/*font-size: 150% !important;*/
 padding: 15px;
 }
- .stat { font-size: 120% !important; }
+ /*.stat { font-size: 120% !important; }*/
 
 .height{ min-height: 38px; }
 

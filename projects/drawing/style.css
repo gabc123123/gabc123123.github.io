@@ -1,20 +1,19 @@
-/* v.1.0.2 */
+/* v.1.0.3 */
 
-body, html{
+#myPics, canvas, body, html, html::before {
 padding: 0; margin: 0;
 }
 
-#myPics, canvas, body, html {
-height: 100vh;
-width: 100vw;
+canvas, #myPics {
+height: 100%;
+width: 100%;
 }
 
-body { position: relative; }
-canvas { position: fixed; top: 0; left: 0; }
+body { position: fixed; top: 0; left: 0; overflow: hidden; }
 
 body {
-/* Disables pull-to-refresh */
-/*overscroll-behavior: contain;*/
+/* Disable pull-to-refresh */
+overscroll-behavior: contain;
 }
 
 #btn { position: absolute; top: 0; right: 0; }

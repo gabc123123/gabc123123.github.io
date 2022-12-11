@@ -1,4 +1,4 @@
-/* v.1.0.1 */
+/* v.1.1.0 */
 // https://developer.mozilla.org/docs/Web/API/Element/mousemove_event
 
 
@@ -11,14 +11,15 @@ var xxx2 = document.getElementById("ads2");
 const myPics = document.getElementById('myPics');
 const context = myPics.getContext('2d');
 
-
+myPics.width = window.innerWidth;
+myPics.height = window.innerHeight;
 
 // When true, moving the mouse draws on the canvas
 let isDrawing = false;
 
 let x = 0;
 let y = 0;
-
+let rect = '';
 
 var bg = '#EFEFEF';
 var color = '#141414';
@@ -33,9 +34,8 @@ color = '#EFEFEF';
 
 document.getElementById("color").value = color; 
 
-
-myPics.width = window.innerWidth;
-myPics.height = window.innerHeight;
+/*myPics.width = window.innerWidth;
+myPics.height = window.innerHeight;*/
 
 context.beginPath();
 context.fillStyle = bg;
@@ -69,14 +69,13 @@ myPics.addEventListener('mousedown', e => {
 x = e.offsetX;
 y = e.offsetY;
 isDrawing = true;
-
 });
 
 myPics.addEventListener('touchstart', e => {
-	
-let rect = myPics.getBoundingClientRect();
+rect = myPics.getBoundingClientRect();
 x = e.targetTouches[0].pageX - rect.left;
 y = e.targetTouches[0].pageY - rect.top;
+
 isDrawing = true;
 });
 
@@ -94,7 +93,7 @@ xxx2.style.display = "none";
 
 myPics.addEventListener('touchmove', e => {
 if (isDrawing === true) {
-let rect = myPics.getBoundingClientRect();
+rect = myPics.getBoundingClientRect();
 x3 = e.targetTouches[0].pageX - rect.left;
 y3 = e.targetTouches[0].pageY - rect.top;
 
