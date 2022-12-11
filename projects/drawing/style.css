@@ -1,15 +1,16 @@
-/* v.1.0.3 */
+/* v.1.1.0 */
 
 #myPics, canvas, body, html, html::before {
 padding: 0; margin: 0;
 }
 
-canvas, #myPics {
+body, canvas, #myPics {
 height: 100%;
 width: 100%;
+position: fixed;
 }
 
-body { position: fixed; top: 0; left: 0; overflow: hidden; }
+body { position: absolute; top: 0; left: 0; overflow: hidden; }
 
 body {
 /* Disable pull-to-refresh */

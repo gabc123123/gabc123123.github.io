@@ -71,11 +71,11 @@ y = e.offsetY;
 isDrawing = true;
 });
 
+
 myPics.addEventListener('touchstart', e => {
 rect = myPics.getBoundingClientRect();
 x = e.targetTouches[0].pageX - rect.left;
 y = e.targetTouches[0].pageY - rect.top;
-
 isDrawing = true;
 });
 
@@ -101,6 +101,7 @@ drawLine(context, x, y, x3, y3);
 
 x = e.targetTouches[0].pageX - rect.left;
 y = e.targetTouches[0].pageY - rect.top;
+
 
 //document.getElementById("btn").innerHTML = ''; 
 xxx.style.display = "none";
