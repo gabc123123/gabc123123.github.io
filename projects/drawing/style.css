@@ -9,7 +9,8 @@ height: 100vh;
 width: 100vw;
 }
 
-
+body { position: relative; }
+canvas { position: fixed; top: 0; left: 0; }
 
 body {
 /* Disables pull-to-refresh */

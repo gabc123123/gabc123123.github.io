@@ -1,5 +1,5 @@
 /* v.1.0.1 */
-// https://developer.mozilla.org/en-US/docs/Web/API/Element/mousemove_event
+// https://developer.mozilla.org/docs/Web/API/Element/mousemove_event
 
 
 var xxx = document.getElementById("btn");
@@ -39,7 +39,7 @@ myPics.height = window.innerHeight;
 
 context.beginPath();
 context.fillStyle = bg;
-context.fillRect(0,0,window.innerWidth,window.innerHeight);
+context.fillRect(0,0,window.innerWidth, window.innerHeight);
 
 
 
