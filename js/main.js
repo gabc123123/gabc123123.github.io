@@ -13,6 +13,7 @@ confHost = 'localhost';
 var confExt = 'html';
 }
 
+var lang = 'en';
 
 var confDevice = '';
 if(navigator.userAgent.search("iPhone|Android|Opera Mini|Mobile|Lumia|Phone") != -1){ confDevice = 'mobile';  }
