@@ -89,7 +89,7 @@ const myArray = text2.split(symbolForSplit);
 myArray.forEach((item) => {
 
 //text += item.hostname;
-if(item.search("http") != -1){ 
+if(' '+item.search(" http") != -1){ 
 embed = new URL(item).hostname;
 }
 
