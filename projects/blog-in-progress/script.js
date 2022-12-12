@@ -133,9 +133,9 @@ embed = `<a href="${item}"><img class="border3" src="${item}" width=""></a>`
 
 //if(item.search("http") != -1){ 
 if(item[0]+item[1]+item[2]+item[3] == 'http'){ 
-var ico = 'https://www.google.com/s2/favicons?domain_url=${host}';
-//let ico = 'https://api.statvoo.com/favicon/?url=${host};
-//let ico = 'https://api.faviconkit.com/${host}/16';
+var ico = `https://www.google.com/s2/favicons?domain_url=${host}`;
+//let ico = `https://api.statvoo.com/favicon/?url=${host}`;
+//let ico = `https://api.faviconkit.com/${host}/16`;
 item = `<a target="_blank" href="${item}"><img class="ico op" src="${ico}" width="14px" alt="ico"> ${item}</a>`;
 }
 
