@@ -40,10 +40,10 @@ document.getElementById(printId).innerHTML = print;
 
 function fuPrintPost(id, post, tag, time, mode){
 
-post = l(post);
+post = l(post, 'blank');
 tag = l(tag);
 //time = new Date(time).getTime();
-time = `<a class="tag border2 light" href="blog.html#${id}">&nbsp;`+fuPostTime(time)+`&nbsp;</a>`;
+time = `<a class="tag border2 light" href="?id=${id}#${id}">&nbsp;`+fuPostTime(time)+`&nbsp;</a>`;
 
 
 
@@ -64,7 +64,7 @@ return `
 }
 
 
-function l(text){
+function l(text, target){
 text = decodeURIComponent(text);
 let text2 = '';
 let embed = '';
@@ -131,7 +131,7 @@ embed = `<a href="${item}"><img class="border3" src="${item}" width=""></a>`
 
 
 
-//if(item.search("http") != -1){ 
+//if(item.search("http") != -1){
 if(item[0]+item[1]+item[2]+item[3] == 'http'){ 
 var ico = `https://www.google.com/s2/favicons?domain_url=${host}`;
 //let ico = `https://api.statvoo.com/favicon/?url=${host}`;
@@ -146,7 +146,11 @@ item = `<a target="_blank" href="${item}"><img class="ico op" src="${ico}" width
 //add tag
 if(item[0] == '#'){
 item = item.replace(/#/g, "");
-item = `<a class="tag light border2" href="./?q=%23${item}">#${item}</a> <a style="" rel="nofollow" class="tag light border2" target="blank" href="/?q=${item} tag">#${item} <span class="sup">⇗</span></a>`;
+if(target == 'blank'){
+item = `<a style="" rel="nofollow" class="tag light border2" target="blank" href="/?q=${item} tag">#${item} <span class="sup">⇗</span></a> `;
+}else{
+item = `<a class="tag light border2" href="./?q=%23${item}">#${item}</a> `;
+}
 }
 
 
