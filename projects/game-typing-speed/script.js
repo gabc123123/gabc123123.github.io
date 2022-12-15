@@ -1,4 +1,4 @@
-// v.3.7.15
+// v.3.7.16
 
 
 
@@ -197,22 +197,11 @@ return a[char] || char;
 
 if(mode == 'abc'){ text = text.replace(/\s{2,}/g, ' '); /* space */ }
 
-letters = encodeURIComponent(text);
+letters = text;
 
-letters = letters.replace(/\r\n/g, "\n");
-letters = letters.replace(/%0A/g, "\n");
-letters = letters.replace(/  /g, " ");
+/**/
 
-letters = letters.replace(/%E2%80%8C/g, ""); //ZERO WIDTH SPACE
-letters = letters.replace(/%0D%0A/g, "\n");
-letters = letters.replace(/%0A/g, "\n");
-letters = letters.replace(/%0D/g, "\n");
-letters = letters.replace(/%C2%A0/g, " ");
-
-
-
-
-
+// clean text
 letters = decodeURIComponent(letters);
 letters = transliterate(letters);
 
@@ -226,9 +215,33 @@ letters = letters.replace(/%0A/g, "\n");
 letters = letters.replace(/%0D/g, "\n");
 letters = letters.replace(/%C2%A0/g, " ");
 
+letters = letters.replace(/E2%80%8A/g, " "); // end of line
+letters = letters.replace(/ /g, ""); // end of line
+
+letters = encodeURIComponent(letters);
+
+letters = letters.replace(/\r\n/g, "\n");
+letters = letters.replace(/%0A/g, "\n");
+letters = letters.replace(/  /g, " ");
+
+letters = letters.replace(/%E2%80%8C/g, ""); //ZERO WIDTH SPACE
+letters = letters.replace(/%0D%0A/g, "\n");
+letters = letters.replace(/%0A/g, "\n");
+letters = letters.replace(/%0D/g, "\n");
+letters = letters.replace(/%C2%A0/g, " ");
+
+letters = letters.replace(/E2%80%8A/g, " "); // end of line
+letters = letters.replace(/ /g, ""); // end of line
+
+letters = decodeURIComponent(letters);
+
+
+
+
+
 //letters = letters.replace(/\s{2,}/g, ' ');
 
-//console.log([...letters]);
+console.log([...letters]);
 
 
 

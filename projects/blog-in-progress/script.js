@@ -1,10 +1,24 @@
-// v.1.0.0
+// v.1.0.1
 
 
 
-function blog(printId, json, mode){
+// main function 
+/*
+mode - class name
+embedMode - off,  only links and tag, other enable all
+*/
+function blog(printId, json, mode, embedMode, maxPost){
 
 
+
+var url = new URL(window.location);
+var q = url.searchParams.get("q");
+if(q != null){
+q = q.replace(/%/g, "%25");
+q = decodeURIComponent(q);
+}
+
+var symbolForSplit = 'ccbbaa';
 var id = '';
 var post = '';
 var tag = '';
@@ -12,7 +26,8 @@ var time = '';
 
 
 var print = '';
-
+var printTagList = '';
+var getTag = '';
 
 
 json.forEach((item) => {
@@ -22,31 +37,102 @@ post = item['text']+' '+item['url'];
 tag = item['tag'];
 time = item['time'];
 
-print += fuPrintPost(id, post, tag, time, mode);
+print += fuPrintPost(id, post, tag, time);
 
-
-
-
-
-
-
+printTagList += tag+symbolForSplit;
 
 
 });
 
-
+/*if(tagListEnable != ''){
+printTagList = tagList(printTagList);
+print += `<div id="tagList" class="tCenter padding">`+printTagList+`</div>`;
+}*/
+print += `<div id="tagList" class="tCenter padding">`+tagList(printTagList)+`</div>`;
+// echo all
 document.getElementById(printId).innerHTML = print;
 
 
-function fuPrintPost(id, post, tag, time, mode){
 
-post = l(post, 'blank');
+
+
+
+
+
+// other functions 
+
+
+
+
+
+
+
+//  tagList
+function tagList(tagList2){
+let color = 'silver';
+let size = '';
+
+tagList = '';
+
+
+tagList2 = tagList2.replace(/,/g, symbolForSplit);
+tagList2 = tagList2.replace(/ /g, symbolForSplit);
+
+tagList2 = tagList2.split(symbolForSplit);
+
+// https://stackoverflow.com/questions/19395257/how-to-count-duplicate-value-in-an-array-in-javascript
+var counts = {};
+tagList2.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+console.log(counts);
+
+// https://masteringjs.io/tutorials/fundamentals/foreach-object
+Object.entries(counts).forEach(entry => {
+  const [key, value] = entry;
+  //console.log(key, value);
+
+//alert('test');
+
+tag = key.trim();
+tagCount = value;
+
+if(tag != ''){
+let printTag = tag.replace(/#/g, "");
+let goTag = encodeURIComponent(tag);
+
+let hlClass = 'hlClass'+printTag[0];
+
+if(q == tag){
+
+tagList += `
+
+<a class="tag light border2 ${hlClass}" href="./?q=${goTag}" style="background: ${color}; color: var(--l4); font-size: ${size}% !important; margin:2px;">${printTag}${tagCount}</a>
+
+`;
+}else{
+
+tagList += `
+
+<a class="tag light border2 ${hlClass}" onmouseover="hlwClassAdd('${hlClass}')"  onmouseout="hlwClassRemove('${hlClass}')" href="./?q=${goTag}"  style="color: $color; font-size: $size% !important;">${printTag}${tagCount}</a>
+
+`;
+}
+}
+});
+return tagList;
+}
+//  end tag list
+
+
+
+
+
+
+function fuPrintPost(id, post, tag, time){
+
+post = l(post, 'out', embedMode);
 tag = l(tag);
 //time = new Date(time).getTime();
-time = `<a class="tag border2 light" href="?id=${id}#${id}">&nbsp;`+fuPostTime(time)+`&nbsp;</a>`;
-
-
-
+time = `<a href="?id=${id}#${id}">&nbsp;`+fuPostTime(time)+`&nbsp;</a>`;
 
 return `
 
@@ -64,11 +150,16 @@ return `
 }
 
 
-function l(text, target){
+
+
+
+
+
+function l(text, hrefInOut, embedMode){
 text = decodeURIComponent(text);
 let text2 = '';
 let embed = '';
-let symbolForSplit = 'ccbbaa';
+
 
 let w = '100%';
 let h = '190px'; 
@@ -136,9 +227,12 @@ if(item[0]+item[1]+item[2]+item[3] == 'http'){
 var ico = `https://www.google.com/s2/favicons?domain_url=${host}`;
 //let ico = `https://api.statvoo.com/favicon/?url=${host}`;
 //let ico = `https://api.faviconkit.com/${host}/16`;
+if(embedMode != 'off'){
 item = `<a target="_blank" href="${item}"><img class="ico op" src="${ico}" width="14px" alt="ico"> ${item}</a>`;
+}else{
+item = `<a target="_blank" href="${item}">${item}</a>`;
 }
-
+}
 
 
 
@@ -146,10 +240,10 @@ item = `<a target="_blank" href="${item}"><img class="ico op" src="${ico}" width
 //add tag
 if(item[0] == '#'){
 item = item.replace(/#/g, "");
-if(target == 'blank'){
-item = `<a style="" rel="nofollow" class="tag light border2" target="blank" href="/?q=${item} tag">#${item} <span class="sup">⇗</span></a> `;
+if(hrefInOut == 'out'){
+item = `<a rel="nofollow" href="/?q=${item} tag">#${item} <span class="sup">⇗</span></a>`;
 }else{
-item = `<a class="tag light border2" href="./?q=%23${item}">#${item}</a> `;
+item = `<a rel="nofollow" href="./?q=%23${item}">#${item}</a>`;
 }
 }
 
@@ -162,8 +256,8 @@ item = `<a class="tag light border2" href="./?q=%23${item}">#${item}</a> `;
 text += item;
 });
 
+if(embedMode == 'off'){ return text; } else { return text+embed; }
 
-return text+embed;
 }
 
 
@@ -226,5 +320,12 @@ return time;
 
 fuPostTime();
 var tmp = setInterval(fuPostTime, 1000);
+
+
+
+
+
+
+
 
 }

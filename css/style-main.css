@@ -1,4 +1,4 @@
-/* v.12.17.18 */
+/* v.12.17.21 */
 
 :root{
 --bodyP: 2vw;
@@ -193,10 +193,10 @@ align-items: center;
 text-align: center;
 box-sizing: border-box;
 }
-.tag, .tag2, .time a { font-size: calc(100% - 10%); padding: 5px 4px; min-width: 20px; }
+.tag, .tag2, .time a { font-size: calc(100% - 10%); padding: 2px 5px; min-width: 25px; }
 .button { padding: 9px; max-width: 100%; }
 .button, .tag, .tag2 { border-radius: 5px; }
-.tag2 { padding: 2px 4px; }
+.tag2 { padding: 3px 7px; }
 
 .menu {
 display: grid;
@@ -375,7 +375,9 @@ td { background-color: var(--l2); }
 .bg4, .bg4List, .light4 { background: var(--l3); }
 .bg4List:nth-child(2n), .light4:hover, .light5, .bg5 { background: var(--l4); }
 
-.highlight { background: var(--l4);  border-bottom: 1px solid var(--d3); color: var(--c4);  }
+.highlight { background: var(--l4) !important; border-bottom: 1px solid var(--d3); color: var(--c4); }
+.highlight:hover { color: var(--c4) !important; }
+
 
 
 

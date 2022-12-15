@@ -1,4 +1,4 @@
-// v.1.0.11
+// v.1.0.12
 
 
 
@@ -391,10 +391,18 @@ printTmp = `<div class="op xsmall">${idPrint}</div>
 printTmp = `<div class="op xsmall">${idPrint}</div>
 <div class="flexCenter"><div class="pre block"><input class="checkbox op" type="checkbox"  name="" value="done" onclick="runDb('done', '`+idPrint+`', '', 'done')">${editPrint}</div></div>`;
 }
+
+
+var doubleClickEdit = '';
+/*if(com != 'edit'){
+doubleClickEdit = ` ondblclick="runDb('edit', '`+cursor.key+`')" `;
+}else{
+doubleClickEdit = '';
+}*/
 print += `
 
 <div class="post border3List light2">
-<div class="task">
+<div class="task" ${doubleClickEdit}>
 
 ${printTmp}
 <div class="block tRight">

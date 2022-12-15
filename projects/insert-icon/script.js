@@ -44,12 +44,12 @@ let icons = {
 "test":"🧪", "demo":"🧪", "lorem":"🧪", "ipsum":"🧪", 
 "play":"▶️",
 "progress":"█░░",
+"rain":"💧",
 "url":"🔗","link":"🔗","www":"🔗",
 "snow":"❄️", "cold":"❄️", "winter":"❄️", 
 "web":"🕸️", "internet":"🕸️", "browser":"🕸️",
 "wallpaper":"🖼", "picture":"🖼", "image":"🖼", "img":"🖼", "pixel":"🖼","instagram":"🖼","pxlmo":"🖼",
 "question":"❓",
-
 "light":"⬜️", "white":"⬜️",
  "dark":"⬛", "black":"⬛",
 "red":"🟥",
@@ -76,7 +76,7 @@ iconsArr.forEach((item) => {
 let textIcon = item;
 let icon = icons[textIcon];
 if(linkText.toLowerCase().search(textIcon) != -1&&linkText.toLowerCase().search(icon) == -1){
-icArr.push(icon+' ');
+icArr.push(icon+'');
 check = 'exit';
 }
 });
