@@ -3,13 +3,8 @@
 
 
 // main function 
-/*
-mode - class name
-embedMode - off,  only links and tag, other enable all
-*/
-function blog(printId, json, mode, embedMode, maxPost){
 
-
+function blog(printId, json, mode, embedStatus, tagListStatus, maxPost){
 
 var url = new URL(window.location);
 var q = url.searchParams.get("q");
@@ -44,11 +39,11 @@ printTagList += tag+symbolForSplit;
 
 });
 
-/*if(tagListEnable != ''){
-printTagList = tagList(printTagList);
-print += `<div id="tagList" class="tCenter padding">`+printTagList+`</div>`;
-}*/
+
+if(tagListStatus != 'off'){
 print += `<div id="tagList" class="tCenter padding">`+tagList(printTagList)+`</div>`;
+}
+
 // echo all
 document.getElementById(printId).innerHTML = print;
 
@@ -105,14 +100,14 @@ if(q == tag){
 
 tagList += `
 
-<a class="tag light border2 ${hlClass}" href="./?q=${goTag}" style="background: ${color}; color: var(--l4); font-size: ${size}% !important; margin:2px;">${printTag}${tagCount}</a>
+<a class="tag light border2 ${hlClass}" href="/projects/blog-in-progress/?q=${goTag}" style="background: ${color}; color: var(--l4); font-size: ${size}% !important; margin:2px;">${printTag}${tagCount}</a>
 
 `;
 }else{
 
 tagList += `
 
-<a class="tag light border2 ${hlClass}" onmouseover="hlwClassAdd('${hlClass}')"  onmouseout="hlwClassRemove('${hlClass}')" href="./?q=${goTag}"  style="color: $color; font-size: $size% !important;">${printTag}${tagCount}</a>
+<a class="tag light border2 ${hlClass}" onmouseover="hlwClassAdd('${hlClass}')"  onmouseout="hlwClassRemove('${hlClass}')" href="/projects/blog-in-progress/?q=${goTag}"  style="color: $color; font-size: $size% !important;">${printTag}${tagCount}</a>
 
 `;
 }
@@ -129,7 +124,7 @@ return tagList;
 
 function fuPrintPost(id, post, tag, time){
 
-post = l(post, 'out', embedMode);
+post = l(post, 'out');
 tag = l(tag);
 //time = new Date(time).getTime();
 time = `<a href="?id=${id}#${id}">&nbsp;`+fuPostTime(time)+`&nbsp;</a>`;
@@ -155,7 +150,7 @@ return `
 
 
 
-function l(text, hrefInOut, embedMode){
+function l(text, hrefInOut){
 text = decodeURIComponent(text);
 let text2 = '';
 let embed = '';
@@ -227,7 +222,7 @@ if(item[0]+item[1]+item[2]+item[3] == 'http'){
 var ico = `https://www.google.com/s2/favicons?domain_url=${host}`;
 //let ico = `https://api.statvoo.com/favicon/?url=${host}`;
 //let ico = `https://api.faviconkit.com/${host}/16`;
-if(embedMode != 'off'){
+if(embedStatus != 'off'){
 item = `<a target="_blank" href="${item}"><img class="ico op" src="${ico}" width="14px" alt="ico"> ${item}</a>`;
 }else{
 item = `<a target="_blank" href="${item}">${item}</a>`;
@@ -241,9 +236,9 @@ item = `<a target="_blank" href="${item}">${item}</a>`;
 if(item[0] == '#'){
 item = item.replace(/#/g, "");
 if(hrefInOut == 'out'){
-item = `<a rel="nofollow" href="/?q=${item} tag">#${item} <span class="sup">⇗</span></a>`;
+item = `<a rel="nofollow" href="/projects/blog-in-progress/?q=${item} tag">#${item} <span class="sup">⇗</span></a>`;
 }else{
-item = `<a rel="nofollow" href="./?q=%23${item}">#${item}</a>`;
+item = `<a rel="nofollow" href="/projects/blog-in-progress/?q=%23${item}">#${item}</a>`;
 }
 }
 
@@ -256,7 +251,7 @@ item = `<a rel="nofollow" href="./?q=%23${item}">#${item}</a>`;
 text += item;
 });
 
-if(embedMode == 'off'){ return text; } else { return text+embed; }
+if(embedStatus == 'off'){ return text; } else { return text+embed; }
 
 }
 
