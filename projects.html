@@ -43,8 +43,8 @@
 <nav>
 
 <a href="../"><img class="logo2" src="/img/logo.png" alt="gabc"></a>
-
-<button onclick="dropdownFunction();" class="dropbtn" id="dropbtn">☰ Nav</button>
+<a class="active" href="projects.html">projects</a>
+<button onclick="dropdownFunction();" class="dropbtn" id="dropbtn">☰ Other</button>
 
 <div id="myDropdown" class="dropdown-content shadow bg3">
 <a class="brand" href="firefox-theme.html">firefox-theme</a><a class="brand" href="geany-color.html">geany-color</a><a class="brand" href="vscode-theme.html">vscode-theme</a><a class="brand" href="wallpaper.html">wallpaper</a><a class="active" href="projects.html">projects</a></div>
@@ -67,11 +67,11 @@ function dropdownFunction() {
   var x = document.getElementById("myDropdown");
  // alert(x.style.display);
   if (x.style.display === "none"||x.style.display === "") {
-document.getElementById("dropbtn").innerHTML = '☶ Nav'; 
+document.getElementById("dropbtn").innerHTML = '☶ Other'; 
 x.style.display = "block";
   } else {
 x.style.display = "none";
-document.getElementById("dropbtn").innerHTML = '☰ Nav'; 
+document.getElementById("dropbtn").innerHTML = '☰ Other'; 
   }
 
 // out area
@@ -81,7 +81,7 @@ if (!getclick.contains(event.target)) {
 //alert('out');
 var x = document.getElementById("myDropdown");
 x.style.display = "none";
-document.getElementById("dropbtn").innerHTML = '☰ Nav'; 
+document.getElementById("dropbtn").innerHTML = '☰ Other'; 
     }
 });
 
