@@ -1,4 +1,4 @@
-// v.3.7.16
+// v.3.7.17
 
 
 
@@ -143,7 +143,7 @@ document.getElementById('text').rows = '';
 //setTimeout(function () {
 function main(task){
 
-//task = task.replace(/%/g, "%25");
+task = task.replace(/%/g, "%25"); // not show text, percentage
 
 
 

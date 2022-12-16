@@ -4,20 +4,27 @@
 
 // main function 
 
-function blog(printId, json, mode, embedStatus, tagListStatus, maxPost){
+function blog(printId, json, mode, embedStatus, tagListStatus, limit){
 
 var url = new URL(window.location);
+
 var q = url.searchParams.get("q");
 if(q != null){
 q = q.replace(/%/g, "%25");
 q = decodeURIComponent(q);
 }
 
+var id = url.searchParams.get("id");
+if(id != null){
+id = id.replace(/%/g, "%25");
+id = decodeURIComponent(id);
+}
+
 var symbolForSplit = 'ccbbaa';
-var id = '';
-var post = '';
-var tag = '';
-var time = '';
+var postId = '';
+var postText = '';
+var postTag = '';
+var postTime = '';
 
 
 var print = '';
@@ -25,21 +32,70 @@ var printTagList = '';
 var getTag = '';
 
 
+
+function main(q, id){
+let searchLimit = 50;
+let com = '';
+
+if(q != null){
+com = 'search';
+embedStatus = 'off';
+limit = searchLimit;
+}
+if(id != null){
+com = 'id';
+limit = 1;
+}
+
+
+print += `<h3 class="tCenter">${com}</h3>`;
+
+let i = 0;
 json.forEach((item) => {
 
-id = item['id'];
-post = item['text']+' '+item['url'];
-tag = item['tag'];
-time = item['time'];
 
-print += fuPrintPost(id, post, tag, time);
+postId = item['id'];
+postText = item['text']+' '+item['url'];
+postTag = item['tag'];
+postTime = item['time'];
 
-printTagList += tag+symbolForSplit;
 
+
+switch (com){
+
+case 'search':
+if(i <= limit -1){
+q = q.replace(/ /g, "|");
+if((postText+' '+postTag).search(q) != -1){
+print += fuPrintPost(postId, postText, postTag, postTime);
+i++;
+}
+}
+break;
+
+case 'id':
+if(i <= limit -1){
+if(postId == id){
+print += fuPrintPost(postId, postText, postTag, postTime);
+i++;
+}
+}
+break;
+
+default:
+if(i <= limit -1){
+print += fuPrintPost(postId, postText, postTag, postTime);
+i++;
+}
+}
+
+// collect all tag
+printTagList += postTag+symbolForSplit;
 
 });
 
 
+// tagList gen
 if(tagListStatus != 'off'){
 print += `<div id="tagList" class="tCenter padding">`+tagList(printTagList)+`</div>`;
 }
@@ -47,7 +103,9 @@ print += `<div id="tagList" class="tCenter padding">`+tagList(printTagList)+`</d
 // echo all
 document.getElementById(printId).innerHTML = print;
 
+}
 
+main(q, id);
 
 
 
@@ -55,9 +113,6 @@ document.getElementById(printId).innerHTML = print;
 
 
 // other functions 
-
-
-
 
 
 
@@ -78,7 +133,6 @@ tagList2 = tagList2.split(symbolForSplit);
 // https://stackoverflow.com/questions/19395257/how-to-count-duplicate-value-in-an-array-in-javascript
 var counts = {};
 tagList2.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
-console.log(counts);
 
 // https://masteringjs.io/tutorials/fundamentals/foreach-object
 Object.entries(counts).forEach(entry => {
@@ -165,7 +219,6 @@ let forSplit = [`
 text.forEach((item) => {
 forSplit.forEach((item2) => { // foreach
 if(item == item2){
-console.log(item2);
 item = symbolForSplit+item+symbolForSplit;
 }
 });
@@ -236,13 +289,12 @@ item = `<a target="_blank" href="${item}">${item}</a>`;
 if(item[0] == '#'){
 item = item.replace(/#/g, "");
 if(hrefInOut == 'out'){
-item = `<a rel="nofollow" href="/projects/blog-in-progress/?q=${item} tag">#${item} <span class="sup">⇗</span></a>`;
+/*item = `<a rel="nofollow" href="/projects/blog-in-progress/?q=${item} tag">#${item} <span class="sup">⇗</span></a>`;*/
+item = `<a rel="nofollow" href="/projects/blog-in-progress/?q=%23${item}">#${item} <span class="sup">⇗</span></a>`;
 }else{
 item = `<a rel="nofollow" href="/projects/blog-in-progress/?q=%23${item}">#${item}</a>`;
 }
 }
-
-
 
 
 
