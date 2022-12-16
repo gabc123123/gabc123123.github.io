@@ -1,10 +1,12 @@
-// v.1.0.1
+// v.1.0.2
 
 
 
 // main function 
 
-function blog(printId, json, mode, embedStatus, tagListStatus, limit){
+function blog(printId, json, mode, embedStatus, tagListStatus, limit, scriptDir){
+
+if(scriptDir == undefined||scriptDir == ''){ scriptDir = './'; }
 
 var url = new URL(window.location);
 
@@ -154,14 +156,14 @@ if(q == tag){
 
 tagList += `
 
-<a class="tag light border2 ${hlClass}" href="/projects/blog-in-progress/?q=${goTag}" style="background: ${color}; color: var(--l4); font-size: ${size}% !important; margin:2px;">${printTag}${tagCount}</a>
+<a class="tag light border2 ${hlClass}" href="${scriptDir}?q=${goTag}" style="background: ${color}; color: var(--l4); font-size: ${size}% !important; margin:2px;">${printTag}${tagCount}</a>
 
 `;
 }else{
 
 tagList += `
 
-<a class="tag light border2 ${hlClass}" onmouseover="hlwClassAdd('${hlClass}')"  onmouseout="hlwClassRemove('${hlClass}')" href="/projects/blog-in-progress/?q=${goTag}"  style="color: $color; font-size: $size% !important;">${printTag}${tagCount}</a>
+<a class="tag light border2 ${hlClass}" onmouseover="hlwClassAdd('${hlClass}')"  onmouseout="hlwClassRemove('${hlClass}')" href="${scriptDir}?q=${goTag}"  style="color: $color; font-size: $size% !important;">${printTag}${tagCount}</a>
 
 `;
 }
@@ -181,7 +183,7 @@ function fuPrintPost(id, post, tag, time){
 post = l(post, 'out');
 tag = l(tag);
 //time = new Date(time).getTime();
-time = `<a href="?id=${id}#${id}">&nbsp;`+fuPostTime(time)+`&nbsp;</a>`;
+time = `<a href="${scriptDir}?id=${id}#${id}">&nbsp;`+fuPostTime(time)+`&nbsp;</a>`;
 
 return `
 
@@ -290,9 +292,9 @@ if(item[0] == '#'){
 item = item.replace(/#/g, "");
 if(hrefInOut == 'out'){
 /*item = `<a rel="nofollow" href="/projects/blog-in-progress/?q=${item} tag">#${item} <span class="sup">⇗</span></a>`;*/
-item = `<a rel="nofollow" href="/projects/blog-in-progress/?q=%23${item}">#${item} <span class="sup">⇗</span></a>`;
+item = `<a rel="nofollow" href="${scriptDir}?q=%23${item}">#${item}</a>`;
 }else{
-item = `<a rel="nofollow" href="/projects/blog-in-progress/?q=%23${item}">#${item}</a>`;
+item = `<a rel="nofollow" href="${scriptDir}?q=%23${item}">#${item}</a>`;
 }
 }
 

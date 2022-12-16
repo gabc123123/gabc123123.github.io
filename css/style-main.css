@@ -1,4 +1,4 @@
-/* v.12.17.21 */
+/* v.12.17.22 */
 
 :root{
 --bodyP: 2vw;
@@ -137,7 +137,7 @@ margin: 0 auto;
 .postFooter { margin-top: 7px; }
 .postTaglist { display: inline-block; width: 70%; text-align: left; }
 .postTime { display: inline-block; width: 30%; text-align: right; float: right; }
-.postTagList, .postTime { font-size: calc(100% - 15%); }
+.postTagList a, .postTime a{ font-size: calc(100% - 5%); }
 
 .logo, .logo2{
 border: 2px dashed var(--d3);
@@ -193,7 +193,7 @@ align-items: center;
 text-align: center;
 box-sizing: border-box;
 }
-.tag, .tag2, .time a { font-size: calc(100% - 10%); padding: 2px 5px; min-width: 25px; }
+.tag, .tag2 { font-size: calc(100% - 10%); padding: 2px 5px; min-width: 25px; }
 .button { padding: 9px; max-width: 100%; }
 .button, .tag, .tag2 { border-radius: 5px; }
 .tag2 { padding: 3px 7px; }
