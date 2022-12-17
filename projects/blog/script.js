@@ -1,4 +1,4 @@
-// v.1.0.2
+// v.1.0.3
 
 
 
@@ -7,6 +7,8 @@
 function blog(printId, json, mode, embedStatus, tagListStatus, limit, scriptDir){
 
 if(scriptDir == undefined||scriptDir == ''){ scriptDir = './'; }
+if(limit == undefined||limit == ''){ limit = '1'; }
+if(mode == undefined||mode == ''){ mode = 'post'; }
 
 var url = new URL(window.location);
 
@@ -36,7 +38,7 @@ var getTag = '';
 
 
 function main(q, id){
-let searchLimit = 50;
+let searchLimit = 1000;
 let com = '';
 
 if(q != null){
@@ -111,9 +113,6 @@ main(q, id);
 
 
 
-
-
-
 // other functions 
 
 
@@ -131,15 +130,77 @@ tagList2 = tagList2.replace(/,/g, symbolForSplit);
 tagList2 = tagList2.replace(/ /g, symbolForSplit);
 
 tagList2 = tagList2.split(symbolForSplit);
+//https://stackoverflow.com/questions/8996963/how-to-perform-case-insensitive-sorting-array-of-string-in-javascript
+tagList2.sort(function (a, b) {
+return a.toLowerCase().localeCompare(b.toLowerCase());
+});
+
+
+
+
 
 // https://stackoverflow.com/questions/19395257/how-to-count-duplicate-value-in-an-array-in-javascript
-var counts = {};
-tagList2.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+var tagListCount = {};
+tagList2.forEach(function (x) {
+if(x != null&&x != ''){
+tagListCount[x] = (tagListCount[x] || 0) + 1;
+}
+});
+
+console.log(tagListCount);
+
+
+// tag font-size and color
+var tagAverage = '';
+var tagAverage = (Math.min(...Object.values(tagListCount))+Math.max(...Object.values(tagListCount)))/2;
+console.log(tagAverage);
+
+var tagSize = '';
+var tagColor = '';
+function tagSizeAndColor(tagAverage, tagCount){
+switch ($procent) {
+
+case $procent >= 100:
+return "var(--red)";
+break;
+
+case $procent >= 90:
+return "var(--orange)";
+break;
+
+case $procent >= 80:
+return "var(--yellow)";
+break;
+
+case $procent >= 60:
+return "var(--green)";
+break;
+
+case $procent >= 50:
+return "var(--blue)";
+break;
+
+case $procent >= 30:
+return "var(--indigo)";
+break;
+
+case $procent >= 10:
+return "var(--violet)";
+break;
+
+default:
+return "var(--c2)";
+}
+
+}
+
+
+
 
 // https://masteringjs.io/tutorials/fundamentals/foreach-object
-Object.entries(counts).forEach(entry => {
-  const [key, value] = entry;
-  //console.log(key, value);
+Object.entries(tagListCount).forEach(entry => {
+const [key, value] = entry;
+//console.log(key, value);
 
 //alert('test');
 
@@ -153,7 +214,6 @@ let goTag = encodeURIComponent(tag);
 let hlClass = 'hlClass'+printTag[0];
 
 if(q == tag){
-
 tagList += `
 
 <a class="tag light border2 ${hlClass}" href="${scriptDir}?q=${goTag}" style="background: ${color}; color: var(--l4); font-size: ${size}% !important; margin:2px;">${printTag}${tagCount}</a>
@@ -180,8 +240,8 @@ return tagList;
 
 function fuPrintPost(id, post, tag, time){
 
-post = l(post, 'out');
-tag = l(tag);
+post = highlightText(post, 'out');
+tag = highlightText(tag);
 //time = new Date(time).getTime();
 time = `<a href="${scriptDir}?id=${id}#${id}">&nbsp;`+fuPostTime(time)+`&nbsp;</a>`;
 
@@ -206,7 +266,7 @@ return `
 
 
 
-function l(text, hrefInOut){
+function highlightText(text, hrefInOut){
 text = decodeURIComponent(text);
 let text2 = '';
 let embed = '';
@@ -374,7 +434,28 @@ var tmp = setInterval(fuPostTime, 1000);
 
 
 
+// pagination in future
+
+if(embedStatus != 'off'){
+// for Twitter embed
+let script = document.createElement('script');
+script.type='text/javascript';
+script.async = true;
+script.charset = 'utf-8';
+script.src = 'https://platform.twitter.com/widgets.js';      
+document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+
+
+
+
+
+
+
 
 
 
 }
+
+

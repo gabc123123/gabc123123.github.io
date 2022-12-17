@@ -1,4 +1,4 @@
-/* v.12.17.22 */
+/* v.12.17.23 */
 
 :root{
 --bodyP: 2vw;
@@ -122,7 +122,7 @@ border-radius: 5px;
 display: block;
 width: 100%;
 margin: 0 auto;
-/*overflow: auto;*/
+overflow: auto;
 }
 .post { max-width: var(--wrapper); }
 .post2 { max-width: var(--wrapper2); }
@@ -375,7 +375,7 @@ td { background-color: var(--l2); }
 .bg4, .bg4List, .light4 { background: var(--l3); }
 .bg4List:nth-child(2n), .light4:hover, .light5, .bg5 { background: var(--l4); }
 
-.highlight { background: var(--l4) !important; border-bottom: 1px solid var(--d3); color: var(--c4); }
+.highlight { background: var(--l4) !important; border-bottom: 1px solid var(--d3); color: var(--c4) !important; }
 .highlight:hover { color: var(--c4) !important; }
 
 

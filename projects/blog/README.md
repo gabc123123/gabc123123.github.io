@@ -2,7 +2,9 @@ README.md
 
 <!-- comment -->
 
-# title
+# Blog, json and JavaScript
+
+<!--
 ## title
 ###### title
 
@@ -15,4 +17,5 @@ README.md
 
 #### screenshot
 ![screenshot](screenshot.png)
+-->
 
