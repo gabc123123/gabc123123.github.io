@@ -1,4 +1,4 @@
-// v.1.0.3
+// v.1.0.4
 
 
 
@@ -147,51 +147,74 @@ tagListCount[x] = (tagListCount[x] || 0) + 1;
 }
 });
 
-console.log(tagListCount);
+
 
 
 // tag font-size and color
-var tagAverage = '';
-var tagAverage = (Math.min(...Object.values(tagListCount))+Math.max(...Object.values(tagListCount)))/2;
+var tagAverage = 0;
+/*
+tagAverage = (Math.min(...Object.values(tagListCount))+Math.max(...Object.values(tagListCount)))/2;
+//console.log(tagAverage);*/
+
+Object.values(tagListCount).forEach(function (x) {
+tagAverage = tagAverage+x;
+});
+tagAverage = tagAverage/Object.values(tagListCount).length;
 console.log(tagAverage);
 
 var tagSize = '';
 var tagColor = '';
-function tagSizeAndColor(tagAverage, tagCount){
-switch ($procent) {
 
-case $procent >= 100:
-return "var(--red)";
+function fuTag(tagCount){
+
+//https://stackoverflow.com/questions/8522673/make-a-number-a-percentage
+let tagPercentage = (Math.floor((tagCount/tagAverage)*100))
+tagPercentage = tagPercentage+0;
+
+switch (true) {
+
+case tagPercentage >= 1000:
+tagColor = "var(--red)";
+tagSize = "200%";
 break;
 
-case $procent >= 90:
-return "var(--orange)";
+case tagPercentage >= 500:
+tagColor = "var(--orange)";
+tagSize = "150%";
 break;
 
-case $procent >= 80:
-return "var(--yellow)";
+case tagPercentage >= 100:
+tagColor = "var(--yellow)";
+tagSize = "130%";
 break;
 
-case $procent >= 60:
-return "var(--green)";
+case (tagPercentage >= 50):
+tagColor = "var(--green)";
+tagSize = "120%";
 break;
 
-case $procent >= 50:
-return "var(--blue)";
+case (tagPercentage >= 30):
+tagColor = "var(--blue)";
+tagSize = "110%";
 break;
 
-case $procent >= 30:
-return "var(--indigo)";
+case (tagPercentage >= 20):
+tagColor = "var(--indigo)";
+tagSize = "105%";
 break;
 
-case $procent >= 10:
-return "var(--violet)";
+case (tagPercentage >= 10) == true:
+tagColor = "var(--violet)";
+tagSize = "100%";
 break;
 
 default:
-return "var(--c2)";
+tagColor = "var(--c2)";
+tagSize = "95%";
 }
 
+//console.log(tagColor);
+//return tagColor;
 }
 
 
@@ -207,6 +230,9 @@ const [key, value] = entry;
 tag = key.trim();
 tagCount = value;
 
+
+fuTag(tagCount);
+
 if(tag != ''){
 let printTag = tag.replace(/#/g, "");
 let goTag = encodeURIComponent(tag);
@@ -216,14 +242,14 @@ let hlClass = 'hlClass'+printTag[0];
 if(q == tag){
 tagList += `
 
-<a class="tag light border2 ${hlClass}" href="${scriptDir}?q=${goTag}" style="background: ${color}; color: var(--l4); font-size: ${size}% !important; margin:2px;">${printTag}${tagCount}</a>
+<a class="tag light border2 ${hlClass}" href="${scriptDir}?q=${goTag}" style="background: ${tagColor}; color: var(--l4); font-size: ${tagSize} !important;">${printTag}</a>
 
 `;
 }else{
 
 tagList += `
 
-<a class="tag light border2 ${hlClass}" onmouseover="hlwClassAdd('${hlClass}')"  onmouseout="hlwClassRemove('${hlClass}')" href="${scriptDir}?q=${goTag}"  style="color: $color; font-size: $size% !important;">${printTag}${tagCount}</a>
+<a class="tag light border2 ${hlClass}" onmouseover="hlwClassAdd('${hlClass}')"  onmouseout="hlwClassRemove('${hlClass}')" href="${scriptDir}?q=${goTag}"  style="color: ${tagColor}; font-size: ${tagSize} !important;">${printTag}</a>
 
 `;
 }
