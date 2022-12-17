@@ -152,21 +152,15 @@ tagListCount[x] = (tagListCount[x] || 0) + 1;
 
 // tag font-size and color
 var tagAverage = 0;
+var tagTotal = 0;
 /*
 tagAverage = (Math.min(...Object.values(tagListCount))+Math.max(...Object.values(tagListCount)))/2;
 //console.log(tagAverage);*/
 
 Object.values(tagListCount).forEach(function (x) {
-tagAverage = tagAverage+x;
-});
-tagAverage = tagAverage/Object.values(tagListCount).length;
-console.log(tagAverage);
-
-var tagTotal = 0;
-Object.values(tagListCount).forEach(function (x) {
 tagTotal = tagTotal+x;
 });
-
+tagAverage = tagTotal/Object.values(tagListCount).length;
 
 var tagSize = '';
 var tagColor = '';
