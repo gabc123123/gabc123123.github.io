@@ -101,7 +101,7 @@ printTagList += postTag+symbolForSplit;
 
 // tagList gen
 if(tagListStatus != 'off'){
-print += `<div id="tagList" class="tCenter padding">`+tagList(printTagList)+`</div>`;
+print += `<div class="wrapper3"><div id="tagList" class="tCenter padding"  style="width: 100%">`+tagList(printTagList)+`</div></div>`;
 }
 
 // echo all
@@ -162,48 +162,53 @@ tagAverage = tagAverage+x;
 tagAverage = tagAverage/Object.values(tagListCount).length;
 console.log(tagAverage);
 
+var tagTotal = 0;
+Object.values(tagListCount).forEach(function (x) {
+tagTotal = tagTotal+x;
+});
+
+
 var tagSize = '';
 var tagColor = '';
 
 function fuTag(tagCount){
-
-//https://stackoverflow.com/questions/8522673/make-a-number-a-percentage
-let tagPercentage = (Math.floor((tagCount/tagAverage)*100))
-tagPercentage = tagPercentage+0;
+//let tagPercentage = (Math.floor((tagCount*100)/tagTotal)); // from 100%
+let tagPercentage = (Math.floor((tagCount*100)/tagAverage)); // over 100%
+//console.log(tagPercentage);
 
 switch (true) {
 
-case tagPercentage >= 1000:
+case tagPercentage >= 500:
 tagColor = "var(--red)";
 tagSize = "200%";
 break;
 
-case tagPercentage >= 500:
+case tagPercentage >= 300:
 tagColor = "var(--orange)";
 tagSize = "150%";
 break;
 
-case tagPercentage >= 100:
+case tagPercentage >= 250:
 tagColor = "var(--yellow)";
 tagSize = "130%";
 break;
 
-case (tagPercentage >= 50):
+case tagPercentage >= 100:
 tagColor = "var(--green)";
 tagSize = "120%";
 break;
 
-case (tagPercentage >= 30):
+case tagPercentage >= 80:
 tagColor = "var(--blue)";
 tagSize = "110%";
 break;
 
-case (tagPercentage >= 20):
+case tagPercentage >= 50:
 tagColor = "var(--indigo)";
 tagSize = "105%";
 break;
 
-case (tagPercentage >= 10) == true:
+case tagPercentage >= 30:
 tagColor = "var(--violet)";
 tagSize = "100%";
 break;
