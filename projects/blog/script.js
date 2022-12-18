@@ -1,4 +1,4 @@
-// v.1.1.1
+// v.1.1.2
 // json pre-sorted by time in UNIX format
 
 
@@ -144,7 +144,7 @@ if(tagListStatus != 'off'){
 if(com != 'search'){
 print += `<div class="${postClass}">`+blogNav(com)+`</div>`;
 }
-print += `<div class="wrapper3"><div id="tagList" class="tCenter padding"  style="width: 100%">`+tagList(printTagList)+`</div></div>`;
+print += `<div class="wrapper3"><div id="tagList" class="tagList tCenter padding"  style="width: 100%">`+tagList(printTagList)+`</div></div>`;
 }
 
 // echo all
@@ -538,10 +538,8 @@ let prev = Number(Math.floor(getP - postLimit)); //https://stackoverflow.com/que
 let next = Number(Math.floor(getP + postLimit));
 let total = Number(blogJson.length);
 
-if(next >= total){ next = total; }
+if(next >= total){ next = total - 1; }
 if(prev <= 0){ prev = 0; }
-
-if(next == total){ next = next - 1; }
 
 
 let navMode = 'p';
