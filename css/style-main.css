@@ -1,4 +1,4 @@
-/* v.12.17.23 */
+/* v.12.17.24 */
 
 :root{
 --bodyP: 2vw;
@@ -140,7 +140,6 @@ overflow: auto;
 .postTagList a, .postTime a{ font-size: calc(100% - 5%); }
 
 .logo, .logo2{
-border: 2px dashed var(--d3);
 border-radius: 50%;
 display: inline-block;
 vertical-align: middle;
@@ -151,11 +150,10 @@ transition: transform 1.8s ease-in-out;
 border: 2px dashed var(--cOp);
 }
 .logo:hover, .logo2:hover{
-border: 2px dashed var(--cOp);
 transform: rotate(360deg); 
 }
 .logo2 { width: 24px; max-height: 24px; }
-.dd { display: block; margin: 0 auto; max-height: 90px; margin-bottom:  -35px; border-radius: 9px; }
+.dd { display: block; margin: 0 auto; max-height: 90px; margin-bottom:  -34px; border-radius: 9px; }
 
 .ico {
 border-radius: 50%;
