@@ -152,7 +152,7 @@ border: 2px dashed var(--cOp);
 .logo:hover, .logo2:hover{
 transform: rotate(360deg); 
 }
-.logo2 { width: 24px; max-height: 24px; }
+.logo2 { width: 26px; max-height: 26px; }
 .dd { display: block; margin: 0 auto; max-height: 90px; margin-bottom:  -38px; border-radius: 9px; }
 
 .ico {
