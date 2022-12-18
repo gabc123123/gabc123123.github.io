@@ -1,4 +1,4 @@
-/* v.12.17.24 */
+/* v.12.17.25 */
 
 :root{
 --bodyP: 2vw;
@@ -364,8 +364,8 @@ td { background-color: var(--l2); }
 
 
 
-.bg, .bgList, .light { background: radial-gradient(circle farthest-side, var(--l2), var(--l)); background-repeat: no-repeat; }
-.bgList:nth-child(2n), .light:hover { background: radial-gradient(circle farthest-side, var(--l3), var(--l2)); background-repeat: no-repeat; }
+.bg, .bgList, .light { background: radial-gradient(var(--l2), var(--l)); }
+.bgList:nth-child(2n), .light:hover { background: radial-gradient(var(--l3), var(--l2)); }
 .bg2, .bg2List, .light2 { background: var(--l); }
 .bg2List:nth-child(2n), .light2:hover, .light3{ background: var(--l2); }
 .bg3, .bg3List, .light3 { background: var(--l2); }
