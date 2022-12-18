@@ -155,7 +155,7 @@ border: 2px dashed var(--cOp);
 transform: rotate(360deg); 
 }
 .logo2 { width: 24px; max-height: 24px; }
-.dd { display: block; margin: 0 auto; max-height: 90px; margin-bottom:  -32px; border-radius: 9px; }
+.dd { display: block; margin: 0 auto; max-height: 90px; margin-bottom:  -35px; border-radius: 9px; }
 
 .ico {
 border-radius: 50%;

@@ -1,5 +1,5 @@
 // v.1.1.1
-// json must be pre-sorted, time in json - UNIX format
+// json pre-sorted by time in UNIX format
 
 
 
