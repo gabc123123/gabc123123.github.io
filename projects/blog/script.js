@@ -542,18 +542,12 @@ if(com == 'id'){ navMode = 'p2'; }
 
 return `
 
-<div class="wrapper">
-<br /><br />
+
+
 <style>
 .grid {
 display: grid;
-/*grid-template-areas: "a a a";*/
-grid-template-columns: repeat(3, 1fr);
 grid-gap:10px;
-}
-
-.grid{
-display: grid;
 grid-template-columns: 1fr 25% 1fr;
 grid-gap: 3px 3px;
 margin: 4px auto !important;
