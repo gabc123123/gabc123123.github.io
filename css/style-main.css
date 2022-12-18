@@ -378,6 +378,7 @@ td { background-color: var(--l2); }
 .highlight { background: var(--l4) !important; border-bottom: 1px solid var(--d3); color: var(--c4) !important; }
 .highlight:hover { color: var(--c4) !important; }
 
+.highlight2 { border-bottom: 1px solid var(--b3); }
 
 
 

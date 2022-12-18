@@ -108,7 +108,7 @@ document.getElementById("dropbtn").innerHTML = '☰ Other';
 <script>
 function pi(){
 pi = [
-'tec', 'tec', 'tec', 'sci', 'sci', 'dev'
+'tec', 'tec', 'tec', 'tec', 'tec', 'sci', 'sci', 'sci', 'dev'
 ];
 
 window.location.href = '?q='+pi[Math.floor(Math.random() * pi.length)];
@@ -147,8 +147,10 @@ window.location.href = '?q='+pi[Math.floor(Math.random() * pi.length)];
 
 
 <script>
+if(document.querySelectorAll('input').length > 0){ 
 var inputA = document.querySelectorAll('input')[0];
 inputA.addEventListener('input', updateValueIn);
+}
 
 //alert(document.querySelectorAll('input').length);
 if(document.querySelectorAll('input').length >= 3){ 
@@ -243,7 +245,6 @@ document.getElementById( 'topHeader' ).style.display = 'block';
 <script>
 blog("echoBlog", blogJson, 'post', 'off', 'off', '1', '/projects/blog/');
 </script>
-<!--<script src="/projects/highlight-word/script.js"></script>-->
 </div>
 
 </div>

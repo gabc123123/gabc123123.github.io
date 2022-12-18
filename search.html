@@ -100,8 +100,73 @@ document.getElementById("dropbtn").innerHTML = '☰ Other';
 <div class="center2">
 
 <div class="wrapperL">
+<div id="result">
 
-<div id="result"></div>
+<form id="form" method="GET" class="block" action="search.html" style="margin:0 auto; style="">
+<input class="padding" type="search" style="text-align: center;" name="q" autofocus="autofocus" autocomplete="off" placeholder="" x-webkit-speech />
+<input type="submit" value="go">
+</form>
+
+<div  class="center" style="margin-top: 7px;">
+<div class="scrollXhidden wrapperL" id="resultTop">
+<a class="tag light border2 op" href="https://google.com/">goo</a>
+<a class="tag light border2 op" href="https://bing.com/">bin</a>
+<a class="tag light border2 op" href="/?q=n">n</a>
+<a class="tag light border2 op" href="https://twitter.com">twi</a>
+<a class="tag light border2 op" href="https://reddit.com">red</a>
+<a class="tag light border2 op" href="https://www.youtube.com/">y</a>
+<a class="tag light border2 op" href="/?q=v">v</a>
+<a class="tag light border2 op" href="/?q=t">t</a>
+<a class="tag light border2 op" href="/?q=mus">mus</a>
+</div>
+</div>
+
+
+<script>
+if(document.querySelectorAll('input').length > 0){ 
+var inputA = document.querySelectorAll('input')[0];
+inputA.addEventListener('input', updateValueIn);
+}
+
+//alert(document.querySelectorAll('input').length);
+if(document.querySelectorAll('input').length >= 3){ 
+var inputB = document.querySelectorAll('input')[2];
+inputB.addEventListener('input', updateValueIn);
+}
+
+function updateValueIn(e) {
+var text = encodeURIComponent(e.target.value);
+
+var a = `
+<a class="tag light border2 op" href="/?q=`+text+` goo">goo</a>
+<a class="tag light border2 op" href="/?q=`+text+` bin">bin</a>
+<a class="tag light border2 op" href="/?q=`+text+` n">n</a>
+<a class="tag light border2 op" href="/?q=`+text+` twi">twi</a>
+<a class="tag light border2 op" href="/?q=`+text+` red">red</a>
+<a class="tag light border2 op" href="/?q=`+text+` y">y</a>
+<a class="tag light border2 op" href="/?q=`+text+` v">v</a>
+<a class="tag light border2 op" href="/?q=`+text+` t">t</a>
+<a class="tag light border2 op" href="/?q=`+text+` m">mus</a>
+`;
+document.getElementById("resultTop").innerHTML = a; 
+}
+
+if(confDevice == 'mobile'){
+var getclick2 = document.getElementById('form');
+document.addEventListener('click', function(event) {
+if (getclick2.contains(event.target)) {
+document.getElementById( 'topHeader' ).style.display = 'none';
+}else{
+document.getElementById( 'topHeader' ).style.display = 'block';
+}
+});
+
+}
+</script>
+
+
+</div>
+
 </div>
 
 </div>
@@ -114,7 +179,7 @@ document.getElementById("dropbtn").innerHTML = '☰ Other';
 
 
 </div>
-
+</div>
 
 
 <script>
@@ -122,12 +187,15 @@ document.getElementById("dropbtn").innerHTML = '☰ Other';
 var print = '';
 
 if(rUrlGet == null||rUrlGet == ''){
-print = `
-<form method="GET" class="block" action="search.html" style="margin:0 auto; style="">
+/*print = `
+<form if="form" method="GET" class="block" action="search.html" style="margin:0 auto; style="">
 <input class="padding" type="search" style="text-align: center;" name="q" autofocus="autofocus" autocomplete="off" placeholder="" x-webkit-speech />
 <input type="submit" value="go">
 </form>
-`;
+
+`;*/
+
+
 }else{
 
 
@@ -171,11 +239,11 @@ print = `
 
 
 
-
+document.getElementById("result").innerHTML = print;
 
 }
 
-document.getElementById("result").innerHTML = print;
+
 
 
 
@@ -194,6 +262,7 @@ document.getElementById('print').innerHTML = '<div class="bg padding border2 lig
 
 
 </script>
+
 
 
 </div>

@@ -1,4 +1,4 @@
-// v.1.1.4
+// v.1.1.5
 
 var geturl = window.location;
 var url = new URL(geturl);
@@ -267,6 +267,35 @@ sRedirUrl = url;
 break;
 
 case 'n#':
+q = q3.replace(q2, '');
+q = q.trim();
+q = encodeURIComponent(q);
+urlList = [
+"https://www.google.com/search?q="+q+"&tbm=nws",
+"https://www.bing.com/news/search?q="+q,
+"https://www.qwant.com/?t=news&q="+q
+];
+
+random = Math.floor(Math.random() * urlList.length);
+url = urlList[random];
+if(q == ''){
+urlList = [
+"https://news.google.com/",
+"https://flipboard.com/topic/news",
+"https://news.ycombinator.com/",
+"https://www.bing.com/news/",
+"https://mobile.twitter.com/i/topics/840159616101044224",
+"https://www.reddit.com/r/news/",
+"https://www.reddit.com/r/worldnews/",
+"https://medium.com/tag/news"
+//"https://twitter.com/explore/tabs/news"
+];
+random = Math.floor(Math.random() * urlList.length);
+url = urlList[random];
+}
+sRedirUrl = url;
+break;
+
 case 'tec#':
 q = q3.replace(q2, '');
 q = q.trim();
@@ -290,7 +319,6 @@ urlList = [
 "https://twitter.com/i/topics/848920371311001600",
 "https://www.reddit.com/r/technology/",
 "https://medium.com/tag/technology"
-//"https://twitter.com/explore/tabs/news"
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
@@ -327,7 +355,38 @@ url = urlList[random];
 sRedirUrl = url;
 break;
 
-case 'd#':
+case 'cod#':
+case 'dev#':
+q = q3.replace(q2, '');
+q = q.trim();
+q = encodeURIComponent(q);
+urlList = [
+"https://github.com/search?q="+q+"&type=code",
+"https://beta.sayhello.so/search?q="+q
+];
+random = Math.floor(Math.random() * urlList.length);
+url = urlList[random];
+if(q == ''){
+urlList = [
+"https://www.reddit.com/r/programming/",
+"https://flipboard.com/topic/computerscience",
+"https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNREZ0YTNFU0FtVnVLQUFQAQ",
+"https://www.reddit.com/r/computerscience/",
+"https://www.reddit.com/r/compsci/",
+"https://www.reddit.com/r/programming/",
+"https://www.reddit.com/r/webdev/",
+"https://medium.com/tag/web-development",
+"https://medium.com/tag/programming",
+"https://medium.com/tag/computer-science",
+"https://diff.blog/"
+];
+random = Math.floor(Math.random() * urlList.length);
+url = urlList[random];
+}
+sRedirUrl = url;
+break;
+
+case 'doc#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
@@ -354,36 +413,6 @@ urlList = [
 'https://www.typescriptlang.org/docs/',
 'http://www.lua.org/docs.html'
 //"https://twitter.com/explore/tabs/news"
-];
-random = Math.floor(Math.random() * urlList.length);
-url = urlList[random];
-}
-sRedirUrl = url;
-break;
-
-case 'cod#':
-case 'dev#':
-q = q3.replace(q2, '');
-q = q.trim();
-q = encodeURIComponent(q);
-urlList = [
-"https://github.com/search?q="+q+"&type=code",
-"https://beta.sayhello.so/search?q="+q
-];
-random = Math.floor(Math.random() * urlList.length);
-url = urlList[random];
-if(q == ''){
-urlList = [
-"https://www.reddit.com/r/programming/",
-"https://flipboard.com/topic/computerscience",
-"https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNREZ0YTNFU0FtVnVLQUFQAQ",
-"https://www.reddit.com/r/computerscience/",
-"https://www.reddit.com/r/compsci/",
-"https://www.reddit.com/r/programming/",
-"https://www.reddit.com/r/webdev/",
-"https://medium.com/tag/web-development",
-"https://medium.com/tag/programming",
-"https://medium.com/tag/computer-science"
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];

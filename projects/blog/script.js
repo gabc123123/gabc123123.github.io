@@ -1,14 +1,15 @@
-// v.1.0.4
+// v.1.1.0
 
 
 
 // main function 
 
-function blog(printId, json, mode, embedStatus, tagListStatus, limit, scriptDir){
+function blog(printId, blogJson, postClass, embedStatus, tagListStatus, postLimit, scriptDir){
+
 
 if(scriptDir == undefined||scriptDir == ''){ scriptDir = './'; }
-if(limit == undefined||limit == ''){ limit = '1'; }
-if(mode == undefined||mode == ''){ mode = 'post'; }
+if(postLimit == undefined||postLimit == ''){ postLimit = 1; }
+if(postClass == undefined||postClass == ''){ postClass = 'post'; }
 
 var url = new URL(window.location);
 
@@ -21,8 +22,28 @@ q = decodeURIComponent(q);
 var id = url.searchParams.get("id");
 if(id != null){
 id = id.replace(/%/g, "%25");
-id = decodeURIComponent(id);
+id = Number(decodeURIComponent(id));
 }
+
+var getP = url.searchParams.get("p");
+if(getP != null){
+getP = getP.replace(/%/g, "%25");
+getP = Number(decodeURIComponent(getP));
+}
+
+var getP2 = url.searchParams.get("p2"); // nav for id
+if(getP2 != null){
+getP2 = getP2.replace(/%/g, "%25");
+getP2 = Number(decodeURIComponent(getP2));
+}
+
+if(getP == null){ getP = 0; }
+
+
+if(getP >= blogJson.length){ getP = Number(Number(blogJson.length) - Number(postLimit)); }
+if(getP <= 0){ getP = 0; }
+if(isNaN(getP)||isNaN(getP2)){ getP = 0; getP = 0; }
+
 
 var symbolForSplit = 'ccbbaa';
 var postId = '';
@@ -35,27 +56,36 @@ var print = '';
 var printTagList = '';
 var getTag = '';
 
+postLimit = Number(postLimit);
 
 
-function main(q, id){
+
+
+
+
+
+
+function main(){
+
 let searchLimit = 1000;
 let com = '';
 
 if(q != null){
 com = 'search';
 embedStatus = 'off';
-limit = searchLimit;
+postLimit = searchLimit;
 }
-if(id != null){
+if(id != null||getP2 != null){
 com = 'id';
-limit = 1;
+postLimit = 1;
 }
+
 
 
 print += `<h3 class="tCenter">${com}</h3>`;
 
 let i = 0;
-json.forEach((item) => {
+blogJson.forEach((item, key) => {
 
 
 postId = item['id'];
@@ -68,7 +98,7 @@ postTime = item['time'];
 switch (com){
 
 case 'search':
-if(i <= limit -1){
+if(i <= postLimit -1){
 q = q.replace(/ /g, "|");
 if((postText+' '+postTag).search(q) != -1){
 print += fuPrintPost(postId, postText, postTag, postTime);
@@ -78,18 +108,21 @@ i++;
 break;
 
 case 'id':
-if(i <= limit -1){
-if(postId == id){
+if(i <= postLimit -1){
+if(postId == id||getP2 == key){
 print += fuPrintPost(postId, postText, postTag, postTime);
 i++;
+getP = key;
 }
 }
 break;
 
 default:
-if(i <= limit -1){
+if(getP <= key){
+if(i <= postLimit -1){
 print += fuPrintPost(postId, postText, postTag, postTime);
 i++;
+}
 }
 }
 
@@ -99,17 +132,46 @@ printTagList += postTag+symbolForSplit;
 });
 
 
-// tagList gen
+
+
+
+
+// tagList and nav print
 if(tagListStatus != 'off'){
+print += `<div class="${postClass}">`+blogNav(com)+`</div>`;
+
 print += `<div class="wrapper3"><div id="tagList" class="tCenter padding"  style="width: 100%">`+tagList(printTagList)+`</div></div>`;
 }
 
 // echo all
 document.getElementById(printId).innerHTML = print;
 
+
+
+
+
+
+
+
+
+
+
 }
 
 main(q, id);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -273,7 +335,7 @@ time = `<a href="${scriptDir}?id=${id}#${id}">&nbsp;`+fuPostTime(time)+`&nbsp;</
 return `
 
 <!-- post -->
-<div class="`+mode+` bgList brand border3List" id="`+id+`">
+<div class="`+postClass+` bgList brand border3List" id="`+id+`">
 <span class="pre">`+post+`</span>
 <div class="postFooter">
 <span class="postTagList">`+tag+`</span>
@@ -459,10 +521,86 @@ var tmp = setInterval(fuPostTime, 1000);
 
 
 
-// pagination in future
 
+
+
+
+
+
+
+// navigation
+function blogNav(com){
+let prev = Number(Math.floor(getP - postLimit)); //https://stackoverflow.com/questions/1133770/how-to-convert-a-string-to-an-integer-in-javascript
+let next = Number(Math.floor(getP + postLimit));
+let total = Number(blogJson.length);
+
+if(next >= total){ next = total; }
+if(prev <= 0){ prev = 0; }
+
+let navMode = 'p';
+if(com == 'id'){ navMode = 'p2'; }
+
+return `
+
+<div class="wrapper">
+<br /><br />
+<style>
+.grid {
+display: grid;
+/*grid-template-areas: "a a a";*/
+grid-template-columns: repeat(3, 1fr);
+grid-gap:10px;
+}
+
+.grid{
+display: grid;
+grid-template-columns: 1fr 25% 1fr;
+grid-gap: 3px 3px;
+margin: 4px auto !important;
+paddin: 0 !important;
+justify-content: center;
+}
+</style>
+
+<form id="form" data-ajax="false">
+<input  name="${navMode}" style="
+/*-webkit-transform: rotateY(180deg);
+-moz-transform: rotateY(180deg);
+-ms-transform: rotateY(180deg);
+-o-transform: rotateY(180deg);
+transform: rotateY(180deg);*/" id="rangeinput" class="slider" value="${getP}" type="range" min="0" max="${total}" step="${postLimit}" onmouseup="this.form.submit();" ontouchend="this.form.submit();" />
+</form>
+
+<div class="grid">
+<a class="op border2 button light" href="?${navMode}=${prev}">&#8592;</a>
+<div class="button border1">`+Math.floor(getP/postLimit)+`</div>
+<a class="op border2 button light" href="?${navMode}=${next}">&#8594;</a><br /><br />
+</div>
+
+
+
+`;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// for embed 
 if(embedStatus != 'off'){
-// for Twitter embed
+
 let script = document.createElement('script');
 script.type='text/javascript';
 script.async = true;
@@ -471,16 +609,35 @@ script.src = 'https://platform.twitter.com/widgets.js';
 document.getElementsByTagName('head')[0].appendChild(script);
 }
 
-
-
-
-
-
-
-
-
-
-
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+function hlwClassAdd(name){
+let elementNumb = document.getElementsByClassName(name).length;
+let i = 0;
+while (i < elementNumb) {
+document.getElementsByClassName(name)[i].classList.add("highlight2");
+i++;
+}
+}
+
+
+function hlwClassRemove(name){
+let elementNumb = document.getElementsByClassName(name).length;
+let i = 0;
+while (i < elementNumb) {
+document.getElementsByClassName(name)[i].classList.remove("highlight2");
+i++;
+}
+}
