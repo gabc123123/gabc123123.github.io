@@ -138,8 +138,9 @@ printTagList += postTag+symbolForSplit;
 
 // tagList and nav print
 if(tagListStatus != 'off'){
+if(com != 'search'){
 print += `<div class="${postClass}">`+blogNav(com)+`</div>`;
-
+}
 print += `<div class="wrapper3"><div id="tagList" class="tCenter padding"  style="width: 100%">`+tagList(printTagList)+`</div></div>`;
 }
 
