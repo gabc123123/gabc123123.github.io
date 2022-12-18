@@ -1,4 +1,4 @@
-// v.1.1.2
+// v.1.1.3
 // json pre-sorted by time in UNIX format
 
 
@@ -358,7 +358,7 @@ return `
 
 
 function highlightText(text, hrefInOut){
-text = decodeURIComponent(text);
+//text = decodeURIComponent(text); // error sometimes
 let text2 = '';
 let embed = '';
 
