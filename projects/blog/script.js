@@ -1,4 +1,4 @@
-// v.1.1.0
+// v.1.1.1
 
 
 
@@ -40,6 +40,8 @@ getP2 = Number(decodeURIComponent(getP2));
 if(getP == null){ getP = 0; }
 
 
+if(getP == blogJson.length){ getP = getP - 1; }
+if(getP2 == blogJson.length){ getP2 = getP2 - 1; }
 if(getP >= blogJson.length){ getP = Number(Number(blogJson.length) - Number(postLimit)); }
 if(getP <= 0){ getP = 0; }
 if(isNaN(getP)||isNaN(getP2)){ getP = 0; getP = 0; }
@@ -537,6 +539,9 @@ let total = Number(blogJson.length);
 
 if(next >= total){ next = total; }
 if(prev <= 0){ prev = 0; }
+
+if(next == total){ next = next - 1; }
+
 
 let navMode = 'p';
 if(com == 'id'){ navMode = 'p2'; }
