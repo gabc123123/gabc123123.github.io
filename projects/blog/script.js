@@ -1,4 +1,5 @@
 // v.1.1.1
+// json must be pre-sorted, time in json - UNIX format
 
 
 
@@ -69,7 +70,7 @@ postLimit = Number(postLimit);
 
 function main(){
 
-let searchLimit = 1000;
+let searchLimit = 300;
 let com = '';
 
 if(q != null){
@@ -531,7 +532,7 @@ var tmp = setInterval(fuPostTime, 1000);
 
 
 
-// navigation
+// navigation // used array
 function blogNav(com){
 let prev = Number(Math.floor(getP - postLimit)); //https://stackoverflow.com/questions/1133770/how-to-convert-a-string-to-an-integer-in-javascript
 let next = Number(Math.floor(getP + postLimit));
