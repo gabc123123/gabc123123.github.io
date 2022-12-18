@@ -228,8 +228,8 @@ var tagSize = '';
 var tagColor = '';
 
 function fuTag(tagCount){
-//let tagPercentage = (Math.floor((tagCount*100)/tagTotal)); // from 100%
-let tagPercentage = (Math.floor((tagCount*100)/tagAverage)); // over 100%
+//let tagPercentage = (Math.floor((tagCount*100)/tagTotal)); // from 100%, need rebuild case from 100
+let tagPercentage = (Math.floor((tagCount*100)/tagAverage)); // over 100%, used average if tag disproportion 1% and 90%
 //console.log(tagPercentage);
 
 switch (true) {
