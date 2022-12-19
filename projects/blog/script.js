@@ -1,4 +1,4 @@
-// v.1.1.3
+// v.1.2.0
 // json pre-sorted by time in UNIX format
 
 
@@ -85,7 +85,7 @@ postLimit = 1;
 
 
 
-print += `<h3 class="tCenter">${com}</h3>`;
+//print += `<h3 class="tCenter">${com}</h3>`;
 
 let i = 0;
 blogJson.forEach((item, key) => {
@@ -117,7 +117,7 @@ if(i <= postLimit -1){
 if(id == 0){ getP2 = Math.floor(Math.random() * blogJson.length); key = getP2;  }
 
 if(postId == id||getP2 == key){
-print += fuPrintPost(postId, postText, postTag, postTime);
+print += '<div class="center2">'+fuPrintPost(postId, postText, postTag, postTime)+'</div>';
 i++;
 getP = key;
 }
