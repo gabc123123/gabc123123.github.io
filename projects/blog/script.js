@@ -111,7 +111,11 @@ i++;
 break;
 
 case 'id':
+// random if empty id
 if(i <= postLimit -1){
+
+if(id == 0){ getP2 = Math.floor(Math.random() * blogJson.length); key = getP2;  }
+
 if(postId == id||getP2 == key){
 print += fuPrintPost(postId, postText, postTag, postTime);
 i++;
@@ -543,13 +547,20 @@ let total2 = total;
 if(next >= total){ next = total - 1; total2 = total - 1; }
 if(prev <= 0){ prev = 0; }
 
-
+let nav2Print = '';
 let navMode = 'p';
-if(com == 'id'){ navMode = 'p2'; }
+if(com == 'id'){
+navMode = 'p2';
+nav2Print = `
+<a class="op border2 button light" href="?p=`+Math.floor(getP)+`">list</a>
+<a class="op border2 button light" href="?id=">random</a>
+<a class="op border2 button light" href=#" onclick="history.back()">hBack</a>
+`;
+}
+
 
 
 return `
-
 
 
 <style>
@@ -576,7 +587,11 @@ transform: rotateY(180deg);*/" id="rangeinput" class="slider" value="${getP}" ty
 <div class="grid">
 <a class="op border2 button light" href="?${navMode}=${prev}">&#8592;</a>
 <div class="button border1">`+Math.floor(getP/postLimit)+`</div>
-<a class="op border2 button light" href="?${navMode}=${next}">&#8594;</a><br /><br />
+<a class="op border2 button light" href="?${navMode}=${next}">&#8594;</a>
+
+${nav2Print}
+<br /><br />
+
 </div>
 
 
