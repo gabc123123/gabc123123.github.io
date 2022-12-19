@@ -372,7 +372,7 @@ let h = '190px';
 
 text = [...text];
 let forSplit = [`
-`, " ", ",", '"'
+`, " ", ","
 ]
 text.forEach((item) => {
 forSplit.forEach((item2) => { // foreach
