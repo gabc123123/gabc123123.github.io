@@ -287,8 +287,10 @@ urlList = [
 "https://mobile.twitter.com/i/topics/840159616101044224",
 "https://www.reddit.com/r/news/",
 "https://www.reddit.com/r/worldnews/",
-"https://medium.com/tag/news"
-//"https://twitter.com/explore/tabs/news"
+"https://medium.com/tag/news",
+"https://news.yahoo.com/",
+"https://www.smartnews.com/",
+"https://www.newsbreak.com/"
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
@@ -318,7 +320,10 @@ urlList = [
 "https://getpocket.com/explore/technology",
 "https://twitter.com/i/topics/848920371311001600",
 "https://www.reddit.com/r/technology/",
-"https://medium.com/tag/technology"
+"https://medium.com/tag/technology",
+"https://finance.yahoo.com/tech/",
+"https://www.smartnews.com/en/us/technology",
+"https://www.newsbreak.com/channels/technology"
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
@@ -346,8 +351,9 @@ urlList = [
 "https://getpocket.com/explore/science",
 "https://twitter.com/i/topics/854692455005921281",
 "https://www.reddit.com/r/science/",
-"https://medium.com/tag/science"
-//"https://twitter.com/explore/tabs/news"
+"https://medium.com/tag/science",
+"https://news.yahoo.com/science/",
+"https://www.newsbreak.com/channels/science"
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
@@ -378,7 +384,10 @@ urlList = [
 "https://medium.com/tag/web-development",
 "https://medium.com/tag/programming",
 "https://medium.com/tag/computer-science",
-"https://diff.blog/"
+"https://diff.blog/",
+"https://www.newsbreak.com/channels/computers",
+"https://www.newsbreak.com/channels/internet",
+"https://www.newsbreak.com/channels/coding-programming"
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];

@@ -534,16 +534,19 @@ var tmp = setInterval(fuPostTime, 1000);
 
 // navigation // used array
 function blogNav(com){
+
 let prev = Number(Math.floor(getP - postLimit)); //https://stackoverflow.com/questions/1133770/how-to-convert-a-string-to-an-integer-in-javascript
 let next = Number(Math.floor(getP + postLimit));
 let total = Number(blogJson.length);
+let total2 = total;
 
-if(next >= total){ next = total - 1; }
+if(next >= total){ next = total - 1; total2 = total - 1; }
 if(prev <= 0){ prev = 0; }
 
 
 let navMode = 'p';
 if(com == 'id'){ navMode = 'p2'; }
+
 
 return `
 
@@ -567,7 +570,7 @@ justify-content: center;
 -moz-transform: rotateY(180deg);
 -ms-transform: rotateY(180deg);
 -o-transform: rotateY(180deg);
-transform: rotateY(180deg);*/" id="rangeinput" class="slider" value="${getP}" type="range" min="0" max="${total}" step="${postLimit}" onmouseup="this.form.submit();" ontouchend="this.form.submit();" />
+transform: rotateY(180deg);*/" id="rangeinput" class="slider" value="${getP}" type="range" min="0" max="${total2}" step="${postLimit}" onmouseup="this.form.submit();" ontouchend="this.form.submit();" />
 </form>
 
 <div class="grid">
