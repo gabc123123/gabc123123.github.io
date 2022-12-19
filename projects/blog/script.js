@@ -547,6 +547,7 @@ let total2 = total;
 
 if(next >= total){ next = total - 1; total2 = total - 1; }
 if(prev <= 0){ prev = 0; }
+if(total <= postLimit){ next = 0; }
 
 let nav2Print = '';
 let navMode = 'p';
