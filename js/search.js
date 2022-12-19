@@ -289,7 +289,7 @@ urlList = [
 "https://www.reddit.com/r/worldnews/",
 "https://medium.com/tag/news",
 "https://news.yahoo.com/",
-"https://www.smartnews.com/",
+// redirect to app "https://www.smartnews.com/",
 "https://www.newsbreak.com/"
 ];
 random = Math.floor(Math.random() * urlList.length);
@@ -322,7 +322,7 @@ urlList = [
 "https://www.reddit.com/r/technology/",
 "https://medium.com/tag/technology",
 "https://finance.yahoo.com/tech/",
-"https://www.smartnews.com/en/us/technology",
+//"https://www.smartnews.com/en/us/technology",
 "https://www.newsbreak.com/channels/technology"
 ];
 random = Math.floor(Math.random() * urlList.length);
@@ -534,7 +534,7 @@ urlList = [
 if(confDevice == 'mobile'){
 urlList.push("https://kexp.org/");
 }else{
-urlList.push("https://tunein.com/radio/KEXP-903-s32537/");
+urlList.push("https://tunein.com/radio/KEXP-903-s32537/"); // popup download app on mobile
 }
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
