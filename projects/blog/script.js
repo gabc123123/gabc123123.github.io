@@ -1,4 +1,4 @@
-// v.1.2.0
+// v.1.2.1
 // json pre-sorted by time in UNIX format
 
 
@@ -338,7 +338,7 @@ function fuPrintPost(id, post, tag, time){
 post = highlightText(post, 'out');
 tag = highlightText(tag);
 //time = new Date(time).getTime();
-time = `<a href="${scriptDir}?id=${id}#${id}">&nbsp;`+fuPostTime(time)+`&nbsp;</a>`;
+time = `<a href="${scriptDir}?id=${id}">&nbsp;`+fuPostTime(time)+`&nbsp;</a>`;
 
 return `
 
