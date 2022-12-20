@@ -1,4 +1,4 @@
-// v.1.2.3
+// v.1.2.4
 // json pre-sorted by time in UNIX format
 
 
@@ -30,6 +30,10 @@ var getP = url.searchParams.get("p");
 if(getP != null){
 getP = getP.replace(/%/g, "%25");
 getP = Number(decodeURIComponent(getP));
+
+if(getP >= blogJson.length - 1){ getP = 0; }
+if(getP < postLimit){ getP = 0; }
+
 }
 
 var getP2 = url.searchParams.get("p2"); // nav for id
@@ -127,8 +131,7 @@ getP = key;
 break;
 
 default:
-if(getP >= blogJson.length - 1){ getP = 0; }
-if(getP < postLimit){ getP = 0; }
+
 if(getP <= key){
 if(i <= postLimit -1){
 print += fuPrintPost(postId, postText, postTag, postTime);
