@@ -1,4 +1,4 @@
-// v.1.2.5
+// v.1.2.7
 // json pre-sorted by time in UNIX format
 
 
@@ -283,17 +283,17 @@ break;
 
 case tagPercentage >= 50:
 tagColor = "var(--indigo)";
-tagSize = "105%";
+tagSize = "100%";
 break;
 
 case tagPercentage >= 30:
 tagColor = "var(--violet)";
-tagSize = "100%";
+tagSize = "95%";
 break;
 
 default:
 tagColor = "var(--c2)";
-tagSize = "95%";
+tagSize = "85%";
 }
 
 //console.log(tagColor);
@@ -413,13 +413,14 @@ if(item[0]+item[1]+item[2]+item[3] == 'http'){
 var host = new URL(item).hostname;
 }
 
+var play = '';
 switch (host) {
 
 case "youtu.be":
 case "m.youtube.com":
 case "www.youtube.com":
 case "music.youtube.com":
-var play = item.split('v=').pop();
+play = item.split('v=').pop();
 if(play != ''){
 embed = `<!--<iframe id="player" style="border:0;" height="${h}" width="${w}" src="https://www.youtube.com/embed/${play}"></iframe>--><iframe width="${w}" height="${h}" src="https://www.youtube.com/embed/${play}" title="YouTube video player" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 }
@@ -430,14 +431,23 @@ case "mobile.twitter.com":
 embed = `<style>.twitter-tweet { margin-top: 0px !important; }</style><div style="display: block; width: 100%; max-width: 550px; margin: 0 auto;"><blockquote class="twitter-tweet" data-lang="${lang}" data-theme="${confThemeEmbed}"><a href="${item}"></a></blockquote></div><!--<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->`;
 break;
 
-
 case "www.reddit.com":
 if(item.split('/').length >= 9){
-item = item.replace(/#/g, "");
-let item2 = item.replace('reddit.com/r/', "redditmedia.com/r/");
-embed = `<iframe style="border-radius: 0 !important;" id="reddit-embed" src="${item2}?ref_source=embed&amp;ref=share&amp;embed=true&amp;theme=${confThemeEmbed}" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" scrolling="yes" width="640" height="320px"></iframe>`;
+play = item.replace('reddit.com/r/', "redditmedia.com/r/");
+embed = `<iframe style="border-radius: 0 !important;" id="reddit-embed" src="${play}?ref_source=embed&amp;ref=share&amp;embed=true&amp;theme=${confThemeEmbed}" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" scrolling="yes" width="640" height="320px"></iframe>`;
 }
 break;
+
+case "soundcloud.com":
+embed = `<iframe width="${w}" height="${h}" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=${item}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>`;
+break;
+
+case "codepen.io":
+play = item.split('/');
+play = play[play.length - 1];
+embed = `<p class="codepen" data-height="420" data-default-tab="result" data-theme-id="${confThemeEmbed}" data-slug-hash="${play}" data-user="" style="height: 420px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"></p><!--<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>-->`;
+break;
+
 
 
 
@@ -643,13 +653,23 @@ ${nav2Print}
 // for embed 
 if(embedStatus != 'off'){
 
-let script = document.createElement('script');
+var script = document.createElement('script');
 script.type='text/javascript';
 script.async = true;
 script.charset = 'utf-8';
 script.src = 'https://platform.twitter.com/widgets.js';      
 document.getElementsByTagName('head')[0].appendChild(script);
+
+var script2 = document.createElement('script');
+script2.type='text/javascript';
+script2.async = true;
+script2.charset = 'utf-8';
+script2.src = 'https://cpwebassets.codepen.io/assets/embed/ei.js';     
+document.getElementsByTagName('head')[0].appendChild(script2);
+
+
 }
+
 
 }
 

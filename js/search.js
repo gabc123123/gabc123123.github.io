@@ -1,4 +1,4 @@
-// v.1.1.5
+// v.1.1.6
 
 var geturl = window.location;
 var url = new URL(geturl);
@@ -592,7 +592,27 @@ sRedirUrl = url;
 break;
 
 case 'mm#':
-sRedirUrl = "/music.html";
+sRedirUrl = "/projects/music/";
+break;
+
+case 'k#':
+case 'kk#':
+q = q3.replace(q2, '');
+q = q.trim();
+q = encodeURIComponent(q);
+urlList = [
+"/projects/blog/?q="+q
+];
+random = Math.floor(Math.random() * urlList.length);
+url = urlList[random];
+if(q == ''){
+urlList = [
+"/projects/blog"
+];
+random = Math.floor(Math.random() * urlList.length);
+url = urlList[random];
+}
+sRedirUrl = url;
 break;
 
 case 'q#':
