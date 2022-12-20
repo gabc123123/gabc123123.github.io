@@ -1,4 +1,4 @@
-// v.1.2.1
+// v.1.2.3
 // json pre-sorted by time in UNIX format
 
 
@@ -101,6 +101,8 @@ postTime = item['time'];
 switch (com){
 
 case 'search':
+
+
 if(i <= postLimit -1){
 q = q.replace(/ /g, "|");
 if((postText+' '+postTag).search(q) != -1){
@@ -125,6 +127,8 @@ getP = key;
 break;
 
 default:
+if(getP >= blogJson.length - 1){ getP = 0; }
+if(getP < postLimit){ getP = 0; }
 if(getP <= key){
 if(i <= postLimit -1){
 print += fuPrintPost(postId, postText, postTag, postTime);
@@ -147,6 +151,13 @@ printTagList += postTag+symbolForSplit;
 if(tagListStatus != 'off'){
 if(com != 'search'){
 print += `<div class="${postClass}">`+blogNav(com)+`</div>`;
+}
+if(com == 'search'){
+print += `
+<div class="block tCenter padding">
+<a class="op border2 button light" href="#" onclick="history.back()" title="history back">back</a>
+</div>
+`;
 }
 print += `<div class="wrapper3"><div id="tagList" class="tagList tCenter padding"  style="width: 100%">`+tagList(printTagList)+`</div></div>`;
 }
@@ -547,7 +558,7 @@ let total2 = total;
 
 if(next >= total){ next = total - 1; total2 = total - 1; }
 if(prev <= 0){ prev = 0; }
-if(total <= postLimit){ next = 0; }
+
 
 let nav2Print = '';
 let navMode = 'p';
@@ -556,7 +567,7 @@ navMode = 'p2';
 nav2Print = `
 <a class="op border2 button light" href="?p=`+Math.floor(getP)+`">list</a>
 <a class="op border2 button light" href="?id=">random</a>
-<a class="op border2 button light" href=#" onclick="history.back()">hBack</a>
+<a class="op border2 button light" href="#" onclick="history.back()">hBack</a>
 `;
 }
 
