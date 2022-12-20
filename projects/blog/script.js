@@ -1,4 +1,4 @@
-// v.1.2.7
+// v.1.2.8
 // json pre-sorted by time in UNIX format
 
 
@@ -87,9 +87,17 @@ com = 'id';
 postLimit = 1;
 }
 
+if(id == 0){ com = 'random'; getP2 = Math.floor(Math.random() * blogJson.length); }
 
 
-//print += `<h3 class="tCenter">${com}</h3>`;
+if(com == ''){
+print += `
+<div class="block tCenter padding">
+<!--com:${com} id:${id} q:${q} p:${getP} p2:${getP2}-->
+<a href="?id=">random</a>
+</div>
+`;
+}
 
 let i = 0;
 blogJson.forEach((item, key) => {
@@ -105,8 +113,6 @@ postTime = item['time'];
 switch (com){
 
 case 'search':
-
-
 if(i <= postLimit -1){
 q = q.replace(/ /g, "|");
 if((postText+' '+postTag).search(q) != -1){
@@ -117,12 +123,18 @@ i++;
 break;
 
 case 'id':
-// random if empty id
 if(i <= postLimit -1){
-
-if(id == 0){ getP2 = Math.floor(Math.random() * blogJson.length); key = getP2;  }
-
 if(postId == id||getP2 == key){
+print += '<div class="center2">'+fuPrintPost(postId, postText, postTag, postTime)+'</div>';
+i++;
+getP = key;
+}
+}
+break;
+
+case 'random':
+if(i <= postLimit -1){
+if(getP2 == key){
 print += '<div class="center2">'+fuPrintPost(postId, postText, postTag, postTime)+'</div>';
 i++;
 getP = key;
@@ -584,12 +596,12 @@ if(prev <= 0){ prev = 0; }
 
 let nav2Print = '';
 let navMode = 'p';
-if(com == 'id'){
+if(com == 'id'||com == 'random'){
 navMode = 'p2';
 nav2Print = `
 <a class="op border2 button light" href="?p=`+Math.floor(getP)+`">list</a>
 <a class="op border2 button light" href="?id=">random</a>
-<a class="op border2 button light" href="#" onclick="history.back()">hBack</a>
+<a class="op border2 button light" href="#" onclick="history.back()">back</a>
 `;
 }
 
