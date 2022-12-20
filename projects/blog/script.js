@@ -1,4 +1,4 @@
-// v.1.2.4
+// v.1.2.5
 // json pre-sorted by time in UNIX format
 
 
@@ -419,9 +419,7 @@ case "youtu.be":
 case "m.youtube.com":
 case "www.youtube.com":
 case "music.youtube.com":
-
 var play = item.split('v=').pop();
-
 if(play != ''){
 embed = `<!--<iframe id="player" style="border:0;" height="${h}" width="${w}" src="https://www.youtube.com/embed/${play}"></iframe>--><iframe width="${w}" height="${h}" src="https://www.youtube.com/embed/${play}" title="YouTube video player" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 }
@@ -430,8 +428,19 @@ break;
 case "twitter.com":
 case "mobile.twitter.com":
 embed = `<style>.twitter-tweet { margin-top: 0px !important; }</style><div style="display: block; width: 100%; max-width: 550px; margin: 0 auto;"><blockquote class="twitter-tweet" data-lang="${lang}" data-theme="${confThemeEmbed}"><a href="${item}"></a></blockquote></div><!--<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->`;
-
 break;
+
+
+case "www.reddit.com":
+if(item.split('/').length >= 9){
+item = item.replace(/#/g, "");
+let item2 = item.replace('reddit.com/r/', "redditmedia.com/r/");
+embed = `<iframe style="border-radius: 0 !important;" id="reddit-embed" src="${item2}?ref_source=embed&amp;ref=share&amp;embed=true&amp;theme=${confThemeEmbed}" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" scrolling="yes" width="640" height="320px"></iframe>`;
+}
+break;
+
+
+
 
 }
 
