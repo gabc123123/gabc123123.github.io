@@ -171,6 +171,7 @@ if(com == 'search'){
 print += `
 <div class="block tCenter padding">
 <a class="op border2 button light" href="#" onclick="history.back()" title="history back">back</a>
+<a class="op border2 button light" href="./">blog</a>
 </div>
 `;
 }
@@ -421,11 +422,15 @@ myArray.forEach((item) => {
 
 //text += item.hostname;
 //if(item.search("http") != -1){ 
-if(item[0]+item[1]+item[2]+item[3] == 'http'){ 
-var host = new URL(item).hostname;
+/*if(item[0]+item[1]+item[2]+item[3] == 'http'&&item.search("http|://") != -1){ 
+var host = new URL(item).hostname; // stop working when error
 }
+*/
+var host = item.split('/');
+host = host[2]
 
 var play = '';
+if(host != undefined){
 switch (host) {
 
 case "youtu.be":
@@ -465,16 +470,17 @@ break;
 
 
 }
+}
 
 /*
-if(item.search("jpg|jpeg|png|gif|img|ico") != -1){ 
+if(item.search("jpg|jpeg|png|gif|img|ico") != -1item.search("jpg|jpeg|png|gif|img|ico") != -1){ 
 embed = `<a href="${item}"><img class="border3" src="${item}" width=""></a>`
 }*/
 
 
 
 //if(item.search("http") != -1){
-if(item[0]+item[1]+item[2]+item[3] == 'http'){ 
+if(item[0]+item[1]+item[2]+item[3] == 'http'&&item.search("http|://") != -1){ 
 var ico = `https://www.google.com/s2/favicons?domain_url=${host}`;
 //let ico = `https://api.statvoo.com/favicon/?url=${host}`;
 //let ico = `https://api.faviconkit.com/${host}/16`;
