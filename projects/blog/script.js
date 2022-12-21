@@ -1,4 +1,4 @@
-// v.1.2.8
+// v.1.2.9
 // json pre-sorted by time in UNIX format
 
 
@@ -72,7 +72,7 @@ postLimit = Number(postLimit);
 
 
 
-function main(){
+function main(embedstatus){
 
 let searchLimit = 300;
 let com = '';
@@ -89,8 +89,7 @@ postLimit = 1;
 
 if(id == 0){ com = 'random'; getP2 = Math.floor(Math.random() * blogJson.length); }
 
-
-if(com == ''){
+if(com == ''&&embedstatus == 'on'){
 print += `
 <div class="block tCenter padding">
 <!--com:${com} id:${id} q:${q} p:${getP} p2:${getP2}-->
