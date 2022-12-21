@@ -1,4 +1,5 @@
 /* v.12.17.25 */
+/* not use calc() or fix for mobile */
 
 :root{
 --bodyP: 2vw;
@@ -436,5 +437,4 @@ html { scroll-padding-top: 14px; }
 
 /*html { scrollbar-width: thin; }
 ::-webkit-scrollbar { width: 7px; }*/
-
 
