@@ -2,7 +2,7 @@ README.md
 
 <!-- comment -->
 
-# Blog similar to Twitter from Json data based on JavaScript
+# Blog from Json data and JavaScript
 
 #### json example (URL in Joson is optional, it is combined with text in the script)
 ```javascript
