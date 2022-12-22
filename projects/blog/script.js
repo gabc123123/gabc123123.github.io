@@ -1,14 +1,13 @@
-// v.1.2.13
+// v.1.2.14
 // json pre-sorted by time in UNIX format
-
-
 
 // main function 
 
 function blog(printId, blogJson, postClass, embedStatus, tagListStatus, postLimit, scriptDir, multiEmbedStatus){
 /*
-printId - id where print blog
-blogJson - json
+printId - div id where print blog
+blogJson - json in JavaSript variable
+// other
 postClass - CSS class name
 embedStatus - if off, not showing embed
 tagListStatus - if off, not showing tags and navigation, only posts
@@ -16,6 +15,7 @@ postLimit - how many post showing on page
 scriptDir - for tag location, if run script on other location
 multiEmbedStatus - if on, working multi embed, default off
 */
+
 
 if(postLimit == undefined||postLimit == ''){ postLimit = 1; }
 if(postClass == undefined||postClass == ''){ postClass = 'post'; }

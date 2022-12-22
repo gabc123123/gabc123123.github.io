@@ -39,6 +39,22 @@
 <!-- for copy paste -->
 <div id="echoBlog">echoBlog</div>
 <script src="/data/blogJson.js"></script>
+
+<script>
+if(blogJson == undefined||blogJson == ''){
+var blogJson = 
+[
+    {
+        "id": 250,
+        "text": "test text",
+        "url": "https:\/\/test.com",
+        "tag": "#test #tag",
+        "time": 1671480576
+    }
+]
+}
+</script>
+
 <script src="/projects/blog/script.js"></script>
 <script>
 blog("echoBlog", blogJson, 'post', 'on', 'on', '10', './', 'off');
