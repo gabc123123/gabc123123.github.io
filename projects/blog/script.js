@@ -1,4 +1,4 @@
-// v.1.2.14
+// v.1.2.15
 // json pre-sorted by time in UNIX format, URL in JSON optional it's merged with text
 
 // main function 
@@ -363,9 +363,9 @@ hlClassList = '';
 hlClassList2.forEach(function(item){
 let hlClass = 'hlClass'+item;
 item = item.toUpperCase();
-hlClassList += `<a class="tag light border2 ${hlClass}" onmouseover="hlwClassAdd('${hlClass}')" onmouseout="hlwClassRemove('${hlClass}')" href="#">${item}</a>
-
-`
+hlClassList += `
+<a class="tag light border2 ${hlClass}" onmouseover="hlwClassAdd('${hlClass}')" onmouseout="hlwClassRemove('${hlClass}')" href="#id${hlClass}" id="${hlClass}">${item}</a>
+`;
 });
 
 tagList += `<div class="block padding">${hlClassList}</div>`;

@@ -395,7 +395,7 @@ td { background-color: var(--l2); }
 .bold, .bold a { font-weight: bold; }
 .small, .small a { font-size: small !important; }
 .xsmall, .xsmall a { font-size: x-small !important; }
-
+.cursorNone { pointer-events: none; }
 
 
 /* fix */
