@@ -2,7 +2,8 @@ README.md
 
 <!-- comment -->
 
-# Blog, json and JavaScript
+# Blog from Json data based on JavaScript
+![screenshot](screenshot.png)
 
 <!--
 ## title

@@ -1,4 +1,4 @@
-/* v.12.17.26 */
+/* v.12.17.27 */
 /* not use calc() or fix for mobile */
 
 :root{
@@ -55,7 +55,7 @@ width: 100%;
 header{ margin: 0 auto; }
 
 nav, footer { text-align: center; padding: 14px 0; max-width: 100%; z-index: 5; }
-nav a, nav button, footer span { display: inline-block; padding: 7px; }
+nav a, nav button, footer span { display: inline-block; padding: 5px; }
 nav button:hover { background: none;  }
 /*nav a::first-letter { font-weight: bolder; }*/
 
