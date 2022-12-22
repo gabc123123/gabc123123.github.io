@@ -1,5 +1,5 @@
 // v.1.2.14
-// json pre-sorted by time in UNIX format
+// json pre-sorted by time in UNIX format, URL in JSON optional it's merged with text
 
 // main function 
 
@@ -8,7 +8,7 @@ function blog(printId, blogJson, postClass, embedStatus, tagListStatus, postLimi
 printId - div id where print blog
 blogJson - json in JavaSript variable
 // other
-postClass - CSS class name
+postClass - CSS class name post
 embedStatus - if off, not showing embed
 tagListStatus - if off, not showing tags and navigation, only posts
 postLimit - how many post showing on page
