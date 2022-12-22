@@ -424,11 +424,11 @@ input, textarea { display: block; }
 @media(max-width: 500px) { .topNav nav { text-align: left; }}
 
 .over a{
-white-space: nowrap;
 overflow: hidden;
-display: inline-block;
-max-width: calc(100%);
-text-overflow: ellipsis;
+white-space: nowrap;
+display: inline-flex; /* display: inline-block; */
+max-width: 100%;
+text-overflow: ellipsis " [..]";
 }
 
 iframe { border: none; }

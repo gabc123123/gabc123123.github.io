@@ -413,12 +413,12 @@ let h = '190px';
 
 text = [...text];
 let forSplit = [`
-`, " ", ","
+`, " "
 ]
 text.forEach((item) => {
 forSplit.forEach((item2) => { // foreach
 if(item == item2){
-item = symbolForSplit+item+symbolForSplit;
+item = item+symbolForSplit;
 }
 });
 text2 += item;
@@ -526,9 +526,9 @@ item = `<a rel="nofollow" href="${scriptDir}?q=%23${item}">#${item}</a>`;
 
 
 
-
-
+if(item != 'null'){ // fixme, showing null
 text += item;
+}
 });
 
 if(embedStatus == 'off'){ return text; } else { return text+embed; }
