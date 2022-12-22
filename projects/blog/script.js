@@ -356,7 +356,10 @@ hlClassList2 = [...new Set([...hlClassList])]; //https://stackoverflow.com/quest
 hlClassList = '';
 hlClassList2.forEach(function(item){
 let hlClass = 'hlClass'+item;
-hlClassList += `<button class="${hlClass}" onmouseover="hlwClassAdd('${hlClass}')"  onmouseout="hlwClassRemove('${hlClass}')">${item}</button>`
+item = item.toUpperCase();
+hlClassList += `<button class="${hlClass}" onmouseover="hlwClassAdd('${hlClass}')"  onmouseout="hlwClassRemove('${hlClass}')">${item}</button>
+
+`
 });
 
 tagList += `<div class="block padding">${hlClassList}</div>`;
