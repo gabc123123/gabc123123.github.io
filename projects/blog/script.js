@@ -555,6 +555,7 @@ function checkTime(i) {
   return i;
 }
 
+// https://stackoverflow.com/questions/13903897/javascript-return-number-of-days-hours-minutes-seconds-between-two-dates
 function fuPostTime(p){
 const  date_future = Date.now();
 const  date_now = new Date(p * 1000);

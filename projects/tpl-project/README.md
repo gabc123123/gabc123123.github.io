@@ -16,3 +16,10 @@ README.md
 #### screenshot
 ![screenshot](screenshot.png)
 
+<!-- code -->
+```javascript
+let a = "Hello World!";
+console.log(a);
+alert(a);
+```
+
