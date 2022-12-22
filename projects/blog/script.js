@@ -1,4 +1,4 @@
-// v.1.2.12
+// v.1.2.13
 // json pre-sorted by time in UNIX format
 
 
@@ -56,6 +56,7 @@ var symbolForSplit = 'ccbbaa';
 var postId = '';
 var postText = '';
 var postTag = '';
+var postUrl = '';
 var postTime = '';
 
 
@@ -101,11 +102,19 @@ print += `
 let i = 0;
 blogJson.forEach((item, key) => {
 
+postId = '';
+postText = '';
+postTag = '';
+postUrl = '';
+postTime = '';
 
-postId = item['id'];
-postText = item['text']+' '+item['url'];
-postTag = item['tag'];
-postTime = item['time'];
+if(item['id'] != null){ postId = item['id']; }
+if(item['text'] != null){ postText = item['text']; }
+if(item['tag'] != null){ postTag = item['tag']; }
+if(item['url'] != null){ postUrl = item['url']; }
+if(item['time'] != null){ postTime = item['time']; }
+
+postText = (postText+' '+postUrl).trim();
 
 
 
@@ -357,7 +366,7 @@ hlClassList = '';
 hlClassList2.forEach(function(item){
 let hlClass = 'hlClass'+item;
 item = item.toUpperCase();
-hlClassList += `<button class="${hlClass}" onmouseover="hlwClassAdd('${hlClass}')"  onmouseout="hlwClassRemove('${hlClass}')">${item}</button>
+hlClassList += `<a class="tag light border2 ${hlClass}" onmouseover="hlwClassAdd('${hlClass}')" onmouseout="hlwClassRemove('${hlClass}')" href="#">${item}</a>
 
 `
 });
@@ -433,7 +442,6 @@ text2 += item;
 text = '';
 const myArray = text2.split(symbolForSplit);
 myArray.forEach((item) => {
-
 //text += item.hostname;
 //if(item.search("http") != -1){ 
 /*if(item[0]+item[1]+item[2]+item[3] == 'http'&&item.search("http|://") != -1){ 
@@ -526,9 +534,8 @@ item = `<a rel="nofollow" href="${scriptDir}?q=%23${item}">#${item}</a>`;
 
 
 
-if(item != 'null'){ // fixme, showing null
 text += item;
-}
+
 });
 
 if(embedStatus == 'off'){ return text; } else { return text+embed; }
