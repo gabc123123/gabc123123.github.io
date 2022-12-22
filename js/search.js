@@ -273,7 +273,8 @@ q = encodeURIComponent(q);
 urlList = [
 "https://www.google.com/search?q="+q+"&tbm=nws",
 "https://www.bing.com/news/search?q="+q,
-"https://www.qwant.com/?t=news&q="+q
+"https://www.qwant.com/?t=news&q="+q,
+"https://neeva.com/search?q="+q+"&c=News"
 ];
 
 random = Math.floor(Math.random() * urlList.length);
@@ -550,29 +551,6 @@ url = "/?q="+q+' m';
 sRedirUrl = url;
 break;
 
-
-
-
-case 'o#':
-q = q3.replace(q2, '');
-q = q.trim();
-q = encodeURIComponent(q);
-urlList = [
-"https://www.qwant.com/?q="+q+"&t=web&vt=1&b=1",
-"https://www.gigablast.com/search?q="+q
-];
-random = Math.floor(Math.random() * urlList.length);
-url = urlList[random];
-if(q == ''){
-urlList = [
-"?q=n"
-];
-random = Math.floor(Math.random() * urlList.length);
-url = urlList[random];
-}
-sRedirUrl = url;
-break;
-
 case 'ti#':
 q = q3.replace(q2, '');
 q = q.trim();
@@ -615,13 +593,32 @@ url = urlList[random];
 sRedirUrl = url;
 break;
 
+case 'o#':
+q = q3.replace(q2, '');
+q = q.trim();
+q = encodeURIComponent(q);
+urlList = [
+"https://www.qwant.com/?q="+q,
+"https://search.naver.com/search.naver?query="+q
+];
+random = Math.floor(Math.random() * urlList.length);
+url = urlList[random];
+if(q == ''){
+urlList = [
+"?q=n"
+];
+random = Math.floor(Math.random() * urlList.length);
+url = urlList[random];
+}
+sRedirUrl = url;
+break;
+
 case 'q#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
 
 urlList = [
-"https://www.google.com/search?q="+ q,
 "https://www.google.com/search?q="+ q,
 "https://www.google.com/search?q="+ q,
 "https://www.google.com/search?q="+ q,
@@ -637,7 +634,6 @@ break;
 default:
 q = encodeURIComponent(q);
 urlList = [
-"https://www.google.com/search?q="+ q,
 "https://www.google.com/search?q="+ q,
 "https://www.google.com/search?q="+ q,
 "https://www.google.com/search?q="+ q,

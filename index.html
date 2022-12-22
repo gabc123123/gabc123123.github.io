@@ -110,7 +110,7 @@ document.getElementById("dropbtn").innerHTML = '☰ Other';
 <script>
 function pi(){
 pi = [
-'tec', 'tec', 'tec', 'tec', 'tec', 'sci', 'sci', 'sci', 'dev'
+'tec', 'tec', 'tec', 'sci', 'sci', 'dev'
 ];
 
 window.location.href = '?q='+pi[Math.floor(Math.random() * pi.length)];
@@ -137,6 +137,7 @@ window.location.href = '?q='+pi[Math.floor(Math.random() * pi.length)];
 <div class="scrollXhidden wrapperL" id="resultTop">
 <a class="tag light border2 op" href="https://google.com/">goo</a>
 <a class="tag light border2 op" href="https://bing.com/">bin</a>
+<a class="tag light border2 op" href="/?=o">o</a>
 <a class="tag light border2 op" href="/?q=n">n</a>
 <a class="tag light border2 op" href="https://twitter.com">twi</a>
 <a class="tag light border2 op" href="https://reddit.com">red</a>
@@ -166,6 +167,7 @@ var text = encodeURIComponent(e.target.value);
 var a = `
 <a class="tag light border2 op" href="/?q=`+text+` goo">goo</a>
 <a class="tag light border2 op" href="/?q=`+text+` bin">bin</a>
+<a class="tag light border2 op" href="/?q=`+text+` o">o</a>
 <a class="tag light border2 op" href="/?q=`+text+` n">n</a>
 <a class="tag light border2 op" href="/?q=`+text+` twi">twi</a>
 <a class="tag light border2 op" href="/?q=`+text+` red">red</a>

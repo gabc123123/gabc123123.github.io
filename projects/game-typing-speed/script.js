@@ -1,4 +1,4 @@
-// v.3.7.17
+// v.3.7.19
 
 
 
@@ -101,6 +101,7 @@ document.getElementsByClassName("input")[0].innerHTML = '<div class="wrapper"><f
 if(mode == 'input'){
 var input = url.searchParams.get("q");
 
+
 document.getElementById("bookmarklet").style.display = "inline-block";
 
 if(input != null){ input = input.replace(/%/g, "%25"); localStorage.setItem("input", input); task = input; }else{
@@ -143,6 +144,7 @@ document.getElementById('text').rows = '';
 //setTimeout(function () {
 function main(task){
 
+console.log(task);
 task = task.replace(/%/g, "%25"); // not show text, percentage
 
 
@@ -216,6 +218,10 @@ letters = letters.replace(/%0D/g, "\n");
 letters = letters.replace(/%C2%A0/g, " ");
 
 letters = letters.replace(/E2%80%8A/g, " "); // end of line
+letters = letters.replace(/%E2%81%A6/g, ""); // Left-to-Right Isolate
+letters = letters.replace(/%E2%81%A9/g, "");
+
+
 letters = letters.replace(/ /g, ""); // end of line
 
 letters = encodeURIComponent(letters);
@@ -231,6 +237,8 @@ letters = letters.replace(/%0D/g, "\n");
 letters = letters.replace(/%C2%A0/g, " ");
 
 letters = letters.replace(/E2%80%8A/g, " "); // end of line
+letters = letters.replace(/%E2%81%A6/g, ""); // Left-to-Right Isolate
+letters = letters.replace(/%E2%81%A9/g, "");
 letters = letters.replace(/ /g, ""); // end of line
 
 letters = decodeURIComponent(letters);

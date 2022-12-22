@@ -1,4 +1,4 @@
-// v.1.2.10
+// v.1.2.12
 // json pre-sorted by time in UNIX format
 
 
@@ -314,7 +314,7 @@ tagSize = "85%";
 
 
 
-
+let hlClassList = '';
 // https://masteringjs.io/tutorials/fundamentals/foreach-object
 Object.entries(tagListCount).forEach(entry => {
 const [key, value] = entry;
@@ -332,7 +332,8 @@ if(tag != ''){
 let printTag = tag.replace(/#/g, "");
 let goTag = encodeURIComponent(tag);
 
-let hlClass = 'hlClass'+printTag[0];
+let hlClass = 'hlClass'+printTag[0].toLowerCase();
+hlClassList += printTag[0].toLowerCase();
 
 if(q == tag){
 tagList += `
@@ -350,6 +351,17 @@ tagList += `
 }
 }
 });
+
+hlClassList2 = [...new Set([...hlClassList])]; //https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
+hlClassList = '';
+hlClassList2.forEach(function(item){
+let hlClass = 'hlClass'+item;
+hlClassList += `<button class="${hlClass}" onmouseover="hlwClassAdd('${hlClass}')"  onmouseout="hlwClassRemove('${hlClass}')">${item}</button>`
+});
+
+tagList += `<div class="block padding">${hlClassList}</div>`;
+
+
 return tagList;
 }
 //  end tag list
@@ -440,6 +452,11 @@ play = item.split('v=').pop();
 if(play != ''){
 embed = `<!--<iframe id="player" style="border:0;" height="${h}" width="${w}" src="https://www.youtube.com/embed/${play}"></iframe>--><iframe width="${w}" height="${h}" src="https://www.youtube.com/embed/${play}" title="YouTube video player" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 }
+break;
+
+case 'vimeo.com':
+play = item.split('/');
+embed = `<iframe src="https://player.vimeo.com/video/`+play[play.length-1]+`?badge=0" height="${h}"  frameborder="0"></iframe>`;
 break;
 
 case "twitter.com":
