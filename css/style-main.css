@@ -131,9 +131,9 @@ overflow: auto;
 .tv { max-width: 100%; }
 .postL { max-width: var(--wrapperL); }
 
-.post .img, .post2 .img, .post3 img, .tv .img, .postL .img,
-.post iframe, .post2 iframe, .post3 iframe, .tv iframe, .postL iframe { display: block; margin-top: 7px; border-radius: 5px; width: 100%; }
-.post .img, .post2 .img, .post3 img, .tv .img, .postL .img { margin-bottom: 7px; }
+/* pre in post */
+iframe, .pre iframe, .pre video, .pre audio { display: block; margin-top: 7px; border-radius: 5px; width: 100%; }
+.pre .img { margin-bottom: 7px; margin-top: 7px; }
 
 .postFooter { margin-top: 7px; }
 .postTaglist { display: inline-block; width: 70%; text-align: left; }

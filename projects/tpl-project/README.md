@@ -11,10 +11,8 @@ README.md
  - list
   - list
 
-[example.com](http://example.com/)
 
-#### screenshot
-![screenshot](screenshot.png)
+[example.com](http://example.com/)
 
 <!-- code -->
 ```javascript
@@ -22,4 +20,9 @@ let a = "Hello World!";
 console.log(a);
 alert(a);
 ```
+
+#### screenshot
+![screenshot](screenshot.png)
+
+
 

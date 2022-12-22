@@ -5,12 +5,23 @@
 
 // main function 
 
-function blog(printId, blogJson, postClass, embedStatus, tagListStatus, postLimit, scriptDir){
+function blog(printId, blogJson, postClass, embedStatus, tagListStatus, postLimit, scriptDir, multiEmbedStatus){
+/*
+printId - id where print blog
+blogJson - json
+postClass - CSS class name
+embedStatus - if off, not showing embed
+tagListStatus - if off, not showing tags and navigation, only posts
+postLimit - how many post showing on page
+scriptDir - for tag location, if run script on other location
+multiEmbedStatus - if on, working multi embed, default off
+*/
 
-
-if(scriptDir == undefined||scriptDir == ''){ scriptDir = './'; }
 if(postLimit == undefined||postLimit == ''){ postLimit = 1; }
 if(postClass == undefined||postClass == ''){ postClass = 'post'; }
+if(scriptDir == undefined||scriptDir == ''){ scriptDir = './'; }
+if(multiEmbedStatus == undefined||multiEmbedStatus == ''){ multiEmbedStatus = 'off'; }
+
 
 var url = new URL(window.location);
 
@@ -208,21 +219,7 @@ main(q, id);
 
 
 
-
-
-
-
-
-
-
-
-
-
 // other functions 
-
-
-
-
 //  tagList
 function tagList(tagList2){
 let color = 'silver';
@@ -384,7 +381,6 @@ return tagList;
 
 
 function fuPrintPost(id, post, tag, time){
-
 post = highlightText(post, 'out');
 tag = highlightText(tag);
 //time = new Date(time).getTime();
@@ -412,10 +408,10 @@ return `
 
 
 function highlightText(text, hrefInOut){
-//text = decodeURIComponent(text); // error sometimes
+text = decodeURIComponent(text); // error sometimes
 let text2 = '';
 let embed = '';
-
+let embed2 = '';
 
 let w = '100%';
 let h = '190px'; 
@@ -493,16 +489,42 @@ embed = `<p class="codepen" data-height="420" data-default-tab="result" data-the
 break;
 
 
+//default:
 
 
 
 }
 }
+
+
 
 /*
 if(item.search("jpg|jpeg|png|gif|img|ico") != -1item.search("jpg|jpeg|png|gif|img|ico") != -1){ 
 embed = `<a href="${item}"><img class="border3" src="${item}" width=""></a>`
 }*/
+
+if(embedStatus != 'off'){
+
+
+if(item.search(".mp4|.webm|.avi") != -1) {
+embed2 = `<video height="${h}" controls style="width:100%"><source src="${item}" type="video/mp4">
+<source src="${item}" type="video/ogg">Your browser does not support HTML5 video.</video>`;
+}
+
+if(item.search(".mp3|.wav|.ogg|.m3u") != -1) {
+embed2 = `<audio controls style="width:100%; opacity:0.8"><source src="${item}" type="audio/ogg"><source src="${item}" type="audio/mpeg">Your browser does not support the audio element.</audio>`;
+}
+
+
+if(item.search(".jpg|.jpeg|.png|.gif|.img|.ico") != -1) {
+//echo 'test';
+embed2 = `<a href="${item}"><img class="border3 img" src="${item}" width=""></a>`;
+}
+
+
+}
+
+
 
 
 
@@ -536,10 +558,25 @@ item = `<a rel="nofollow" href="${scriptDir}?q=%23${item}">#${item}</a>`;
 
 text += item;
 
+
+
+// multi embed
+if(multiEmbedStatus == 'on'&&embedStatus != 'off'){
+text += embed+embed2;
+embed = '';
+embed2 = '';
+}
+
+// multi embed end
+
+
 });
 
-if(embedStatus == 'off'){ return text; } else { return text+embed; }
+// single embed
+if(multiEmbedStatus != 'on'&&embedStatus != 'off'){ text += embed+embed2; }
 
+
+return text;
 }
 
 
