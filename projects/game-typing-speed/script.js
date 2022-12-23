@@ -73,7 +73,7 @@ var quote;
 
 
 
-quote = quoteJson;
+quote = quoteJsonVar;
 
 if(quote != null){
 const random = Math.floor(Math.random() * quote.length);

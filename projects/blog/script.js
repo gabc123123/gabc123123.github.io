@@ -1,12 +1,12 @@
-// v.1.2.15
-// json pre-sorted by time in UNIX format, URL in JSON optional it's merged with text
+// v.1.2.16
+// JSON pre-sorted by time in UNIX format, URL in JSON optional it's merged with text
 
 // main function 
 
-function blog(printId, blogJson, postClass, embedStatus, tagListStatus, postLimit, scriptDir, multiEmbedStatus){
+function blog(printId, blogJsonVar, postClass, embedStatus, tagListStatus, postLimit, scriptDir, multiEmbedStatus){
 /*
 printId - div id where print blog
-blogJson - json in JavaSript variable
+blogJsonVar - json in JavaSript variable
 // other
 postClass - CSS class name post
 embedStatus - if off, not showing embed
@@ -42,7 +42,7 @@ if(getP != null){
 getP = getP.replace(/%/g, "%25");
 getP = Number(decodeURIComponent(getP));
 
-if(getP >= blogJson.length - 1){ getP = 0; }
+if(getP >= blogJsonVar.length - 1){ getP = 0; }
 if(getP < postLimit){ getP = 0; }
 
 }
@@ -56,9 +56,9 @@ getP2 = Number(decodeURIComponent(getP2));
 if(getP == null){ getP = 0; }
 
 
-if(getP == blogJson.length){ getP = getP - 1; }
-if(getP2 == blogJson.length){ getP2 = getP2 - 1; }
-if(getP >= blogJson.length){ getP = Number(Number(blogJson.length) - Number(postLimit)); }
+if(getP == blogJsonVar.length){ getP = getP - 1; }
+if(getP2 == blogJsonVar.length){ getP2 = getP2 - 1; }
+if(getP >= blogJsonVar.length){ getP = Number(Number(blogJsonVar.length) - Number(postLimit)); }
 if(getP <= 0){ getP = 0; }
 if(isNaN(getP)||isNaN(getP2)){ getP = 0; getP = 0; }
 
@@ -74,6 +74,8 @@ var postTime = '';
 var print = '';
 var printTagList = '';
 var getTag = '';
+
+var comMessage = '';
 
 postLimit = Number(postLimit);
 
@@ -99,7 +101,7 @@ com = 'id';
 postLimit = 1;
 }
 
-if(id == 0){ com = 'random'; getP2 = Math.floor(Math.random() * blogJson.length); }
+if(id == 0){ com = 'random'; getP2 = Math.floor(Math.random() * blogJsonVar.length); }
 
 if(com == ''&&tagListStatus == 'on'){
 print += `
@@ -111,7 +113,7 @@ print += `
 }
 
 let i = 0;
-blogJson.forEach((item, key) => {
+blogJsonVar.forEach((item, key) => {
 
 postId = '';
 postText = '';
@@ -132,19 +134,24 @@ postText = (postText+' '+postUrl).trim();
 switch (com){
 
 case 'search':
+comMessage = `Probably not found`;
 if(i <= postLimit -1){
-q = q.replace(/ /g, "|");
-if((postText+' '+postTag).search(q) != -1){
+qSearch = (q.toLowerCase()).replace(/ /g, "|");
+if(((postText+' '+postTag).toLowerCase()).search(qSearch) != -1){
 print += fuPrintPost(postId, postText, postTag, postTime);
 i++;
+
 }
 }
+comMessage = `${q} ${i}`;
 break;
 
 case 'id':
 if(i <= postLimit -1){
 if(postId == id||getP2 == key){
 print += '<div class="center2">'+fuPrintPost(postId, postText, postTag, postTime)+'</div>';
+comMessage = 'id: '+postId;
+if(getP2 != null){ comMessage += ' p2: '+getP2; }
 i++;
 getP = key;
 }
@@ -157,6 +164,7 @@ if(getP2 == key){
 print += '<div class="center2">'+fuPrintPost(postId, postText, postTag, postTime)+'</div>';
 i++;
 getP = key;
+comMessage = 'random, '+'id: '+postId+', p2: '+getP2;
 }
 }
 break;
@@ -171,6 +179,7 @@ i++;
 }
 }
 
+
 // collect all tag
 printTagList += postTag+symbolForSplit;
 
@@ -182,7 +191,19 @@ printTagList += postTag+symbolForSplit;
 
 
 // tagList and nav print
+
+
 if(tagListStatus != 'off'){
+
+
+if(comMessage != ''){
+comMessage = `
+<div class="op tRight padding ${postClass}">${comMessage}</div>
+`;
+print = comMessage+print;
+}
+
+
 if(com != 'search'){
 print += `<div class="${postClass}">`+blogNav(com)+`</div>`;
 }
@@ -195,7 +216,24 @@ print += `
 `;
 }
 print += `<div class="wrapper3"><div id="tagList" class="tagList tCenter padding"  style="width: 100%">`+tagList(printTagList)+`</div></div>`;
+
+// search forom
+print += `
+<br>
+<div id="form" class="wrapperL">
+<form method="GET" style="margin-top: 0px;" action="./">
+
+<input class="padding" type="search" style="text-align: center;" name="q"  autocomplete="off" placeholder="">
+
+<input class="op" style="padding: 0; min-height: 1px; height: 24px; font-size: 12px;" type="submit" value="search">
+
+</form>
+
+</div>
+`;
 }
+
+
 
 // echo all
 document.getElementById(printId).innerHTML = print;
@@ -657,7 +695,7 @@ function blogNav(com){
 
 let prev = Number(Math.floor(getP - postLimit)); //https://stackoverflow.com/questions/1133770/how-to-convert-a-string-to-an-integer-in-javascript
 let next = Number(Math.floor(getP + postLimit));
-let total = Number(blogJson.length);
+let total = Number(blogJsonVar.length);
 let total2 = total;
 
 if(next >= total){ next = total - 1; total2 = total - 1; }
@@ -670,7 +708,7 @@ if(com == 'id'||com == 'random'){
 navMode = 'p2';
 nav2Print = `
 <a class="op border2 button light" href="?p=`+Math.floor(getP)+`">list</a>
-<a class="op border2 button light" href="?id=">random</a>
+<a class="op border2 button light" href="?id=">rand</a>
 <a class="op border2 button light" href="#" onclick="history.back()">back</a>
 `;
 }
@@ -684,7 +722,7 @@ return `
 .grid {
 display: grid;
 grid-gap:10px;
-grid-template-columns: 1fr 25% 1fr;
+grid-template-columns: 1fr 20% 1fr;
 grid-gap: 3px 3px;
 margin: 4px auto !important;
 paddin: 0 !important;
@@ -703,7 +741,7 @@ transform: rotateY(180deg);*/" id="rangeinput" class="slider" value="${getP}" ty
 
 <div class="grid">
 <a class="op border2 button light" href="?${navMode}=${prev}">&#8592;</a>
-<div class="button border1">`+Math.floor(getP/postLimit)+`</div>
+<div class="button border1"><span class="op pre">${navMode}: </span>`+Math.floor(getP/postLimit)+`</div>
 <a class="op border2 button light" href="?${navMode}=${next}">&#8594;</a>
 
 ${nav2Print}

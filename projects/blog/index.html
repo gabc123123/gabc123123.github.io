@@ -16,7 +16,8 @@
 <link rel="stylesheet" type="text/css" id="theme">
 <link rel="stylesheet" type="text/css" href="/css/style-main.css">
 <script src="/js/main.js"></script>
-<script src="/data/adsJson.js"></script>
+
+<script src="/data/adsJsonVar.js"></script>
 <script src="/js/ad.js"></script>
 
 <!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
@@ -33,16 +34,16 @@
 
 
 <div class="content">
-<h3 class="tCenter op">Blog</h3>
+<b class="block tCenter op">Blog</b>
 
 
 <!-- for copy paste -->
 <div id="echoBlog">echoBlog</div>
-<script src="/data/blogJson.js"></script>
+<script src="/data/blogJsonVar.js"></script>
 
 <script>
-if(blogJson == undefined||blogJson == ''){
-var blogJson = 
+if(blogJsonVar == undefined||blogJsonVar == ''){
+var blogJsonVar = 
 
 
 [
@@ -69,8 +70,8 @@ var blogJson =
 
 <script src="/projects/blog/script.js"></script>
 <script>
-blog("echoBlog", blogJson, 'post', 'on', 'on', '10', './', 'off');
-// printId, blogJson, postClass, embedStatus, tagListStatus, postLimit, scriptDir, multiEmbedStatus
+blog("echoBlog", blogJsonVar, 'post', 'on', 'on', '10', './', 'off');
+// printId, blogJsonVar, postClass, embedStatus, tagListStatus, postLimit, scriptDir, multiEmbedStatus
 </script>
 
 

@@ -1,4 +1,4 @@
-var blogJson = 
+var blogJsonVar = 
 [
     {
         "id": 250,

@@ -1,4 +1,4 @@
-var quoteJson = 
+var quoteJsonVar = 
 [
     {
         "text": "Always remember that you are absolutely unique. Just like everyone else. Margaret Mead",

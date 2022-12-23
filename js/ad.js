@@ -9,7 +9,7 @@ var adsPrint = '';
 
 
 //ads = JSON.parse(adsJson);
-ads = adsJson;
+ads = adsJsonVar;
 
 if(ads != null){
 const random = Math.floor(Math.random() * ads.length);

@@ -2,7 +2,7 @@
 
 
 
-var json = musicFPJson;
+var json = musicFPJsonVar;
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);

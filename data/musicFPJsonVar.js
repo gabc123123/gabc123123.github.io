@@ -1,4 +1,4 @@
-var musicFPJson = 
+var musicFPJsonVar = 
 [
     {
         "text": "Aretha Franklin - Respect (Official Lyric Video) - YouTube",

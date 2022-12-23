@@ -2,11 +2,11 @@ README.md
 
 <!-- comment -->
 
-# Blog from Json data and JavaScript
+# Blog from JSON data and JavaScript
 
-#### json example (URL in Joson is optional, it is combined with text in the script)
+#### JSON data in JavaScript var example (URL in JSON is optional, it is combined with text in the script)
 ```javascript
-var blogJson = 
+var blogJsonVar = 
 [
     {
         "id": 251,

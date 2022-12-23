@@ -1,4 +1,4 @@
-var adsJson = 
+var adsJsonVar = 
 [
     {
         "text": "<a href=\"https:\/\/vivaldi.com?pk_campaign=Banners&pk_kwd=728x90\"><img src=\"https:\/\/vivaldi.com\/buttons\/files\/vivaldi_browser_lg-alt-b.png\" alt=\"Get Vivaldi Browser\" style=\"border:0\"><\/a>",
