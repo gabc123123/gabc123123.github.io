@@ -573,6 +573,7 @@ case 'mm#':
 sRedirUrl = "/projects/music/";
 break;
 
+case 'b#':
 case 'k#':
 case 'kk#':
 q = q3.replace(q2, '');
