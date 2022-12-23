@@ -1,5 +1,5 @@
-// v.1.2.16
-// JSON pre-sorted by time in UNIX format, URL in JSON optional it's merged with text
+// v.1.2.17
+// JSON data in js varible pre-sorted by time in UNIX format, URL in JSON optional it's merged with text
 
 // main function 
 
@@ -12,7 +12,7 @@ postClass - CSS class name post
 embedStatus - if off, not showing embed
 tagListStatus - if off, not showing tags and navigation, only posts
 postLimit - how many post showing on page
-scriptDir - for tag location, if run script on other location
+scriptDir - for tag location link, if run script on other location
 multiEmbedStatus - if on, working multi embed, default off
 
 (id - id post in JSON, p, p2 - page, array key for navigation with JSON and content)
@@ -136,16 +136,15 @@ postText = (postText+' '+postUrl).trim();
 switch (com){
 
 case 'search':
-comMessage = `Probably not found`;
 if(i <= postLimit -1){
 qSearch = (q.toLowerCase()).replace(/ /g, "|");
 if(((postText+' '+postTag).toLowerCase()).search(qSearch) != -1){
 print += fuPrintPost(postId, postText, postTag, postTime);
 i++;
-
-}
-}
 comMessage = `${q} ${i}`;
+}
+}
+if(comMessage == '') { comMessage = `<span class="red">Probably not found</span>`; }
 break;
 
 case 'id':
@@ -200,7 +199,7 @@ if(tagListStatus != 'off'){
 
 if(comMessage != ''){
 comMessage = `
-<div class="op tRight padding ${postClass}">${comMessage}</div>
+<div class="op tCenter padding ${postClass}">${comMessage}</div>
 `;
 print = comMessage+print;
 }

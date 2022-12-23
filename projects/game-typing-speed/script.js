@@ -1,4 +1,4 @@
-// v.3.7.19
+// v.3.7.20
 
 
 
@@ -95,6 +95,8 @@ main(task);
 
 if(mode == 'input'){
 document.getElementsByClassName("input")[0].innerHTML = '<div class="wrapper"><form ><textarea rows="2" name="q" placeholder=" input text for task"></textarea><input type="submit"></form></div><br /><br />';
+}else{
+document.getElementsByClassName("input")[0].innerHTML = '';
 }
 
 
@@ -570,11 +572,11 @@ recordMsg = ' (<span class="green"> '+recordMsg+'%+ for record</span>)';
 
 
 if(wpm == wpmRecord){
-recordMsg = ' <span class="yellow"> Old Record!!!</span>';
+recordMsg = ' <span class="yellow"> Old Record</span>';
 }
 
 if(wpm > wpmRecord){
-recordMsg = ' <span class="red"> New Record!!!</span>';
+recordMsg = ' <span class="red"> New Record</span>';
 localStorage.setItem("wpmRecord", wpm);
 }
 
@@ -604,7 +606,7 @@ acurancyProgress = ' (<span class="green">+'+acurancyProgress+'</span>)';
 }
 
 
-let winMsg = '<div class="button light border2" style="text-align: center; width: 100%;"><div><h1 class="orange" >Win!!! </h1><span  title="word per minute" style="color: var(--c3);">WPM: <span class="">'+wpm+'</span>'+recordMsg+'</span> '+wpmProgress+' <span>acurancy: ≈<span class="">'+acurancy+'</span>%</span> '+acurancyProgress+'</div></div>';
+let winMsg = '<div class="button light border2" style="text-align: center; width: 100%;"><div><h1 class="orange" >Win </h1><span  title="word per minute" style="color: var(--c3);">WPM: <span class="">'+wpm+'</span>'+recordMsg+'</span> '+wpmProgress+' <span>acurancy: ≈<span class="">'+acurancy+'</span>%</span> '+acurancyProgress+'</div></div>';
 
 document.getElementsByClassName("win")[0].innerHTML = winMsg;
 document.getElementsByClassName("win")[1].innerHTML = winMsg;

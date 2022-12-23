@@ -106,7 +106,7 @@ return word.map(function (char) {
 if(char== 'Ь' || char == 'ь'){ char = ''; }
 
 count++;
-console.log(count);
+//console.log(count);
 
 //console.log(char);
 if(char == ' '){
@@ -130,3 +130,18 @@ return b[char] || char;
 if(q != "null"){
 document.getElementById("result").innerHTML = transliterate(q).trim(); 
 }
+
+
+// input listener and print result
+if(document.querySelectorAll('textarea').length >= 1){
+var inputA = document.querySelectorAll('textarea')[0];
+inputA.addEventListener('input', updateValueInput);
+}
+
+function updateValueInput(e) {
+//q = encodeURIComponent(e.target.value);
+q = e.target.value;
+document.getElementById("result").innerHTML = transliterate(q).trim(); 
+}
+
+
