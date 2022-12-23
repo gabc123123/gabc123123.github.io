@@ -92,10 +92,10 @@ var confThemeEmbed = '';
 function themeAuto(){
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 confRealTmpTheme = 'dark';
-document.getElementById('theme').href = '/css/dark.css';
+document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
 }else{
 confRealTmpTheme = 'light';
-document.getElementById('theme').href = '/css/light.css';
+document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
 }
 
 
@@ -216,8 +216,9 @@ document.cookie = "theme=dark; SameSite=None; Secure; path=/";
 document.cookie = "theme=light; SameSite=None; Secure; path=/";
 }
 
-
 setTheme(theme);
+
+
 
 window.addEventListener('storage', () => {
 if(theme != localStorage.getItem('theme')){

@@ -144,7 +144,7 @@ i++;
 comMessage = `${q} ${i}`;
 }
 }
-if(comMessage == '') { comMessage = `<span class="red">Probably not found</span>`; }
+if(comMessage == '') { comMessage = `<div class="red block padding">Probably not found</div>`; }
 break;
 
 case 'id':
@@ -157,6 +157,7 @@ i++;
 getP = key;
 }
 }
+if(comMessage == '') { comMessage = `<div class="red block padding">Probably not found</div>`; }
 break;
 
 case 'random':
@@ -785,7 +786,7 @@ var script2 = document.createElement('script');
 script2.type='text/javascript';
 script2.async = true;
 script2.charset = 'utf-8';
-script2.src = 'https://cpwebassets.codepen.io/assets/embed/ei.js';     
+script2.src = 'https://cpwebassets.codepen.io/assets/embed/ei.js';
 document.getElementsByTagName('head')[0].appendChild(script2);
 
 

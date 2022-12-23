@@ -1,4 +1,4 @@
-// v.1.1.6
+// v.1.1.7
 
 var geturl = window.location;
 var url = new URL(geturl);
@@ -79,8 +79,16 @@ case 'l#':  case 'll#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
-
-url = "./?q="+q+' q';
+//url = "./?q="+q+' q';
+url = "https://you.com/search?q=!"+q; // quik open website https://about.you.com/bangs/
+if(q == ''){
+urlList = [
+"https://you.com/",
+"https://about.you.com/bangs/"
+];
+random = Math.floor(Math.random() * urlList.length);
+url = urlList[random];
+}
 sRedirUrl = url;
 break;
 
@@ -600,7 +608,8 @@ q = q.trim();
 q = encodeURIComponent(q);
 urlList = [
 "https://www.qwant.com/?q="+q,
-"https://search.naver.com/search.naver?query="+q
+"https://you.com/search?q="+q,
+"https://neeva.com/search?q="+q
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
