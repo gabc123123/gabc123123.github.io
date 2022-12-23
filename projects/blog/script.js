@@ -14,6 +14,8 @@ tagListStatus - if off, not showing tags and navigation, only posts
 postLimit - how many post showing on page
 scriptDir - for tag location, if run script on other location
 multiEmbedStatus - if on, working multi embed, default off
+
+(id - id post in JSON, p, p2 - page, array key for navigation with JSON and content)
 */
 
 
