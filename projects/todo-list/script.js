@@ -1,4 +1,4 @@
-// v.1.0.12
+// v.1.0.14
 
 
 
@@ -310,7 +310,7 @@ const transaction = db.transaction([tableName], 'readwrite');
 const objectStore = transaction.objectStore(tableName);
 
 
-// save me
+// save me, done I saved, del this comment
 
 objectStore.openCursor().onsuccess = function(event) { 
 var cursor = event.target.result;  console.log(id, status);
@@ -359,7 +359,6 @@ const objectStore = transaction.objectStore(tableName);
 
 print = '';
 
-// save me
 
 objectStore.openCursor().onsuccess = function(event) {  
 var cursor = event.target.result;  
@@ -375,14 +374,14 @@ let editPrint = '';
 if(com == 'edit'&&id == idPrint){
 /*editPrint = `<form style="margin: 10px 0;"><input id="inputTaskUp" class="padding" type="text" name="q" autofocus="autofocus" autocomplete="off" placeholder=" task" value="${titlePrint}"><input  type="hidden" name="com" value="edit"><input id="idInputE" type="hidden" name="id" value="${idPrint}"><input type="submit"></form><div id="option2"></div>`;*/
 
-editPrint = `<form><textarea id="textInputE" class="padding" name="text" rows="3" cols="" placeholder=" edit">${titlePrint}</textarea><input id="idInputE" type="hidden" name="id" value="${idPrint}"><a class="block tCenter padding light border3List" href="#"  onclick="submitLinkEdit()">submit</a></form>`;
+editPrint = `<form><textarea id="textInputE" class="padding" name="text" rows="3" cols="" placeholder=" edit" autofocus>${titlePrint}</textarea><input id="idInputE" type="hidden" name="id" value="${idPrint}"><a class="block tCenter padding light border3List" href="#${idPrint}"  onclick="submitLinkEdit()">submit</a></form>`;
 }else{
 //editPrint = `<span onclick="runDb('edit', '`+idPrint+`', '', '')">${titlePrint}</span>`;
 editPrint = `${titlePrint}`;
 }
 
 
-// show  & edit
+// show  & edit button
 let printTmp = '';
 if(statusPrint == 'done'){
 printTmp = `<div class="op xsmall">${idPrint}</div>
@@ -401,13 +400,13 @@ doubleClickEdit = '';
 }*/
 print += `
 
-<div class="post border3List light2">
+<div class="post border3List light2" id="${idPrint}">
 <div class="task" ${doubleClickEdit}>
 
 ${printTmp}
 <div class="block tRight">
-<a class="tag2 border2 light2 op" href="#" onclick="runDb('edit', '`+cursor.key+`')" title="edit `+cursor.key+`">e</a>
-<a class="tag2 border2 light2 op" href="#" onclick="runDb('del', '`+cursor.key+`')" title="remove `+cursor.key+`">x</a>
+<a class="tag2 border2 light2 op" href="#${idPrint}" onclick="runDb('edit', '`+cursor.key+`')" title="edit `+cursor.key+`">e</a>
+<a class="tag2 border2 light2 op" href="#${idPrint}" onclick="runDb('del', '`+cursor.key+`')" title="remove `+cursor.key+`">x</a>
 </div>
 
 </div>
@@ -433,17 +432,19 @@ document.getElementById('result').innerHTML = print;
 
 runDb('', '');
 
+
 print2 = `
 
-
-<form>
+<label class="block tRight bold padding h3 op">+</label>
+<form id="anchorIdFrom" action="./?#anchorIdFrom" style="min-height: 95px; /*border: 1px solid red;*/">
 <input id="inputTask" class="padding" type="text" name="q" autofocus="" autocomplete="off" placeholder=" task">
 <input type="hidden" name="com" value="add">
+<div id="option"></div>
 </form>
 
-<div id="option"></div>
 
-<a class="butto op border2 light padding tCenter" style="float: right; margin-top: 50px;" href="#" onclick="runDb('clear')">clear</a>
+
+<a class="button op border2 light padding tCenter" style="float: right; margin-top: 50px;" href="#anchorIdFrom" onclick="runDb('clear')">clear</a>
 `;
 
 
@@ -454,6 +455,7 @@ var comInput = url.searchParams.get("com");
 var idInput = url.searchParams.get("id");
 
 if(comInput == 'add'||comInput == 'edit'){
+
 textInput = decodeURIComponent(textInput);
 textInput = encodeURIComponent(textInput);
 
@@ -466,12 +468,15 @@ runDb(comInput, idInput, textInput);
 var sTimeRedir = 500;
 setTimeout(function(){
 window.location.href = '?#stopReSubmit';
-}, sTimeRedir); 
+//location.hash = '#anchorIdFrom'; //https://stackoverflow.com/questions/15736763/window-location-href-not-working-when-href-is-same-page
+}, sTimeRedir);
+
 
 
 }
 
 }
+
 
 document.getElementById('result2').innerHTML = print2;
 var inputA = document.querySelectorAll('input')[0];
@@ -481,7 +486,7 @@ function updateValueIn(e) {
 let textInput= encodeURIComponent(e.target.value);
 
 var a = `
-<a class="block tCenter padding light border3List" href="#" onclick="submitLink('`+textInput+`')">submit</a>
+<a class="block tCenter padding light border3List" href="#anchorIdFrom" onclick="submitLink('`+textInput+`')">submit</a>
 `;
 
 document.getElementById("option").innerHTML = a;
