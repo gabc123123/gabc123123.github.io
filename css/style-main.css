@@ -242,13 +242,13 @@ max-width: var(--wrapper);
 margin: 0 auto;
 }
 
-.scrollXhidden {
+.scrollX {
 display: inline-block;
 text-align: center;
 }
 
 @media (hover: none) {
-.scrollXhidden {
+.scrollX {
 overflow: hidden;
 overflow-y: hidden;
 overflow-x: auto;
@@ -256,7 +256,7 @@ white-space: nowrap;
 scrollbar-width: none;
 }
 
-.scrollXhidden::-webkit-scrollbar {
+.scrollX::-webkit-scrollbar {
 display: none;
 }
 }
