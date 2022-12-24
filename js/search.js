@@ -36,6 +36,22 @@ var q3 = q + "#";
 
 switch (q2) {
 
+case '3.14159265359#':
+case '3#':
+q = q3.replace(q2, '');
+q = q.trim();
+q = encodeURIComponent(q);
+url = "?q="+q; // quik open website https://about.you.com/bangs/
+if(q == ''){
+urlList = [
+'tec', 'tec', 'tec', 'sci', 'sci', 'dev'
+];
+random = Math.floor(Math.random() * urlList.length);
+url = '?q='+urlList[random];
+}
+sRedirUrl = url;
+break;
+
 case 'w#':
 q = q3.replace(q2, '');
 q = q.trim();
