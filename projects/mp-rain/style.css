@@ -59,8 +59,8 @@ text-align: center;
 	width: 100vw;
 	height: 100vh;
 	position: absolute;
-	transform: scaleX(-1);
-	/*transform: scaleY(-1);*/
+transform: scaleX(1);
+	transform: scaleY(-1); 
 }
 
 .item2 {

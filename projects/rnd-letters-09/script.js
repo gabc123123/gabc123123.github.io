@@ -1,3 +1,4 @@
+// v.1.0.0
 
 var  geturl = window.location;
 var url = new URL(geturl);
@@ -10,6 +11,8 @@ letter = [...letter];
 let number = "01234567890123456789";
 number = [...number];
 
+// https://medium.com/@khaledhassan45/how-to-shuffle-an-array-in-javascript-6ca30d53f772
+// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
