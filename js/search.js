@@ -1,4 +1,4 @@
-// v.1.1.7
+// v.1.1.8
 
 var geturl = window.location;
 var url = new URL(geturl);
@@ -608,7 +608,9 @@ random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
 if(q == ''){
 urlList = [
-"?q=n"
+"https://www.qwant.com/",
+"https://you.com/",
+"https://neeva.com/"
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
