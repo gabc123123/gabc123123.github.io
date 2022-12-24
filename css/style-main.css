@@ -242,6 +242,13 @@ max-width: var(--wrapper);
 margin: 0 auto;
 }
 
+
+/*.buttonToLink {
+border: none;
+cursor: pointer;
+background: transparent;
+}*/
+
 .scrollX {
 display: inline-block;
 text-align: center;
