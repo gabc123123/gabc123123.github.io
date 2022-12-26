@@ -384,7 +384,7 @@ urlList = [
 
 /* redirect app "https://www.newsbreak.com/channels/computers",
 "https://www.newsbreak.com/channels/internet",
-"https://www.newsbreak.com/channels/coding-programming"
+"https://www.newsbreak.com/channels/coding-programming"*/
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
