@@ -1,9 +1,9 @@
-/* v.12.17.27 */
+/* v.12.17.28 */
 /* not use calc() or fix for mobile */
 
 :root{
 --bodyP: 2vw;
---wrapper: 520px;
+--wrapper: 490px;
 --wrapper2: 700px;
 --wrapper3: 900px;
 --wrapper4: 100%;

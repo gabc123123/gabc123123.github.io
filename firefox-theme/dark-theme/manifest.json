@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "version": "1.20",
+  "name": "Dark Theme Abc",
+  "theme": {
+    "images": {},
+    "properties": {},
+    "colors": {
+      "toolbar": "rgb(37, 37, 37)",
+      "toolbar_text": "rgba(229, 229, 229, 0.88)",
+      "frame": "rgb(37, 37, 37)",
+      "tab_background_text": "rgb(225, 225, 225)",
+      "toolbar_field": "rgb(66, 68, 72)",
+      "toolbar_field_text": "rgb(232, 232, 232)",
+      "tab_line": "rgb(37, 37, 37)",
+      "popup": "rgb(59, 59, 59)",
+      "popup_text": "rgb(255, 255, 255)",
+      "ntp_background": "rgb(32, 32, 32)",
+      "popup_border": "rgb(21, 21, 21)",
+      "tab_selected": "rgb(78, 78, 84)",
+      "tab_text": "rgb(255, 255, 255)",
+      "toolbar_bottom_separator": "rgb(25, 25, 25)",
+      "toolbar_field_border": "rgb(21, 21, 21)",
+      "toolbar_field_focus": "rgb(59, 59, 64)",
+      "toolbar_field_text_focus": "rgb(235, 235, 235)",
+      "toolbar_top_separator": "rgb(26, 26, 26)",
+      "tab_loading": "rgb(37, 37, 37)"
+    }
+  }
+}

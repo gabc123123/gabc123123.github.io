@@ -1,4 +1,4 @@
-// v.1.2.17
+// v.1.2.18
 // JSON data in js varible pre-sorted by time in UNIX format, URL in JSON optional it's merged with text
 
 // main function 
@@ -260,7 +260,7 @@ main(q, id);
 
 
 // other functions 
-//  tagList
+// start tagList
 function tagList(tagList2){
 let color = 'silver';
 let size = '';
@@ -282,6 +282,7 @@ return a.toLowerCase().localeCompare(b.toLowerCase());
 
 
 // https://stackoverflow.com/questions/19395257/how-to-count-duplicate-value-in-an-array-in-javascript
+// make uniq and count, object
 var tagListCount = {};
 tagList2.forEach(function (x) {
 if(x != null&&x != ''){
@@ -709,9 +710,14 @@ let navMode = 'p';
 if(com == 'id'||com == 'random'){
 navMode = 'p2';
 nav2Print = `
-<a class="op border2 button light" href="?p=`+Math.floor(getP)+`">list</a>
-<a class="op border2 button light" href="?id=">rand</a>
-<a class="op border2 button light" href="#" onclick="history.back()">back</a>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 3px 3px;">
+<a class="op border2List button light" href="?p=`+Math.floor(getP)+`">list</a>
+<a class="op border2List button light" href="?id=">rand</a>
+</div>
+
+<!--<a class="op border2 button light" style="width: 49%;" href="#" onclick="history.back()">back</a>-->
+
 `;
 }
 
@@ -746,12 +752,12 @@ transform: rotateY(180deg);*/" id="rangeinput" class="slider" value="${getP}" ty
 <div class="button border1"><span class="op pre">${navMode}: </span>`+Math.floor(getP/postLimit)+`</div>
 <a class="op border2 button light" href="?${navMode}=${next}">&#8594;</a>
 
-${nav2Print}
-<br /><br />
+
+
 
 </div>
 
-
+${nav2Print}
 
 `;
 
