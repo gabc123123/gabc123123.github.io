@@ -1,5 +1,4 @@
-/* v.12.17.28 */
-/* not use calc() or fix for mobile */
+/* v.12.17.29 */
 
 :root{
 --bodyP: 2vw;
@@ -112,7 +111,7 @@ box-sizing: border-box;
 margin: 0 var(--bodyP);
 }
 
-.center2 { min-height: calc(100vh - 50vh); }
+.center2 { min-height: calc(100vh - 45vh); }
 .center3 { min-height: calc(100vh - 40vh); }
 .center4 { min-height: 100vh; }
 
