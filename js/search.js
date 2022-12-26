@@ -1,4 +1,4 @@
-// v.1.1.8
+// v.1.1.9
 
 var geturl = window.location;
 var url = new URL(geturl);
@@ -44,7 +44,7 @@ q = encodeURIComponent(q);
 url = "?q="+q; // quik open website https://about.you.com/bangs/
 if(q == ''){
 urlList = [
-'tec', 'tec', 'tec', 'sci', 'sci', 'dev'
+'tec', 'tec', 'tec', 'sci', 'sci', 'dev', 'Climate Change n'
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = '?q='+urlList[random];
@@ -380,11 +380,11 @@ urlList = [
 "https://medium.com/tag/web-development",
 "https://medium.com/tag/programming",
 "https://medium.com/tag/computer-science",
-"https://medium.com/tag/ai",
-"https://diff.blog/",
-/* redirect app, delme "https://www.newsbreak.com/channels/computers",
+"https://medium.com/tag/ai"
+
+/* redirect app "https://www.newsbreak.com/channels/computers",
 "https://www.newsbreak.com/channels/internet",
-"https://www.newsbreak.com/channels/coding-programming" */
+"https://www.newsbreak.com/channels/coding-programming"
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
