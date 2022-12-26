@@ -1,6 +1,7 @@
 ### README.md
 ### 
-### Homepage and others projects. (license: CC BY-SA) <!-- update if edited: footer, LICENSE.md README.md -->
+### Homepage and others projects.
+### (license: CC BY-SA) <!-- footer, LICENSE.md README.md -->
 ### [https://gabc.tk](https://gabc.tk)
 
 [#website](https://github.com/topics/website?l=html&o=desc&s=updated)
