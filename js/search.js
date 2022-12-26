@@ -283,7 +283,8 @@ urlList = [
 "https://www.reddit.com/r/news/",
 "https://www.reddit.com/r/worldnews/",
 "https://medium.com/tag/news",
-"https://news.yahoo.com/"
+"https://news.yahoo.com/",
+"https://m.fark.com/"
 // redirect app, delme "https://www.smartnews.com/",
 // redirect app, delme "https://www.newsbreak.com/"
 ];
