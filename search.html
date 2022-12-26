@@ -209,6 +209,8 @@ let myArray = rUrlGet.split("rUrl=");
 rUrlGet = myArray[1];
 
 let rUrlGetPrint = decodeURIComponent(rUrlGet);
+rUrlGetPrint = rUrlGetPrint.replace(/</g, "&lt;");
+rUrlGetPrint = rUrlGetPrint.replace(/>/g, "&gt;");
 
 
 var sTimeRedir = 1200;

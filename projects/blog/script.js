@@ -1,4 +1,4 @@
-// v.1.2.18
+// v.1.2.19
 // JSON data in js varible pre-sorted by time in UNIX format, URL in JSON optional it's merged with text
 
 // main function 
@@ -450,6 +450,11 @@ return `
 
 function highlightText(text, hrefInOut){
 text = decodeURIComponent(text); // error sometimes
+
+// if code
+text = text.replace(/</g, "&lt;");
+text = text.replace(/>/g, "&gt;");
+
 let text2 = '';
 let embed = '';
 let embed2 = '';
@@ -615,6 +620,7 @@ embed2 = '';
 
 // single embed
 if(multiEmbedStatus != 'on'&&embedStatus != 'off'){ text += embed+embed2; }
+
 
 
 return text;
