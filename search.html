@@ -200,12 +200,9 @@ if(rUrlGet == null||rUrlGet == ''){
 </form>
 
 `;*/
-
-
 }else{
 
-
-rUrlGet = ''+window.location+'';
+rUrlGet = String(window.location);
 let myArray = rUrlGet.split("rUrl=");
 rUrlGet = myArray[1];
 
@@ -217,9 +214,6 @@ rUrlGetPrint = rUrlGetPrint.replace(/>/g, "&gt;");
 var sTimeRedir = 1200;
 
 var sTimeRedirStatus = `redir: `+sTimeRedir / 1000+` sec.`;
-
-
-
 
 if ((''+window.location+'').search("#stopRedir") == -1){ // if back Stop Redir
 setTimeout(function(){

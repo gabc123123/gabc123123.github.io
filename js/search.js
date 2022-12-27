@@ -1,4 +1,5 @@
-// v.1.1.9
+// v.1.1.10
+// redirects
 
 var geturl = window.location;
 var url = new URL(geturl);
@@ -44,13 +45,44 @@ q = encodeURIComponent(q);
 url = "?q="+q; // quik open website https://about.you.com/bangs/
 if(q == ''){
 urlList = [
-'tec', 'tec', 'tec', 'sci', 'sci', 'dev', 'Climate Change n'
+'tec', 'tec', 'tec', 'sci', 'sci', 'dev', 'tag2'
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = '?q='+urlList[random];
 }
 sRedirUrl = url;
 break;
+
+
+case 'tag2#':
+q = q3.replace(q2, '');
+q = q.trim();
+
+
+if(q == ''){
+urlList = [
+'Climate Change',
+'Development',
+'Design'
+];
+random = Math.floor(Math.random() * urlList.length);
+url = urlList[random];
+url = encodeURIComponent(url);
+urlList = [
+'tag',
+'n',
+'s'
+];
+
+url = '?q='+url+' '+urlList[Math.floor(Math.random() * urlList.length)];
+}else{
+q = encodeURIComponent(q);
+url = '?q='+q+' tag';
+}
+
+sRedirUrl = url;
+break;
+
 
 case 'w#':
 q = q3.replace(q2, '');
