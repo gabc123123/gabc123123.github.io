@@ -1,5 +1,6 @@
 /* v.3.1.8 */
 
+var symbolForSplit = 'pwxortuzqu';
 
 var confDataCollection = localStorage.getItem('confDataCollection');
 if(confDataCollection == null){ confDataCollection = 'off'; }

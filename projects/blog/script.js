@@ -65,7 +65,7 @@ if(getP <= 0){ getP = 0; }
 if(isNaN(getP)||isNaN(getP2)){ getP = 0; getP = 0; }
 
 
-var symbolForSplit = 'ccbbaa';
+var symbolForSplit = 'pwxortuzqu';
 var postId = '';
 var postText = '';
 var postTag = '';
