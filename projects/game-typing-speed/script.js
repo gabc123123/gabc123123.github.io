@@ -1,4 +1,4 @@
-// v.3.7.20
+// v.3.7.21
 
 
 
@@ -225,29 +225,6 @@ letters = letters.replace(/%E2%81%A9/g, "");
 
 
 letters = letters.replace(/ /g, ""); // end of line
-
-letters = encodeURIComponent(letters);
-
-letters = letters.replace(/\r\n/g, "\n");
-letters = letters.replace(/%0A/g, "\n");
-letters = letters.replace(/  /g, " ");
-
-letters = letters.replace(/%E2%80%8C/g, ""); //ZERO WIDTH SPACE
-letters = letters.replace(/%0D%0A/g, "\n");
-letters = letters.replace(/%0A/g, "\n");
-letters = letters.replace(/%0D/g, "\n");
-letters = letters.replace(/%C2%A0/g, " ");
-
-letters = letters.replace(/E2%80%8A/g, " "); // end of line
-letters = letters.replace(/%E2%81%A6/g, ""); // Left-to-Right Isolate
-letters = letters.replace(/%E2%81%A9/g, "");
-letters = letters.replace(/ /g, ""); // end of line
-
-letters = decodeURIComponent(letters);
-
-
-
-
 
 //letters = letters.replace(/\s{2,}/g, ' ');
 

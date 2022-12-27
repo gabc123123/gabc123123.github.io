@@ -217,7 +217,7 @@ print += `
 </div>
 `;
 }
-print += `<div class="wrapper3"><div id="tagList" class="tagList tCenter padding"  style="width: 100%">`+tagList(printTagList)+`</div></div>`;
+print += `<div class="wrapper3"><div id="tagList" class="tagList padding"  style="width: 100%">`+tagList(printTagList)+`</div></div>`;
 
 // search forom
 print += `
