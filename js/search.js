@@ -88,7 +88,7 @@ urlList = [
 "https://twitter.com/search?q="+q,
 "https://www.reddit.com/search/?q="+q+"&t=day&type=link",
 //"https://www.tumblr.com/search/"+q+"?t=1",
-"https://medium.com/tag/"+q.toLowerCase()+"/latest"
+"https://medium.com/tag/"+encodeURIComponent(decodeURIComponent(q.toLowerCase()).replace(' ', '-'))+"/latest"
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
@@ -188,7 +188,7 @@ case 'medd#':
 q = q3.replace(q2, '');
 q = q.trim();
 q = encodeURIComponent(q);
-url = "https://medium.com/tag/"+q.toLowerCase()+"/latest";
+url = "https://medium.com/tag/"+encodeURIComponent(decodeURIComponent(q.toLowerCase()).replace(' ', '-'))+"/latest";
 if(q == ''){ url = "https://twitter.com/explore"; }
 sRedirUrl = url;
 break;
@@ -378,6 +378,9 @@ urlList = [
 "https://www.reddit.com/r/programming/",
 "https://www.reddit.com/r/webdev/",
 "https://www.reddit.com/r/artificial/",
+"https://www.reddit.com/r/MachineLearning/",
+"https://www.reddit.com/r/javascript/",
+"https://www.reddit.com/r/css/",
 "https://medium.com/tag/web-development",
 "https://medium.com/tag/programming",
 "https://medium.com/tag/computer-science",

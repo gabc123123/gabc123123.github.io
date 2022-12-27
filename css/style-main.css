@@ -1,5 +1,16 @@
 /* v.12.17.30 */
 
+
+url("about:blank"),
+url("about:home"),
+url("about:newtab"),
+url("about:privatebrowsing") {
+  #newtab-customize-overlay {
+    background: #47FF00 !important;
+    color: red !important;
+  }
+}
+
 :root{
 --bodyP: 2vw;
 --wrapper: 490px;
@@ -291,7 +302,7 @@ z-index: -2;
 hr{ border: 1px solid var(--d2); border-bottom:1px solid var(--l); }
 /*a{ color: var(--blue); } a:hover { color: var(--blue2); }*/
 /*::selection { background: #8A9A5B; color: #FFFFFF; }*/
-::selection { background: var(--orange); color: var(--l4); }
+::selection { background: var(--orange); color: var(--c4); }
 
 input, textarea, input:focus, select, button { border: 1px solid var(--d3); background: var(--l2); color: var(--c3); border-radius: 3px; }
 input:hover, textarea:hover, select:hover, button:hover {  background: var(--l3); }
