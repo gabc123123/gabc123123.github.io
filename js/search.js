@@ -62,8 +62,7 @@ q = q.trim();
 if(q == ''){
 urlList = [
 'Climate Change',
-'Development',
-'Design'
+'AI'
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
@@ -409,6 +408,7 @@ urlList = [
 "https://www.reddit.com/r/compsci/",
 "https://www.reddit.com/r/programming/",
 "https://www.reddit.com/r/webdev/",
+"https://www.reddit.com/r/web_design/",
 "https://www.reddit.com/r/artificial/",
 "https://www.reddit.com/r/MachineLearning/",
 "https://www.reddit.com/r/javascript/",
@@ -416,7 +416,8 @@ urlList = [
 "https://medium.com/tag/web-development",
 "https://medium.com/tag/programming",
 "https://medium.com/tag/computer-science",
-"https://medium.com/tag/ai"
+"https://medium.com/tag/ai",
+"https://dev.to/"
 
 /* redirect app "https://www.newsbreak.com/channels/computers",
 "https://www.newsbreak.com/channels/internet",
