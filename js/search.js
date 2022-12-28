@@ -1,9 +1,11 @@
-// v.1.1.10
+// v.1.1.11
 // redirects
 
 var geturl = window.location;
 var url = new URL(geturl);
 var q = url.searchParams.get("q");
+q = String(q);
+
 var rUrlGet = url.searchParams.get("rUrl");
 
 var random = '';
@@ -14,19 +16,22 @@ var sRedirUrl = '';
 var tmp = '';
 
 
-let sUrlText = ''+url+'';
-if(q != null&&q == ''){ q = 'n'; }
+let sUrlText = String(url);
+
 const myArray = sUrlText.split("q=");
 sUrlText = myArray[0];
 
-if(q != null&&q != ''&&sUrlText.search("cache") == -1){
+
+if(q == ''&&q != 'null'){ q = 'n'; }
+
+if(q != 'null'&&q != null&&q != ''&&sUrlText.search("cache") == -1){
 
 q = q.trim();
 //q = q.replace(/%([^\d].)/, "%25$1");
 q = q.replace(/%/g, "%25");
 q = decodeURIComponent(q);
 
-if(q == ''){ q = 'n'; }
+
 
 // for the command at the end of the search query
 var strArray = q.split(" ");
@@ -314,10 +319,10 @@ urlList = [
 "https://www.reddit.com/r/news/",
 "https://www.reddit.com/r/worldnews/",
 "https://medium.com/tag/news",
-"https://news.yahoo.com/",
-"https://m.fark.com/"
-// redirect app, delme "https://www.smartnews.com/",
-// redirect app, delme "https://www.newsbreak.com/"
+"https://news.yahoo.com/"
+//"https://m.fark.com/"
+//"https://www.smartnews.com/",
+//"https://www.newsbreak.com/"
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
@@ -568,7 +573,7 @@ urlList = [
 if(confDevice == 'mobile'){
 urlList.push("https://kexp.org/");
 }else{
-urlList.push("https://tunein.com/radio/KEXP-903-s32537/"); // popup download app on mobile
+urlList.push("https://tunein.com/radio/KEXP-903-s32537/");
 }
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
@@ -618,29 +623,6 @@ url = urlList[random];
 if(q == ''){
 urlList = [
 "/projects/blog"
-];
-random = Math.floor(Math.random() * urlList.length);
-url = urlList[random];
-}
-sRedirUrl = url;
-break;
-
-case 'hi#':
-case 'hin#':
-case 'cha#':
-case 'ch#':
-q = q3.replace(q2, '');
-q = q.trim();
-q = encodeURIComponent(q);
-urlList = [
-"https://you.com/search?q=$q&tbm=youchat"
-];
-random = Math.floor(Math.random() * urlList.length);
-url = urlList[random];
-if(q == ''){
-urlList = [
-"?q=AI n",
-"?q=Artificial Intelligence n"
 ];
 random = Math.floor(Math.random() * urlList.length);
 url = urlList[random];
@@ -753,14 +735,16 @@ random = urlList[random];
 sRedirUrl = random;
 }
 
-if(sRedirUrl != ''&&sRedirUrl != undefined){
+
+
+
+
+if(sRedirUrl != ''&&sRedirUrl != undefined&&sRedirUrl != null){
 window.location.href = "./search."+confExt+"?rUrl="+sRedirUrl;
 }
 
 
-
 }
-
 
 
 

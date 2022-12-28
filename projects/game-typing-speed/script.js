@@ -1,4 +1,4 @@
-// v.3.7.21
+// v.3.7.22
 
 
 
@@ -185,6 +185,7 @@ text = letters.join("");
 
 //console.log(letters);
 var a = {
+"…":"...",
 "`":"'", "·":"*", "•":"*", "›":">",
 "’":"'", "—":"-", "«":'"', "»":'"',
 '“':'"', '”':'"', "…":"...",
@@ -205,13 +206,16 @@ letters = text;
 
 /**/
 
+
 // clean text
+letters = transliterate(letters);
 letters = decodeURIComponent(letters);
+letters = encodeURIComponent(letters);
 letters = transliterate(letters);
 
-letters = letters.replace(/\r\n/g, "\n");
+
 letters = letters.replace(/%0A/g, "\n");
-letters = letters.replace(/  /g, " ");
+
 
 letters = letters.replace(/%E2%80%8C/g, ""); //ZERO WIDTH SPACE
 letters = letters.replace(/%0D%0A/g, "\n");
@@ -223,12 +227,14 @@ letters = letters.replace(/E2%80%8A/g, " "); // end of line
 letters = letters.replace(/%E2%81%A6/g, ""); // Left-to-Right Isolate
 letters = letters.replace(/%E2%81%A9/g, "");
 
-
+letters = decodeURIComponent(letters);
+letters = letters.replace(/  /g, " ");
+letters = letters.replace(/\r\n/g, "\n");
 letters = letters.replace(/ /g, ""); // end of line
 
 //letters = letters.replace(/\s{2,}/g, ' ');
 
-console.log([...letters]);
+//console.log([...letters]);
 
 
 

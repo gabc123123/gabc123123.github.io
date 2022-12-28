@@ -61,9 +61,14 @@ let icons = {
 "blue":"🟦"
 
 };
+
 let iconsArr = Object.getOwnPropertyNames(icons);
 
-const divId = document.getElementById(id);
+if(document.getElementById(id) == null){
+console.log('id null');
+}else{
+
+let divId = document.getElementById(id);
 
 const allLinks = divId.querySelectorAll("a");
 allLinks.forEach((item, index) => {
@@ -130,7 +135,7 @@ ckeck = '';
 icArr = [];
 });
 
-
+}
 }
 
 

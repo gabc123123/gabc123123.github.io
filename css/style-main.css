@@ -1,15 +1,4 @@
-/* v.12.17.31 */
-
-
-url("about:blank"),
-url("about:home"),
-url("about:newtab"),
-url("about:privatebrowsing") {
-  #newtab-customize-overlay {
-    background: #47FF00 !important;
-    color: red !important;
-  }
-}
+/* v.12.17.33 */
 
 :root{
 --bodyP: 2vw;
@@ -165,7 +154,7 @@ border: 2px dashed var(--cOp);
 transform: rotate(360deg); 
 }
 .logo2 { width: 26px; height: 26px; }
-.dd { display: block; margin: 0 auto; max-height: 90px; margin-bottom:  -38px; border-radius: 9px; }
+.headerBannerImg { display: block; margin: 0 auto; height: 90px; margin-bottom:  -38px; border-radius: 9px; } /* height for not jumping logo */
 
 .ico {
 border-radius: 50%;
@@ -293,7 +282,7 @@ opacity: 0.25;
 position: fixed;
 bottom: 0;
 right: 0;
-background: url('/img/dd.png') no-repeat center center fixed;
+background: url('/img/header.png') no-repeat center center fixed;
 background-size: 23vh;
 background-position: right 23px bottom 23px;
 z-index: -2;
@@ -451,7 +440,8 @@ text-overflow: ellipsis " [..]";
 
 iframe { border: none; }
 img { overflow: hidden; font-size: calc(100% - 30%); }
-html { scroll-padding-top: 14px; }
+/*html { scroll-padding-top: 14px; }*/
+html { scroll-padding-top: 35px; }
 
 
 /*html { scrollbar-width: thin; }

@@ -1,0 +1,48 @@
+/* v.1.0.0 */
+/* modified tpl cpc sunshine pen */
+
+
+body {
+height: 100vh;
+	margin: 0;
+padding: 0;
+
+	background:
+
+
+
+
+
+radial-gradient(
+#E2E2E2 49%,
+#000 53%
+	),
+
+radial-gradient(
+#E2E2E2 49%,
+#000 53%
+	),
+
+radial-gradient(
+		#fffbf2 0%,
+		rgba(242, 235, 157, 1) 23%,
+		rgba(240, 93, 33, 1) 48%,
+#000 48.3%
+	),
+
+radial-gradient(
+#000 100%,
+#000 100%
+	)
+;
+
+background-size: 7vw 7vw, 4vw 4vw, 70vw 70vw, 100% 100%;
+background-position:
+10%  10%, 80% 80%,  50% 50%, 0 0;
+
+
+background-repeat: no-repeat;
+
+
+
+}

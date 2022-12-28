@@ -49,11 +49,15 @@
 <nav>
 
 <a href="../"><img class="logo2" src="/img/logo.png" alt="gabc"></a>
-<a class="brand" href="projects.html">projects</a>
-<button onclick="dropdownFunction();" class="dropbtn" id="dropbtn">☰ Other</button>
+<a class="brand" href="projects.html">projects</a><a class="brand" href="mini-projects.html">mini-projects</a>
+
+<!-- https://www.w3schools.com/howto/howto_js_dropdown.asp -->
+<!-- btn other 1 of 2 -->
+<!--<button onclick="dropdownFunction();" class="dropbtn" id="dropbtn">☰ Other</button>
 
 <div id="myDropdown" class="dropdown-content shadow bg3">
 <a class="brand" href="firefox-theme.html">firefox-theme</a><a class="brand" href="geany-color.html">geany-color</a><a class="brand" href="vscode-theme.html">vscode-theme</a><a class="brand" href="wallpaper.html">wallpaper</a></div>
+-->
 
 <!--<hr />-->
  </nav>
@@ -61,6 +65,8 @@
 
 </div>
 
+<!-- btn other 2 of 2 -->
+<!--
 <noscript>
 <style>
 .dropdown-content, .dropdown { display: block; position: relative; }
@@ -93,7 +99,7 @@ document.getElementById("dropbtn").innerHTML = '☰ Other';
 
 }
 </script>
-
+-->
 
 <!-- content -->
 <div class="content">
@@ -110,7 +116,7 @@ document.getElementById("dropbtn").innerHTML = '☰ Other';
 </form>
 
 <div  class="center" style="margin-top: 7px;">
-<div class="wrapperL tCenter" id="resultTop"><!-- scrollX - horizontal scroll class on mobile -->
+<div class="wrapperL tCenter" id="hotLinks"><!-- scrollX - horizontal scroll class for mobile -->
 <a class="tag light border2 op" href="https://google.com/">goo</a>
 <a class="tag light border2 op" href="https://bing.com/">bin</a>
 <a class="tag light border2 op" href="/?q=o">o</a>
@@ -154,7 +160,7 @@ var a = `
 <a class="tag light border2 op" href="/?q=`+text+` t">t</a>
 <a class="tag light border2 op" href="/?q=`+text+` m">mus</a>
 `;
-document.getElementById("resultTop").innerHTML = a; 
+document.getElementById("hotLinks").innerHTML = a; 
 }
 
 if(confDevice == 'mobile'){
@@ -192,7 +198,7 @@ document.getElementById( 'topHeader' ).style.display = 'block';
 
 var print = '';
 
-if(rUrlGet == null||rUrlGet == ''){
+if(rUrlGet == null||rUrlGet == 'null'||rUrlGet == ''){
 /*print = `
 <form if="form" method="GET" class="block" action="search.html" style="margin:0 auto; style="">
 <input class="padding" type="search" style="text-align: center;" name="q" autofocus="autofocus" autocomplete="off" placeholder="" x-webkit-speech />

@@ -107,10 +107,10 @@ if(id == 0){ com = 'random'; getP2 = Math.floor(Math.random() * blogJsonVar.leng
 
 if(com == ''&&tagListStatus == 'on'){
 print += `
-<div class="block tCenter padding">
-<!--com:${com} id:${id} q:${q} p:${getP} p2:${getP2}-->
+<!--<div class="block tCenter padding">
+com:${com} id:${id} q:${q} p:${getP} p2:${getP2}
 <a href="?id=">random</a>
-</div>
+</div>-->
 `;
 }
 
@@ -150,7 +150,7 @@ break;
 case 'id':
 if(i <= postLimit -1){
 if(postId == id||getP2 == key){
-print += '<div class="center2">'+fuPrintPost(postId, postText, postTag, postTime)+'</div>';
+print += '<div class="">'+fuPrintPost(postId, postText, postTag, postTime)+'</div>';
 comMessage = 'id: '+postId;
 if(getP2 != null){ comMessage += ' p2: '+getP2; }
 i++;
@@ -163,7 +163,7 @@ break;
 case 'random':
 if(i <= postLimit -1){
 if(getP2 == key){
-print += '<div class="center2">'+fuPrintPost(postId, postText, postTag, postTime)+'</div>';
+print += '<div class="">'+fuPrintPost(postId, postText, postTag, postTime)+'</div>';
 i++;
 getP = key;
 comMessage = 'random, '+'id: '+postId+', p2: '+getP2;

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="UTF-8">
+<title>tpl</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<script>function reload() {  location.reload(true); } </script>
+
+<link rel="preload" href="/js/main.js" as="script" />
+
+<link rel="stylesheet" type="text/css" href="/css/light.css">
+<link rel="stylesheet" type="text/css" id="theme">
+<link rel="stylesheet" type="text/css" href="/css/style-main.css">
+<script src="/js/main.js"></script>
+
+<script src="/data/adsJsonVar.js"></script>
+<script src="/js/ad.js"></script>
+
+<link rel="stylesheet" type="text/css" href="style.css" />
+
+</head>
+<body>
+
+<header>
+<nav>
+<a href="/">index</a>
+<a href="../">list</a>
+</nav>
+</header>
+
+
+<div class="content">
+<h3 class="tCenter op">tpl</h3>
+
+
+
+
+
+<!-- start backup old nav button -->
+<div class="wrapper brand topNav capitalize">
+<header>
+<nav>
+
+<a href="../"><img class="logo2" src="/img/logo.png" alt="<?=@$confSiteName?>"></a>
+<a href="#">menu links list</a>
+<a href="#">menu links list</a>
+<a href="#">menu links list</a>
+
+
+<!-- https://www.w3schools.com/howto/howto_js_dropdown.asp -->
+<button onclick="dropdownFunction();" class="dropbtn" id="dropbtn">☰ Other</button>
+
+<div id="myDropdown" class="dropdown-content shadow bg3">
+<a href="#">menu links list</a>
+<a href="#">menu links list</a>
+<a href="#">menu links list</a>
+<?php
+//include $d2.'menu.php';
+/*echo menu('/page/test/');*/
+?>
+</div>
+
+<!--<hr />-->
+ </nav>
+ </header>
+
+</div>
+
+<noscript>
+<style>
+.dropdown-content, .dropdown { display: block; position: relative; }
+</style>
+</noscript>
+
+<script>
+// menu click
+function dropdownFunction() {
+  var x = document.getElementById("myDropdown");
+ // alert(x.style.display);
+  if (x.style.display === "none"||x.style.display === "") {
+document.getElementById("dropbtn").innerHTML = '☶ Other'; 
+x.style.display = "block";
+  } else {
+x.style.display = "none";
+document.getElementById("dropbtn").innerHTML = '☰ Other'; 
+  }
+
+// out area
+var getclick = document.getElementById('dropbtn');
+document.addEventListener('click', function(event) {
+if (!getclick.contains(event.target)) {
+//alert('out');
+var x = document.getElementById("myDropdown");
+x.style.display = "none";
+document.getElementById("dropbtn").innerHTML = '☰ Other'; 
+    }
+});
+
+}
+</script>
+<!-- end backup old nav button -->
+
+
+
+
+
+
+
+
+</div>
+
+<footer>
+<div id="ads2"></div>
+<script> fuAds('', 'ads2', ''); </script>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
