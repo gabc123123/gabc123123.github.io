@@ -1,4 +1,4 @@
-// v.1.0.14
+// v.1.0.15
 
 
 
@@ -234,7 +234,7 @@ print = '';
 
 objectStore.openCursor().onsuccess = function(event) {  
 var cursor = event.target.result;  
-if (cursor) {  
+if (cursor) {
 if(cursor.key == id){
 cursor.delete();
 }
@@ -254,6 +254,47 @@ runDb('show', '', '');
 }
 
 
+if(com == 'delAllDone'||com == 'DelAllDone'){ // from del
+
+request.onsuccess = (event) => {
+const db = event.target.result;
+
+const transaction = db.transaction([tableName], 'readwrite');
+const objectStore = transaction.objectStore(tableName);
+
+print = '';
+
+// save me
+
+objectStore.openCursor().onsuccess = function(event) {  
+var cursor = event.target.result;
+
+if (cursor) {
+/*if(cursor.key == id){ // from del copy paste
+cursor.delete();
+}*/
+
+status = cursor.value.data;
+//alert(status);
+if(status == 'done'){ // from del copy paste
+cursor.delete();
+}
+
+
+//console.log('cur key: '+cursor.key);
+//console.dir('cur value: '+cursor.value.title);
+
+cursor.continue();  
+}  
+else {  
+console.log("Done with cursor");
+runDb('show', '', '');
+}  
+};  
+
+};
+
+}
 
 
 
@@ -443,8 +484,13 @@ print2 = `
 </form>
 
 
+<div class="block padding tRight" style="/*float: right; margin-top: 35px;*/">
 
-<a class="button op border2 light padding tCenter" style="float: right; margin-top: 50px;" href="#anchorIdFrom" onclick="runDb('clear')">clear</a>
+<a class="button op border2 light" href="#anchorIdFrom" onclick="runDb('delAllDone')">clear all done</a>
+
+<a class="button op border2 light" href="#anchorIdFrom" onclick="runDb('clear')">clear</a>
+
+</div>
 `;
 
 

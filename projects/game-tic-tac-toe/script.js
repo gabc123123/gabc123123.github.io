@@ -1,4 +1,4 @@
-// v.1.2.7
+// v.1.2.8
 
 
 
@@ -249,18 +249,18 @@ return winCheck2;
 
 if(winCheck(playArr, tttPlayerSymbol) == 'win'){
 document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/win.ogg" id="bgAudio">';
-document.getElementById('win').innerHTML = '<span class="orange">'+tttPlayerName+' Win!!!</span>';
+document.getElementById('win').innerHTML = '<span class="orange">'+tttPlayerName+' Win</span>';
 }
 
 if(winCheck(playArr, tttPlayer2Symbol) == 'win'){
 document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/game-over.ogg" id="bgAudio">';
-document.getElementById('win').innerHTML = '<span class="red">Game Over!!!</span>';
+document.getElementById('win').innerHTML = '<span class="red">Game Over</span>';
 }
 
 
 if(winCheck(playArr, tttPlayerSymbol) == 'tie'&&check != 'ok'||winCheck(playArr, tttPlayer2Symbol) == 'tie'){
 document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/ok.ogg" id="bgAudio">';
-document.getElementById('win').innerHTML = '<span class="">Tie!!!</span>';
+document.getElementById('win').innerHTML = '<span class="">Tie</span>';
 }
 
 
