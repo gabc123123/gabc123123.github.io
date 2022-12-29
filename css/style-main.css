@@ -1,4 +1,4 @@
-/* v.12.17.34 */
+/* v.12.17.35 */
 
 :root{
 --bodyP: 2vw;
@@ -57,6 +57,7 @@ nav, footer { text-align: center; padding: 14px 0; max-width: 100%; z-index: 5; 
 nav a, nav button, footer span { display: inline-block; padding: 5px; }
 nav button:hover { background: none;  }
 /*nav a::first-letter { font-weight: bolder; }*/
+footer { text-transform: lowercase; }
 
 h1, .h1 { font-size: calc(100% + 60%); }
 h2, .h2 { font-size: calc(100% + 40%); }
@@ -397,9 +398,11 @@ td { background-color: var(--l2); }
 .tCenter { text-align: center; }
 .tRight { text-align: right; }
 .capitalize { text-transform: capitalize; }
+.lowercase { text-transform: lowercase; }
 .bold, .bold a { font-weight: bold; }
 .small, .small a { font-size: small !important; }
-.xsmall, .xsmall a { font-size: x-small !important; }
+.xSmall, .xSmall a { font-size: x-small !important; }
+.xxSmall, .xxSmall a { font-size: xx-small !important; }
 .cursorNone { pointer-events: none; }
 
 

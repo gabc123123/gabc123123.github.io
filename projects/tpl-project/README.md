@@ -21,8 +21,9 @@ console.log(a);
 alert(a);
 ```
 
-#### screenshot
+#### screenshots
 ![screenshot](screenshot.png)
+![screenshot](screenshot2.png)
 
 
 

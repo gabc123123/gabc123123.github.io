@@ -8,5 +8,6 @@
 [#homepage](https://github.com/topics/homepage?l=html&o=desc&s=updated)
 [#theme](https://github.com/topics/theme?l=html&o=desc&s=updated)
 
-#### Screenshot
+#### Screenshots
 ![screenshot](/img/screenshot.png)
+![screenshot](/img/screenshot2.png)

@@ -49,14 +49,26 @@
 <nav>
 
 <a href="../"><img class="logo2" src="/img/logo.png" alt="gabc"></a>
-<a class="brand" href="projects.html">projects</a><a class="active" href="mini-projects.html">mini-projects</a>
+
+<a class="brand" href="projects.html">projects</a>
+
+<a class="active" href="mini-projects.html">mini-projects</a>
+
 
 <!-- https://www.w3schools.com/howto/howto_js_dropdown.asp -->
 <!-- btn other 1 of 2 -->
 <!--<button onclick="dropdownFunction();" class="dropbtn" id="dropbtn">☰ Other</button>
 
 <div id="myDropdown" class="dropdown-content shadow bg3">
-<a class="brand" href="firefox-theme.html">firefox-theme</a><a class="brand" href="geany-color.html">geany-color</a><a class="brand" href="vscode-theme.html">vscode-theme</a><a class="brand" href="wallpaper.html">wallpaper</a></div>
+
+<a class="brand" href="firefox-theme.html">firefox-theme</a>
+
+<a class="brand" href="geany-color.html">geany-color</a>
+
+<a class="brand" href="vscode-theme.html">vscode-theme</a>
+
+<a class="brand" href="wallpaper.html">wallpaper</a>
+</div>
 -->
 
 <!--<hr />-->
@@ -118,7 +130,7 @@ document.getElementById("dropbtn").innerHTML = '☰ Other';
 
 <script>
 
-function test(){
+function idToTag(){
 var allIdOnPage = '';
 let allDivId = document.querySelectorAll('label');
 if(allDivId.length >= 2){
@@ -126,8 +138,9 @@ allDivId.forEach((item, index) => {
 //alert(item.className); //https://stackoverflow.com/questions/11487258/how-to-get-html-elements-class-tags
 //alert(item.htmlFor); //for https://www.w3schools.com/jsref/dom_obj_label.asp
 if(item.htmlFor != ''&&item.className[0]+item.className[1]+item.className[2]+item.className[3] == 'menu'){
+
 allIdOnPage += `
-<a class="tag border2 op" href="#`+item.htmlFor+`">`+item.htmlFor+`</a>
+<a class="tag border2 op" href="#`+item.htmlFor+`"><span class="ico" style="font-size: 10px; width:8px;">#</span>`+item.htmlFor+`</a>
 `;
 }
 });
@@ -143,7 +156,8 @@ console.log('idTagList == null');
 
 }
 
-window.onload = test; //https://stackoverflow.com/questions/191157/window-onload-vs-body-onload
+//https://stackoverflow.com/questions/191157/window-onload-vs-body-onload
+window.onload = idToTag; 
 
 
 

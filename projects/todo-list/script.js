@@ -1,5 +1,5 @@
-// v.1.0.15
-
+// v.1.0.16
+// https://developer.mozilla.org/en-US/docs/Web/API/IDBCursor/continue
 
 
 
@@ -230,20 +230,19 @@ const objectStore = transaction.objectStore(tableName);
 
 print = '';
 
-// save me
-
 objectStore.openCursor().onsuccess = function(event) {  
 var cursor = event.target.result;  
 if (cursor) {
 if(cursor.key == id){
 cursor.delete();
-}
+runDb('show', '', '');
+}else{
 //console.log('cur key: '+cursor.key);
 //console.dir('cur value: '+cursor.value.title);
-
-cursor.continue();  
-}  
-else {  
+cursor.continue();
+//alert(cursor.key);
+} 
+}else {
 console.log("Done with cursor");
 runDb('show', '', '');
 }  
