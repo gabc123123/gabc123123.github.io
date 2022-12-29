@@ -1,3 +1,4 @@
+<!-- 1.0.1 -->
 <!DOCTYPE html>
 <html lang="">
 <head>
@@ -62,7 +63,8 @@
 <span id="refresh" class="tag op light border2"></span>
 <span id="mode"></span>
 <span id="mode2"></span>
-<a class="tag" id="bookmarklet" style="display: none;" title="text select and click | (edit domain name)" href="javascript:void(window.open('https://localhost/projects/game-typing-speed/?mode=input&q='+encodeURIComponent(window.getSelection && window.getSelection()) || encodeURIComponent(document.getSelection && document.getSelection()) || encodeURIComponent(document.selection && document.selection.createRange && document.selection.createRange().text)))">bookmarklet</a>
+<!-- https://developer.mozilla.org/docs/Web/API/Document/getSelection -->
+<a class="tag" id="bookmarklet" style="display: none;" title="text select and click | (edit domain name)" href="javascript:void(window.open('http://localhost/projects/game-typing-speed/?mode=input&q='+encodeURIComponent(document.getSelection().toString())))">bookmarklet</a>
 </div>
 
 
