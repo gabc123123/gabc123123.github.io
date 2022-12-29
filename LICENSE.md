@@ -1,3 +1,4 @@
+<!-- https://github.com/santisoler/cc-licenses -->
 Attribution-ShareAlike 4.0 International
 
 =======================================================================
