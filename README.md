@@ -2,10 +2,8 @@
 ### 
 ### Homepage and others projects.
 #### [https://gabc.tk](https://gabc.tk)
-<!-- #### (license: CC BY-SA) -->
+#### license: CC BY-SA
 <!-- footer, LICENSE.md README.md -->
-<!-- https://github.com/santisoler/cc-licenses -->
-[![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
 [#website](https://github.com/topics/website?l=html&o=desc&s=updated)
 [#homepage](https://github.com/topics/homepage?l=html&o=desc&s=updated)
