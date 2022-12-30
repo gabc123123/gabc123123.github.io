@@ -1,0 +1,16 @@
+{
+"name": "tpl",
+"short_name": "tpl",
+
+"background_color": "#FCF7ED",
+"description": "no description",
+"display":"minimal-ui",
+  "icons": [
+    {
+      "src": "/img/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+"start_url": "index.html"
+}

@@ -1,4 +1,4 @@
-// v.1.2.19
+// v.1.2.20
 
 
 
@@ -219,7 +219,7 @@ if(com == 'search'){
 print += `
 <div class="block tCenter padding">
 <a class="op border2 button light" href="#" onclick="history.back()" title="history back">back</a>
-<a class="op border2 button light" href="./">blog</a>
+<a class="op border2 button light" href="./">main</a>
 </div>
 `;
 }

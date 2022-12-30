@@ -235,3 +235,6 @@ xxx2.style.display = "none";
 
 
 }
+
+fuWorker('on');
+

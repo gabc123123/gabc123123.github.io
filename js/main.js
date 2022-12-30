@@ -237,7 +237,7 @@ setTheme(localStorage.getItem('theme')); //alert('not');
 
 
 
-// serviceWorker
+// serviceWorker (for webpage in offline mode or insall app from page)
 
 function fuWorker(status){
 
