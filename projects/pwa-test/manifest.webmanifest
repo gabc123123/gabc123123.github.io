@@ -1,0 +1,15 @@
+{
+  "background_color": "#fff",
+  "description": "description",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "/img/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "name": "PWA test",
+  "short_name": "Foxes",
+  "start_url": "index.html"
+}

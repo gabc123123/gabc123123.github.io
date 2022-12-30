@@ -37,7 +37,7 @@ let icons = {
 "news":"📰",
 "pumpkin":"🎃", "halloween":"🎃",
 "pc":"🖥",
-"project":"📄💾", "tpl":"📄",
+"project":"📄", "tpl":"📄",
 "radio":"📻",
 "random":"🎲","rnd":"🎲", "rand":"🎲",
 "robot":"🤖", "auto":"🤖",
