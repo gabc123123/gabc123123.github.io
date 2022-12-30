@@ -8,6 +8,8 @@ var com = '';
 var text = ''
 var status = '';
 
+
+
 /*function comGet(com2, id2, title2, status2){
 com = com2;
 id = id2;
@@ -20,6 +22,7 @@ if(com == ''||com == undefined){ com = 'show'; text = ''; id = 0; status = ''; }
 //alert(com);
 
 function runDb(com3, id3, title3, status3){
+
 print = '';
 //document.getElementById("result").innerHTML = '';  // clear
 
@@ -557,4 +560,4 @@ runDb('update', idInput, textInput);
 
 
 
-
+fuWorker('on');

@@ -30,3 +30,5 @@ document.getElementsByTagName('title')[0].innerHTML = hours+':'+minutes+':'+seco
 }
 
 setInterval(fuTimer, 1000);
+
+fuWorker('on');

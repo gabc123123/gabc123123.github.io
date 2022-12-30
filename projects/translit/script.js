@@ -144,4 +144,4 @@ q = e.target.value;
 document.getElementById("result").innerHTML = transliterate(q).trim(); 
 }
 
-
+fuWorker('on');

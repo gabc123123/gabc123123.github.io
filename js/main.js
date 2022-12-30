@@ -2,8 +2,10 @@
 
 var symbolForSplit = 'pwxortuzqu';
 
-var confDataCollection = localStorage.getItem('confDataCollection');
-if(confDataCollection == null){ confDataCollection = 'off'; }
+var confDataCollection = 'off';
+if(localStorage.getItem('confDataCollection') != null){
+confDataCollection = localStorage.getItem('confDataCollection');
+}
 
 // conf
 var confHost = location.hostname;
@@ -228,6 +230,50 @@ setTheme(localStorage.getItem('theme')); //alert('not');
 
 
 
+
+
+
+
+
+
+
+// serviceWorker
+
+function fuWorker(status){
+
+if(status == 'on'){
+
+
+let element = document.createElement('link'); 
+element.setAttribute('rel', 'manifest'); 
+element.setAttribute('href', "manifest.webmanifest"); 
+document.querySelector('head').appendChild(element);
+
+
+//https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/open
+//https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register
+//https://stackoverflow.com/questions/47027218/set-a-variable-messagingsenderid-in-service-worker-firebase
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+//.register(`sw.js?q=${swFileList}`, {scope: './'})
+.register(`sw.js`, {scope: ''})
+.then((registration) => {
+console.log('Service worker registration succeeded:', registration);
+
+
+  }, /*catch*/ (error) => {
+    console.error(`Service worker registration failed: ${error}`);
+  });
+} else {
+  console.error('Service workers are not supported.');
+}
+
+
+
+
+}
+}
 
 
 

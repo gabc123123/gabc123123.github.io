@@ -308,4 +308,4 @@ document.getElementById('tttStartButton').onclick = function() {
 tttGame();
 }
 
-
+fuWorker('on');

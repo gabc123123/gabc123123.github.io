@@ -9,8 +9,27 @@
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
     .register('sw.js')
-    .then(() => { console.log('Service Worker Registered'); });
+    .then(() => { console.log('Service Worker Registered'); 
+
+//message to worker
+//https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/message_event
+navigator.serviceWorker.addEventListener("message", (event) => {
+    // event is a MessageEvent object
+    console.log(`The service worker sent me a message: ${event.data}`);
+  });
+
+  navigator.serviceWorker.ready.then((registration) => {
+    registration.active.postMessage('Hi serviceWorker!');
+  });
+
+
+
+
+
+});
 }
+
+
 
 // Code to handle install prompt on desktop
 
@@ -42,6 +61,26 @@ window.addEventListener('beforeinstallprompt', (e) => {
     });
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // for test if offline

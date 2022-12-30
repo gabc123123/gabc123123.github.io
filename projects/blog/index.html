@@ -44,10 +44,14 @@
 </nav>
 </header>
 
-<!-- for copy paste -->
-<div id="echoBlog">echoBlog</div>
-<script src="/data/blogJsonVar.js"></script>
 
+
+
+
+
+
+
+<script src="/data/blogJsonVar.js"></script>
 <script>
 if(blogJsonVar == undefined||blogJsonVar == ''){
 var blogJsonVar = 
@@ -75,7 +79,11 @@ var blogJsonVar =
 }
 </script>
 
-<script src="/projects/blog/script.js"></script>
+
+<!--<script src="/projects/blog/script.js"></script>-->
+<script src="script.js"></script>
+<div id="echoBlog">echoBlog</div>
+
 <script>
 blog("echoBlog", blogJsonVar, 'post', 'on', 'on', '10', './', 'off');
 // printId, blogJsonVar, postClass, embedStatus, tagListStatus, postLimit, scriptDir, multiEmbedStatus
@@ -97,7 +105,14 @@ blog("echoBlog", blogJsonVar, 'post', 'on', 'on', '10', './', 'off');
 <script> fuAds('', 'ads2', ''); </script>
 </footer>
 
-<!--<script src="script.js"></script>-->
+
+
+
+
+<script>
+fuWorker('on');
+</script>
+
 
 </body>
 </html>

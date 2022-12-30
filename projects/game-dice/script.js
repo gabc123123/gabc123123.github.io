@@ -80,4 +80,7 @@ document.getElementById("result").innerHTML = `
 document.getElementById("result2").innerHTML = '<span>'+win+'</span>';
 }
  
- 
+
+
+
+fuWorker('on');

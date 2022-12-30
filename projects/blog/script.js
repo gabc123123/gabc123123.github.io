@@ -1,9 +1,15 @@
 // v.1.2.19
+
+
+
 // JSON data in js varible pre-sorted by time in UNIX format, URL in JSON optional it's merged with text
 
 // main function 
 
 function blog(printId, blogJsonVar, postClass, embedStatus, tagListStatus, postLimit, scriptDir, multiEmbedStatus){
+
+
+
 /*
 printId - div id where print blog
 blogJsonVar - json in JavaSript variable
@@ -837,3 +843,13 @@ document.getElementsByClassName(name)[i].classList.remove("highlight2");
 i++;
 }
 }
+
+
+
+
+
+
+
+
+
+

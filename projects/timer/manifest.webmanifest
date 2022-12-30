@@ -1,4 +1,7 @@
 {
+"name": "timer",
+"short_name": "timer",
+
 "background_color": "#FCF7ED",
 "description": "no description",
 "display":"minimal-ui",
@@ -9,7 +12,5 @@
       "type": "image/png"
     }
   ],
-"name": "PWA test",
-"short_name": "PWAt",
-"start_url": "./"
+"start_url": "index.html"
 }
