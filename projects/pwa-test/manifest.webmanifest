@@ -1,15 +1,15 @@
 {
 "background_color": "#FCF7ED",
-"description": "description",
-"display":"browser",
+"description": "no description",
+"display":"minimal-ui",
   "icons": [
     {
       "src": "/img/logo.png",
-      "sizes": "192x192",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
 "name": "PWA test",
 "short_name": "PWA",
-"start_url": "./"
+"start_url": "index.html"
 }

@@ -1,19 +1,9 @@
 // v.1.0.0
-
-
-let print = 'Hellow World!';
-
-if(document.getElementById("print") == null){
-console.log('id == null');
-/*
-//https://stackoverflow.com/questions/46104215/how-to-createelement-with-an-id-in-one-line
-document.body.append(Object.assign(document.createElement('div'),{id:"print"}));*/
-}else{
-document.getElementById("print").innerHTML = print;
-}
-
+// pwa start
 
 //https://github.com/mdn/pwa-examples
+// (fix install on localhost (fix error in debug)) https://stackoverflow.com/questions/58985103/progressive-web-app-not-showing-install-button-in-browser-bar
+
 // Register service worker to control making site work offline
 
 if ('serviceWorker' in navigator) {
@@ -52,3 +42,31 @@ window.addEventListener('beforeinstallprompt', (e) => {
     });
   });
 });
+
+
+// for test if offline
+
+// v.1.0.0
+
+function hlwClassAdd(name){
+
+let elementNumb = document.getElementsByClassName(name).length;
+let i = 0;
+while (i < elementNumb) {
+document.getElementsByClassName(name)[i].classList.add("highlight");
+i++;
+}
+
+}
+
+
+function hlwClassRemove(name){
+
+let elementNumb = document.getElementsByClassName(name).length;
+let i = 0;
+while (i < elementNumb) {
+document.getElementsByClassName(name)[i].classList.remove("highlight");
+i++;
+}
+
+}
