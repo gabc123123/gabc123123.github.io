@@ -1,15 +1,15 @@
 self.addEventListener('install', (e) => {
   e.waitUntil(
-    caches.open('pwa-store').then((cache) => cache.addAll([
-'./',
-'/index.html',
+    caches.open('webapp-store').then((cache) => cache.addAll([
+
 'index.html',
 
 '/js/main.js',
 '/js/ad.js',
 '/data/adsJsonVar.js',
-'./script.js',
+'script.js',
 
+'/css/light.css',
 '/css/style-main.css',
 'style.css',
 
