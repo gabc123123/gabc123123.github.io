@@ -2,12 +2,12 @@
 
 var symbolForSplit = 'pwxortuzqu';
 
-var confDataCollection = 'off';
+var confDataCollection = 'on';
 if(localStorage.getItem('confDataCollection') != null){
 confDataCollection = localStorage.getItem('confDataCollection');
 }
 
-var confWorkerStatus = 'on';
+var confWorkerStatus = 'off';
 if(localStorage.getItem('confWorkerStatus') != null){
 confWorkerStatus = localStorage.getItem('confWorkerStatus');
 }
