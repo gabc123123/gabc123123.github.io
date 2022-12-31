@@ -7,6 +7,11 @@ if(localStorage.getItem('confDataCollection') != null){
 confDataCollection = localStorage.getItem('confDataCollection');
 }
 
+var confWorkerStatus = 'on';
+if(localStorage.getItem('confWorkerStatus') != null){
+confWorkerStatus = localStorage.getItem('confWorkerStatus');
+}
+
 // conf
 var confHost = location.hostname;
 if (confHost === "localhost" ||  confHost === "127.0.0.1"||confHost.search("192.168") != -1){
@@ -27,10 +32,6 @@ if(confDevice == ''){ confDevice = 'pc'; }
 confDeviceTheme = 'none';
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) { confDeviceTheme = 'dark'; }
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) { confDeviceTheme = 'light'; }
-
-
-
-
 
 
 
@@ -239,16 +240,9 @@ setTheme(localStorage.getItem('theme')); //alert('not');
 
 // serviceWorker (for webpage in offline mode or insall app from page)
 
-function fuWorker(status){
+function fuWorker(fuSWstatus){
 
-if(status == 'on'){
-
-
-let element = document.createElement('link'); 
-element.setAttribute('rel', 'manifest'); 
-element.setAttribute('href', "manifest.webmanifest"); 
-document.querySelector('head').appendChild(element);
-
+if(fuSWstatus == 'on'&&confWorkerStatus == 'on'){
 
 //https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/open
 //https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register
@@ -270,10 +264,13 @@ console.log('Service worker registration succeeded:', registration);
 }
 
 
-
+let element = document.createElement('link'); 
+element.setAttribute('rel', 'manifest'); 
+element.setAttribute('href', "manifest.webmanifest"); 
+document.querySelector('head').appendChild(element);
 
 }
 }
 
-
+function fuReload(){ location.reload(); }
 

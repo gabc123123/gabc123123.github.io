@@ -397,9 +397,7 @@ msCom = '';
 }
 
 
-function reload(){
-location.reload();
-}
+
 
 fuWorker('on');
 

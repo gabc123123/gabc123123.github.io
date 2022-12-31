@@ -1,4 +1,4 @@
-// v.3.7.22
+// v.3.7.23
 
 
 
@@ -387,8 +387,9 @@ item = replaceCode(item);
 
 
 switch(item) {
-case '\n':
+case '\r\n':
 case '\r':
+case '\n':
 text11 += `<span class="red">⏎\n</span>`;
 break;
 case ' ':

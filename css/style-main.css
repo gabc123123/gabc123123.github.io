@@ -1,4 +1,4 @@
-/* v.12.17.35 */
+/* v.12.17.36 */
 
 :root{
 --bodyP: 2vw;
@@ -77,7 +77,7 @@ margin-bottom: 0;
 padding: 5px;
 }
 select, input[type="color"], input[type="date"], input[type="time"]{ padding: 5px; min-height:15px; display: inline-block;  }
-input[type=checkbox]{ cursor: pointer; margin: 0; padding; line-height: normal; }
+input[type=checkbox]{ cursor: pointer; margin: 0; padding: 5px; line-height: normal; }
 textarea { outline-color:transparent; outline-style:none; resize: vertical; }
 input[type=submit] { cursor:pointer;  }
 input:focus{ outline: none }
@@ -163,7 +163,7 @@ vertical-align: middle;
 width: 16px;
 max-height: 16px;
 filter:grayscale(56%);
-font-size: xxx-small;
+font-size: xx-small;
 }
 .ico2 { /* emoji ico */
 vertical-align: middle;

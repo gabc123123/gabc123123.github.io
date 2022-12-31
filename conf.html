@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="UTF-8">
-<title>Vscode theme</title>
+<title>Conf</title>
 <link rel="alternate" type="application/rss+xml" title="gabc RSS" href="/rss.xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--<meta name="title" content="">-->
@@ -65,7 +65,7 @@
 
 <a class="brand" href="geany-color.html">geany-color</a>
 
-<a class="active" href="vscode-theme.html">vscode-theme</a>
+<a class="brand" href="vscode-theme.html">vscode-theme</a>
 
 <a class="brand" href="wallpaper.html">wallpaper</a>
 </div>
@@ -115,27 +115,70 @@ document.getElementById("dropbtn").innerHTML = '☰ Other';
 
 <!-- content -->
 <div class="content">
+<!-- v.1.0.0 -->
+<h3 class="tCenter op">Conf</h3>
 
-<h3 class="tCenter op">Vscode theme</h3>
+<dive class="center tCenter">
+<div>
 
-<div class="center">
-<div class="post bgList border3List brand"><a href="vscode-theme/dark-theme-abc-color-theme.json">dark-theme-abc-color-theme.json</a></div><div class="post bgList border3List brand"><a href="vscode-theme/icon.png"><img class="border3" src="vscode-theme/icon.png" width=""></a></div><div class="post bgList border3List brand"><a href="vscode-theme/light-theme-abc-color-theme.json">light-theme-abc-color-theme.json</a></div><div class="post bgList border3List brand"><a href="vscode-theme/package.json">package.json</a></div><div class="post bgList border3List brand">vscode-theme/README.md</div><div class="post bgList border3List brand"><a href="vscode-theme/screenshot-dark.png"><img class="border3" src="vscode-theme/screenshot-dark.png" width=""></a></div><div class="post bgList border3List brand"><a href="vscode-theme/screenshot-light.png"><img class="border3" src="vscode-theme/screenshot-light.png" width=""></a></div><div class="post bgList border3List brand"><a href="vscode-theme/theme-abc-1.3.24.vsix">theme-abc-1.3.24.vsix</a></div><div class="post bgList border3List brand"><a href="vscode-theme/theme-abc-1.3.49.vsix">theme-abc-1.3.49.vsix</a></div>
+<div style="
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-auto-columns: 1fr 1fr;
+grid-gap: 0px;
+margin: 0 auto;
+justify-content: center;
+align-items: center;
+text-align: center;
+margin-bottom: 30px;
 
-<div id="insertIcon" class="post bg border3List">
+">
+<div class="padding border2 light tCenter" id="status">status</div>
+<div class="padding border2 light tCenter" id="status2">status2</div>
+</div>
+<hr>
 
-<a class="block padding light border3List b" href="https://marketplace.visualstudio.com/items?itemName=gabc123123.theme-abc">Install Light and Dark Theme from Store</a>
+<button class="button light border2" onclick="tmpSetConf('confDataCollection', 'on')">'cookie', 'on'</button>
+<button class="button light border2" onclick="tmpSetConf('confDataCollection', 'off')">'cookie', 'off'</button>
+<br>
 
-<a class="block padding light border3List b" href="https://themes.vscode.one/">Create own theme with https://themes.vscode.one/</a>
+<button class="button light border2" onclick="tmpSetConf('confWorkerStatus', 'on')">'Worker', 'on'</button>
+<button class="button light border2" onclick="tmpSetConf('confWorkerStatus', 'off')">'Worker', 'off'</button>
 
+<br><hr>
+<div class="padding op">* worker used for install web page as app (not all web page)</div>
+</div>
 </div>
 
 
-</div>
-
-<script src="/projects/insert-icon/script.js"></script>
 <script>
-insertIcon("insertIcon");
+/* v.1.0.0 */
+
+function tmpSetConf(confName, valueName){
+localStorage.setItem(confName, valueName);
+
+document.getElementById("status").innerHTML = `
+<span class="op">msg from function:<br></span>
+${confName} = ${valueName}
+`;
+
+
+let val = localStorage.getItem(confName);
+document.getElementById("status2").innerHTML = `
+msg from storage:<br>
+${confName} = ${val}
+`;
+
+}
+
+
+
+
+
+
+
 </script>
+
 
 
 </div>

@@ -1,5 +1,10 @@
 // v.1.2.1
 
+
+
+
+
+
 var dice = {
 "1":"⚀",
 "2":"⚁",
@@ -25,7 +30,10 @@ var colorPlayerWin = '';
 var colorPcWin = '';
 
 
-document.getElementById("panel").innerHTML = '<button class="gDbtn light border2"  id="myBtn">roll</button>';
+document.getElementById("panel").innerHTML = `
+<button class="gDbtn light border2"  id="myBtn">roll</button>
+<button class="gDbtn light border2 op" onclick="fuReload()">reload</button>
+`;
 document.getElementById("myBtn").addEventListener("click", displayResult); 
 
 displayResult()
@@ -82,5 +90,5 @@ document.getElementById("result2").innerHTML = '<span>'+win+'</span>';
  
 
 
-
 fuWorker('on');
+
