@@ -1,11 +1,13 @@
-// v.1.2.9
+// v.1.2.10
 
 function insertIcon(id){
 
 let icons = {
 "bird":"🐦", "twitter":"🐦",
 "blog":"📝", "todo":"📝", "task":"📝", "note":"📝", "reminde":"📝", "paper":"📝",
+"book":"📚", "quiz":"📚",
 "bookmark":"🔖",
+"brain":"🧠", "memory":"🧠",
 "cut":"✂️",
 "clock":"🕑",
 "cofee":"☕",
@@ -39,7 +41,7 @@ let icons = {
 "pc":"🖥",
 "project":"📄", "tpl":"📄",
 "radio":"📻",
-"random":"🎲","rnd":"🎲", "rand":"🎲",
+"random":"🎲","rnd":"🎲", "rand":"🎲", "dice":"🎲",
 "robot":"🤖", "auto":"🤖",
 "share":"🔁",
 "script":"📜", "code":"📜", "history":"📜",
@@ -55,8 +57,10 @@ let icons = {
 "progress":"█░░",
 "rain":"💧",
 "sun":"🌞",
+"tool":"🔨",
 "tv":"📺",
 "url":"🔗","link":"🔗","www":"🔗",
+"setting":"⚙️",
 "snow":"❄️", "cold":"❄️", "winter":"❄️", 
 "web":"🕸️", "internet":"🕸️", "browser":"🕸️",
 "wallpaper":"🖼", "picture":"🖼", "image":"🖼", "img":"🖼", "pixel":"🖼","instagram":"🖼","pxlmo":"🖼",

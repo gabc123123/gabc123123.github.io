@@ -37,6 +37,10 @@ var adsJsonVar =
         "url": "https:\/\/www.dailymotion.com\/us"
     },
     {
+        "text": "DeviantArt - The Largest Online Art Gallery and Community",
+        "url": "https:\/\/www.deviantart.com\/"
+    },
+    {
         "text": "Discover stories on Pocket",
         "url": "https:\/\/getpocket.com\/explore"
     },
@@ -55,6 +59,10 @@ var adsJsonVar =
     {
         "text": "Experience the Power of Windows 11 OS, Computers, & Apps | Microsoft",
         "url": "https:\/\/www.microsoft.com\/windows\/"
+    },
+    {
+        "text": "Facebook",
+        "url": "https:\/\/www.facebook.com\/"
     },
     {
         "text": "Fedora",
@@ -127,6 +135,14 @@ var adsJsonVar =
     {
         "text": "Home | Viber",
         "url": "https:\/\/www.viber.com\/"
+    },
+    {
+        "text": "Imgur: The magic of the Internet",
+        "url": "https:\/\/imgur.com\/"
+    },
+    {
+        "text": "Instagram",
+        "url": "https:\/\/www.instagram.com\/"
     },
     {
         "text": "Kiwix lets you access free knowledge \u2013 even offline",
