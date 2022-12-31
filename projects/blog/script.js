@@ -1,4 +1,4 @@
-// v.1.2.20
+// v.1.2.21
 
 
 
@@ -500,7 +500,7 @@ var host = item.split('/');
 host = host[2]
 
 var play = '';
-if(host != undefined){
+if(host != undefined&&item.split('/').length > 4){
 switch (host) {
 
 case "youtu.be":
