@@ -1,12 +1,11 @@
 // v.1.0.0
 
 
-
 //https://github.com/mdn/pwa-examples
 self.addEventListener('install', (e) => {
   e.waitUntil(
 
-caches.open('v4').then((cache) => cache.addAll([
+caches.open('v1').then((cache) => cache.addAll([
 
 '/',
 '/js/main.js',

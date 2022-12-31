@@ -1,4 +1,4 @@
-// v.1.2.21
+// v.1.2.22
 
 
 
@@ -496,11 +496,13 @@ myArray.forEach((item) => {
 var host = new URL(item).hostname; // stop working when error
 }
 */
+
+if(item.split('/').length > 4){
 var host = item.split('/');
 host = host[2]
 
 var play = '';
-if(host != undefined&&item.split('/').length > 4){
+if(host != undefined){
 switch (host) {
 
 case "youtu.be":
@@ -547,8 +549,7 @@ break;
 
 }
 }
-
-
+}
 
 /*
 if(item.search("jpg|jpeg|png|gif|img|ico") != -1item.search("jpg|jpeg|png|gif|img|ico") != -1){ 

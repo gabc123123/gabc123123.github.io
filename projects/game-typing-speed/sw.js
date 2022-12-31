@@ -5,7 +5,7 @@
 self.addEventListener('install', (e) => {
   e.waitUntil(
 
-caches.open('v23').then((cache) => cache.addAll([
+caches.open('v1').then((cache) => cache.addAll([
 
 '/',
 '/js/main.js',
@@ -13,6 +13,13 @@ caches.open('v23').then((cache) => cache.addAll([
 '/data/adsJsonVar.js',
 '/css/light.css',
 '/css/style-main.css',
+
+'/audio/click.ogg',
+'/audio/error.ogg',
+'/audio/game-over.ogg',
+'/audio/neutral.ogg',
+'/audio/ok.ogg',
+'/audio/win.ogg',
 
 'index.html',
 'style.css',
