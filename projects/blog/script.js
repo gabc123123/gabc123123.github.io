@@ -1,4 +1,4 @@
-// v.1.3.2
+// v.1.3.3
 
 
 
@@ -594,7 +594,9 @@ var host = new URL(item).hostname; // stop working when error
 }
 */
 
-if(item.split('/').length > 4){
+let checkEmbedEmpty = item.split('/');
+//if(item.split('/').length > 4){
+if(checkEmbedEmpty[3]){
 var host = item.split('/');
 host = host[2]
 
