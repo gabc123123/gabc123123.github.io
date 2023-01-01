@@ -1,4 +1,4 @@
-// v.1.2.22
+// v.1.3.0
 
 
 
@@ -6,9 +6,7 @@
 
 // main function 
 
-function blog(printId, blogJsonVar, postClass, embedStatus, tagListStatus, postLimit, scriptDir, multiEmbedStatus){
-
-
+function blog(printId, blogJsonVar, postClass, embedStatus, tagListStatus, postLimit, scriptDir, multiEmbedStatus, tagListLimit){
 
 /*
 printId - div id where print blog
@@ -20,15 +18,41 @@ tagListStatus - if off, not showing tags and navigation, only posts
 postLimit - how many post showing on page
 scriptDir - for tag location link, if run script on other location
 multiEmbedStatus - if on, working multi embed, default off
+tagListLimit - how many tag showing in taglist
 
 (id - id post in JSON, p, p2 - page, array key for navigation with JSON and content)
 */
-
 
 if(postLimit == undefined||postLimit == ''){ postLimit = 1; }
 if(postClass == undefined||postClass == ''){ postClass = 'post'; }
 if(scriptDir == undefined||scriptDir == ''){ scriptDir = './'; }
 if(multiEmbedStatus == undefined||multiEmbedStatus == ''){ multiEmbedStatus = 'off'; }
+if(tagListLimit == undefined||tagListLimit == ''){ tagListLimit = '100'; }
+
+if(blogJsonVar == ''){
+var blogJsonVar = 
+
+
+[
+    {
+        "id": 251,
+        "text": "test2 text2",
+        "url": "https:\/\/test2.com",
+        "tag": "#test2 #tag",
+        "time": 1671480576
+    },
+    {
+        "id": 250,
+        "text": "test text",
+        "url": "https:\/\/test.com",
+        "tag": "#test #tag",
+        "time": 1668444918
+    }
+];
+
+}
+
+
 
 
 var url = new URL(window.location);
@@ -278,14 +302,18 @@ tagList2 = tagList2.replace(/,/g, symbolForSplit);
 tagList2 = tagList2.replace(/ /g, symbolForSplit);
 
 tagList2 = tagList2.split(symbolForSplit);
+
+/*
 //https://stackoverflow.com/questions/8996963/how-to-perform-case-insensitive-sorting-array-of-string-in-javascript
 tagList2.sort(function (a, b) {
 return a.toLowerCase().localeCompare(b.toLowerCase());
-});
+});*/
 
 
 
 
+var tagAverage = 0;
+var tagTotal = 0;
 
 // https://stackoverflow.com/questions/19395257/how-to-count-duplicate-value-in-an-array-in-javascript
 // make uniq and count, object
@@ -299,17 +327,57 @@ tagListCount[x] = (tagListCount[x] || 0) + 1;
 
 
 
-// tag font-size and color
-var tagAverage = 0;
-var tagTotal = 0;
-/*
-tagAverage = (Math.min(...Object.values(tagListCount))+Math.max(...Object.values(tagListCount)))/2;
-//console.log(tagAverage);*/
 
+
+
+// Taglist limit
+//https://stackoverflow.com/questions/1069666/sorting-object-property-by-values
+// sort object by value
+let entries = Object.entries(tagListCount);
+let tagListCountSorted = entries.sort((a, b) => a[1] - b[1]);
+tagListCountSorted.reverse();
+
+
+// Taglist limit (cut array) with sorted tag and convert to old object, sorted previos
+tagListCountLimited = {};
+tagListCountSorted.forEach(function (item, key) {
+if(key <= tagListLimit){
+tagListCountLimited[item[0]] = item[1];
+}
+});
+
+
+// sort
+// https://stackoverflow.com/questions/5467129/sort-javascript-object-by-key
+tagListCount = {};
+tagListCount = Object.keys(tagListCountLimited).sort().reduce(
+  (obj, key) => { 
+    obj[key] = tagListCountLimited[key]; 
+    return obj;
+  }, 
+  {}
+);
+// end Taglist limit
+
+
+
+
+
+
+
+
+
+// continue from this place, editme
+
+/*tagAverage = (Math.min(...Object.values(tagListCount))+Math.max(...Object.values(tagListCount)))/2;
+//console.log(tagAverage);*/
 Object.values(tagListCount).forEach(function (x) {
 tagTotal = tagTotal+x;
 });
 tagAverage = tagTotal/Object.values(tagListCount).length;
+
+
+
 
 var tagSize = '';
 var tagColor = '';
@@ -319,6 +387,7 @@ function fuTag(tagCount){
 let tagPercentage = (Math.floor((tagCount*100)/tagAverage)); // over 100%, used average if tag disproportion 1% and 90%
 //console.log(tagPercentage);
 
+// tag font-size and color
 switch (true) {
 
 case tagPercentage >= 500:
@@ -371,7 +440,7 @@ let hlClassList = '';
 // https://masteringjs.io/tutorials/fundamentals/foreach-object
 Object.entries(tagListCount).forEach(entry => {
 const [key, value] = entry;
-//console.log(key, value);
+console.log(key, value);
 
 //alert('test');
 
@@ -379,7 +448,11 @@ tag = key.trim();
 tagCount = value;
 
 
+
 fuTag(tagCount);
+
+
+
 
 if(tag != ''){
 let printTag = tag.replace(/#/g, "");
@@ -552,26 +625,28 @@ break;
 }
 
 /*
-if(item.search("jpg|jpeg|png|gif|img|ico") != -1item.search("jpg|jpeg|png|gif|img|ico") != -1){ 
+if(item.search(".jpg|.jpeg|.png|.gif|.img|.ico") != -1item.search(".jpg|.jpeg|.png|.gif|.img|.ico") != -1){ 
 embed = `<a href="${item}"><img class="border3" src="${item}" width=""></a>`
 }*/
 
 if(embedStatus != 'off'){
 
 
-if(item.search(".mp4|.webm|.avi") != -1) {
+itemCheck = item.replace(".", symbolForSplit); 
+
+if(itemCheck.search(`${symbolForSplit}mp4|${symbolForSplit}webm|${symbolForSplit}avi`) != -1) {
 embed2 = `<video height="${h}" controls style="width:100%"><source src="${item}" type="video/mp4">
 <source src="${item}" type="video/ogg">Your browser does not support HTML5 video.</video>`;
 }
 
-if(item.search(".mp3|.wav|.ogg|.m3u") != -1) {
+if(itemCheck.search("${symbolForSplit}mp3|${symbolForSplit}wav|${symbolForSplit}ogg|${symbolForSplit}m3u") != -1) {
 embed2 = `<audio controls style="width:100%; opacity:0.8"><source src="${item}" type="audio/ogg"><source src="${item}" type="audio/mpeg">Your browser does not support the audio element.</audio>`;
 }
 
 
-if(item.search(".jpg|.jpeg|.png|.gif|.img|.ico") != -1) {
+if(itemCheck.search("${symbolForSplit}jpg|${symbolForSplit}jpeg|${symbolForSplit}png|${symbolForSplit}gif|${symbolForSplit}img|${symbolForSplit}ico") != -1) {
 //echo 'test';
-embed2 = `<a href="${item}"><img class="border3 img" src="${item}" width=""></a>`;
+embed2 = `<a href="${item}"><img class="border3 img" src="${item}" width=""></a>pppppp`;
 }
 
 

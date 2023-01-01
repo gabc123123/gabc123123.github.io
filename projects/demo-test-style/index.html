@@ -588,8 +588,20 @@ table
 document.getElementById("result").innerHTML = '<span class="op">window.location: </span>'+decodeURIComponent(window.location);
 </script>
 
-<form action="#result" method="GET">
-<input class="padding" type="text" name="q" placeholder="input">
+<label for="form">form:</label>
+<form id="form" action="#result" method="GET">
+<input class="padding" type="text" list="hint" autocomplete="off" name="q" placeholder=" input or 'hint' for hint test">
+
+<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist -->
+<datalist id="hint">
+    <option value="hint">
+    <option value="hint2">
+    <option value="hint3">
+</datalist>
+<!-- https://stackoverflow.com/questions/43820558/how-to-style-a-list-input -->
+
+
+
 <textarea class="padding" name="text" rows="3" cols="" placeholder="textarea"></textarea>
 <input type="hidden" name="h" value="hidden value">
 <input type="date" name="date">
@@ -599,6 +611,8 @@ document.getElementById("result").innerHTML = '<span class="op">window.location:
 <option  value="select value" selected>selected value</option>
 <option  value="select value">select value</option>
 </select>
+
+
 
 <input name="submit" type="submit" value="submit">
 
