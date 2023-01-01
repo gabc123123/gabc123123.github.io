@@ -258,9 +258,8 @@ if ('serviceWorker' in navigator) {
 console.log('Service worker registration succeeded:', registration);
 
 //https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/update
-button.onclick = () => {
 registration.update();
-};
+
 
 
 
