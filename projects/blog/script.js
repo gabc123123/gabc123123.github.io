@@ -172,8 +172,8 @@ qSearch = String(q).toLowerCase();
 let qData = String(postText+' '+postTag).toLowerCase();
 
 
-// if quote strict search, if many word maybe it's quote
-if(qSearch[0] == '"'&&qSearch[qSearch.length - 1] == '"'||(qSearch).split(' ').length >= 5){
+// if quote strict search
+if(qSearch[0] == '"'&&qSearch[qSearch.length - 1] == '"'/*||(qSearch).split(' ').length >= 5*/){
 // rm quote
 qSearch = qSearch.substring(1); //https://stackoverflow.com/questions/4564414/delete-first-character-of-string-if-it-is-0
 qSearch = qSearch.slice(0, -1); //https://stackoverflow.com/questions/952924/how-do-i-chop-slice-trim-off-last-character-in-string-using-javascript
