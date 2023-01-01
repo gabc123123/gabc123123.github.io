@@ -1,4 +1,4 @@
-// v.1.3.1
+// v.1.3.2
 
 
 
@@ -167,19 +167,36 @@ switch (com){
 
 case 'search':
 if(i <= postLimit -1){
-//qSearch = String(q.toLowerCase()).replace(/ /g, "|");
+//qSearch = String(q.toLowerCase()).replace(/ /g, "|"); //if((qData).search(qSearch) != -1){}
 qSearch = String(q).toLowerCase();
-
 let qData = String(postText+' '+postTag).toLowerCase();
-console.log('foobar .. '.split('.').length);
 
-//if((qData).search(qSearch) != -1){
-if(qData.split(qSearch).length > 1){
+
+// if quote strict search, if many word maybe it's quote
+if(qSearch[0] == '"'&&qSearch[qSearch.length - 1] == '"'||(qSearch).split(' ').length >= 5){
+// rm quote
+qSearch = qSearch.substring(1); //https://stackoverflow.com/questions/4564414/delete-first-character-of-string-if-it-is-0
+qSearch = qSearch.slice(0, -1); //https://stackoverflow.com/questions/952924/how-do-i-chop-slice-trim-off-last-character-in-string-using-javascript
+
+if((qData.split(qSearch)).length > 1){
 print += fuPrintPost(postId, postText, postTag, postTime);
-
 i++;
 comMessage = `${q} ${i}`;
+qData = '';
 }
+}else{
+qSearch = (qSearch+' ').split(' ');
+qSearch.forEach(function (item) {
+
+if((qData.split(item)).length > 1&&item != ''){
+print += fuPrintPost(postId, postText, postTag, postTime);
+i++;
+comMessage = `${q} ${i}`;
+qData = '';
+}
+});
+}
+
 }
 if(comMessage == '') { comMessage = `<div class="red block padding">Probably not found</div>`; }
 break;
