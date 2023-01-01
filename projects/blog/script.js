@@ -1,4 +1,4 @@
-// v.1.3.0
+// v.1.3.1
 
 
 
@@ -167,9 +167,16 @@ switch (com){
 
 case 'search':
 if(i <= postLimit -1){
-qSearch = (q.toLowerCase()).replace(/ /g, "|");
-if(((postText+' '+postTag).toLowerCase()).search(qSearch) != -1){
+//qSearch = String(q.toLowerCase()).replace(/ /g, "|");
+qSearch = String(q).toLowerCase();
+
+let qData = String(postText+' '+postTag).toLowerCase();
+console.log('foobar .. '.split('.').length);
+
+//if((qData).search(qSearch) != -1){
+if(qData.split(qSearch).length > 1){
 print += fuPrintPost(postId, postText, postTag, postTime);
+
 i++;
 comMessage = `${q} ${i}`;
 }
@@ -440,7 +447,7 @@ let hlClassList = '';
 // https://masteringjs.io/tutorials/fundamentals/foreach-object
 Object.entries(tagListCount).forEach(entry => {
 const [key, value] = entry;
-console.log(key, value);
+
 
 //alert('test');
 
