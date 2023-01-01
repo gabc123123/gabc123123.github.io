@@ -10,7 +10,7 @@
 --inputH: 43px;
 }
 
-body, a, input, button, textarea, pre, code{
+html, body, a, input, button, textarea, pre, code{
 font-family: Roboto, Noto, Arial, Sans-Serif;
 font-weight: 400;
 font-size: 13.4px;
@@ -21,7 +21,7 @@ line-height: 125%;*/
 }
 
 @media (hover: none) {
-body, a, input, button, textarea, pre, code{
+html, body, a, input, button, textarea, pre, code{
 font-size: 16px;
 }
 }

@@ -2,15 +2,17 @@
 
 var symbolForSplit = 'pwxortuzqu';
 
+var confWorkerStatus = 'off';
+if(localStorage.getItem('confWorkerStatus') != null){
+confWorkerStatus = localStorage.getItem('confWorkerStatus');
+}
+
 var confDataCollection = 'on';
 if(localStorage.getItem('confDataCollection') != null){
 confDataCollection = localStorage.getItem('confDataCollection');
 }
 
-var confWorkerStatus = 'off';
-if(localStorage.getItem('confWorkerStatus') != null){
-confWorkerStatus = localStorage.getItem('confWorkerStatus');
-}
+
 
 // conf
 var confHost = location.hostname;
@@ -255,9 +257,15 @@ if ('serviceWorker' in navigator) {
 .then((registration) => {
 console.log('Service worker registration succeeded:', registration);
 
+//https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/update
+button.onclick = () => {
+registration.update();
+};
+
+
 
   }, /*catch*/ (error) => {
-    console.error(`Service worker registration failed: ${error}`);
+console.error(`Service worker registration failed: ${error}`);
   });
 } else {
   console.error('Service workers are not supported.');
@@ -272,5 +280,11 @@ document.querySelector('head').appendChild(element);
 }
 }
 
-function fuReload(){ location.reload(); }
+
+
+
+
+
+
+
 

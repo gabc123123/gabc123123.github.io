@@ -1,4 +1,4 @@
-// v.3.7.23
+// v.3.7.24
 
 
 
@@ -541,7 +541,8 @@ if(letters.length == answerArr.length && error <= 0&&mode != 'free'&&task.length
 
 
 
-var recordMsg = " ";
+var recordMsg = "";
+var printMsgWin = '';
 
 
 
@@ -557,11 +558,15 @@ recordMsg = ' (<span class="green"> '+recordMsg+'%+ for record</span>)';
 
 if(wpm == wpmRecord){
 recordMsg = ' <span class="yellow"> Old Record</span>';
+printMsgWin = 'tie';
+printMsgWinColor = 'blue';
 }
 
 if(wpm > wpmRecord){
 recordMsg = ' <span class="red"> New Record</span>';
 localStorage.setItem("wpmRecord", wpm);
+printMsgWin = 'win';
+printMsgWinColor = 'orange';
 }
 
 var wpmProgress = " ";
@@ -571,8 +576,15 @@ localStorage.setItem("prevWpm", wpm);
 if(prevWpm == null ||prevWpm == Infinity){ prevWpm =  0; }
 wpmProgress = wpm - prevWpm;
 if(wpmProgress < 0){
+printMsgWin = 'game over';
+printMsgWinColor = 'red';
 wpmProgress = ' (<span class="red">'+wpmProgress+'</span>)';
 }else{
+if(printMsgWin != 'win'){
+printMsgWin = 'Good result';
+printMsgWinColor = 'green';
+}
+
 wpmProgress = ' (<span class="green">+'+wpmProgress+'</span>)';
 }
 
@@ -589,12 +601,35 @@ acurancyProgress = ' (<span class="red">'+acurancyProgress+'</span>)';
 acurancyProgress = ' (<span class="green">+'+acurancyProgress+'</span>)';
 }
 
+if(printMsgWin == 'win'){
+document.getElementById("sound").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/win.ogg">';
+printMsgWin = 'Win';
+}
 
-let winMsg = '<div class="button light border2" style="text-align: center; width: 100%;"><div><h1 class="orange" >Win </h1><span  title="word per minute" style="color: var(--c3);">WPM: <span class="">'+wpm+'</span>'+recordMsg+'</span> '+wpmProgress+' <span>acurancy: ≈<span class="">'+acurancy+'</span>%</span> '+acurancyProgress+'</div></div>';
+if(printMsgWin == 'tie'){
+document.getElementById("sound").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/ok.ogg">';
+printMsgWin = 'Tie';
+}
+
+if(printMsgWin == 'Good result'){
+document.getElementById("sound").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/neutral.ogg">';
+printMsgWin = 'Good result';
+}
+
+if(printMsgWin == 'game over'){
+document.getElementById("sound").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/error.ogg">';
+printMsgWin = 'The previous result is better';
+}
+
+let winMsg = `<div class="button light border2" style="text-align: center; width: 100%;"><div>
+
+<b class="${printMsgWinColor} block padding">${printMsgWin} </b>
+
+<span  title="word per minute" style="color: var(--c3);">WPM: <span class="">${wpm}</span>${recordMsg}</span> ${wpmProgress} <span>acurancy: ≈<span class="">${acurancy}</span>%</span> ${acurancyProgress}</div></div>`;
 
 document.getElementsByClassName("win")[0].innerHTML = winMsg;
 document.getElementsByClassName("win")[1].innerHTML = winMsg;
-document.getElementById("sound").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/ok.ogg">';
+
 }else {
 document.getElementsByClassName("win")[0].innerHTML = '';
 document.getElementsByClassName("win")[1].innerHTML = '';

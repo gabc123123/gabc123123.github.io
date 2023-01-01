@@ -85,6 +85,10 @@ var adsJsonVar =
         "url": "https:\/\/www.gimp.org\/"
     },
     {
+        "text": "GIPHY - Be Animated",
+        "url": "https:\/\/giphy.com\/"
+    },
+    {
         "text": "GitHub",
         "url": "https:\/\/github.com\/"
     },
