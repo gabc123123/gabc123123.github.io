@@ -32,7 +32,7 @@ var colorPcWin = '';
 
 document.getElementById("panel").innerHTML = `
 <button class="gDbtn light border2"  id="myBtn">roll</button>
-<button class="gDbtn light border2 op" onclick="fuReload()">reload</button>
+<button class="gDbtn light border2 op" onclick="reload()">reload</button>
 `;
 document.getElementById("myBtn").addEventListener("click", displayResult); 
 

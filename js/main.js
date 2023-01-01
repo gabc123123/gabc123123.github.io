@@ -1,4 +1,4 @@
-/* v.3.1.8 */
+/* v.3.1.9 */
 
 var symbolForSplit = 'pwxortuzqu';
 
@@ -280,7 +280,8 @@ document.querySelector('head').appendChild(element);
 }
 
 
-
+function fuReload(){ location.reload(); }
+function reload(){ location.reload(); }
 
 
 
