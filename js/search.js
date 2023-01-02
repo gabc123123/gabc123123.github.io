@@ -1,4 +1,4 @@
-// v.1.1.11
+// v.1.1.12
 // redirects
 
 var geturl = window.location;
@@ -313,7 +313,6 @@ if(q == ''){
 urlList = [
 "https://news.google.com/",
 "https://flipboard.com/topic/news",
-"https://news.ycombinator.com/",
 "https://www.bing.com/news/",
 "https://mobile.twitter.com/i/topics/840159616101044224",
 "https://www.reddit.com/r/news/",

@@ -1,0 +1,41 @@
+{
+
+  "manifest_version": 2,
+  "name": "Custom URL For New Tab Abc",
+  "version": "1.7",
+  "description": "Custom URL For New Tab",
+
+"icons": {
+  "96": "icon96x96.png"
+},
+
+ "permissions":
+[
+"storage",
+"activeTab",
+"contextMenus"
+    ],
+ 
+
+"browser_specific_settings": {
+  "newtab-own-page-abc": {
+    "id": "7dbfbfdf5b72978763477a2eb5be8c335e299941@temporary-addon"
+  }
+},
+
+"options_ui": {
+  "page": "options.html"
+},
+
+
+"content_scripts": [{
+"matches": ["<all_urls>", "*://*/*"]
+}],
+
+"chrome_url_overrides" : {
+    "newtab": "my-new-tab.html"
+  }
+
+
+  
+}

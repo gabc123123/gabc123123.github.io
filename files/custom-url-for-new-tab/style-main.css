@@ -1,4 +1,4 @@
-/* v.12.17.38 */
+/* v.12.17.36 */
 
 
 :root{
@@ -275,7 +275,7 @@ a { color: var(--c2); }
 a:hover{ color: var(--c4); } 
 
 html{ position: relative; }
-html::before {
+/*html::before {
 width: calc(100vh);
 height: calc(100vh);
 content: "";
@@ -287,7 +287,7 @@ background: url('/img/header-banner.png') no-repeat center center fixed;
 background-size: 23vh;
 background-position: right 23px bottom 23px;
 z-index: -2;
-}
+}*/
 
 hr{ border: 1px solid var(--d2); border-bottom:1px solid var(--l); }
 /*a{ color: var(--blue); } a:hover { color: var(--blue2); }*/
