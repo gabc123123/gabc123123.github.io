@@ -1,4 +1,4 @@
-// v.1.3.3
+// v.1.3.4
 
 
 
@@ -28,6 +28,8 @@ if(postClass == undefined||postClass == ''){ postClass = 'post'; }
 if(scriptDir == undefined||scriptDir == ''){ scriptDir = './'; }
 if(multiEmbedStatus == undefined||multiEmbedStatus == ''){ multiEmbedStatus = 'off'; }
 if(tagListLimit == undefined||tagListLimit == ''){ tagListLimit = '100'; }
+
+var searchLimit = 300;
 
 if(blogJsonVar == ''){
 var blogJsonVar = 
@@ -61,17 +63,20 @@ var q = url.searchParams.get("q");
 if(q != null){
 q = q.replace(/%/g, "%25");
 q = decodeURIComponent(q);
+q = q.trim();
 }
 
 var id = url.searchParams.get("id");
 if(id != null){
 id = id.replace(/%/g, "%25");
 id = Number(decodeURIComponent(id));
+id = id.trim();
 }
 
 var getP = url.searchParams.get("p");
 if(getP != null){
 getP = getP.replace(/%/g, "%25");
+getP = getP.trim();
 getP = Number(decodeURIComponent(getP));
 
 if(getP >= blogJsonVar.length - 1){ getP = 0; }
@@ -82,6 +87,7 @@ if(getP < postLimit){ getP = 0; }
 var getP2 = url.searchParams.get("p2"); // nav for id
 if(getP2 != null){
 getP2 = getP2.replace(/%/g, "%25");
+getP2 = getP2.trim();
 getP2 = Number(decodeURIComponent(getP2));
 }
 
@@ -120,7 +126,7 @@ postLimit = Number(postLimit);
 
 function main(){
 
-let searchLimit = 300;
+
 let com = '';
 
 if(q != null){
@@ -166,35 +172,47 @@ postText = (postText+' '+postUrl).trim();
 switch (com){
 
 case 'search':
+
 if(i <= postLimit -1){
 //qSearch = String(q.toLowerCase()).replace(/ /g, "|"); //if((qData).search(qSearch) != -1){}
 qSearch = String(q).toLowerCase();
+qSearch = decodeURIComponent(qSearch);
 let qData = String(postText+' '+postTag).toLowerCase();
 
-
-// if quote strict search
-if(qSearch[0] == '"'&&qSearch[qSearch.length - 1] == '"'/*||(qSearch).split(' ').length >= 5*/){
+/*
+// if Quote strict search
+if(qSearch[0] == '"'&&qSearch[qSearch.length - 1] == '"'||qSearch[0] == '%23'//||(qSearch).split(' ').length >= 5
+){
 // rm quote
 qSearch = qSearch.substring(1); //https://stackoverflow.com/questions/4564414/delete-first-character-of-string-if-it-is-0
 qSearch = qSearch.slice(0, -1); //https://stackoverflow.com/questions/952924/how-do-i-chop-slice-trim-off-last-character-in-string-using-javascript
 
-if((qData.split(qSearch)).length > 1){
+//if((qData.split(qSearch)).length > 1){
+if((qData.indexOf(qSearch)) > 0){
 print += fuPrintPost(postId, postText, postTag, postTime);
 i++;
 comMessage = `${q} ${i}`;
 qData = '';
 }
 }else{
+// many words from space split
 qSearch = (qSearch+' ').split(' ');
 qSearch.forEach(function (item) {
-
-if((qData.split(item)).length > 1&&item != ''){
+//if((qData.split(item)).length > 1&&item != ''){
+if((qData.indexOf(item)) > 0){
 print += fuPrintPost(postId, postText, postTag, postTime);
 i++;
 comMessage = `${q} ${i}`;
 qData = '';
 }
 });
+}*/
+
+console.log(qData.indexOf(qSearch));
+if(qData.indexOf(qSearch) >= 0){
+print += fuPrintPost(postId, postText, postTag, postTime);
+i++;
+comMessage = `${q} ${i}`;
 }
 
 }
@@ -552,7 +570,7 @@ return `
 
 
 function highlightText(text, hrefInOut){
-text = decodeURIComponent(text); // error sometimes
+//text = decodeURIComponent(text); // error sometimes
 
 // if code
 text = text.replace(/</g, "&lt;");
