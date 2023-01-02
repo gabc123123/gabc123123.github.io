@@ -624,7 +624,10 @@ printMsgWin = 'The previous result is better';
 }
 */
 // disable msg
-if(printMsgWin != 'win'&&printMsgWin != 'tie'){ printMsgWin = ''; }
+if(printMsgWin != 'win'&&printMsgWin != 'tie'){
+printMsgWin = '';
+document.getElementById("sound").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/click.ogg">';
+}
 
 let winMsg = `
 <div class="button light border2 padding" style="text-align: center; width: 100%;"><div>
