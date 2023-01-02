@@ -1,4 +1,4 @@
-// v.1.3.5
+// v.1.3.6
 
 
 
@@ -112,6 +112,7 @@ var printTagList = '';
 var getTag = '';
 
 var comMessage = '';
+var comMessagePrint = '';
 
 postLimit = Number(postLimit);
 
@@ -149,6 +150,7 @@ com:${com} id:${id} q:${q} p:${getP} p2:${getP2}
 }
 
 let i = 0;
+let sRelevantPoint = 0;
 blogJsonVar.forEach((item, key) => {
 
 postId = '';
@@ -173,8 +175,8 @@ case 'search':
 
 if(i <= postLimit -1){
 //qSearch = String(q.toLowerCase()).replace(/ /g, "|"); //if((qData).search(qSearch) != -1){}
-qSearch = String(q).toLowerCase();
-qSearch = decodeURIComponent(qSearch);
+qSearch = decodeURIComponent(q);
+qSearch = String(qSearch).toLowerCase();
 let qData = String(postText+' '+postTag).toLowerCase();
 
 /*
@@ -189,7 +191,7 @@ qSearch = qSearch.slice(0, -1); //https://stackoverflow.com/questions/952924/how
 if((qData.indexOf(qSearch)) > 0){
 print += fuPrintPost(postId, postText, postTag, postTime);
 i++;
-comMessage = `${q} ${i}`;
+comMessagePrint = `${q} ${i}`;
 qData = '';
 }
 }else{
@@ -200,62 +202,45 @@ qSearch.forEach(function (item) {
 if((qData.indexOf(item)) > 0){
 print += fuPrintPost(postId, postText, postTag, postTime);
 i++;
-comMessage = `${q} ${i}`;
+comMessagePrint = `${q} ${i}`;
 qData = '';
 }
 });
 }*/
 
-let checkFound = '';
+
 // if tag
 if(qSearch[0] == '#'){
 qData = qData.replace(/,/g, ' ');
 if((qData+' ').indexOf((qSearch+' ')) >= 0){
 print += fuPrintPost(postId, postText, postTag, postTime);
 i++;
-comMessage = `${q} ${i}`;
-checkFound = 'ok';
+comMessagePrint = `${q} ${i} (searchLimit:${searchLimit})`;
+comMessage = 'found';
 }
 }else if(qData.indexOf(qSearch) >= 0){
 print += fuPrintPost(postId, postText, postTag, postTime);
 i++;
-comMessage = `${q} ${i}`;
-checkFound = 'ok';
-}
-
-if(checkFound != 'ok'){// if strict not foun, not strict
-// many words from space split
-qSearch = (qSearch+' ').split(' ');
-qSearch.forEach(function (item) {
-//if((qData.split(item)).length > 1&&item != ''){
-if((qData.indexOf(item)) > 0){
-
-print += fuPrintPost(postId, postText, postTag, postTime);
-i++;
-comMessage = `${q} ${i}`;
-qData = '';
-checkFound = '';
-}
-});
+comMessagePrint = `${q} ${i} (searchLimit:${searchLimit})`;
+comMessage = 'found';
 }
 
 
-
 }
-if(comMessage == '') { comMessage = `<div class="red block padding">Probably not found</div>`; }
+if(comMessagePrint == '') { comMessagePrint = `<div class="red block padding">Probably not found</div>`; }
 break;
 
 case 'id':
 if(i <= postLimit -1){
 if(postId == id||getP2 == key){
 print += '<div class="">'+fuPrintPost(postId, postText, postTag, postTime)+'</div>';
-comMessage = 'id: '+postId;
-if(getP2 != null){ comMessage += ' p2: '+getP2; }
+comMessagePrint = 'id: '+postId;
+if(getP2 != null){ comMessagePrint += ' p2: '+getP2; }
 i++;
 getP = key;
 }
 }
-if(comMessage == '') { comMessage = `<div class="red block padding">Probably not found</div>`; }
+if(comMessagePrint == '') { comMessagePrint = `<div class="red block padding">Probably not found</div>`; }
 break;
 
 case 'random':
@@ -264,7 +249,7 @@ if(getP2 == key){
 print += '<div class="">'+fuPrintPost(postId, postText, postTag, postTime)+'</div>';
 i++;
 getP = key;
-comMessage = 'random, '+'id: '+postId+', p2: '+getP2;
+comMessagePrint = 'random, '+'id: '+postId+', p2: '+getP2;
 }
 }
 break;
@@ -290,17 +275,74 @@ printTagList += postTag+symbolForSplit;
 
 
 
+
+
+// it's be removed and created new, maybe, fixme
+// Search 2, if strict search not found
+blogJsonVar.forEach((item, key) => {
+
+postId = '';
+postText = '';
+postTag = '';
+postUrl = '';
+postTime = '';
+
+if(item['id'] != null){ postId = item['id']; }
+if(item['text'] != null){ postText = item['text']; }
+if(item['tag'] != null){ postTag = item['tag']; }
+if(item['url'] != null){ postUrl = item['url']; }
+if(item['time'] != null){ postTime = item['time']; }
+
+postText = (postText+' '+postUrl).trim();
+
+if(com == 'search'&&comMessage != 'found'){
+
+if(i <= postLimit -1){
+//qSearch = String(q.toLowerCase()).replace(/ /g, "|"); //if((qData).search(qSearch) != -1){}
+qSearch = decodeURIComponent(q);
+qSearch = String(qSearch).toLowerCase();
+let qData = String(postText+' '+postTag).toLowerCase();
+
+// many words from space split
+
+qSearch = (qSearch+' ').split(' ');
+qSearch.forEach(function (item) {
+//if((qData.split(item)).length > 1&&item != ''){
+if((qData.indexOf(item)) > 0){
+print += fuPrintPost(postId, postText, postTag, postTime);
+i++;
+comMessagePrint = `${q} ${i} (searchLimit:${searchLimit})`;
+qData = '';
+comMessage = 'found'
+sRelevantPoint++
+}
+});
+
+
+console.log(sRelevantPoint);
+}
+}
+
+});
+
+if(com == 'search'&&comMessage != 'found') { comMessagePrint = `<div class="red block padding">Probably not found</div>`; }
+// end Search 2
+
+
+
+
+
+
+
 // tagList and nav print
-
-
 if(tagListStatus != 'off'){
 
 
-if(comMessage != ''){
-comMessage = `
-<div class="op tCenter padding ${postClass}">${comMessage}</div>
+if(comMessagePrint != ''){
+comMessagePrint = `
+<div class="op tCenter padding ${postClass}">${comMessagePrint}</div>
 `;
-print = comMessage+print;
+print = comMessagePrint+print;
 }
 
 
