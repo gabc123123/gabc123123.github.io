@@ -1,4 +1,4 @@
-// v.1.3.4
+// v.1.3.5
 
 
 
@@ -70,13 +70,11 @@ var id = url.searchParams.get("id");
 if(id != null){
 id = id.replace(/%/g, "%25");
 id = Number(decodeURIComponent(id));
-id = id.trim();
 }
 
 var getP = url.searchParams.get("p");
 if(getP != null){
 getP = getP.replace(/%/g, "%25");
-getP = getP.trim();
 getP = Number(decodeURIComponent(getP));
 
 if(getP >= blogJsonVar.length - 1){ getP = 0; }
@@ -208,12 +206,40 @@ qData = '';
 });
 }*/
 
-console.log(qData.indexOf(qSearch));
-if(qData.indexOf(qSearch) >= 0){
+let checkFound = '';
+// if tag
+if(qSearch[0] == '#'){
+qData = qData.replace(/,/g, ' ');
+if((qData+' ').indexOf((qSearch+' ')) >= 0){
 print += fuPrintPost(postId, postText, postTag, postTime);
 i++;
 comMessage = `${q} ${i}`;
+checkFound = 'ok';
 }
+}else if(qData.indexOf(qSearch) >= 0){
+print += fuPrintPost(postId, postText, postTag, postTime);
+i++;
+comMessage = `${q} ${i}`;
+checkFound = 'ok';
+}
+
+if(checkFound != 'ok'){// if strict not foun, not strict
+// many words from space split
+qSearch = (qSearch+' ').split(' ');
+qSearch.forEach(function (item) {
+//if((qData.split(item)).length > 1&&item != ''){
+if((qData.indexOf(item)) > 0){
+
+print += fuPrintPost(postId, postText, postTag, postTime);
+i++;
+comMessage = `${q} ${i}`;
+qData = '';
+checkFound = '';
+}
+});
+}
+
+
 
 }
 if(comMessage == '') { comMessage = `<div class="red block padding">Probably not found</div>`; }
