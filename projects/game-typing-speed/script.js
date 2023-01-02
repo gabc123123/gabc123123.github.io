@@ -1,4 +1,4 @@
-// v.3.7.24
+// v.3.7.25
 
 
 
@@ -611,6 +611,8 @@ document.getElementById("sound").innerHTML = '<audio style="display:none" autopl
 printMsgWin = 'Tie';
 }
 
+
+/*
 if(printMsgWin == 'Good result'){
 document.getElementById("sound").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/neutral.ogg">';
 printMsgWin = 'Good result';
@@ -620,19 +622,23 @@ if(printMsgWin == 'game over'){
 document.getElementById("sound").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/error.ogg">';
 printMsgWin = 'The previous result is better';
 }
+*/
+// disable msg
+if(printMsgWin != 'win'&&printMsgWin != 'tie'){ printMsgWin = ''; }
 
-let winMsg = `<div class="button light border2" style="text-align: center; width: 100%;"><div>
+let winMsg = `
+<div class="button light border2 padding" style="text-align: center; width: 100%;"><div>
 
-<b class="${printMsgWinColor} block padding">${printMsgWin} </b>
+<b class="${printMsgWinColor} padding">${printMsgWin} </b>
 
 <span  title="word per minute" style="color: var(--c3);">WPM: <span class="">${wpm}</span>${recordMsg}</span> ${wpmProgress} <span>acurancy: ≈<span class="">${acurancy}</span>%</span> ${acurancyProgress}</div></div>`;
 
 document.getElementsByClassName("win")[0].innerHTML = winMsg;
-document.getElementsByClassName("win")[1].innerHTML = winMsg;
+//document.getElementsByClassName("win")[1].innerHTML = winMsg;
 
 }else {
 document.getElementsByClassName("win")[0].innerHTML = '';
-document.getElementsByClassName("win")[1].innerHTML = '';
+//document.getElementsByClassName("win")[1].innerHTML = '';
 }
 
 
