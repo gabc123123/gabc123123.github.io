@@ -18,7 +18,7 @@ newTabRedir(rUrl);
 }
 
 function newTabRedir(rUrl){
-if(String(window.location.href).indexOf('moz-extension://') >= 0&&String(window.location.href).indexOf('/custom-url-for-new-tab.html') >= 0){
+if(String(window.location.href).indexOf('moz-extension://') >= 0&&String(window.location.href).indexOf('/custom-new-tab-abc.html') >= 0){
 
 //https://stackoverflow.com/questions/10982593/open-link-in-new-window-or-focus-to-it-if-already-open
 //window.open('http://localhost/','mywindow').focus();
