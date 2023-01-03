@@ -1,4 +1,4 @@
-/* v.12.17.36 */
+/* v.12.17.36 from hoomepage */
 
 
 :root{
@@ -41,7 +41,7 @@ overflow-wrap: break-word;
 /*word-break: break-all;*/
 
 }
-html { height: -webkit-fill-available; }
+/*html { height: -webkit-fill-available; }*/
 
 .content { flex: 1 0 auto; }
 .page { min-height: 100vh; }
@@ -449,3 +449,7 @@ html { scroll-padding-top: 35px; }
 /*html { scrollbar-width: thin; }
 ::-webkit-scrollbar { width: 7px; }*/
 
+/* addon */
+body, html { width: 100vw;  }
+
+form { min-height: 200px; margin-top: 100px;  width: 100vw; }

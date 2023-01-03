@@ -2,19 +2,14 @@
 <html lang="en">
 <head>
 <!-- //https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Implement_a_settings_page -->
-    <meta charset="utf-8" />
+<meta charset="UTF-8">
+<title>options</title>
 
 
 <link rel="stylesheet" type="text/css" href="style-main.css">
 <link rel="stylesheet" type="text/css" href="light.css">
 
-<style>
-margin: 0;
-padding: 0;
-body, html { width: 100vw;  }
 
-form { min-height: 200px; margin-top: 100px;  width: 100vw; }
-</style>
 
   </head>
 
@@ -30,8 +25,8 @@ form { min-height: 200px; margin-top: 100px;  width: 100vw; }
 
     <form>
 
-      <label for="rUrl">Redirect url:</label>
-<input type="text" id="q" name="q" />
+      <label for="rUrl">Website URL:</label>
+<input class="padding" type="text" id="q" name="q" placeholder="example: https://example.com/" autocomplete="off">
       <input type="submit" value="Save">
     </form>
 </div>

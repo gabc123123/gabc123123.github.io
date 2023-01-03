@@ -277,7 +277,7 @@ printTagList += postTag+symbolForSplit;
 
 
 
-// it's be removed and created new, maybe, fixme
+// fixme, option relevant
 // Search 2, if strict search not found
 blogJsonVar.forEach((item, key) => {
 

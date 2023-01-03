@@ -140,12 +140,14 @@ put theme-name.conf in ~/.config/geany/colorschemes/
 document.getElementById("fTheme").innerHTML = '<span><a href="/theme.html">theme: '+theme+' ('+confRealTmpTheme+')</a></span>';
 </script>
 
-<span><a href="/test.html">test-app</a></span>
-
-
-<span id="fPrivacy"><a href="/privacy.html">cookie status: *</a></span>
+<span id="fApp"><a href="/app.html">app: *</a></span>
 <script>
-document.getElementById("fPrivacy").innerHTML = '<a href="/privacy.html">cookie: '+confDataCollection+'</a></a>';
+document.getElementById("fApp").innerHTML = '<a href="/app.html">app: '+confWorkerStatus+'</a>';
+</script>
+
+<span id="fPrivacy"><a href="/privacy.html">cookie: *</a></span>
+<script>
+document.getElementById("fPrivacy").innerHTML = '<a href="/privacy.html">cookie: '+confDataCollection+'</a>';
 </script>
 
 <span>author: <a rel="author" href="/about.html">Gabc 2023</a></span>

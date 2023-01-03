@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "Custom URL For New Tab Abc",
-  "version": "1.7",
+  "version": "1.10",
   "description": "Custom URL For New Tab",
 
 "icons": {
@@ -18,9 +18,9 @@
  
 
 "browser_specific_settings": {
-  "newtab-own-page-abc": {
-    "id": "7dbfbfdf5b72978763477a2eb5be8c335e299941@temporary-addon"
-  }
+  "gecko": {
+    "id": "{ca76a51e-39c5-426e-a65a-17331611382e}",
+    "strict_min_version": "58.0"  }
 },
 
 "options_ui": {
@@ -33,7 +33,7 @@
 }],
 
 "chrome_url_overrides" : {
-    "newtab": "my-new-tab.html"
+    "newtab": "custom-url-for-new-tab.html"
   }
 
 

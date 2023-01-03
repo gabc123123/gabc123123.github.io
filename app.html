@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="UTF-8">
-<title>Test</title>
+<title>App</title>
 <link rel="alternate" type="application/rss+xml" title="gabc RSS" href="/rss.xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--<meta name="title" content="">-->
@@ -111,12 +111,12 @@ document.getElementById("dropbtn").innerHTML = '☰ Other';
 <!-- content -->
 <div class="content">
 <!-- v.1.0.0 -->
-<h3 class="tCenter op">Test</h3>
+<h3 class="tCenter op">App</h3>
 
-<dive class="center2 tCenter">
-<div class="wrapper">
+<div class="center2">
+<div class="wrapperL tCenter">
 
-<div style="
+<!--<div style="
 display: grid;
 grid-template-columns: 100% 1fr 1fr;
 grid-auto-columns: 1fr 1fr;
@@ -126,11 +126,14 @@ justify-content: center;
 align-items: center;
 text-align: center;
 margin-bottom: 30px;
-
 ">
-<div class="padding border2 light tCenter" id="status">status</div>
 </div>
-<hr>
+-->
+
+
+
+
+
 
 <!--
 <button class="button light border2" onclick="tmpSetConf('confDataCollection', 'on')">'cookie', 'on'</button>
@@ -138,11 +141,14 @@ margin-bottom: 30px;
 <br>
 -->
 
-<button class="button light border2" onclick="tmpSetConf('confWorkerStatus', 'on')">'Worker', 'on'</button>
-<button class="button light border2" onclick="tmpSetConf('confWorkerStatus', 'off')">'Worker', 'off'</button>
+<div class="block padding border2List bg " id="status">status</div><br>
+<button class="padding light border2List" onclick="tmpSetConf('confWorkerStatus', 'on')">'Worker', 'on'</button>
+<button class="padding light border2List" onclick="tmpSetConf('confWorkerStatus', 'off')">'Worker', 'off'</button>
 
 <br><hr>
-<div class="padding op">* PWA, Service Worker</div>
+<div class="padding op">* PWA, Service Worker (install webpage as app, etc)</div>
+
+
 </div>
 </div>
 
@@ -152,7 +158,11 @@ margin-bottom: 30px;
 
 document.getElementById("status").innerHTML = 'status: '+localStorage.getItem('confWorkerStatus');
 
+
 function tmpSetConf(confName, valueName){
+
+
+
 localStorage.setItem(confName, valueName);
 
 document.getElementById("status").innerHTML = `
@@ -166,7 +176,11 @@ document.getElementById("status").innerHTML = `
 status: ${val}
 `;
 
+document.getElementById("fApp").innerHTML = 'app: ' +localStorage.getItem('confWorkerStatus');
+
 }
+
+
 
 
 
@@ -196,12 +210,14 @@ status: ${val}
 document.getElementById("fTheme").innerHTML = '<span><a href="/theme.html">theme: '+theme+' ('+confRealTmpTheme+')</a></span>';
 </script>
 
-<span><a href="/test.html">test-app</a></span>
-
-
-<span id="fPrivacy"><a href="/privacy.html">cookie status: *</a></span>
+<span id="fApp"><a href="/app.html">app: *</a></span>
 <script>
-document.getElementById("fPrivacy").innerHTML = '<a href="/privacy.html">cookie: '+confDataCollection+'</a></a>';
+document.getElementById("fApp").innerHTML = '<a href="/app.html">app: '+confWorkerStatus+'</a>';
+</script>
+
+<span id="fPrivacy"><a href="/privacy.html">cookie: *</a></span>
+<script>
+document.getElementById("fPrivacy").innerHTML = '<a href="/privacy.html">cookie: '+confDataCollection+'</a>';
 </script>
 
 <span>author: <a rel="author" href="/about.html">Gabc 2023</a></span>

@@ -20,7 +20,7 @@ adsURL = ads[random]['url'];	if(adsURL == null){ adsURL = ''; }
 
 
 // privacy
-if(adsText.search("src=") != -1&&localStorage.getItem('confDataCollection') != 'on'){ adsText = '';   }
+if(adsText.search("src=") != -1&&localStorage.getItem('confDataCollection') != 'on'){ adsText = ''; }
 
 if(adsText.search("src=") != -1){
 adsPrint = '<a class="tag zero op" style="float: right; margin-bottom: 5px;" href="/ads.'+confExt+'">ads, links</a><br />'+adsText+' <br /><a target="blank" href="'+adsURL+'">'+adsURL+'</a>';

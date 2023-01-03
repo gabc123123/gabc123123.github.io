@@ -7,9 +7,9 @@ if(localStorage.getItem('confWorkerStatus') != null){
 confWorkerStatus = localStorage.getItem('confWorkerStatus');
 }
 
-var confDataCollection = 'on';
+var confDataCollection = 'off';
 if(localStorage.getItem('confDataCollection') != null){
-confDataCollection = localStorage.getItem('confDataCollection');
+var confDataCollection = localStorage.getItem('confDataCollection');
 }
 
 

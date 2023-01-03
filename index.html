@@ -257,7 +257,6 @@ window.onload = idToTag;
 <a class="button light3 border3" tabindex="0" href="fliles.html">fliles</a>
 <a class="button light3 border3" tabindex="0" href="geany-color.html">geany-color</a>
 <a class="button light3 border3" tabindex="0" href="search.html">search</a>
-<a class="button light3 border3" tabindex="0" href="test.html">test</a>
 <a class="button light3 border3" tabindex="0" href="tpl.html">tpl</a>
 <a class="button light3 border3" tabindex="0" href="twitter.html">twitter</a>
 <a class="button light3 border3" tabindex="0" href="vscode-theme.html">vscode-theme</a>
@@ -471,12 +470,14 @@ blog("echoBlog", blogJsonVar, 'post', 'off', 'off', '1', '/projects/blog/', 'off
 document.getElementById("fTheme").innerHTML = '<span><a href="/theme.html">theme: '+theme+' ('+confRealTmpTheme+')</a></span>';
 </script>
 
-<span><a href="/test.html">test-app</a></span>
-
-
-<span id="fPrivacy"><a href="/privacy.html">cookie status: *</a></span>
+<span id="fApp"><a href="/app.html">app: *</a></span>
 <script>
-document.getElementById("fPrivacy").innerHTML = '<a href="/privacy.html">cookie: '+confDataCollection+'</a></a>';
+document.getElementById("fApp").innerHTML = '<a href="/app.html">app: '+confWorkerStatus+'</a>';
+</script>
+
+<span id="fPrivacy"><a href="/privacy.html">cookie: *</a></span>
+<script>
+document.getElementById("fPrivacy").innerHTML = '<a href="/privacy.html">cookie: '+confDataCollection+'</a>';
 </script>
 
 <span>author: <a rel="author" href="/about.html">Gabc 2023</a></span>

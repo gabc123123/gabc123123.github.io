@@ -1,13 +1,15 @@
-// v.1.0.1
+// v.1.0.2
 //https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Implement_a_settings_page
+
+
 
 //store local
 //https://news.ycombinator.com/item?id=25218240
 
 function saveOptions(e) {
   e.preventDefault();
-browser.storage.sync.set({
-//browser.storage.local.set({
+//browser.storage.sync.set({
+browser.storage.local.set({
     rUrl: document.querySelector("#q").value
   });
 //document.querySelector("#msg").innerHTML = 'status: '+document.querySelector("#q").value;
@@ -15,7 +17,8 @@ browser.storage.sync.set({
 
 function restoreOptions() {
   function setCurrentChoice(result) {
-    document.querySelector("#q").value = result.rUrl || "about:home";
+// document.querySelector("#q").value = result.rUrl || "https://example.com";
+document.querySelector("#q").value = result.rUrl || "";
 
 
   }
@@ -24,8 +27,8 @@ function restoreOptions() {
     console.log(`Error: ${error}`);
   }
 
-let getting = browser.storage.sync.get("rUrl");
-//let getting = browser.storage.local.get("rUrl");
+//let getting = browser.storage.sync.get("rUrl");
+let getting = browser.storage.local.get("rUrl");
   getting.then(setCurrentChoice, onError);
 }
 
