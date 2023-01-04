@@ -2,20 +2,24 @@
 
   "manifest_version": 2,
   "name": "Custom New Tab Abc",
-  "version": "1.11",
+  "version": "1.13",
   "description": "Custom URL For New Tab",
 
 "icons": {
   "96": "icon96x96.png"
 },
 
- "permissions":
+"permissions":
 [
 "storage",
 "activeTab",
+"tabs",
 "contextMenus"
     ],
  
+
+
+
 
 "browser_specific_settings": {
   "gecko": {
@@ -24,8 +28,28 @@
 },
 
 "options_ui": {
-  "page": "options.html"
+  "page": "/options.html"
 },
+
+
+
+
+
+
+
+"browser_action": {
+    "browser_style": true,
+    "default_popup": "/options.html",
+    "default_icon": {
+      "96": "icon96x96.png"
+    }
+  },
+
+
+
+
+
+
 
 
 "content_scripts": [{
@@ -33,7 +57,7 @@
 }],
 
 "chrome_url_overrides" : {
-    "newtab": "custom-new-tab-abc.html"
+    "newtab": "/custom-new-tab-abc.html"
   }
 
 

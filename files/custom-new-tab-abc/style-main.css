@@ -449,7 +449,3 @@ html { scroll-padding-top: 35px; }
 /*html { scrollbar-width: thin; }
 ::-webkit-scrollbar { width: 7px; }*/
 
-/* addon */
-body, html { width: 100vw;  }
-
-form { min-height: 200px; margin-top: 100px;  width: 100vw; }

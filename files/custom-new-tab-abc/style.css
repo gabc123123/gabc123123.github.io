@@ -1,0 +1,7 @@
+/* v.1.0.0
+ * style addon */
+
+
+html, body { min-width: 340px;  max-width: 100vw; }
+
+form { min-height: 200px; margin-top: 100px;  max-width: 340px; }

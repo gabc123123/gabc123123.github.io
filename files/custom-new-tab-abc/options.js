@@ -1,6 +1,8 @@
 // v.1.0.2
-//https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Implement_a_settings_page
 
+
+
+//https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Implement_a_settings_page
 
 
 //store local
