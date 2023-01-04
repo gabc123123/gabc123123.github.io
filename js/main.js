@@ -1,4 +1,4 @@
-/* v.3.1.9 */
+/* v.3.1.10 */
 
 var symbolForSplit = 'pwxortuzqu';
 
@@ -9,7 +9,7 @@ confWorkerStatus = localStorage.getItem('confWorkerStatus');
 
 var confDataCollection = 'off';
 if(localStorage.getItem('confDataCollection') != null){
-var confDataCollection = localStorage.getItem('confDataCollection');
+confDataCollection = localStorage.getItem('confDataCollection');
 }
 
 
@@ -26,10 +26,13 @@ var confExt = 'html';
 var lang = 'en';
 
 var confDevice = '';
+if(confDataCollection != 'on'){
+confDevice = '(disabled, privacy)';
+}else{
 if(navigator.userAgent.search("iPhone|Android|Opera Mini|Mobile|Lumia|Phone") != -1){ confDevice = 'mobile';  }
 if(navigator.userAgent.search("PlayStation|Xbox|TV|Roku|SmartTV|BRAVIA") != -1){ confDevice = 'tv';  }
 if(confDevice == ''){ confDevice = 'pc'; }
-
+}
 
 confDeviceTheme = 'none';
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) { confDeviceTheme = 'dark'; }
