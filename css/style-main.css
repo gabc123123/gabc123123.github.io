@@ -132,7 +132,7 @@ overflow: auto;
 .tv { max-width: 100%; }
 .postL { max-width: var(--wrapperL); }
 
-/* pre in post */
+/* pre for post */
 iframe, .pre iframe, .pre video, .pre audio { display: block; margin-top: 7px; border-radius: 5px; width: 100%; }
 .pre .img { margin-bottom: 7px; margin-top: 7px; }
 
