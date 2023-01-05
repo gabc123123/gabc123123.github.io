@@ -241,8 +241,6 @@ setTheme(localStorage.getItem('theme')); //alert('not');
 
 
 
-
-
 // serviceWorker (for webpage in offline mode or insall app from page)
 
 function fuWorker(fuSWstatus){
@@ -278,6 +276,56 @@ let element = document.createElement('link');
 element.setAttribute('rel', 'manifest'); 
 element.setAttribute('href', "manifest.webmanifest"); 
 document.querySelector('head').appendChild(element);
+
+
+/*
+// install app button
+//https://github.com/mdn/pwa-examples
+//https://developer.mozilla.org/docs/Web/Progressive_web_apps/Add_to_home_screen
+// Code to handle install prompt on desktop
+function printInstallAppLink(){
+if(document.getElementById('fApp') != null){
+
+let deferredPrompt;
+//const addBtn = document.querySelector('.add-button');
+const addBtn = document.getElementById('fApp')
+//addBtn.style.display = 'none';
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+  // Update UI to notify the user they can add to home screen
+// addBtn.style.display = 'block';
+addBtn.innerHTML = `<button id="fApp">app: Install app</button>`;
+
+  addBtn.addEventListener('click', () => {
+    // hide our user interface that shows our A2HS button
+    addBtn.style.display = 'none';
+    // Show the prompt
+    deferredPrompt.prompt();
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+//        console.log('app: User accepted the app prompt');
+addBtn.innerHTML = 'app: User accepted the app prompt';
+      } else {
+//        console.log('app: User dismissed the app prompt');
+addBtn.innerHTML = 'app: User dismissed the app prompt';
+      }
+      deferredPrompt = null;
+    });
+  });
+});
+}
+}
+*/
+
+
+
+
+
 
 }
 }

@@ -2,7 +2,7 @@
 // pwa start
 
 //https://github.com/mdn/pwa-examples
-// (fix install on localhost (fix error in debug)) https://stackoverflow.com/questions/58985103/progressive-web-app-not-showing-install-button-in-browser-bar
+// (fix install for localhost (fix error in debug)) https://stackoverflow.com/questions/58985103/progressive-web-app-not-showing-install-button-in-browser-bar
 
 // Register service worker to control making site work offline
 

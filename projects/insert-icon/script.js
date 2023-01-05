@@ -1,4 +1,4 @@
-// v.1.2.10
+// v.1.2.11
 
 function insertIcon(id){
 
@@ -62,7 +62,7 @@ let icons = {
 "tool":"🔨",
 "tv":"📺",
 "url":"🔗","link":"🔗","www":"🔗",
-"setting":"⚙️",
+"setting":"⚙️", "custom":"⚙️",
 "snow":"❄️", "cold":"❄️", "winter":"❄️", 
 "web":"🕸️", "internet":"🕸️", "browser":"🕸️",
 "wallpaper":"🖼", "picture":"🖼", "image":"🖼", "img":"🖼", "pixel":"🖼","instagram":"🖼","pxlmo":"🖼",

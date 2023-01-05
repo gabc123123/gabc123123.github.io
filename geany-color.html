@@ -115,9 +115,7 @@ document.getElementById("dropbtn").innerHTML = '☰ Other';
 
 <div class="center">
 
-<div id="insertIconId" class="center2">
-
-
+<div id="insertIconId">
 
 <div class="post bgList border3List brand"><a href="geany-color/dark.conf">dark.conf</a></div>
 <div class="post bgList border3List brand"><a href="geany-color/dark.css">dark.css</a></div>
@@ -129,7 +127,10 @@ document.getElementById("dropbtn").innerHTML = '☰ Other';
 <div class="post bgList border3List brand"><a href="geany-color/screenshot-gnome-light.png">geany-color/screenshot-gnome-light.png</a><br>
 <a href="geany-color/screenshot-gnome-light.png"><img class="img border3" src="geany-color/screenshot-gnome-light.png" width=""></a></div>
 </div>
-
+<script src="/projects/insert-icon/script.js"></script>
+<script>
+insertIcon("insertIconId");
+</script>
 
 <div class="post bg border3List">
 put theme-name.conf in ~/.config/geany/colorschemes/

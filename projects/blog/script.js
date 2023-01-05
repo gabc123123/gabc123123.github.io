@@ -1,4 +1,4 @@
-// v.1.3.6
+// v.1.3.7
 
 
 
@@ -357,7 +357,13 @@ print += `
 </div>
 `;
 }
-print += `<div class="wrapper3"><div id="tagList" class="tagList padding"  style="width: 100%">`+tagList(printTagList)+`</div></div>`;
+print += `
+<div class="center tCenter">
+<div class="wrapper3">
+<div class="tagList padding">`+tagList(printTagList)+`</div>
+</div>
+</div>
+`;
 
 // search forom
 print += `

@@ -590,7 +590,7 @@ document.getElementById("result").innerHTML = '<span class="op">window.location:
 
 <label for="form">form:</label>
 <form id="form" action="#result" method="GET">
-<input class="padding" type="text" list="hint" autocomplete="off" name="q" placeholder=" input or 'hint' for hint test">
+<input class="padding" type="text" list="hint" name="q" placeholder=" input or 'hint' for hint test" autocomplete="off">
 
 <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist -->
 <datalist id="hint">
@@ -603,7 +603,7 @@ document.getElementById("result").innerHTML = '<span class="op">window.location:
 
 
 <textarea class="padding" name="text" rows="3" cols="" placeholder="textarea"></textarea>
-<input type="hidden" name="h" value="hidden value">
+<input type="hidden" name="h" value="hidden value" autocomplete="false">
 <input type="date" name="date">
 <input type="time" name="time" value="00:00">
 <select><!-- fixMe CSS mobile chrome padding or height -->

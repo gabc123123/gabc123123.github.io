@@ -1,4 +1,4 @@
-// v.1.0.8
+// v.1.0.9
 
 
 
@@ -31,6 +31,8 @@ document.getElementsByClassName("result")[0].innerHTML =  ''
 
 +'<span class="op">'+"window.matchMedia('(prefers-color-scheme: dark)').matches"+'</span><br />'+window.matchMedia('(prefers-color-scheme: dark)').matches+'<hr />'
 +'<span class="op">document.referrer</span><br />'+document.referrer+'<hr />'
++'<span class="op">window.location.href</span><br />'+decodeURI(window.location.href)+'<hr />'
+
 
 +'<span class="op">'+"Intl.DateTimeFormat().resolvedOptions().timeZone"+'</span><br />'+Intl.DateTimeFormat().resolvedOptions().timeZone+'<hr />'
 
