@@ -269,6 +269,10 @@ var adsJsonVar =
         "url": "https:\/\/www.w3schools.com\/"
     },
     {
+        "text": "web.dev",
+        "url": "https:\/\/web.dev\/"
+    },
+    {
         "text": "WhatsApp",
         "url": "https:\/\/www.whatsapp.com\/"
     },
