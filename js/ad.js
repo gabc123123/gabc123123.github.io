@@ -2,7 +2,7 @@
 
 function fuAds(themeAds, idAds, maxAds, comAds){
 
-
+if(document.getElementById(idAds) != null){
 
 let ads;
 var adsPrint = '';
@@ -71,3 +71,23 @@ document.getElementsByTagName('head')[0].appendChild(scriptStat);
   gtag('config', 'G-D0LBEE4Q77');
   
 }
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+

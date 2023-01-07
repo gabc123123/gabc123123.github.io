@@ -5,3 +5,7 @@
 #result { font-size: 50px; font-weight: bold; }
 
 #result2 { padding: 50px 0; font-size: 120%; font-weight: bold; }
+
+@media(max-width: 300px) {
+#result { font-size: 140%; }
+}

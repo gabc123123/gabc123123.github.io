@@ -384,7 +384,7 @@ document.getElementById(prevInputIndex).innerHTML =  prevInputSymbol;
 
 
 if(JSON.stringify(arrResultFinal) === JSON.stringify(arrTask)){
-document.getElementById("win").innerHTML = '<span class="orange">Win!!!</span>';
+document.getElementById("win").innerHTML = '<span class="orange">Win</span>';
 document.getElementById("alert").innerHTML = '<audio style="display:none" autoplay="false" src="/audio/win.ogg">';
 checkSound = 'exit';
 }

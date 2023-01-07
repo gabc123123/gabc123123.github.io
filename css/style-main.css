@@ -1,4 +1,4 @@
-/* v.12.17.38 */
+/* v.12.17.39 */
 
 
 :root{
@@ -17,7 +17,7 @@ font-weight: 400;
 font-size: 13.4px;
 text-decoration:none;
 letter-spacing: 0.15px;
-line-height: 125%;
+/*line-height: 125%;*/
 /*hyphens: auto;*/ 
 }
 
@@ -113,8 +113,8 @@ box-sizing: border-box;
 margin: 0 var(--bodyP);
 }
 
-.center2 { min-height: calc(100vh - 50vh); }
-.center3 { min-height: calc(100vh - 40vh); }
+.center2 { min-height: 40vh; }
+.center3 { min-height: 60vh; }
 .center4 { min-height: 100vh; }
 
 .post, .post2, .post3, .tv, .postL {

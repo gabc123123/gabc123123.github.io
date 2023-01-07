@@ -747,7 +747,17 @@ window.location.href = "./search."+confExt+"?rUrl="+sRedirUrl;
 
 
 
+if(confDevice == 'mobile'){
+var getclick2 = document.getElementById('form');
+document.addEventListener('click', function(event) {
+if (getclick2.contains(event.target)) {
+document.getElementById( 'topHeader' ).style.display = 'none';
+}else{
+document.getElementById( 'topHeader' ).style.display = 'block';
+}
+});
 
+}
 
 
 

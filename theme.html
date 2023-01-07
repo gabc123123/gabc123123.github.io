@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <!--<meta name="keywords" content="">-->
 
-<!-- <meta name="color-scheme" content="light dark"> --> <!-- Twitter embed white corner -->
+<!-- <meta name="color-scheme" content="light dark"> --> <!-- Twitter embed -->
 <!--<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
 <meta name="generator" content="">
 
@@ -19,20 +19,34 @@
 <meta http-equiv="Expires" content="-1">
 <script>function reload() {  location.reload(true); } </script>
 
-<!--<meta name="referrer" content="no-referrer" />--><!-- YouTube embed video not playing -->
+<!--<meta name="referrer" content="no-referrer" />--><!-- YouTube embed -->
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#EDEBE6">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#3E3E3E">
 
 <link rel="icon" sizes="512x512" href="/img/logo.png" type="image/png">
 
 
-<link rel="stylesheet" type="text/css" href="/css/light.css"> <!-- for, if Save As -->
-<link rel="stylesheet" type="text/css" id="theme">
-<link rel="stylesheet" type="text/css" href="/css/style-main.css">
-<script src="/js/main.js"></script>
 
-<script src="/data/adsJsonVar.js"></script>
-<script src="/js/ad.js"></script>
+
+<!-- main css js -->
+<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload-->
+<link rel="preload" href="/js/main.js" as="script" />
+<style>
+/* fixed splash */
+* {  color-scheme: light dark; } /* view-source:about:blank */
+</style>
+<link rel="stylesheet" type="text/css" id="theme">
+<noscript><link rel="stylesheet" type="text/css" href="/css/light.css"></noscript>
+<link rel="stylesheet" type="text/css" href="/css/style-main.css">
+<script>
+// if save as fixed, disabled js insert theme
+if(String(window.location.href).slice(0, 4) != 'http'){
+document.getElementById('theme').id = 'themeDisabled';
+}
+</script>
+<!-- end -->
+
+
 
 
 </head>
@@ -132,64 +146,11 @@ document.getElementById("dropbtn").innerHTML = '☰ Other';
 
 <div class="wrapper">
 <div class="padding light bg border op" id="confTheme" style="margin-top: 30px; float: right;"></div>
-<script>document.getElementById("confTheme").innerHTML =  'device theme: <b>'+confDeviceTheme+' </b>';</script>
+<script></script>
 </div>
 </div>
 
 <script>
-/* v.3.1.2 */
-
-var result = '';
-themeListOption.forEach((element) => {
-if(element == ''){ result += '<br />'; }
-if(element == 'light'){ result += '<br />'; }
-if(element == 'rand-l'){ result += '<br /><br />'; }
-if(element == 'auto'){ result += '<br /><br />'; }
-if(element == 'dark'){ result += '<br />'; }
-if(element == 'o-yellow'){ result += '<br />'; }
-if(element == 'o-d-green'){ result += '<br />'; }
-
-if(element == theme){
-result += '<button id="'+element+'" class="m button light4 margin">'+element+'</button>';
-}else{
-result += '<button id="'+element+'" class="m button light margin">'+element+'</button>';
-}
-
-});
-document.getElementById("themeOption").innerHTML = result;
-
-//document.getElementById("themeselect").innerHTML = theme;
-themeListOption.forEach(myFunction);
-
-function light(e){
-themeListOption.forEach((element) => {
-if(e == element){
-//document.getElementById(e).innerHTML = 'test';
-var element = document.getElementById(e);
-element.classList.add("light4");
-}else{
-var el = document.getElementById(element);
-el.classList.remove("light4");
-//document.getElementById(element).innerHTML = element;
-}
-});
-}
-
-function myFunction(item, index) {
-document.getElementById(item).addEventListener("click", function() {
-//document.getElementById("themeselect").innerHTML = item;
-//document.getElementById("fTheme").innerHTML = 'mode: '+item;
-document.getElementById("fTheme").innerHTML =  item;
-
-setTheme(item);
-light(item);
-localStorage.setItem('theme', item);
-
-});
-
-}
-
-
 
 </script>
 
@@ -202,41 +163,39 @@ insertIcon("insertIcon");
 
 
 
+
+
+
+
+
+
 </div>
 
-<footer>
+
+<footer id="footer">
 
 <div id="ads2"></div>
-<script> fuAds('', 'ads2', ''); </script>
 
-<div class="wrapper3 padding">
 
-<!--<span><a  class="button" href="../">&#x2190;</a></span>
--->
+<div class="wrapper3">
+
 
 <span><a href="/">index</a></span>
 <span id="fTheme"><a href="/theme.html">Themes</a></span>
-<script>
-document.getElementById("fTheme").innerHTML = '<span><a href="/theme.html">theme: '+theme+' ('+confRealTmpTheme+')</a></span>';
-</script>
-
-<span id="fApp"><a href="/app.html">app: *</a></span>
-<script>
-document.getElementById("fApp").innerHTML = '<a href="/app.html">app: '+confWorkerStatus+'</a>';
-</script>
-
-<span id="fPrivacy"><a href="/privacy.html">cookie: *</a></span>
-<script>
-document.getElementById("fPrivacy").innerHTML = '<a href="/privacy.html">cookie: '+confDataCollection+'</a>';
-</script>
+<span id="fApp"><a href="/app.html">app: status</a></span>
+<span id="fPrivacy"><a href="/privacy.html">cookie: status</a></span>
 
 <span>author: <a rel="author" href="/about.html">Gabc 2023</a></span>
 <span>license: <a rel="license" title="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a></span> <!-- footer, LICENSE.md README.md -->
 
 </div>
 </footer>
-<!--<script src="/js/main2.js"></script>-->
+<script src="/js/main.js"></script>
+<script src="/data/adsJsonVar.js"></script>
+<script src="/js/ad.js"></script>
 
+<script> fuAds('', 'ads2', ''); </script>
 
+<script src="/js/theme-options.js"></script>
 </body>
 </html>

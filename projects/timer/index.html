@@ -10,13 +10,23 @@
 <meta http-equiv="Expires" content="-1">
 <script>function reload() {  location.reload(true); } </script>
 
-<link rel="stylesheet" type="text/css" href="/css/light.css">
+<!-- start main css js -->
+<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload-->
+<link rel="preload" href="/js/main.js" as="script" />
+<style>
+/* fixed splash */
+* { color-scheme: light dark; } /* view-source:about:blank */
+</style>
 <link rel="stylesheet" type="text/css" id="theme">
+<noscript><link rel="stylesheet" type="text/css" href="/css/light.css"></noscript>
 <link rel="stylesheet" type="text/css" href="/css/style-main.css">
-<script src="/js/main.js"></script>
-
-<script src="/data/adsJsonVar.js"></script>
-<script src="/js/ad.js"></script>
+<script>
+// if save as fixed, disabled js insert theme
+if(String(window.location.href).slice(0, 4) != 'http'){
+document.getElementById('theme').id = 'themeDisabled';
+}
+</script>
+<!-- end -->
 
 <link rel="stylesheet" type="text/css" href="style.css" />
 
@@ -27,8 +37,6 @@
 <nav>
 <a href="/">index</a>
 <a href="../">list</a>
-<a id="fApp" href="../">list</a>
-
 </nav>
 </header>
 
@@ -50,10 +58,17 @@
 
 
 
-<footer>
+<footer id="footer">
 <div id="ads2"></div>
-<script> fuAds('', 'ads2', ''); </script>
+<div class="wrapper3">
+<span id="fApp"></span>
+</div>
 </footer>
+
+<script src="/js/main.js"></script>
+<script src="/data/adsJsonVar.js"></script>
+<script src="/js/ad.js"></script>
+<script> fuAds('', 'ads2', '');</script>
 
 <script src="script.js"></script>
 

@@ -3,10 +3,6 @@
 
 
 var xxx = document.getElementById("btn");
-var xxx2 = document.getElementById("ads2");
-
-
-
 
 const myPics = document.getElementById('myPics');
 const context = myPics.getContext('2d');
@@ -87,7 +83,6 @@ drawLine(context, x, y, e.offsetX, e.offsetY);
     y = e.offsetY;
 //document.getElementById("btn").innerHTML = ''; 
 xxx.style.display = "none";
-xxx2.style.display = "none";
   }
 });
 
@@ -105,7 +100,6 @@ y = e.targetTouches[0].pageY - rect.top;
 
 //document.getElementById("btn").innerHTML = ''; 
 xxx.style.display = "none";
-xxx2.style.display = "none";
 }
 
 });
@@ -227,10 +221,8 @@ var time = Math.floor(new Date().getTime() / 1000);
 
 if (xxx.style.display === "none"||xxx.style.display === "") {
 xxx.style.display = "block";
-xxx2.style.display = "block";
   } else {
 xxx.style.display = "none";
-xxx2.style.display = "none";
   }
 
 

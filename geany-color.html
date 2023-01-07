@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <!--<meta name="keywords" content="">-->
 
-<!-- <meta name="color-scheme" content="light dark"> --> <!-- Twitter embed white corner -->
+<!-- <meta name="color-scheme" content="light dark"> --> <!-- Twitter embed -->
 <!--<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
 <meta name="generator" content="">
 
@@ -19,20 +19,34 @@
 <meta http-equiv="Expires" content="-1">
 <script>function reload() {  location.reload(true); } </script>
 
-<!--<meta name="referrer" content="no-referrer" />--><!-- YouTube embed video not playing -->
+<!--<meta name="referrer" content="no-referrer" />--><!-- YouTube embed -->
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#EDEBE6">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#3E3E3E">
 
 <link rel="icon" sizes="512x512" href="/img/logo.png" type="image/png">
 
 
-<link rel="stylesheet" type="text/css" href="/css/light.css"> <!-- for, if Save As -->
-<link rel="stylesheet" type="text/css" id="theme">
-<link rel="stylesheet" type="text/css" href="/css/style-main.css">
-<script src="/js/main.js"></script>
 
-<script src="/data/adsJsonVar.js"></script>
-<script src="/js/ad.js"></script>
+
+<!-- main css js -->
+<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload-->
+<link rel="preload" href="/js/main.js" as="script" />
+<style>
+/* fixed splash */
+* {  color-scheme: light dark; } /* view-source:about:blank */
+</style>
+<link rel="stylesheet" type="text/css" id="theme">
+<noscript><link rel="stylesheet" type="text/css" href="/css/light.css"></noscript>
+<link rel="stylesheet" type="text/css" href="/css/style-main.css">
+<script>
+// if save as fixed, disabled js insert theme
+if(String(window.location.href).slice(0, 4) != 'http'){
+document.getElementById('theme').id = 'themeDisabled';
+}
+</script>
+<!-- end -->
+
+
 
 
 </head>
@@ -138,40 +152,37 @@ put theme-name.conf in ~/.config/geany/colorschemes/
 
 
 </div>
+
+
+
+
+
 </div>
 
-<footer>
+
+<footer id="footer">
 
 <div id="ads2"></div>
-<script> fuAds('', 'ads2', ''); </script>
 
-<div class="wrapper3 padding">
 
-<!--<span><a  class="button" href="../">&#x2190;</a></span>
--->
+<div class="wrapper3">
+
 
 <span><a href="/">index</a></span>
 <span id="fTheme"><a href="/theme.html">Themes</a></span>
-<script>
-document.getElementById("fTheme").innerHTML = '<span><a href="/theme.html">theme: '+theme+' ('+confRealTmpTheme+')</a></span>';
-</script>
-
-<span id="fApp"><a href="/app.html">app: *</a></span>
-<script>
-document.getElementById("fApp").innerHTML = '<a href="/app.html">app: '+confWorkerStatus+'</a>';
-</script>
-
-<span id="fPrivacy"><a href="/privacy.html">cookie: *</a></span>
-<script>
-document.getElementById("fPrivacy").innerHTML = '<a href="/privacy.html">cookie: '+confDataCollection+'</a>';
-</script>
+<span id="fApp"><a href="/app.html">app: status</a></span>
+<span id="fPrivacy"><a href="/privacy.html">cookie: status</a></span>
 
 <span>author: <a rel="author" href="/about.html">Gabc 2023</a></span>
 <span>license: <a rel="license" title="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a></span> <!-- footer, LICENSE.md README.md -->
 
 </div>
 </footer>
-<!--<script src="/js/main2.js"></script>-->
+<script src="/js/main.js"></script>
+<script src="/data/adsJsonVar.js"></script>
+<script src="/js/ad.js"></script>
+
+<script> fuAds('', 'ads2', ''); </script>
 
 
 </body>

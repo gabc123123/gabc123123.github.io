@@ -3,3 +3,7 @@
 
 
 #result { font-size: 50px; font-weight: bold; }
+
+@media(max-width: 300px) {
+#result { font-size: 140%; }
+}

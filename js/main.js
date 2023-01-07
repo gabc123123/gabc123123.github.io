@@ -1,17 +1,4 @@
-/* v.3.1.10 */
-
-var symbolForSplit = 'pwxortuzqu';
-
-var confWorkerStatus = 'off';
-if(localStorage.getItem('confWorkerStatus') != null){
-confWorkerStatus = localStorage.getItem('confWorkerStatus');
-}
-
-var confDataCollection = 'off';
-if(localStorage.getItem('confDataCollection') != null){
-confDataCollection = localStorage.getItem('confDataCollection');
-}
-
+/* v.3.2.1 */
 
 
 // conf
@@ -23,7 +10,33 @@ confHost = 'localhost';
 var confExt = 'html';
 }
 
+var symbolForSplit = 'pwxortuzqu';
 var lang = 'en';
+
+function mainPrintMsg(id2, PrintMsg){
+if(document.getElementById(id2) != null){
+document.getElementById(id2).innerHTML = PrintMsg;
+}
+}
+
+var confDataCollection = 'off';
+if(localStorage.getItem('confDataCollection') != null){
+confDataCollection = localStorage.getItem('confDataCollection');
+}
+mainPrintMsg('fPrivacy', `<a href="/privacy.${confExt}">cookie: ${confDataCollection}</a>`); 
+
+
+var confWorkerStatus = 'off';
+if(localStorage.getItem('confWorkerStatus') != null){
+confWorkerStatus = localStorage.getItem('confWorkerStatus');
+}
+mainPrintMsg('fApp', `<span id="fApp"><a href="/app.${confExt}">app: ${confWorkerStatus}</a></span>`); 
+
+
+
+
+
+
 
 var confDevice = '';
 if(confDataCollection != 'on'){
@@ -43,6 +56,13 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matc
 
 
 // theme
+function printThemeUrl(theme){
+if(document.getElementById('theme') != null){
+document.getElementById('theme').href = '/css/'+theme+'.css';
+}
+}
+
+
 var theme = localStorage.getItem('theme');
 var themeListLight = [
 "light",
@@ -101,10 +121,12 @@ var confThemeEmbed = '';
 function themeAuto(){
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 confRealTmpTheme = 'dark';
-document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+//document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+printThemeUrl(confRealTmpTheme);
 }else{
 confRealTmpTheme = 'light';
-document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+//document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+printThemeUrl(confRealTmpTheme);
 }
 
 
@@ -113,10 +135,12 @@ document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
 function themeAutoRandom(){
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 confRealTmpTheme = themeListDark[Math.floor(Math.random()*themeListDark.length)];
-document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+//document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+printThemeUrl(confRealTmpTheme);
 }else{
 confRealTmpTheme = themeListLight[Math.floor(Math.random()*themeListLight.length)];
-document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+//document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+printThemeUrl(confRealTmpTheme);
 }
 }
 
@@ -124,7 +148,10 @@ document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
 
 function setTheme(mode){
 /*themeList.forEach((element) => {
-if(mode == element){ document.getElementById('theme').href = '/css/'+mode+'.css'; }
+if(mode == element){
+//document.getElementById('theme').href = '/css/'+mode+'.css';
+printThemeUrl(confRealTmpTheme);
+}
 })*/
 
 var themeSelect;
@@ -136,10 +163,12 @@ case 'auto-time':
 if(new Date().getHours() <= 6||new Date().getHours() >= 19){
 //if(new Date().getSeconds() % 2 == 0){
 confRealTmpTheme  = 'dark';
-document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+//document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+printThemeUrl(confRealTmpTheme);
 }else{
 confRealTmpTheme  = 'light';
-document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+//document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+printThemeUrl(confRealTmpTheme);
 }
 //var interval1 = setInterval(themeAutoTime, 60000);
 break;
@@ -148,10 +177,12 @@ case 'auto-t-rand':
 if(new Date().getHours() <= 6||new Date().getHours() >= 19){
 //if(new Date().getSeconds() % 2 == 0){
 confRealTmpTheme = themeListDark[Math.floor(Math.random()*themeListDark.length)];
-document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+//document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+printThemeUrl(confRealTmpTheme);
 }else{
 confRealTmpTheme = themeListLight[Math.floor(Math.random()*themeListLight.length)];
-document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+//document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+printThemeUrl(confRealTmpTheme);
 }
 break;
 
@@ -171,32 +202,38 @@ break;
 
 case 'rand-l':
 confRealTmpTheme = themeListLight[Math.floor(Math.random()*themeListLight.length)];
-document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+//document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+printThemeUrl(confRealTmpTheme);
 break;
 
 case 'rand-d':
 confRealTmpTheme = themeListDark[Math.floor(Math.random()*themeListDark.length)];
-document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+//document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+printThemeUrl(confRealTmpTheme);
 break;
 
 case 'rand-o':
 confRealTmpTheme = themeListOther[Math.floor(Math.random()*themeListOther.length)];
-document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+//document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+printThemeUrl(confRealTmpTheme);
 break;
 
 case 'rand-o-d':
 confRealTmpTheme = themeListOtherDark[Math.floor(Math.random()*themeListOtherDark.length)];
-document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+//document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+printThemeUrl(confRealTmpTheme);
 break;
 
 case 'rand-all':
 confRealTmpTheme = themeList[Math.floor(Math.random()*themeList.length)];
-document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+//document.getElementById('theme').href = '/css/'+confRealTmpTheme+'.css';
+printThemeUrl(confRealTmpTheme);
 break;
 
 case themeSelect:
 confRealTmpTheme = mode;
-document.getElementById('theme').href = '/css/'+mode+'.css';
+//document.getElementById('theme').href = '/css/'+mode+'.css';
+printThemeUrl(confRealTmpTheme);
 break;
 
 // auto  
@@ -247,6 +284,7 @@ function fuWorker(fuSWstatus){
 
 if(fuSWstatus == 'on'&&confWorkerStatus == 'on'){
 
+
 //https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/open
 //https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register
 //https://stackoverflow.com/questions/47027218/set-a-variable-messagingsenderid-in-service-worker-firebase
@@ -278,13 +316,14 @@ element.setAttribute('href', "manifest.webmanifest");
 document.querySelector('head').appendChild(element);
 
 
-/*
+
 // install app button
+
 //https://github.com/mdn/pwa-examples
 //https://developer.mozilla.org/docs/Web/Progressive_web_apps/Add_to_home_screen
 // Code to handle install prompt on desktop
 function printInstallAppLink(){
-if(document.getElementById('fApp') != null){
+
 
 let deferredPrompt;
 //const addBtn = document.querySelector('.add-button');
@@ -298,41 +337,43 @@ window.addEventListener('beforeinstallprompt', (e) => {
   deferredPrompt = e;
   // Update UI to notify the user they can add to home screen
 // addBtn.style.display = 'block';
-addBtn.innerHTML = `<button id="fApp">app: Install app</button>`;
-
-  addBtn.addEventListener('click', () => {
+printMsg('fApp', `<span id="fApp"><a href="/app.${confExt}">app: Install app</a></span>`); 
+addBtn.addEventListener('click', () => {
     // hide our user interface that shows our A2HS button
-    addBtn.style.display = 'none';
+//addBtn.style.display = 'none';
+printMsg('fApp', `<span id="fApp"><a href="/app.${confExt}">app: Install in progress</a></span>`); 
     // Show the prompt
     deferredPrompt.prompt();
     // Wait for the user to respond to the prompt
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
 //        console.log('app: User accepted the app prompt');
-addBtn.innerHTML = 'app: User accepted the app prompt';
+addBtn.innerHTML = `<span id="fApp"><a href="/app.${confExt}">app: User accepted the app prompt</a></span>`;
       } else {
 //        console.log('app: User dismissed the app prompt');
-addBtn.innerHTML = 'app: User dismissed the app prompt';
+addBtn.innerHTML = '<span id="fApp"><a href="/app.${confExt}"app: User dismissed the app prompt</a></span>';
       }
       deferredPrompt = null;
     });
   });
 });
-}
-}
-*/
-
-
-
-
-
 
 }
+printInstallAppLink();
+
+
+
+
+
+
+}
 }
 
+mainPrintMsg('fTheme', `<span><a href="/theme.${confExt}">theme: ${theme} (${confRealTmpTheme})</a></span>`);
 
 function fuReload(){ location.reload(); }
 function reload(){ location.reload(); }
+
 
 
 
